@@ -1,0 +1,426 @@
+import React from 'react';
+import { Button } from "@/components/ui/button";
+import EnquiryForm from '@/components/EnquiryModal';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import HT from '@/assets/density.jpg';
+import { 
+  Phone, 
+  Mail, 
+  MapPin, 
+  Clock, 
+  CheckCircle, 
+  Star,
+  Shield,
+  Users,
+  Award,
+  Microscope,
+  Heart,
+  Zap,
+  ChevronRight
+} from 'lucide-react';
+
+const faqs = [
+  {
+    q: "What is Hair Density & Thickness Analysis?",
+    a: "Hair Density & Thickness Analysis uses advanced digital imaging tools to measure the number of hairs per square centimeter (hairs/cm²) and the diameter of individual hair shafts. This non-invasive test provides precise data to assess hair health and monitor treatment outcomes."
+  },
+  {
+    q: "How is the analysis performed?",
+    a: "The procedure involves capturing high-resolution images of the scalp using a digital dermatoscope or specialized camera. Software analyzes the images to calculate hair density and thickness, with results reviewed by a specialist in a 20-30 minute session."
+  },
+  {
+    q: "Why is tracking hair density and thickness important?",
+    a: "Tracking density and thickness helps evaluate the effectiveness of treatments like PRP, Mesotherapy, or transplants, identifies areas needing further intervention, and guides customized plans to optimize hair regrowth and vitality."
+  },
+  {
+    q: "Is the analysis painful or invasive?",
+    a: "The analysis is 100% non-invasive and painless. A handheld imaging device gently scans the scalp, requiring no needles, incisions, or downtime."
+  },
+  {
+    q: "Who should get a Hair Density & Thickness Analysis?",
+    a: "It’s ideal for anyone undergoing hair restoration treatments (e.g., PRP, Mesotherapy, FUE, Cell Graft) or those noticing thinning or reduced hair volume. It’s also useful for proactive hair health monitoring."
+  },
+  {
+    q: "How often should I get this analysis?",
+    a: "For those undergoing treatments, analysis every 3-6 months tracks progress. For general monitoring, an annual checkup is recommended to maintain optimal hair health."
+  },
+  {
+    q: "What results can I expect from the analysis?",
+    a: "You’ll receive a detailed report with metrics like hairs/cm², average hair shaft diameter, and comparisons to baseline or previous sessions. This data informs treatment adjustments for maximum efficacy."
+  }
+];
+
+const densityVisuals = [
+  {
+    image: "https://images.pexels.com/photos/5691627/pexels-photo-5691627.jpeg?auto=compress&cs=tinysrgb&w=400",
+    description: "Low density (50 hairs/cm²), thin shafts pre-treatment",
+    condition: "Before Treatment",
+    metrics: "Density: 50 hairs/cm², Thickness: 40µm"
+  },
+  {
+    image: "https://images.pexels.com/photos/5691624/pexels-photo-5691624.jpeg?auto=compress&cs=tinysrgb&w=400",
+    description: "Improved density (90 hairs/cm²), thicker shafts post-PRP",
+    condition: "After PRP (6 months)",
+    metrics: "Density: 90 hairs/cm², Thickness: 60µm"
+  },
+  {
+    image: "https://images.pexels.com/photos/5691627/pexels-photo-5691627.jpeg?auto=compress&cs=tinysrgb&w=400",
+    description: "Moderate density (60 hairs/cm²), early thinning pre-treatment",
+    condition: "Before Treatment",
+    metrics: "Density: 60 hairs/cm², Thickness: 45µm"
+  },
+  {
+    image: "https://images.pexels.com/photos/5691624/pexels-photo-5691624.jpeg?auto=compress&cs=tinysrgb&w=400",
+    description: "Restored density (85 hairs/cm²) post-Cell Graft",
+    condition: "After Cell Graft (12 months)",
+    metrics: "Density: 85 hairs/cm², Thickness: 65µm"
+  }
+];
+
+const HairDensityAnalysis = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  return (
+    <div className="min-h-screen bg-white">
+           <EnquiryForm
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSubmit={(data) => {
+          console.log("Form submitted:", data);
+          setIsModalOpen(false);
+        }}
+        treatment="General Consultation"
+      />
+      <Header />
+
+{/* HERO SECTION */}
+<section className="relative bg-gradient-to-br from-yellow-600 via-yellow-400 to-yellow-200 min-h-screen flex items-center overflow-hidden">
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-black/20"></div>
+
+  <div className="container mx-auto px-6 lg:px-12 relative z-10">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+      
+      {/* LEFT SIDE - TEXT */}
+      <div className="space-y-6 text-center lg:text-left">
+        <div className="space-y-2">
+          <p className="text-white font-medium tracking-wide uppercase text-sm">
+            Precision Hair Monitoring
+          </p>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
+            Hair Density &<br />
+            <span className="text-yellow-100">Thickness Analysis</span>
+          </h1>
+        </div>
+
+        <p className="text-base md:text-xl text-yellow-100 leading-relaxed max-w-lg mx-auto lg:mx-0">
+          Track your hair restoration progress with advanced digital imaging — 
+          measuring hair density (hairs/cm²) and thickness to create personalized 
+          treatment plans for optimal regrowth and vitality.
+        </p>
+
+        {/* Stats */}
+        <div className="grid grid-cols-3 gap-4 py-6 max-w-md mx-auto lg:mx-0">
+          <div className="text-center">
+            <div className="text-xl md:text-3xl font-bold text-white">100%</div>
+            <div className="text-xs md:text-sm text-white">Non-Invasive</div>
+          </div>
+          <div className="text-center">
+            <div className="text-xl md:text-3xl font-bold text-white">20–30 Min</div>
+            <div className="text-xs md:text-sm text-white">Analysis Time</div>
+          </div>
+          <div className="text-center">
+            <div className="text-xl md:text-3xl font-bold text-white">7000+</div>
+            <div className="text-xs md:text-sm text-white">Patients Analyzed</div>
+          </div>
+        </div>
+
+        {/* Buttons */}
+        <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+          <Button
+            onClick={() => setIsModalOpen(true)}
+            size="lg"
+            className="bg-white text-yellow-800 hover:bg-yellow-100 font-semibold px-8 py-4 w-full sm:w-auto"
+          >
+            <Phone className="mr-2 h-5 w-5" />
+            Schedule Your Hair Checkup
+          </Button>
+
+          <Link to="#viewhairdensity" className="w-full sm:w-auto">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white text-white hover:bg-yellow-600 hover:text-white font-semibold px-8 py-4 w-full"
+            >
+              <Microscope className="mr-2 h-5 w-5" />
+              Learn More
+            </Button>
+          </Link>
+        </div>
+      </div>
+
+      {/* RIGHT SIDE - IMAGE */}
+      <div className="relative flex justify-center mt-10 lg:mt-0">
+        <img 
+          src={HT}
+          alt="Hair Density Analysis"
+          className="rounded-2xl shadow-2xl w-[90%] sm:w-[80%] md:w-[75%] lg:w-[95%] xl:w-[100%] object-cover transition-transform duration-500 hover:scale-[1.02]"
+        />
+        <div className="absolute -bottom-5 -left-5 bg-white p-5 rounded-lg shadow-xl scale-110 sm:scale-100">
+          <div className="flex items-center space-x-2">
+            <div className="flex -space-x-1">
+              {[1, 2, 3, 4, 5].map((i) => (
+                <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+              ))}
+            </div>
+            <div>
+              <div className="font-semibold text-gray-800 text-sm md:text-base">
+                4.9/5 Rating
+              </div>
+              <div className="text-xs text-gray-600">From 2,000+ Reviews</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+      {/* WHY CHOOSE DENSITY & THICKNESS ANALYSIS SECTION */}
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+              Why Choose Hair Density & Thickness Analysis?
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Our advanced digital imaging technology provides precise measurements of hair density and thickness, 
+              enabling accurate tracking of treatment progress and customized hair restoration strategies.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            {[
+              {
+                icon: <Microscope className="h-12 w-12 text-yellow-600" />,
+                title: "High Accuracy",
+                description: "Measures hairs/cm² and shaft diameter with digital precision."
+              },
+              {
+                icon: <Shield className="h-12 w-12 text-yellow-500" />,
+                title: "Non-Invasive",
+                description: "Painless analysis with no needles or recovery time."
+              },
+              {
+                icon: <Award className="h-12 w-12 text-yellow-400" />,
+                title: "Tracks Progress",
+                description: "Monitors improvements from treatments like PRP or transplants."
+              },
+              {
+                icon: <Zap className="h-12 w-12 text-yellow-300" />,
+                title: "Personalized Plans",
+                description: "Guides tailored treatments based on detailed metrics."
+              }
+            ].map((feature, idx) => (
+              <div key={idx} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div className="mb-4">{feature.icon}</div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">{feature.title}</h3>
+                <p className="text-gray-600">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* DETAILED BENEFITS SECTION */}
+      <section id='viewhairdensity' className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+              Benefits of Hair Density & Thickness Analysis
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Understand how precise density and thickness measurements empower effective hair restoration and long-term hair health.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Accurate Density Measurement",
+                description: "Uses digital imaging to count hairs/cm², providing exact data on hair density to assess thinning and guide treatment intensity."
+              },
+              {
+                title: "Thickness Analysis",
+                description: "Measures hair shaft diameter (in micrometers) to evaluate hair strength and detect miniaturization, critical for early intervention."
+              },
+              {
+                title: "Tracks Treatment Success",
+                description: "Compares pre- and post-treatment metrics to confirm improvements from therapies like PRP, Mesotherapy, or Cell Graft."
+              },
+              {
+                title: "Identifies Problem Areas",
+                description: "Pinpoints specific scalp regions with low density or thinning for targeted treatments, maximizing restoration outcomes."
+              },
+              {
+                title: "Quick and Comfortable",
+                description: "A 20-30 minute non-invasive procedure with no discomfort, making it an easy step for monitoring hair health."
+              },
+              {
+                title: "Supports Preventive Care",
+                description: "Regular analysis helps detect early thinning, enabling proactive measures to prevent significant hair loss."
+              }
+            ].map((benefit, idx) => (
+              <div key={idx} className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">{benefit.title}</h3>
+                <p className="text-gray-600">{benefit.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* BEFORE & AFTER VISUALS SECTION */}
+      {/* <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+              Before vs After Results
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              See how Hair Density & Thickness Analysis tracks improvements in hair volume and strength post-treatment.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {densityVisuals.map((visual, idx) => (
+              <div key={idx} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <div className="relative">
+                  <img 
+                    src={visual.image} 
+                    alt={visual.description}
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className={`absolute top-4 left-4 ${visual.condition.includes('Before') ? 'bg-red-500' : 'bg-green-500'} text-white px-3 py-1 rounded-full text-sm font-semibold`}>
+                    {visual.condition}
+                  </div>
+                </div>
+                <div className="p-6">
+                  <p className="text-sm text-gray-600 mb-2">{visual.description}</p>
+                  <p className="text-sm font-semibold text-yellow-600">{visual.metrics}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section> */}
+
+      {/* FAQ SECTION */}
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Answers to common questions about Hair Density & Thickness Analysis and its role in hair restoration.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="space-y-6">
+              {faqs.map((faq, idx) => (
+                <div key={idx} className="bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-start">
+                      <div className="bg-yellow-100 text-yellow-600 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 mt-1 flex-shrink-0">
+                        Q
+                      </div>
+                      {faq.q}
+                    </h3>
+                    <div className="ml-12">
+                      <p className="text-gray-700 leading-relaxed">{faq.a}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TRUST INDICATORS */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+              Why Trust Us for Your Hair Analysis
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Our clinic uses state-of-the-art digital imaging and expert analysis to deliver precise, actionable insights for your hair restoration journey.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                icon: <Award className="h-12 w-12 text-yellow-600" />,
+                title: "Expert Analysts",
+                description: "Certified specialists trained in advanced hair diagnostics."
+              },
+              {
+                icon: <Heart className="h-12 w-12 text-yellow-500" />,
+                title: "Proven Precision",
+                description: "Over 7,000 analyses with 96% accuracy."
+              },
+              {
+                icon: <Zap className="h-12 w-12 text-yellow-400" />,
+                title: "Advanced Technology",
+                description: "High-resolution imaging with AI-assisted analysis."
+              },
+              {
+                icon: <Shield className="h-12 w-12 text-yellow-300" />,
+                title: "Trusted Clinic",
+                description: "Accredited facility with rigorous patient care standards."
+              }
+            ].map((indicator, idx) => (
+              <div key={idx} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div className="mb-4">{indicator.icon}</div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">{indicator.title}</h3>
+                <p className="text-gray-600">{indicator.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CALL TO ACTION SECTION */}
+      {/* <section className="py-20 bg-gradient-to-br from-yellow-600 via-yellow-400 to-yellow-200">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+            Ready to Track Your Hair Health?
+          </h2>
+          <p className="text-xl text-yellow-100 max-w-2xl mx-auto mb-8">
+            Schedule your Hair Density & Thickness Analysis today to monitor your progress and optimize your hair restoration plan.
+          </p>
+          <div className="flex justify-center gap-4">
+            <Button size="lg" className="bg-white text-yellow-800 hover:bg-yellow-100 font-semibold px-6 py-3">
+              <Phone className="mr-2 h-5 w-5" />
+              Schedule Your Hair Checkup
+            </Button>
+            <Button size="lg" variant="outline" className="border-white text-black hover:bg-yellow-600 hover:text-white font-semibold px-6 py-3">
+              <Mail className="mr-2 h-5 w-5" />
+              Contact Us
+            </Button>
+          </div>
+        </div>
+      </section> */}
+
+      <Footer />
+    </div>
+  );
+};
+
+export default HairDensityAnalysis;

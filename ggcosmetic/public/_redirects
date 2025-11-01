@@ -1,0 +1,6 @@
+# Redirect www → non-www
+https://www.thegoldengemhairclinic.com/*   https://thegoldengemhairclinic.com/:splat   301!
+
+# SPA fallback for frontend (React or Vue)
+# All frontend routes go to index.html
+/*   /index.html   200

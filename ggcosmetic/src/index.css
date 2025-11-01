@@ -1,0 +1,326 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --------------------------------
+   Design System (Gold + Clinical)
+----------------------------------*/
+@layer base {
+  :root {
+    /* --- Light Theme (Gold + Clinical) --- */
+
+    /* General Background / Foreground */
+    --background: 45 100% 98%;
+    --foreground: 30 15% 15%;
+
+    /* Primary / Secondary */
+    --primary: 38 92% 50%;
+    --primary-foreground: 45 100% 98%;
+    --secondary: 43 100% 85%;
+    --secondary-foreground: 30 20% 25%;
+
+    /* Muted / Accent */
+    --muted: 43 60% 90%;
+    --muted-foreground: 30 10% 45%;
+    --accent: 42 87% 55%;
+    --accent-foreground: 45 100% 98%;
+
+    /* Clinical Medical Colors */
+    --medical: 210 100% 56%;
+    --medical-foreground: 0 0% 100%;
+    --medical-light: 210 100% 95%;
+
+    /* Gold Shades */
+    --gold-50: 45 100% 98%;
+    --gold-100: 44 96% 91%;
+    --gold-200: 43 96% 82%;
+    --gold-300: 42 96% 70%;
+    --gold-400: 42 87% 55%;
+    --gold-500: 38 92% 50%;
+    --gold-600: 32 95% 44%;
+    --gold-700: 26 90% 37%;
+    --gold-800: 23 83% 31%;
+    --gold-900: 22 78% 26%;
+
+    /* Card & Popover */
+    --card: 45 60% 96%;
+    --card-foreground: 30 15% 15%;
+    --popover: 45 60% 96%;
+    --popover-foreground: 30 15% 15%;
+
+    /* Destructive */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 45 100% 98%;
+
+    /* Border / Input / Ring */
+    --border: 43 30% 88%;
+    --input: 43 30% 88%;
+    --ring: 38 92% 50%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--gold-400)), hsl(var(--gold-500)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--gold-50)), hsl(var(--gold-100)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--gold-100)) 0%, hsl(var(--gold-200)) 50%, hsl(var(--gold-300)) 100%);
+    --gradient-medical: linear-gradient(135deg, hsl(210 100% 56%), hsl(210 100% 45%));
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px hsl(var(--gold-500) / 0.1);
+    --shadow-medium: 0 8px 30px hsl(var(--gold-500) / 0.15);
+    --shadow-strong: 0 20px 60px hsl(var(--gold-500) / 0.25);
+    --shadow-clinical: 0 2px 10px hsl(220 14% 16% / 0.1);
+    --shadow-treatment: 0 4px 20px hsl(45 93% 47% / 0.2);
+    --shadow-testimonial: 0 8px 30px hsl(220 14% 16% / 0.08);
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Misc */
+    --radius: 0.75rem;
+
+  /* Button specific color (user requested #f4a00c) */
+  /* #f4a00c ≈ hsl(38, 91%, 50%) */
+  --button: 38 91% 50%;
+  --button-foreground: 0 0% 100%;
+  /* Slightly darker for hover/gradient end */
+  --button-dark: 36 86% 44%;
+
+    /* Charts */
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  /* Dark Mode */
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Charts */
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+
+  /* Base */
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-foreground;
+  }
+  * {
+    @apply border-border;
+  }
+}
+
+/* -------------------------------
+   Utilities
+---------------------------------*/
+@layer utilities {
+  .focus-visible\:ring-medical:focus-visible {
+    @apply ring-2 ring-medical ring-offset-2;
+  }
+
+  /* Swiper Customizations */
+  .swiper-pagination-bullet {
+    @apply opacity-50;
+  }
+  .swiper-pagination-bullet-active {
+    @apply opacity-100;
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    @apply text-orange-400;
+  }
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    @apply text-lg font-bold;
+    color: #f97316 !important; /* Tailwind orange-500 */
+    font-size: 2.5rem;
+  }
+
+  /* Hover & Animation Utilities */
+  .hover-scale {
+    transition: transform 0.3s ease;
+  }
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out forwards;
+  }
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* -------------------------------
+   Components
+---------------------------------*/
+@layer components {
+  /* Cards */
+  .medical-card {
+    @apply bg-white/90 backdrop-blur-sm border border-gray-200/50 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300;
+  }
+  .medical-card:hover {
+    @apply shadow-clinical transform -translate-y-1;
+  }
+
+  /* Buttons */
+  /* Global button style used by default across the app */
+  .btn-global {
+    background: linear-gradient(90deg, hsl(var(--button)) 0%, hsl(var(--button-dark)) 100%);
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-strong);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+  }
+  .btn-global:hover {
+    filter: brightness(0.95);
+    transform: translateY(-2px);
+  }
+  .btn-global:active { transform: translateY(0); }
+
+  .btn-treatment {
+    @apply btn-global;
+  }
+  .btn-treatment-outline {
+    @apply border border-[hsl(var(--button))] text-[hsl(var(--button))] font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-[hsl(var(--button))] hover:text-white transition-all duration-300 hover:-translate-y-0.5;
+  }
+  /* Legacy / alternate button classes used in pages */
+  .btn-golden {
+    @apply btn-global;
+  }
+  .btn-medical {
+    @apply btn-global;
+  }
+  .btn-medical {
+    @apply bg-gradient-to-r from-medical to-medical-foreground text-white font-semibold px-6 py-3 rounded-lg hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300;
+  }
+  .btn-medical:hover {
+    @apply shadow-clinical;
+  }
+
+  /* Typography */
+  .medical-heading {
+    @apply font-bold text-gray-900 leading-tight;
+    font-family: 'Inter', sans-serif;
+  }
+  .medical-text {
+    @apply text-gray-600 leading-relaxed;
+    font-family: 'Inter', sans-serif;
+  }
+  /* Apply golden gradient to important headings globally */
+  h2, h3 {
+    /* keep existing text color utilities functional; prefer explicit utility when needed */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    background-image: linear-gradient(90deg, #0f172a 0%, hsl(var(--gold-700)) 35%, hsl(var(--gold-400)) 100%);
+  }
+    /* Disable gradient for specific headings */
+  .no-gradient {
+    background-image: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+    -webkit-text-fill-color: initial !important;
+    color: inherit !important;
+  }
+
+
+  /* Form Inputs */
+  .medical-input {
+    @apply border-gray-300 focus:border-medical focus:ring-medical/20 rounded-lg;
+  }
+  .medical-input:focus {
+    @apply ring-2;
+  }
+
+  /* Gradients */
+  .gradient-hero { background: var(--gradient-hero); }
+  .gradient-primary { background: var(--gradient-primary); }
+  .gradient-medical { background: var(--gradient-medical); }
+
+  /* Buttons should be opt-in via the .btn-global class to avoid affecting tab controls */
+  .btn-global {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: linear-gradient(90deg, hsl(var(--button)) 0%, hsl(var(--button-dark)) 100%);
+    color: white !important;
+    font-weight: 600;
+    padding: 0.6rem 1.1rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-strong);
+    border: none;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+  }
+  .btn-global:hover { filter: brightness(0.95); transform: translateY(-2px); }
+
+  /* Golden gradient text utility for headings and inline text */
+  .golden-gradient-text {
+    /* black -> gold gradient for text (use hsl gold variables for consistency) */
+    background-image: linear-gradient(90deg, #0f172a 0%, hsl(var(--gold-700)) 35%, hsl(var(--gold-400)) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    display: inline-block;
+  }
+}
