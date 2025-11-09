@@ -101,81 +101,59 @@ const PRPTherapy = () => {
       />
       <Header />
 
-  {/* HERO SECTION */}
-  <section className="relative bg-gradient-to-br from-amber-600 via-amber-500 to-yellow-400 min-h-screen flex items-center overflow-hidden">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="absolute top-0 right-0 w-1/2 h-full opacity-10">
-          <img 
-            src="https://images.pexels.com/photos/5452275/pexels-photo-5452275.jpeg?auto=compress&cs=tinysrgb&w=800" 
-            alt="PRP Therapy Treatment"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        
-        <div className="container mx-auto px-4 relative z-10">
+      {/* MODERN HERO SECTION */}
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-amber-50 to-white">
+        {/* Decorative blurred blobs */}
+        <div className="absolute top-0 left-0 w-[30rem] h-[30rem] bg-amber-300/40 rounded-full blur-[120px] -translate-x-1/3 -translate-y-1/3"></div>
+        <div className="absolute bottom-0 right-0 w-[35rem] h-[35rem] bg-yellow-200/40 rounded-full blur-[120px] translate-x-1/3 translate-y-1/3"></div>
+
+        {/* Content Container */}
+        <div className="relative z-10 container mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="text-white space-y-8">
-              <div className="space-y-2">
-                <p className="text-blue-200 font-medium tracking-wide uppercase text-sm">Advanced Regenerative Treatment</p>
-                <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
-                  Platelet Rich <span className="text-blue-300">Plasma</span><br />
-                  Hair Therapy
-                </h1>
-              </div>
-              
-              <p className="text-xl text-blue-100 leading-relaxed max-w-xl">
-                Harness your blood's natural healing power to stimulate hair growth. 
-                Non-surgical, safe, and effective treatment with proven results and minimal downtime.
+            
+            {/* Left Text Section */}
+            <div className="space-y-8">
+              <p className="text-amber-600 font-semibold tracking-wide uppercase text-sm">
+                Regrow Hair Naturally
+              </p>
+              <h1 className="text-5xl lg:text-6xl font-bold text-slate-800 leading-tight">
+                Platelet Rich <span className="text-amber-600">Plasma Therapy</span>
+              </h1>
+              <p className="text-lg text-slate-600 leading-relaxed max-w-xl">
+                Rejuvenate your hair using your body’s natural healing power. Safe, 
+                effective, and backed by thousands of success stories.
               </p>
 
-              <div className="grid grid-cols-3 gap-6 py-8">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-300">75%+</div>
-                  <div className="text-sm text-blue-200">Success Rate</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-300">100%</div>
-                  <div className="text-sm text-blue-200">Natural & Safe</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-300">5000+</div>
-                  <div className="text-sm text-blue-200">Successful Cases</div>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button onClick={() => setIsModalOpen(true)} size="lg" className="bg-white text-blue-600 hover:bg-gray-100 font-semibold px-8 py-4">
-                  <Phone className="mr-2 h-5 w-5" />
-                  Free Consultation
-                </Button>
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="px-8 py-4 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
+                >
+                  <Phone className="inline-block mr-2 w-5 h-5" />
+                  Get Free Consultation
+                </button>
                 <Link to="#aboutprp">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto border-white text-white hover:bg-white hover:text-blue-600 font-semibold px-8 py-4">
-                  <Droplet className="mr-2 h-5 w-5" />
-                  Learn About PRP
-                </Button>
+                  <button className="px-8 py-4 bg-white/70 backdrop-blur-md text-slate-800 border border-amber-200 hover:bg-white hover:shadow-md font-semibold rounded-xl transition-all duration-300">
+                    <Droplet className="inline-block mr-2 w-5 h-5 text-amber-500" />
+                    Learn More
+                  </button>
                 </Link>
               </div>
             </div>
 
-            <div className="hidden lg:block">
-              <div className="relative">
-                <img 
+            {/* Right Image Section */}
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-tr from-amber-400/30 via-white/10 to-transparent rounded-3xl blur-3xl"></div>
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                <img
                   src={prp}
-                  alt="PRP Therapy Patient"
-                  className="rounded-2xl shadow-2xl"
+                  alt="PRP Hair Therapy"
+                  className="object-cover w-full h-[500px]"
                 />
-                <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg">
-                  <div className="flex items-center space-x-3">
-                    <div className="flex -space-x-2">
-                      {[1,2,3,4,5].map((i) => (
-                        <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                      ))}
-                    </div>
-                    <div>
-                      <div className="font-semibold text-gray-800">4.8/5 Rating</div>
-                      <div className="text-sm text-gray-600">From 1200+ Reviews</div>
-                    </div>
-                  </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 bg-white/80 backdrop-blur-md px-4 py-2 rounded-xl flex items-center gap-2 shadow-md">
+                  <Star className="w-4 h-4 text-yellow-500 fill-current" />
+                  <span className="font-medium text-slate-800">4.8/5 from 1200+ clients</span>
                 </div>
               </div>
             </div>

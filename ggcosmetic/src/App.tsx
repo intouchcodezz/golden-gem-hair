@@ -11,8 +11,6 @@ import Chatwidget from "./components/ChatWidget";
 
 import Index from "./pages/Index";
 import About from "./pages/About";
-import BiocellTherapy from "./pages/BiocellTherapy";
-import HairTransplant from "./pages/HairTransplant";
 import HairRejuvenation from "./pages/HairRejuvenation";
 import ScalpPigmentation from "./pages/ScalpPigmentation";
 import PRPTherapy from "./pages/PRP";
@@ -124,14 +122,12 @@ const AppContent: React.FC = () => {
         <Route path="/medical-disclaimer" element={<MedicalDisclaimer />} />
 
         {/* 💇‍♀️ Treatments */}
-        <Route path="/biocell-therapy" element={<BiocellTherapy />} />
         <Route path="/folitreat-treatment" element={<FolitreatHairTreatment />} />
         <Route path="/gfc-treatment" element={<GFC />} />
         <Route path="/mesotherapy" element={<Mesotherapy />} />
         <Route path="/iv-hair-therapy" element={<IVHairTherapy />} />
         <Route path="/cell-graft" element={<CellGrafttherapy />} />
         <Route path="/prp-treatment" element={<PRPTherapy />} />
-        <Route path="/hair-transplant" element={<HairTransplant />} />
         <Route path="/scalp-pigmentation" element={<ScalpPigmentation />} />
         <Route path="/exogro" element={<Exogro />} />
         <Route path="/results/before-after" element={<Beforeafter />} />

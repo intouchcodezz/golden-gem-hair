@@ -91,97 +91,101 @@ const Trichoscopy = () => {
       />
       <Header />
 
-{/* HERO SECTION */}
-<section className="relative bg-gradient-to-br from-yellow-600 via-yellow-400 to-yellow-200 min-h-screen flex items-center overflow-hidden">
-  {/* Overlay */}
-  <div className="absolute inset-0 bg-black/20"></div>
-
-  <div className="container mx-auto px-6 lg:px-12 relative z-10">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-      
-      {/* LEFT SIDE - TEXT */}
-      <div className="space-y-6 text-center lg:text-left">
-        <div className="space-y-2">
-          <p className="text-white font-medium tracking-wide uppercase text-sm">
-            Precision Hair Diagnostics
-          </p>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
-            Trichoscopy<br />
-            <span className="text-yellow-100">Hair & Scalp Analysis</span>
-          </h1>
+      {/* 🧬 HERO SECTION – Trichoscopy: Hair & Scalp Analysis */}
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-yellow-50 via-amber-100 to-white">
+        {/* 🌟 Ambient Glow Layers */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(255,220,150,0.3),transparent_70%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_60%,rgba(255,240,180,0.2),transparent_70%)]" />
         </div>
 
-        <p className="text-base md:text-xl text-yellow-100 leading-relaxed max-w-lg mx-auto lg:mx-0">
-          Uncover the root cause of hair loss with our advanced trichoscopy analysis —
-          a non-invasive, gold-standard diagnostic tool that uses high-magnification imaging 
-          to assess scalp health, follicle condition, and guide personalized treatment plans.
-        </p>
+        {/* 🖼️ Background Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-200/30 via-white/50 to-yellow-100/40 backdrop-blur-sm"></div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-3 gap-4 py-6 max-w-md mx-auto lg:mx-0">
-          <div className="text-center">
-            <div className="text-xl md:text-3xl font-bold text-white">100%</div>
-            <div className="text-xs md:text-sm text-white">Non-Invasive</div>
-          </div>
-          <div className="text-center">
-            <div className="text-xl md:text-3xl font-bold text-white">15–30 Min</div>
-            <div className="text-xs md:text-sm text-white">Analysis Time</div>
-          </div>
-          <div className="text-center">
-            <div className="text-xl md:text-3xl font-bold text-white">6000+</div>
-            <div className="text-xs md:text-sm text-white">Patients Analyzed</div>
-          </div>
-        </div>
-
-        {/* Buttons */}
-        <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-          <Button
-            onClick={() => setIsModalOpen(true)}
-            size="lg"
-            className="bg-white text-yellow-800 hover:bg-yellow-100 font-semibold px-8 py-4 w-full sm:w-auto"
-          >
-            <Phone className="mr-2 h-5 w-5" />
-            Book Trichoscopy Analysis
-          </Button>
-          <Link to="#viewtrichoscopy" className="w-full sm:w-auto">
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-yellow-600 hover:text-white font-semibold px-8 py-4 w-full"
-            >
-              <Microscope className="mr-2 h-5 w-5" />
-              Learn More
-            </Button>
-          </Link>
-        </div>
-      </div>
-
-      {/* RIGHT SIDE - IMAGE */}
-      <div className="relative flex justify-center mt-10 lg:mt-0">
-        <img
-          src={HT}
-          alt="Trichoscopy Analysis"
-          className="rounded-2xl shadow-2xl w-[90%] sm:w-[80%] md:w-[75%] lg:w-[95%] xl:w-[100%] object-cover transition-transform duration-500 hover:scale-[1.02]"
-        />
-        <div className="absolute -bottom-5 -left-5 bg-white p-5 rounded-lg shadow-xl scale-110 sm:scale-100">
-          <div className="flex items-center space-x-2">
-            <div className="flex -space-x-1">
-              {[1, 2, 3, 4, 5].map((i) => (
-                <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-              ))}
-            </div>
-            <div>
-              <div className="font-semibold text-gray-800 text-sm md:text-base">
-                4.8/5 Rating
+        <div className="relative z-10 container mx-auto px-6 lg:px-12 py-20 lg:py-28">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            
+            {/* 💬 LEFT – TEXT CONTENT */}
+            <div className="space-y-8 text-center lg:text-left">
+              <div className="space-y-3">
+                <p className="text-amber-700 font-semibold tracking-wide uppercase text-sm">
+                  Precision Hair Diagnostics
+                </p>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-slate-900">
+                  Trichoscopy<br />
+                  <span className="text-amber-600">Hair & Scalp Analysis</span>
+                </h1>
               </div>
-              <div className="text-xs text-gray-600">From 1,500+ Reviews</div>
+
+              <p className="text-base md:text-lg text-slate-700 leading-relaxed max-w-lg mx-auto lg:mx-0">
+                Discover the science behind your hair loss with <span className="font-semibold text-amber-700">high-magnification scalp imaging</span>.
+                Our advanced trichoscopy provides non-invasive, real-time diagnostics to design 
+                the most effective, personalized treatment plan for you.
+              </p>
+
+              {/* 📊 Stats */}
+              <div className="grid grid-cols-3 gap-4 py-6 max-w-md mx-auto lg:mx-0">
+                {[
+                  { value: "100%", label: "Non-Invasive" },
+                  { value: "15–30 Min", label: "Analysis Time" },
+                  { value: "6000+", label: "Patients Analyzed" },
+                ].map((stat, i) => (
+                  <div key={i} className="text-center">
+                    <div className="text-2xl md:text-3xl font-bold text-amber-700">{stat.value}</div>
+                    <div className="text-xs md:text-sm text-slate-700">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+                <Button
+                  onClick={() => setIsModalOpen(true)}
+                  size="lg"
+                  className="bg-amber-500 hover:bg-amber-600 text-white font-semibold px-8 py-4 w-full sm:w-auto rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
+                >
+                  <Phone className="mr-2 h-5 w-5" />
+                  Book Trichoscopy Analysis
+                </Button>
+                <Link to="#viewtrichoscopy" className="w-full sm:w-auto">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-amber-500 text-amber-700 hover:bg-amber-50 hover:text-amber-800 font-semibold px-8 py-4 w-full rounded-xl transition-all duration-300"
+                  >
+                    <Microscope className="mr-2 h-5 w-5" />
+                    Learn More
+                  </Button>
+                </Link>
+              </div>
+            </div>
+
+            {/* 🧠 RIGHT – IMAGE */}
+            <div className="relative flex justify-center mt-10 lg:mt-0">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl w-[90%] sm:w-[80%] md:w-[75%] lg:w-[95%] xl:w-[100%] transition-transform duration-500 hover:scale-[1.03]">
+                <img
+                  src={HT}
+                  alt="Trichoscopy Hair & Scalp Analysis"
+                  className="object-cover w-full h-[480px]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+
+                {/* ⭐ Rating Badge */}
+                <div className="absolute bottom-4 left-4 bg-white/80 backdrop-blur-md px-4 py-2 rounded-xl flex items-center gap-2 shadow-md">
+                  <div className="flex -space-x-1">
+                    {[1, 2, 3, 4, 5].map((i) => (
+                      <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
+                    ))}
+                  </div>
+                  <span className="font-medium text-slate-800 text-sm">
+                    4.8/5 from 1,500+ clients
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
 
       {/* WHY CHOOSE TRICHOSCOPY SECTION */}

@@ -222,7 +222,7 @@ const HeroSection = () => {
           scale: 80,
           rotation: direction * 1080,
           opacity: 1,
-          duration: 1.2,
+          duration: 0.8,
           ease: "power2.inOut"
         },
         0.2
@@ -251,7 +251,7 @@ const HeroSection = () => {
         filter: `blur(${absNewOffset * 2}px)`,
         zIndex: 10 - absNewOffset,
         rotation: direction * 15,
-        duration: 1.2,
+        duration: 0.8,
         ease: "power2.inOut"
       }, 0.2);
 

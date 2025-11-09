@@ -95,96 +95,104 @@ const CellGraftTreatment = () => {
             />
       <Header />
 
-{/* HERO SECTION */}
-<section className="relative bg-gradient-to-br from-yellow-600 via-yellow-400 to-yellow-200 min-h-screen flex items-center overflow-hidden">
-  {/* Overlay */}
-  <div className="absolute inset-0 bg-black/20"></div>
+        {/* HERO SECTION - Premium Regenerative Design */}
+        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-yellow-50 via-amber-50 to-white">
+          {/* Ambient Light Effects */}
+          <div className="absolute top-0 left-0 w-[30rem] h-[30rem] bg-amber-300/40 rounded-full blur-[120px] -translate-x-1/3 -translate-y-1/3"></div>
+          <div className="absolute bottom-0 right-0 w-[35rem] h-[35rem] bg-yellow-200/40 rounded-full blur-[120px] translate-x-1/3 translate-y-1/3"></div>
 
-  <div className="container mx-auto px-6 lg:px-12 relative z-10">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-      
-      {/* LEFT SIDE - TEXT */}
-      <div className="space-y-6 text-center lg:text-left">
-        <div className="space-y-2">
-          <p className="text-white font-medium tracking-wide uppercase text-sm">
-            Regenerative Cell Therapy
-          </p>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
-            Cell Graft<br />
-            <span className="text-yellow-100">Hair Treatment</span>
-          </h1>
-        </div>
+          {/* Subtle Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-yellow-100/40 via-transparent to-white/20 backdrop-blur-sm"></div>
 
-        <p className="text-base md:text-xl text-yellow-100 leading-relaxed max-w-lg mx-auto lg:mx-0">
-          Harness your body's own stem cells to regenerate new hair follicles, 
-          delivering natural, permanent hair restoration with minimal invasiveness and exceptional density.
-        </p>
+          {/* Content */}
+          <div className="relative z-10 container mx-auto px-6 lg:px-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              
+              {/* LEFT SIDE - TEXT */}
+              <div className="space-y-8 text-center lg:text-left">
+                <div className="space-y-2">
+                  <p className="text-amber-600 font-semibold tracking-wide uppercase text-sm">
+                    Regenerative Cell Therapy
+                  </p>
+                  <h1 className="text-5xl lg:text-6xl font-bold text-slate-800 leading-tight">
+                    Cell Graft <br />
+                    <span className="text-amber-500">Hair Treatment</span>
+                  </h1>
+                </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-3 gap-4 py-6 max-w-md mx-auto lg:mx-0">
-          <div className="text-center">
-            <div className="text-xl md:text-3xl font-bold text-white">90%+</div>
-            <div className="text-xs md:text-sm text-white">Follicle Survival</div>
-          </div>
-          <div className="text-center">
-            <div className="text-xl md:text-3xl font-bold text-white">4–6 Hrs</div>
-            <div className="text-xs md:text-sm text-white">Session Time</div>
-          </div>
-          <div className="text-center">
-            <div className="text-xl md:text-3xl font-bold text-white">5000+</div>
-            <div className="text-xs md:text-sm text-white">Happy Patients</div>
-          </div>
-        </div>
+                <p className="text-lg text-slate-600 leading-relaxed max-w-lg mx-auto lg:mx-0">
+                  Harness your body’s natural stem cells to regenerate new follicles, 
+                  restoring lasting density and fullness through advanced regenerative technology — no surgery required.
+                </p>
 
-        {/* Buttons */}
-        <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-          <Button
-            onClick={() => setIsModalOpen(true)}
-            size="lg"
-            className="bg-white text-yellow-700 hover:bg-yellow-50 font-semibold px-8 py-4 w-full sm:w-auto"
-          >
-            <Phone className="mr-2 h-5 w-5" />
-            Free Consultation
-          </Button>
-          <Link to="/cell-graft/#cellgraftview" className="w-full sm:w-auto">
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-yellow-600 hover:text-white font-semibold px-8 py-4 w-full"
-            >
-              <Microscope className="mr-2 h-5 w-5" />
-              View Results
-            </Button>
-          </Link>
-        </div>
-      </div>
+                {/* Stats */}
+                <div className="grid grid-cols-3 gap-6 py-6 max-w-md mx-auto lg:mx-0">
+                  <div className="text-center">
+                    <div className="text-2xl md:text-3xl font-bold text-amber-600">90%+</div>
+                    <div className="text-sm text-slate-700">Follicle Survival</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl md:text-3xl font-bold text-amber-600">4–6 Hrs</div>
+                    <div className="text-sm text-slate-700">Session Time</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl md:text-3xl font-bold text-amber-600">5000+</div>
+                    <div className="text-sm text-slate-700">Happy Patients</div>
+                  </div>
+                </div>
 
-      {/* RIGHT SIDE - IMAGE */}
-      <div className="relative flex justify-center mt-10 lg:mt-0">
-        <img
-          src={HT}
-          alt="Cell Graft Patient"
-          className="rounded-2xl shadow-2xl w-[90%] sm:w-[80%] md:w-[75%] lg:w-[95%] xl:w-[100%] object-cover transition-transform duration-500 hover:scale-[1.02]"
-        />
-        <div className="absolute -bottom-5 -left-5 bg-white p-5 rounded-lg shadow-xl scale-110 sm:scale-100">
-          <div className="flex items-center space-x-2">
-            <div className="flex -space-x-1">
-              {[1,2,3,4,5].map((i) => (
-                <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-              ))}
-            </div>
-            <div>
-              <div className="font-semibold text-gray-800 text-sm md:text-base">
-                4.9/5 Rating
+                {/* Buttons */}
+                <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+                  <Button
+                    onClick={() => setIsModalOpen(true)}
+                    size="lg"
+                    className="bg-amber-500 hover:bg-amber-600 text-white font-semibold px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 w-full sm:w-auto"
+                  >
+                    <Phone className="mr-2 h-5 w-5" />
+                    Free Consultation
+                  </Button>
+                  <Link to="/cell-graft/#cellgraftview" className="w-full sm:w-auto">
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="border border-amber-300 text-amber-700 bg-white/70 backdrop-blur-md hover:bg-white hover:text-amber-600 font-semibold px-8 py-4 rounded-xl transition-all duration-300 w-full sm:w-auto"
+                    >
+                      <Microscope className="mr-2 h-5 w-5" />
+                      View Results
+                    </Button>
+                  </Link>
+                </div>
               </div>
-              <div className="text-xs text-gray-600">From 1,200+ Reviews</div>
+
+              {/* RIGHT SIDE - IMAGE */}
+              <div className="relative flex justify-center mt-10 lg:mt-0">
+                {/* Ambient Highlight */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-amber-300/30 via-white/10 to-transparent rounded-3xl blur-2xl"></div>
+
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl w-3/4 sm:w-2/3 md:w-full max-w-md lg:max-w-lg transition-transform duration-500 hover:scale-[1.02]">
+                  <img
+                    src={HT}
+                    alt="Cell Graft Patient"
+                    className="object-cover w-full h-[480px]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+
+                  {/* Rating Badge */}
+                  <div className="absolute bottom-4 left-4 bg-white/80 backdrop-blur-md px-4 py-2 rounded-xl flex items-center gap-2 shadow-md">
+                    <div className="flex -space-x-1">
+                      {[1, 2, 3, 4, 5].map((i) => (
+                        <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
+                      ))}
+                    </div>
+                    <span className="font-medium text-slate-800 text-sm">
+                      4.9/5 from 1,200+ clients
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+        </section>
 
 
       {/* WHY CHOOSE CELL GRAFT SECTION */}

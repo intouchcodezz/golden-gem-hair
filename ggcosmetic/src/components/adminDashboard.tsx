@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Lock, LogOut, Shield, Calendar, MessageSquare, Phone, User as UserIcon, Clock, CheckCircle, XCircle, Eye, EyeOff } from 'lucide-react';
+import { 
+  Lock, LogOut, Shield, Calendar, MessageSquare, Phone, 
+  User as UserIcon, Clock, Eye, EyeOff, Briefcase 
+} from 'lucide-react';
 
 interface DashboardProps {
   onLogout: () => void;
@@ -105,6 +108,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onLogout }) => {
   const [activeTab, setActiveTab] = useState('appointments');
   const [appointments, setAppointments] = useState<any[]>([]);
   const [chatLogs, setChatLogs] = useState<any[]>([]);
+  const [jobApplications, setJobApplications] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   // Fetch appointments
@@ -129,23 +133,29 @@ const Dashboard: React.FC<DashboardProps> = ({ onLogout }) => {
     }
   };
 
+  const fetchJobApplications = async () => {
+    try {
+      const res = await fetch('https://thegoldengemhairclinic.com/backend/getCareerApplications.php');
+      const data = await res.json();
+      if (data.success) setJobApplications(data.data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   useEffect(() => {
     const loadData = async () => {
       setLoading(true);
-      await Promise.all([fetchAppointments(), fetchChatLogs()]);
+      await Promise.all([fetchAppointments(), fetchChatLogs(), fetchJobApplications()]);
       setLoading(false);
     };
     loadData();
   }, []);
 
-  const updateAppointmentStatus = (id: number, status: string) => {
-    // Optionally: call PHP API to update DB
-    setAppointments(appointments.map(a => (a.id === id ? { ...a, status } : a)));
-  };
-
   const tabs = [
     { id: 'appointments', label: 'Appointments', icon: Calendar, count: appointments.length },
     { id: 'chatbot', label: 'Chatbot Q&A', icon: MessageSquare, count: chatLogs.length },
+    { id: 'jobs', label: 'Apply Job', icon: Briefcase, count: jobApplications.length },
   ];
 
   if (loading) return <div className="p-10 text-center text-lg">Loading...</div>;
@@ -191,40 +201,27 @@ const Dashboard: React.FC<DashboardProps> = ({ onLogout }) => {
           {/* Content */}
           <div className="p-6">
             {activeTab === 'appointments' && (
-              <div className="space-y-4">
-                <div className="overflow-x-auto">
-                  <table className="w-full">
-                    <thead>
-                      <tr className="border-b border-gray-200">
-                        <th className="py-3 px-4 text-left font-semibold text-gray-700">Patient</th>
-                        <th className="py-3 px-4 text-left font-semibold text-gray-700">Contact</th>
-                        <th className="py-3 px-4 text-left font-semibold text-gray-700">Date</th>
-                        <th className="py-3 px-4 text-left font-semibold text-gray-700">Treatment</th>
-                        <th className="py-3 px-4 text-left font-semibold text-gray-700">Status</th>
-                        <th className="py-3 px-4 text-left font-semibold text-gray-700">Actions</th>
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead>
+                    <tr className="border-b border-gray-200">
+                      <th className="py-3 px-4 text-left font-semibold text-gray-700">Patient</th>
+                      <th className="py-3 px-4 text-left font-semibold text-gray-700">Contact</th>
+                      <th className="py-3 px-4 text-left font-semibold text-gray-700">Date</th>
+                      <th className="py-3 px-4 text-left font-semibold text-gray-700">Treatment</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {appointments.map((apt) => (
+                      <tr key={apt.id} className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                        <td className="py-4 px-4">{apt.name}</td>
+                        <td className="py-4 px-4">{apt.phone}</td>
+                        <td className="py-4 px-4">{new Date(apt.date).toLocaleDateString()}</td>
+                        <td className="py-4 px-4">{apt.treatment}</td>
                       </tr>
-                    </thead>
-                    <tbody>
-                      {appointments.map((apt) => (
-                        <tr key={apt.id} className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                          <td className="py-4 px-4">{apt.name}</td>
-                          <td className="py-4 px-4">{apt.phone}</td>
-                          <td className="py-4 px-4">{new Date(apt.date).toLocaleDateString()}</td>
-                          <td className="py-4 px-4">{apt.treatment}</td>
-                          <td className="py-4 px-4">{apt.status}</td>
-                          <td className="py-4 px-4 flex gap-2">
-                            {apt.status === 'pending' && (
-                              <>
-                                <button onClick={() => updateAppointmentStatus(apt.id, 'confirmed')} className="p-2 bg-green-100 text-green-600 rounded-lg hover:bg-green-200"><CheckCircle className="w-4 h-4" /></button>
-                                <button onClick={() => updateAppointmentStatus(apt.id, 'cancelled')} className="p-2 bg-red-100 text-red-600 rounded-lg hover:bg-red-200"><XCircle className="w-4 h-4" /></button>
-                              </>
-                            )}
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             )}
 
@@ -258,6 +255,37 @@ const Dashboard: React.FC<DashboardProps> = ({ onLogout }) => {
                     </div>
                   </div>
                 ))}
+              </div>
+            )}
+
+            {activeTab === 'jobs' && (
+              <div className="overflow-x-auto">
+                <table className="w-full border-collapse">
+                  <thead>
+                    <tr className="border-b border-gray-200 bg-gray-50">
+                      <th className="py-3 px-4 text-left font-semibold text-gray-700">Name</th>
+                      <th className="py-3 px-4 text-left font-semibold text-gray-700">Email</th>
+                      <th className="py-3 px-4 text-left font-semibold text-gray-700">Phone</th>
+                      <th className="py-3 px-4 text-left font-semibold text-gray-700">Experience</th>
+                      <th className="py-3 px-4 text-left font-semibold text-gray-700">Job Title</th>
+                      <th className="py-3 px-4 text-left font-semibold text-gray-700">Message</th>
+                      <th className="py-3 px-4 text-left font-semibold text-gray-700">Submitted</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {jobApplications.map(job => (
+                      <tr key={job.id} className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                        <td className="py-4 px-4">{job.name}</td>
+                        <td className="py-4 px-4">{job.email}</td>
+                        <td className="py-4 px-4">{job.phone}</td>
+                        <td className="py-4 px-4">{job.experience}</td>
+                        <td className="py-4 px-4 text-blue-600 font-medium">{job.job_title}</td>
+                        <td className="py-4 px-4">{job.message || '-'}</td>
+                        <td className="py-4 px-4 text-sm text-gray-500">{new Date(job.submitted_at).toLocaleString()}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             )}
           </div>

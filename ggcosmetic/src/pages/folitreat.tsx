@@ -111,83 +111,102 @@ const FolitreatHairTreatment = () => {
         <Header />
 
       {/* HERO SECTION */}
-      <section className="relative bg-gradient-to-br from-yellow-800 via-yellow-700 to-amber-600 min-h-screen flex items-center overflow-hidden">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="absolute top-0 right-0 w-1/2 h-full opacity-10">
-          <img 
-            src={folitreat}
-            alt="Folitreat Hair Treatment"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="text-white space-y-8">
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-yellow-50 via-amber-50 to-white">
+        {/* ✨ Ambient Glow Layers */}
+        <div className="absolute top-0 left-0 w-[28rem] h-[28rem] bg-amber-300/40 rounded-full blur-[120px] -translate-x-1/3 -translate-y-1/3"></div>
+        <div className="absolute bottom-0 right-0 w-[35rem] h-[35rem] bg-yellow-200/40 rounded-full blur-[120px] translate-x-1/3 translate-y-1/3"></div>
+
+        {/* 🩶 Subtle Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-yellow-100/40 via-transparent to-white/30 backdrop-blur-sm"></div>
+
+        {/* 🧱 Content */}
+        <div className="relative z-10 container mx-auto px-6 lg:px-10 py-12 lg:py-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+            {/* 🎯 LEFT SIDE - TEXT */}
+            <div className="space-y-8 text-center lg:text-left">
               <div className="space-y-2">
-                <p className="text-yellow-200 font-medium tracking-wide uppercase text-sm">Advanced Hair Restoration</p>
-                <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
-                  Folitreat <span className="text-yellow-300">Advanced</span><br />
+                <p className="text-amber-600 font-semibold tracking-wide uppercase text-sm">
+                  Advanced Hair Restoration
+                </p>
+                <h1 className="text-5xl lg:text-6xl font-bold text-slate-800 leading-tight">
+                  Folitreat <span className="text-amber-500">Advanced</span><br />
                   Hair Treatment
                 </h1>
               </div>
-              
-              <p className="text-xl text-yellow-100 leading-relaxed max-w-xl">
-                Revolutionary hair restoration technology that combines biotechnology with natural botanicals 
-                for stronger, thicker, and healthier hair growth.
+
+              <p className="text-lg text-slate-600 leading-relaxed max-w-lg mx-auto lg:mx-0">
+                A biotechnology-powered solution combining clinical innovation with botanical actives 
+                to promote stronger, denser, and healthier hair — safely and naturally.
               </p>
 
-              <div className="grid grid-cols-3 gap-6 py-8">
+              {/* 📊 STATS */}
+              <div className="grid grid-cols-3 gap-6 py-6 max-w-md mx-auto lg:mx-0">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-yellow-300">90%+</div>
-                  <div className="text-sm text-yellow-200">Success Rate</div>
+                  <div className="text-2xl md:text-3xl font-bold text-amber-600">90%+</div>
+                  <div className="text-sm text-slate-700">Success Rate</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-yellow-300">Pain-Free</div>
-                  <div className="text-sm text-yellow-200">Treatment</div>
+                  <div className="text-2xl md:text-3xl font-bold text-amber-600">Pain-Free</div>
+                  <div className="text-sm text-slate-700">Treatment</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-yellow-300">5000+</div>
-                  <div className="text-sm text-yellow-200">Happy Clients</div>
+                  <div className="text-2xl md:text-3xl font-bold text-amber-600">5000+</div>
+                  <div className="text-sm text-slate-700">Happy Clients</div>
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button onClick={() => setIsModalOpen(true)} size="lg" className="bg-white text-yellow-600 hover:bg-gray-100 font-semibold px-8 py-4">
+              {/* 🔘 CTA BUTTONS */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Button
+                  onClick={() => setIsModalOpen(true)}
+                  size="lg"
+                  className="bg-amber-500 hover:bg-amber-600 text-white font-semibold px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 w-full sm:w-auto"
+                >
                   <Phone className="mr-2 h-5 w-5" />
                   Free Consultation
                 </Button>
-                <Link to="/#treatments">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto border-white text-white hover:bg-white hover:text-yellow-600 font-semibold px-8 py-4">
-                  <Sparkles className="mr-2 h-5 w-5" />
-                  Learn More
-                </Button>
+
+                <Link to="/#treatments" className="w-full sm:w-auto">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border border-amber-300 text-amber-700 bg-white/70 backdrop-blur-md hover:bg-white hover:text-amber-600 font-semibold px-8 py-4 rounded-xl transition-all duration-300 w-full sm:w-auto"
+                  >
+                    <Sparkles className="mr-2 h-5 w-5" />
+                    Learn More
+                  </Button>
                 </Link>
               </div>
             </div>
 
-            <div className="hidden lg:block">
-              <div className="relative">
-                <img 
+            {/* 🧍‍♂️ RIGHT SIDE - IMAGE */}
+            <div className="relative flex justify-center mt-10 lg:mt-0">
+              {/* Ambient Glow Behind Image */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-amber-300/30 via-white/10 to-transparent rounded-3xl blur-2xl"></div>
+
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl w-3/4 sm:w-2/3 md:w-full max-w-md lg:max-w-lg transition-transform duration-500 hover:scale-[1.02]">
+                <img
                   src={folitreat}
-                  alt="Folitreat Patient"
-                  className="rounded-2xl shadow-2xl"
+                  alt="Folitreat Advanced Hair Treatment Patient"
+                  className="object-cover w-full h-[480px]"
                 />
-                <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg">
-                  <div className="flex items-center space-x-3">
-                    <div className="flex -space-x-2">
-                      {[1,2,3,4,5].map((i) => (
-                        <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                      ))}
-                    </div>
-                    <div>
-                      <div className="font-semibold text-gray-800">4.9/5 Rating</div>
-                      <div className="text-sm text-gray-600">From 2000+ Reviews</div>
-                    </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+
+                {/* ⭐ Rating Badge */}
+                <div className="absolute bottom-4 left-4 bg-white/80 backdrop-blur-md px-4 py-2 rounded-xl flex items-center gap-2 shadow-md">
+                  <div className="flex -space-x-1">
+                    {[1, 2, 3, 4, 5].map((i) => (
+                      <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
+                    ))}
                   </div>
+                  <span className="font-medium text-slate-800 text-sm">
+                    4.9/5 from 2,000+ clients
+                  </span>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>

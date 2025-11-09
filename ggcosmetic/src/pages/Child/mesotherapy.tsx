@@ -95,98 +95,102 @@ const HairTransplantMesotherapy = () => {
       />
       <Header />
 
-{/* HERO SECTION */}
-<section className="relative bg-gradient-to-br from-yellow-600 via-yellow-400 to-yellow-200 min-h-screen flex items-center overflow-hidden">
-  {/* Overlay */}
-  <div className="absolute inset-0 bg-black/20"></div>
+      {/* HERO SECTION - Modern Glass & Gradient Style */}
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-yellow-50 via-amber-50 to-white">
+        {/* Ambient Light Blobs */}
+        <div className="absolute top-0 left-0 w-[30rem] h-[30rem] bg-amber-300/40 rounded-full blur-[120px] -translate-x-1/3 -translate-y-1/3"></div>
+        <div className="absolute bottom-0 right-0 w-[35rem] h-[35rem] bg-yellow-200/40 rounded-full blur-[120px] translate-x-1/3 translate-y-1/3"></div>
 
-  <div className="container mx-auto px-4 relative z-10">
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-      
-      {/* LEFT SIDE - TEXT */}
-      <div className="space-y-6 text-center md:text-left">
-        <div className="space-y-2">
-          <p className="text-white font-medium tracking-wide uppercase text-sm">
-            Non-Surgical Hair Rejuvenation
-          </p>
-          <h1 className="text-4xl sm:text-5xl font-bold leading-tight text-white">
-            Mesotherapy<br />
-            <span className="text-yellow-100">for Hair</span>
-          </h1>
-        </div>
+        {/* Subtle Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-yellow-100/30 via-transparent to-white/20 backdrop-blur-sm"></div>
 
-        <p className="text-base sm:text-lg md:text-xl text-yellow-100 leading-relaxed max-w-md mx-auto md:mx-0">
-          Revitalize your hair with microinjections of nutrients and medications, 
-          designed to stimulate follicles and enhance scalp health without surgery.
-        </p>
-
-        {/* Stats Grid */}
-        <div className="grid grid-cols-3 gap-3 sm:gap-4 py-6">
-          <div className="text-center">
-            <div className="text-lg sm:text-2xl md:text-3xl font-bold text-white">95%+</div>
-            <div className="text-xs sm:text-sm text-white">Patient Satisfaction</div>
-          </div>
-          <div className="text-center">
-            <div className="text-lg sm:text-2xl md:text-3xl font-bold text-white">20–40 Min</div>
-            <div className="text-xs sm:text-sm text-white">Session Time</div>
-          </div>
-          <div className="text-center">
-            <div className="text-lg sm:text-2xl md:text-3xl font-bold text-white">3500+</div>
-            <div className="text-xs sm:text-sm text-white">Happy Patients</div>
-          </div>
-        </div>
-
-        {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-          <Button
-            onClick={() => setIsModalOpen(true)}
-            size="lg"
-            className="w-full sm:w-auto bg-white text-yellow-700 hover:bg-yellow-50 font-semibold px-8 py-4"
-          >
-            <Phone className="mr-2 h-5 w-5" />
-            Free Consultation
-          </Button>
-
-          <Link to="#viewmesotherapy" className="w-full sm:w-auto">
-            <Button
-              size="lg"
-              variant="outline"
-              className="w-full sm:w-auto border-white text-white hover:bg-yellow-600 hover:text-white font-semibold px-8 py-4"
-            >
-              <Microscope className="mr-2 h-5 w-5" />
-              View Results
-            </Button>
-          </Link>
-        </div>
-      </div>
-
-      {/* RIGHT SIDE - IMAGE */}
-      <div className="relative flex justify-center mt-10 md:mt-0">
-        <img 
-          src={mesotherapy}
-          alt="Hair Treatment Patient"
-          className="rounded-xl shadow-2xl w-3/4 sm:w-2/3 md:w-full max-w-xs sm:max-w-sm md:max-w-md object-cover"
-        />
-
-        <div className="absolute -bottom-5 -left-3 sm:-bottom-6 sm:-left-6 bg-white p-3 sm:p-4 rounded-lg shadow-lg">
-          <div className="flex items-center space-x-2">
-            <div className="flex -space-x-1">
-              {[1,2,3,4,5].map((i) => (
-                <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
-              ))}
-            </div>
-            <div>
-              <div className="font-semibold text-gray-800 text-xs sm:text-sm md:text-base">
-                4.7/5 Rating
+        {/* Main Content */}
+        <div className="relative z-10 container mx-auto px-6 lg:px-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            
+            {/* LEFT SIDE - TEXT */}
+            <div className="space-y-8 text-center md:text-left">
+              <div>
+                <p className="text-amber-600 font-semibold tracking-wide uppercase text-sm">
+                  Non-Surgical Hair Rejuvenation
+                </p>
+                <h1 className="text-5xl lg:text-6xl font-bold text-slate-800 leading-tight">
+                  Mesotherapy <span className="text-amber-500">for Hair</span>
+                </h1>
               </div>
-              <div className="text-[10px] sm:text-xs text-gray-600">From 900+ Reviews</div>
+
+              <p className="text-lg text-slate-600 leading-relaxed max-w-md mx-auto md:mx-0">
+                Revitalize your hair with microinjections of essential nutrients and medications, 
+                stimulating follicles and enhancing scalp health — completely non-surgical and safe.
+              </p>
+
+              {/* Stats */}
+              <div className="grid grid-cols-3 gap-6 py-6">
+                <div className="text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-amber-600">95%+</div>
+                  <div className="text-sm text-slate-700">Patient Satisfaction</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-amber-600">20–40 Min</div>
+                  <div className="text-sm text-slate-700">Session Time</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-amber-600">3500+</div>
+                  <div className="text-sm text-slate-700">Happy Patients</div>
+                </div>
+              </div>
+
+              {/* Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                <Button
+                  onClick={() => setIsModalOpen(true)}
+                  size="lg"
+                  className="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-white font-semibold px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
+                >
+                  <Phone className="mr-2 h-5 w-5" />
+                  Free Consultation
+                </Button>
+
+                <Link to="#viewmesotherapy" className="w-full sm:w-auto">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="w-full sm:w-auto border border-amber-300 text-amber-700 bg-white/70 backdrop-blur-md hover:bg-white hover:text-amber-600 font-semibold px-8 py-4 rounded-xl transition-all duration-300"
+                  >
+                    <Microscope className="mr-2 h-5 w-5" />
+                    View Results
+                  </Button>
+                </Link>
+              </div>
+            </div>
+
+            {/* RIGHT SIDE - IMAGE */}
+            <div className="relative flex justify-center mt-10 md:mt-0">
+              {/* Ambient Highlight Behind Image */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-amber-300/30 via-white/10 to-transparent rounded-3xl blur-2xl"></div>
+
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl w-3/4 sm:w-2/3 md:w-full max-w-md">
+                <img
+                  src={mesotherapy}
+                  alt="Mesotherapy Hair Treatment"
+                  className="object-cover w-full h-[450px]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+
+                {/* Rating Badge */}
+                <div className="absolute bottom-4 left-4 bg-white/80 backdrop-blur-md px-4 py-2 rounded-xl flex items-center gap-2 shadow-md">
+                  <div className="flex -space-x-1">
+                    {[1, 2, 3, 4, 5].map((i) => (
+                      <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
+                    ))}
+                  </div>
+                  <span className="font-medium text-slate-800 text-sm">4.7/5 from 900+ reviews</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
 
       {/* WHY CHOOSE MESOTHERAPY SECTION */}

@@ -87,98 +87,103 @@ const BloodHormonalTests = () => {
             />
       <Header />
 
-{/* HERO SECTION */}
-<section className="relative bg-gradient-to-br from-yellow-600 via-yellow-400 to-yellow-200 min-h-screen flex items-center overflow-hidden">
-  {/* Overlay */}
-  <div className="absolute inset-0 bg-black/20"></div>
-
-  {/* Content */}
-  <div className="container mx-auto px-4 relative z-10 py-16 md:py-24">
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-      
-      {/* LEFT SIDE - TEXT */}
-      <div className="space-y-6 text-center md:text-left">
-        <div className="space-y-2">
-          <p className="text-white font-medium tracking-wide uppercase text-sm">
-            Uncover Internal Causes
-          </p>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-white">
-            Blood & Hormonal<br />
-            <span className="text-yellow-100">Tests for Hair Loss</span>
-          </h1>
+      {/* 🩸 HERO SECTION – Blood & Hormonal Tests for Hair Loss */}
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-yellow-50 via-amber-100 to-white">
+        {/* 🌟 Ambient Glow */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_35%,rgba(255,220,150,0.3),transparent_60%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_65%,rgba(255,210,100,0.25),transparent_60%)]" />
         </div>
 
-        <p className="text-base sm:text-lg md:text-xl text-yellow-100 leading-relaxed max-w-md mx-auto md:mx-0">
-          Identify the root causes of hair loss with comprehensive blood and hormonal tests, 
-          analyzing thyroid function, nutrient deficiencies, and hormonal imbalances to create 
-          personalized treatment plans.
-        </p>
+        {/* 🧱 Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-amber-200/40 via-white/60 to-transparent backdrop-blur-[2px]" />
 
-        {/* Stats */}
-        <div className="grid grid-cols-3 gap-4 py-6">
-          <div className="text-center">
-            <div className="text-lg sm:text-xl md:text-3xl font-bold text-white">10+</div>
-            <div className="text-xs sm:text-sm text-white">Key Biomarkers</div>
-          </div>
-          <div className="text-center">
-            <div className="text-lg sm:text-xl md:text-3xl font-bold text-white">5-10 Min</div>
-            <div className="text-xs sm:text-sm text-white">Test Time</div>
-          </div>
-          <div className="text-center">
-            <div className="text-lg sm:text-xl md:text-3xl font-bold text-white">8000+</div>
-            <div className="text-xs sm:text-sm text-white">Patients Tested</div>
-          </div>
-        </div>
+        {/* 🧬 Content */}
+        <div className="relative z-10 container mx-auto px-6 lg:px-12 py-20 lg:py-28">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-        {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-          <Button 
-            onClick={() => setIsModalOpen(true)} 
-            size="lg" 
-            className="bg-white text-yellow-800 hover:bg-yellow-100 font-semibold px-6 py-3 w-full sm:w-auto"
-          >
-            <Phone className="mr-2 h-5 w-5" />
-            Book Hair Loss Profile Test
-          </Button>
+            {/* 💬 LEFT – TEXT CONTENT */}
+            <div className="space-y-8 text-center lg:text-left">
+              <div className="space-y-3">
+                <p className="text-amber-700 font-semibold tracking-wide uppercase text-sm">
+                  Uncover Internal Causes
+                </p>
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-slate-900">
+                  Blood & Hormonal<br />
+                  <span className="text-amber-600">Tests for Hair Loss</span>
+                </h1>
+              </div>
 
-          <Link to="#viewbloodhormone" className="w-full sm:w-auto">
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-white text-black hover:bg-yellow-600 hover:text-white font-semibold px-6 py-3 w-full sm:w-auto"
-            >
-              <Microscope className="mr-2 h-5 w-5" />
-              Learn More
-            </Button>
-          </Link>
-        </div>
-      </div>
+              <p className="text-base md:text-lg text-slate-700 leading-relaxed max-w-lg mx-auto lg:mx-0">
+                Identify the <span className="font-semibold text-amber-700">root causes of hair loss</span> 
+                through advanced blood and hormonal profiling — analyzing thyroid, vitamins, minerals, 
+                and hormone levels to build a <span className="font-semibold">data-driven, personalized treatment plan</span>.
+              </p>
 
-      {/* RIGHT SIDE - IMAGE */}
-      <div className="relative flex justify-center">
-        <img 
-          src={HT}
-          alt="Blood Test for Hair Loss"
-          className="rounded-2xl shadow-2xl w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl object-cover"
-        />
-        <div className="absolute -bottom-4 -left-4 bg-white p-4 rounded-lg shadow-lg hidden sm:block">
-          <div className="flex items-center space-x-2">
-            <div className="flex -space-x-1">
-              {[1,2,3,4,5].map((i) => (
-                <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
-              ))}
+              {/* 📊 Stats */}
+              <div className="grid grid-cols-3 gap-4 py-6 max-w-md mx-auto lg:mx-0">
+                {[
+                  { value: "10+", label: "Key Biomarkers" },
+                  { value: "5–10 Min", label: "Test Time" },
+                  { value: "8000+", label: "Patients Tested" },
+                ].map((stat, i) => (
+                  <div key={i} className="text-center">
+                    <div className="text-2xl md:text-3xl font-bold text-amber-700">{stat.value}</div>
+                    <div className="text-xs md:text-sm text-slate-700">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+                <Button
+                  onClick={() => setIsModalOpen(true)}
+                  size="lg"
+                  className="bg-amber-500 hover:bg-amber-600 text-white font-semibold px-8 py-4 w-full sm:w-auto rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
+                >
+                  <Phone className="mr-2 h-5 w-5" />
+                  Book Hair Loss Profile Test
+                </Button>
+
+                <Link to="#viewbloodhormone" className="w-full sm:w-auto">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-amber-400 text-amber-700 hover:bg-amber-50 hover:text-amber-800 font-semibold px-8 py-4 w-full rounded-xl transition-all duration-300"
+                  >
+                    <Microscope className="mr-2 h-5 w-5" />
+                    Learn More
+                  </Button>
+                </Link>
+              </div>
             </div>
-            <div>
-              <div className="font-semibold text-gray-800 text-sm md:text-base">4.9/5 Rating</div>
-              <div className="text-xs text-gray-600">From 2,500+ Reviews</div>
+
+            {/* 🧪 RIGHT – IMAGE SECTION */}
+            <div className="relative flex justify-center mt-10 lg:mt-0">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl w-[90%] sm:w-[80%] md:w-[75%] lg:w-[95%] xl:w-[100%] transition-transform duration-500 hover:scale-[1.03]">
+                <img
+                  src={HT}
+                  alt="Blood & Hormonal Test for Hair Loss"
+                  className="object-cover w-full h-[480px]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+
+                {/* ⭐ Rating Badge */}
+                <div className="absolute bottom-4 left-4 bg-white/80 backdrop-blur-md px-4 py-2 rounded-xl flex items-center gap-2 shadow-md">
+                  <div className="flex -space-x-1">
+                    {[1, 2, 3, 4, 5].map((i) => (
+                      <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
+                    ))}
+                  </div>
+                  <span className="font-medium text-slate-800 text-sm">
+                    4.9/5 from 2,500+ clients
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-
-    </div>
-  </div>
-</section>
+      </section>
 
 
       {/* WHY CHOOSE BLOOD & HORMONAL TESTS SECTION */}

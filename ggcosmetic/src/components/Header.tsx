@@ -13,7 +13,6 @@ import gfc from '../assets/gfc.webp'
 import smp from '../assets/SMP.jpg'
 import ivhair from '../assets/ivhair.png'
 import cellgraft from '../assets/cellgraft.webp'
-import biocell from '../assets/biocell.jpg'
 import growththearpies from '../assets/growththearpies.jpeg'
 import scalp from '../assets/scalp.jpg'
 import smp1 from '../assets/smp1.jpg'
@@ -43,12 +42,23 @@ const navigationItems: Record<string, NavigationItem> = {
     title: 'Treatments',
     hasDropdown: true,
     subMenus: {
+      semiSurgical: {
+        name: 'Semi Surgical',
+        items: [
+          { title: 'GFC', href: '/gfc-treatment', image: gfc, desc: 'Growth Factor Concentrate' },
+          { title: 'PRP', href: '/prp-treatment', image: prp, desc: 'Platelet Rich Plasma' },          
+          { title: 'Mesotherapy', href: '/mesotherapy', image: mesotherapy, desc: 'Reduce visible marks' },
+          { title: 'Scalp Micro Pigmentation', href: '/scalp-pigmentation', image: smp, desc: 'Even skin tone' },
+          { title: 'Exogro', href: '/exogro', image: exogro, desc: 'Advanced treatment' },
+          { title: 'IV Hair Therapy', href: '/iv-hair-therapy', image: ivhair, desc: 'Vitamin infusion' },
+          { title: 'Cell Graft Therapy', href: '/cell-graft', image: cellgraft, desc: 'Cell regeneration' },
+        ]
+      },
       hair: {
-        name: 'Non Surguical',
+        name: 'Non Surgical',
         items: [
           { title: 'Hair Rejuvenation', href: '/hair-treatments/hair-rejuvenation', image: HairRejuvenation, desc: 'Revitalize your hair' },
-          { title: 'Folitreat therapy', href: '/folitreat-treatment', image: folitreat, desc: 'Revitalize your hair' },
-          { title: 'biocell Therapy', href: '/biocell-therapy', image: biocell, desc: 'Revive your hair' },
+          { title: 'Folitreat therapy', href: '/folitreat-treatment', image: folitreat, desc: 'Follicle treatment' },
           { title: 'Growth Therapies', href: '/hair-treatments/growth-therapies', image: growththearpies, desc: 'Advanced growth solutions' },
           { title: 'Scalp Care', href: '/hair-treatments/scalp-care', image: scalp, desc: 'Scalp health & care' },
         ]
@@ -56,30 +66,9 @@ const navigationItems: Record<string, NavigationItem> = {
       surgical: {
         name: 'Surgical',
         items: [
-          { title: 'Hair Transplant FUT', href: '/hair-treatments/surgical', image: ht, desc: 'Surgical restoration' },
-          { title: 'Hair Transplant FUE', href: '/fue-transplant', image: 'https://images.pexels.com/photos/27138344/pexels-photo-27138344.jpeg', desc: 'Deep cleansing facials' },
+          { title: 'Hair Transplant FUE', href: '/fue-transplant', image: ht, desc: 'Follicular Unit Extraction' },
         ]
       },
-      semiSurgical: {
-        name: 'Semi Surgical',
-        items: [
-          { title: 'PRP', href: '/prp-treatment', image: prp, desc: 'Brightening treatments' },
-          { title: 'GFC', href: '/gfc-treatment', image: gfc, desc: 'Laser tattoo removal' },
-          { title: 'Mesotherapy', href: '/mesotherapy', image: mesotherapy, desc: 'Reduce visible marks' },
-          { title: 'Scalp Micro Pigmentation', href: '/scalp-pigmentation', image: smp, desc: 'Even skin tone' },
-          { title: 'Exogro', href: '/exogro', image: exogro, desc: 'Even skin tone' },
-          { title: 'IV Hair Therapy', href: '/iv-hair-therapy', image: ivhair, desc: 'Even skin tone' },
-          { title: 'Cell Graft Therapy', href: '/cell-graft', image: cellgraft, desc: 'Even skin tone' },
-        ]
-      },
-      // products: {
-      //   name: 'Our Products',
-      //   items: [
-      //     { title: 'Nutrition Plan', href: '/wellness/nutrition', image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop', desc: 'Personalized diet plans' },
-      //     { title: 'Fitness Program', href: '/wellness/fitness', image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=300&fit=crop', desc: 'Custom workout routines' },
-      //     { title: 'Consultation', href: '/wellness/consultation', image: 'https://images.unsplash.com/photo-1579154204601-01d82b27c63d?w=400&h=300&fit=crop', desc: 'Expert guidance' },
-      //   ]
-      // }
     }
   },
   diagnostics: {
@@ -92,25 +81,9 @@ const navigationItems: Record<string, NavigationItem> = {
           { title: 'Trichoscopy', href: '/trichoscopy', image: prp, desc: 'Advanced diagnostics' },
           { title: 'Hair Density', href: '/hair-density', image: mesotherapy, desc: 'Complete analysis' },
           { title: 'Blood Tests', href: '/blood-hormonal', image: gfc, desc: 'Detailed assessment' },
-          { title: 'Genetic Assesment', href: '/genetic-assessment', image: exogro, desc: 'Detailed assessment' },
+          { title: 'Genetic Assessment', href: '/genetic-assessment', image: exogro, desc: 'Genetic profiling' },
         ]
       },
-      // skin: {
-      //   name: 'Skin Assessment',
-      //   items: [
-      //     { title: 'Skin Assessment', href: '/diagnostic/skin', image: 'https://images.unsplash.com/photo-1576672543867-ea471e57e47f?w=400&h=300&fit=crop', desc: 'Complete skin analysis' },
-      //     { title: 'Skin Type Test', href: '/diagnostic/skin-type', image: 'https://images.unsplash.com/photo-1579154204601-01d82b27c63d?w=400&h=300&fit=crop', desc: 'Determine your type' },
-      //     { title: 'Acne Analysis', href: '/diagnostic/acne', image: 'https://images.unsplash.com/photo-1576091160550-112173f7f869?w=400&h=300&fit=crop', desc: 'Acne severity check' },
-      //   ]
-      // },
-      // wellness: {
-      //   name: 'Wellness Checks',
-      //   items: [
-      //     { title: 'Blood Work', href: '/diagnostic/blood', image: 'https://images.unsplash.com/photo-1631217314831-4b4b248e5745?w=400&h=300&fit=crop', desc: 'Lab tests' },
-      //     { title: 'Nutritional Analysis', href: '/diagnostic/nutrition', image: 'https://images.unsplash.com/photo-1576672543867-ea471e57e47f?w=400&h=300&fit=crop', desc: 'Vitamin & mineral check' },
-      //     { title: 'Health Screening', href: '/diagnostic/screening', image: 'https://images.unsplash.com/photo-1579154204601-01d82b27c63d?w=400&h=300&fit=crop', desc: 'General health check' },
-      //   ]
-      // }
     }
   },
   results: {
@@ -121,16 +94,12 @@ const navigationItems: Record<string, NavigationItem> = {
         name: 'Gallery',
         items: [
           { title: 'Before & After', href: '/results/before-after', image: smp1, desc: 'See transformations' },
-      //     { title: 'Case Studies', href: '/results/cases', image: 'https://images.unsplash.com/photo-1579154204601-01d82b27c63d?w=400&h=300&fit=crop', desc: 'Detailed results' },
-      //     { title: 'Video Testimonials', href: '/results/videos', image: 'https://images.unsplash.com/photo-1576091160550-112173f7f869?w=400&h=300&fit=crop', desc: 'Patient reviews' },
-         ]
+        ]
       },
       testimonials: {
         name: 'Testimonials',
         items: [
           { title: 'Client Reviews', href: '/results/patient-testimonials', image: scalp, desc: 'What clients say' },
-          // { title: '5-Star Ratings', href: '/results/ratings', image: 'https://images.unsplash.com/photo-1579154204601-01d82b27c63d?w=400&h=300&fit=crop', desc: 'Top rated' },
-          // { title: 'Success Stories', href: '/results/stories', image: 'https://images.unsplash.com/photo-1576091160550-112173f7f869?w=400&h=300&fit=crop', desc: 'Real success stories' },
         ]
       },
     }
@@ -228,9 +197,7 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Top Contact Bar */}
-      <div className="hidden lg:block bg-gradient-to-r from-foreground to-foreground/90 border-b border-border/10">
-           <EnquiryForm
+      <EnquiryForm
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         onSubmit={(data) => {
@@ -239,6 +206,9 @@ export default function Navbar() {
         }}
         treatment="General Consultation"
       />
+
+      {/* Top Contact Bar */}
+      <div className="hidden lg:block bg-gradient-to-r from-foreground to-foreground/90 border-b border-border/10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex justify-between items-center py-2.5 text-[13px] text-primary-foreground/95">
             <div className="flex items-center gap-8">
@@ -285,25 +255,28 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="flex justify-between items-center h-20">
-            {/* Logo */}
-            <a href="/" className="flex items-center gap-3 group">
-              <div className='w-20 h-16 overflow-hidden rounded-lg shadow-md group-hover:shadow-xl transition-shadow'>
-                <img src={logo} alt="Golden Gem Clinic"/>
+          <div className="flex justify-between items-center h-28 lg:h-32">
+            {/* Logo - Large and prominent, printed style */}
+            <a href="/" className="flex items-center group">
+              <div className="relative w-auto transition-all duration-300 group-hover:scale-[1.02]" style={{ height: '110px' }}>
+                <img 
+                  src={logo} 
+                  alt="Golden Gem Cosmetic Clinic" 
+                  className="h-full object-contain"
+                />
               </div>
             </a>
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-1">
+            <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
               <a 
                 href="/" 
-                className="px-4 py-2 text-sm font-semibold text-foreground rounded-lg hover:text-primary hover:bg-muted/50 transition-all"
+                className="px-4 py-2.5 text-sm font-semibold text-foreground rounded-lg hover:text-primary hover:bg-muted/50 transition-all"
               >
                 Home
               </a>
 
               {Object.entries(navigationItems).map(([key, menu]) => {
-                // skip home (rendered separately) and render Offers/About via static links below
                 if (key === 'home' || key === 'offers' || key === 'about') return null;
                 
                 if (!menu.hasDropdown) {
@@ -311,7 +284,7 @@ export default function Navbar() {
                     <a 
                       key={key} 
                       href={menu.href} 
-                      className="px-4 py-2 text-sm font-semibold text-foreground rounded-lg hover:text-primary hover:bg-muted/50 transition-all"
+                      className="px-4 py-2.5 text-sm font-semibold text-foreground rounded-lg hover:text-primary hover:bg-muted/50 transition-all"
                     >
                       {menu.title}
                     </a>
@@ -325,7 +298,7 @@ export default function Navbar() {
                     onMouseLeave={handleMouseLeave}
                     className="relative"
                   >
-                    <button className="flex items-center gap-1.5 px-4 py-2 text-sm font-semibold text-foreground rounded-lg hover:text-primary hover:bg-muted/50 transition-all group">
+                    <button className="flex items-center gap-1.5 px-4 py-2.5 text-sm font-semibold text-foreground rounded-lg hover:text-primary hover:bg-muted/50 transition-all group">
                       {menu.title}
                       <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${activeMenu === key ? 'rotate-180' : ''}`} />
                     </button>
@@ -336,27 +309,27 @@ export default function Navbar() {
                 {['Offers', 'About'].map((link) => (
                   <a key={link} href={`/${link.toLowerCase()}`} className="px-4 py-3 text-slate-700 font-medium rounded hover:text-amber-500 hover:bg-amber-100/20 transition-colors">{link}</a>
                 ))}
-              </nav>
+            </nav>
 
             {/* Full-Width Mega Dropdown */}
             {activeMenu && navigationItems[activeMenu]?.subMenus && (
               <div 
                 onMouseEnter={() => { if (timeoutRef.current) clearTimeout(timeoutRef.current); }}
                 onMouseLeave={handleMouseLeave}
-                className="fixed left-0 right-0 bg-card shadow-2xl border-t border-b border-border z-40 mt-[20px] top-[80px] lg:top-[90px]"
+                className="fixed left-0 right-0 bg-card shadow-2xl border-t border-b border-border z-40 mt-[28px] lg:mt-[32px] top-[112px] lg:top-[128px]"
               >
                 <div 
                   ref={dropdownRef}
                   className="max-w-7xl mx-auto"
                 >
-                  <div className="flex h-[420px]">
+                  <div className="flex h-[480px]">
                     {/* Left Panel */}
                     <div className="w-1/5 bg-muted/30 border-r border-border overflow-y-auto">
                       {Object.entries(navigationItems[activeMenu].subMenus!).map(([subKey, subMenu]) => (
                         <button
                           key={subKey}
                           onMouseEnter={() => setActiveSubMenu(subKey)}
-                          className={`w-full text-left px-5 py-4 text-sm font-semibold transition-all border-l-4 ${
+                          className={`w-full text-left px-6 py-5 text-sm font-semibold transition-all border-l-4 ${
                             activeSubMenu === subKey
                               ? 'bg-primary/10 border-primary text-primary'
                               : 'border-transparent text-foreground hover:bg-muted/50 hover:text-primary'
@@ -367,31 +340,31 @@ export default function Navbar() {
                       ))}
                     </div>
 
-                    {/* Right Panel */}
-                    <div className="w-4/5 bg-card p-6 overflow-y-auto">
+                    {/* Right Panel - Larger images */}
+                    <div className="w-4/5 bg-card p-8 overflow-y-auto">
                       {activeSubMenu && navigationItems[activeMenu].subMenus![activeSubMenu] && (
                         <>
-                          <h3 className="font-bold text-foreground mb-5 text-base border-b-2 border-primary/20 pb-3">
+                          <h3 className="font-bold text-foreground mb-6 text-lg border-b-2 border-primary/20 pb-4">
                             {navigationItems[activeMenu].subMenus![activeSubMenu].name}
                           </h3>
-                          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+                          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                             {navigationItems[activeMenu].subMenus![activeSubMenu].items.map((item, idx) => (
                               <a
                                 key={idx}
                                 href={item.href}
-                                className="group block transition-all duration-300 hover:scale-[1.02]"
+                                className="group block transition-all duration-300 hover:scale-[1.03]"
                               >
-                                <div className="overflow-hidden rounded-xl mb-3 bg-muted/30 aspect-video shadow-sm group-hover:shadow-md transition-shadow">
+                                <div className="overflow-hidden rounded-xl mb-3 bg-muted/30 h-40 shadow-md group-hover:shadow-xl transition-all">
                                   <img
                                     src={item.image}
                                     alt={item.title}
                                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                   />
                                 </div>
-                                <div className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors">
+                                <div className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors leading-tight">
                                   {item.title}
                                 </div>
-                                <div className="text-xs text-muted-foreground mt-0.5">
+                                <div className="text-xs text-muted-foreground mt-1 leading-snug">
                                   {item.desc}
                                 </div>
                               </a>
@@ -443,16 +416,16 @@ export default function Navbar() {
         } transition-transform duration-300 shadow-2xl`}
       >
         {/* Mobile Header */}
-        <div className="sticky top-0 bg-background border-b border-border px-6 py-5 flex items-center justify-between z-10">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-              <span className="text-lg font-bold text-primary-foreground">GG</span>
+        <div className="sticky top-0 bg-background border-b border-border px-4 sm:px-6 py-4 flex items-center justify-between z-10">
+          <a href="/" className="flex items-center">
+            <div className="w-40 h-16 sm:w-48 sm:h-18" style={{ height: '110px' }}>
+              <img 
+                src={logo} 
+                alt="Golden Gem Clinic" 
+                className="w-full h-full object-contain"
+              />
             </div>
-            <div>
-              <div className="font-bold text-foreground">Golden Gem</div>
-              <div className="text-xs text-muted-foreground">Hair & Skin Clinic</div>
-            </div>
-          </div>
+          </a>
           <button 
             onClick={() => setIsMobileOpen(false)}
             className="p-2 rounded-lg bg-muted/50 hover:bg-muted text-foreground"
@@ -465,7 +438,7 @@ export default function Navbar() {
         <nav className="py-2">
           <a 
             href="/" 
-            className="block px-6 py-4 text-foreground font-semibold hover:bg-muted/50 border-b border-border/50"
+            className="block px-4 sm:px-6 py-4 text-foreground font-semibold hover:bg-muted/50 border-b border-border/50"
             onClick={() => setIsMobileOpen(false)}
           >
             Home
@@ -479,7 +452,7 @@ export default function Navbar() {
                 <a 
                   key={key} 
                   href={menu.href} 
-                  className="block px-6 py-4 text-foreground font-semibold hover:bg-muted/50 border-b border-border/50"
+                  className="block px-4 sm:px-6 py-4 text-foreground font-semibold hover:bg-muted/50 border-b border-border/50"
                   onClick={() => setIsMobileOpen(false)}
                 >
                   {menu.title}
@@ -491,7 +464,7 @@ export default function Navbar() {
               <div key={key} className="border-b border-border/50">
                 <button
                   onClick={() => toggleMobileDropdown(key)}
-                  className="flex justify-between items-center w-full px-6 py-4 font-semibold text-foreground hover:bg-muted/50"
+                  className="flex justify-between items-center w-full px-4 sm:px-6 py-4 font-semibold text-foreground hover:bg-muted/50"
                 >
                   {menu.title}
                   <ChevronDown className={`w-4 h-4 transition-transform ${activeMobileMenu === key ? 'rotate-180' : ''}`} />
@@ -503,14 +476,14 @@ export default function Navbar() {
                       <div key={subKey} className="border-b border-border/30">
                         <button
                           onClick={() => toggleMobileSubMenu(subKey)}
-                          className="flex justify-between items-center w-full px-6 py-3 font-medium text-sm text-foreground hover:bg-muted/50"
+                          className="flex justify-between items-center w-full px-4 sm:px-6 py-3 font-medium text-sm text-foreground hover:bg-muted/50"
                         >
                           {subMenu.name}
                           <ChevronDown className={`w-4 h-4 transition-transform ${activeMobileSubMenu === subKey ? 'rotate-180' : ''}`} />
                         </button>
 
                         {activeMobileSubMenu === subKey && (
-                          <div className="bg-card px-4 py-3 space-y-3">
+                          <div className="bg-card px-3 sm:px-4 py-3 space-y-3">
                             {subMenu.items.map((item, idx) => (
                               <a
                                 key={idx}
@@ -521,10 +494,10 @@ export default function Navbar() {
                                 <img
                                   src={item.image}
                                   alt={item.title}
-                                  className="w-full h-24 rounded-lg object-cover mb-2"
+                                  className="w-full h-32 rounded-lg object-cover mb-2"
                                 />
                                 <div className="font-semibold text-sm text-foreground">{item.title}</div>
-                                <div className="text-xs text-muted-foreground">{item.desc}</div>
+                                <div className="text-xs text-muted-foreground mt-1">{item.desc}</div>
                               </a>
                             ))}
                           </div>

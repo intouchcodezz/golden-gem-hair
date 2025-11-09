@@ -127,58 +127,70 @@ const Growth = () => {
         }}
         treatment="General Consultation"
       />
-      {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center opacity-60"
-          style={{ backgroundImage: `url(${hairGrowthHero})` }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-gold-100/80 via-gold-200/60 to-gold-300/40" />
-        
-        <div className="relative z-10 px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
-          <div className="max-w-4xl mx-auto text-center">
-            <Badge className="mb-6 bg-gold-500 text-gold-50 hover:bg-gold-600">
-              ✨ Advanced Hair Restoration
-            </Badge>
-            
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gold-900 mb-6 leading-tight">
-              Hair Growth
-              <span className="block text-gold-700">Therapies</span>
-            </h1>
-            
-            <p className="text-base sm:text-lg md:text-xl text-gold-800 mb-8 max-w-3xl mx-auto leading-relaxed px-4">
-              Advanced medical treatments to stimulate hair regrowth and restore your confidence with cutting-edge technology
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button 
-                onClick={() => setIsModalOpen(true)}
-                size="lg" 
-                className="w-full sm:w-auto bg-gold-500 hover:bg-gold-600 text-gold-50 shadow-medium group"
-              >
-                <Calendar className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
-                Book Free Consultation
-              </Button>
-            </div>
+    {/* 🌿 HERO SECTION – Hair Growth Therapies */}
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+      {/* 🖼️ Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-60"
+        style={{ backgroundImage: `url(${hairGrowthHero})` }}
+      ></div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-12 sm:mt-16">
-              {stats.map((stat, index) => (
-                <Card key={index} className="bg-white/70 backdrop-blur border-gold-300/50 shadow-soft">
-                  <CardContent className="p-4 text-center">
-                    <div className="text-xl sm:text-2xl font-bold text-gold-700 mb-1">
-                      {stat.value}
-                    </div>
-                    <div className="text-xs sm:text-sm text-gold-600">
-                      {stat.label}
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+      {/* ✨ Ambient Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-yellow-50/80 via-amber-100/70 to-yellow-200/50 backdrop-blur-[2px]"></div>
+
+      {/* 🧱 Content */}
+      <div className="relative z-10 container mx-auto px-6 lg:px-10 py-20 lg:py-28">
+        <div className="max-w-4xl mx-auto text-center space-y-8">
+          {/* 🏷️ Badge */}
+          <div className="inline-block px-4 py-2 rounded-full bg-amber-500 text-white text-sm font-semibold shadow-md">
+            ✨ Advanced Hair Restoration
+          </div>
+
+          {/* 🪶 Title */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-slate-800 leading-tight">
+            Hair Growth
+            <span className="block text-amber-600">Therapies</span>
+          </h1>
+
+          {/* 💬 Description */}
+          <p className="text-lg md:text-xl text-slate-700 leading-relaxed max-w-3xl mx-auto">
+            Explore scientifically backed therapies that stimulate natural hair regrowth, 
+            strengthen follicles, and restore your confidence — all using state-of-the-art regenerative technology.
+          </p>
+
+          {/* 🎯 CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              onClick={() => setIsModalOpen(true)}
+              size="lg"
+              className="bg-amber-500 hover:bg-amber-600 text-white font-semibold px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 group"
+            >
+              <Calendar className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
+              Book Free Consultation
+            </Button>
+          </div>
+
+          {/* 📊 Stats Grid */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-14">
+            {stats.map((stat, index) => (
+              <Card
+                key={index}
+                className="bg-white/70 backdrop-blur-md border border-amber-200/70 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300"
+              >
+                <CardContent className="p-6 text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-amber-600 mb-1">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm md:text-base text-slate-700 font-medium">
+                    {stat.label}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* Introduction Section */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">

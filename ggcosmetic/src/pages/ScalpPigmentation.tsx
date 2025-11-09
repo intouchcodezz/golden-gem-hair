@@ -109,81 +109,104 @@ const ScalpMicroPigmentation = () => {
       />
       <Header />
 
-      {/* HERO SECTION */}
-  <section className="relative bg-gradient-to-br from-amber-600 via-amber-500 to-yellow-400 min-h-screen flex items-center overflow-hidden">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="absolute top-0 right-0 w-1/2 h-full opacity-10">
+      {/* HERO SECTION – Modern Golden Gradient + Glass Design */}
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-yellow-50 via-amber-50 to-white">
+        {/* Ambient Glow Orbs */}
+        <div className="absolute top-0 left-0 w-[30rem] h-[30rem] bg-amber-300/40 rounded-full blur-[120px] -translate-x-1/3 -translate-y-1/3"></div>
+        <div className="absolute bottom-0 right-0 w-[35rem] h-[35rem] bg-yellow-200/40 rounded-full blur-[120px] translate-x-1/3 translate-y-1/3"></div>
+
+        {/* Background Image with Soft Overlay */}
+        <div className="absolute inset-0 opacity-20 mix-blend-overlay">
           <img 
-            src="https://images.pexels.com/photos/5452296/pexels-photo-5452296.jpeg?auto=compress&cs=tinysrgb&w=800" 
+            src="https://images.pexels.com/photos/5452296/pexels-photo-5452296.jpeg?auto=compress&cs=tinysrgb&w=800"
             alt="SMP Treatment Process"
             className="w-full h-full object-cover"
           />
         </div>
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="text-white space-y-8">
+        <div className="absolute inset-0 bg-gradient-to-tr from-yellow-100/50 via-transparent to-white/20 backdrop-blur-sm"></div>
+
+        {/* Content Container */}
+        <div className="relative z-10 container mx-auto px-6 lg:px-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            {/* LEFT - Text Content */}
+            <div className="space-y-8 text-center lg:text-left">
               <div className="space-y-2">
-                <p className="text-amber-200 font-medium tracking-wide uppercase text-sm">Advanced Cosmetic Tattooing</p>
-                <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
-                  Professional <span className="text-amber-300">Scalp Micro</span><br />
+                <p className="text-amber-600 font-semibold tracking-wide uppercase text-sm">
+                  Advanced Cosmetic Tattooing
+                </p>
+                <h1 className="text-5xl lg:text-6xl font-bold text-slate-800 leading-tight">
+                  Professional <span className="text-amber-500">Scalp Micro</span><br />
                   Pigmentation
                 </h1>
               </div>
-              
-              <p className="text-xl text-amber-100 leading-relaxed max-w-xl">
-                Transform your appearance with the world's most advanced non-surgical hair loss solution. 
-                Create the perfect illusion of natural hair density with immediate, lasting results.
+
+              <p className="text-lg text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                Transform your appearance with the most advanced non-surgical hair restoration. 
+                Achieve the perfect illusion of natural hair density — instant, lasting, and completely safe.
               </p>
 
-              <div className="grid grid-cols-3 gap-6 py-8">
+              {/* Stats */}
+              <div className="grid grid-cols-3 gap-6 py-6">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-amber-300">98%+</div>
-                  <div className="text-sm text-amber-200">Client Satisfaction</div>
+                  <div className="text-2xl md:text-3xl font-bold text-amber-600">98%+</div>
+                  <div className="text-sm text-slate-700">Client Satisfaction</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-300">Non-Surgical</div>
-                  <div className="text-sm text-blue-200">Safe Procedure</div>
+                  <div className="text-2xl md:text-3xl font-bold text-amber-600">Non-Surgical</div>
+                  <div className="text-sm text-slate-700">Safe Procedure</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-300">5000+</div>
-                  <div className="text-sm text-blue-200">Successful Cases</div>
+                  <div className="text-2xl md:text-3xl font-bold text-amber-600">5000+</div>
+                  <div className="text-sm text-slate-700">Successful Cases</div>
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button onClick={() => setIsModalOpen(true)} size="lg" className="bg-white text-amber-600 hover:bg-gray-100 font-semibold px-8 py-4">
+              {/* Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Button
+                  onClick={() => setIsModalOpen(true)}
+                  size="lg"
+                  className="bg-amber-500 hover:bg-amber-600 text-white font-semibold px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
+                >
                   <Phone className="mr-2 h-5 w-5" />
                   Free Consultation
                 </Button>
-                <Link to="/#home">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto border-white text-white hover:bg-white hover:text-yellow-600 font-semibold px-8 py-4">
-                  <Camera className="mr-2 h-5 w-5" />
-                  View Our Work
-                </Button>
+                
+                <Link to="/#home" className="w-full sm:w-auto">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border border-amber-300 text-amber-700 bg-white/70 backdrop-blur-md hover:bg-white hover:text-amber-600 font-semibold px-8 py-4 rounded-xl transition-all duration-300"
+                  >
+                    <Camera className="mr-2 h-5 w-5" />
+                    View Our Work
+                  </Button>
                 </Link>
               </div>
             </div>
 
-            <div className="hidden lg:block">
-              <div className="relative">
+            {/* RIGHT - Image Section */}
+            <div className="relative hidden lg:flex justify-center">
+              {/* Ambient highlight behind image */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-amber-300/30 via-white/10 to-transparent rounded-3xl blur-2xl"></div>
+
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl w-full max-w-md">
                 <img 
                   src={scalp}
                   alt="SMP Results"
-                  className="rounded-2xl shadow-2xl"
+                  className="object-cover w-full h-[480px]"
                 />
-                <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg">
-                  <div className="flex items-center space-x-3">
-                    <div className="flex -space-x-2">
-                      {[1,2,3,4,5].map((i) => (
-                        <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                      ))}
-                    </div>
-                    <div>
-                      <div className="font-semibold text-gray-800">4.9/5 Rating</div>
-                      <div className="text-sm text-gray-600">From 1200+ Reviews</div>
-                    </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+
+                {/* Rating Badge */}
+                <div className="absolute bottom-4 left-4 bg-white/80 backdrop-blur-md px-4 py-2 rounded-xl flex items-center gap-2 shadow-md">
+                  <div className="flex -space-x-1">
+                    {[1,2,3,4,5].map((i) => (
+                      <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
+                    ))}
                   </div>
+                  <span className="font-medium text-slate-800 text-sm">4.9/5 from 1200+ clients</span>
                 </div>
               </div>
             </div>

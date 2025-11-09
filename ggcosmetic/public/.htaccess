@@ -1,66 +1,18 @@
-# -----------------------------------------
-# 🔒 SECURITY + ⚡ PERFORMANCE + 📈 SEO MASTER .htaccess
-# The Golden Gem Hair Clinic
-# -----------------------------------------
-
-# Enable Rewrite Engine
+# --- Minimal working .htaccess for Vue/Vite SPA ---
 RewriteEngine On
 
-# ✅ Force HTTPS (secure)
+# Redirect to HTTPS
 RewriteCond %{HTTPS} !=on
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# ✅ Remove 'www' (canonical)
-RewriteCond %{HTTP_HOST} ^www\.thegoldengemhairclinic\.com [NC]
-RewriteRule ^(.*)$ https://thegoldengemhairclinic.com/$1 [L,R=301,NE]
+# Redirect www to non-www
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
 
-# ✅ Default landing file
-DirectoryIndex index.html
+# Handle Vue Router SPA routes (fallback)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]
 
-# ✅ SPA Fallback — handles /admin/dashboard, /terms, etc.
-# Must come AFTER the https/www redirects
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /
-  # Don’t rewrite real files or folders
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  # Send everything else to index.html
-  RewriteRule ^index\.html$ - [L]
-  RewriteRule . /index.html [L]
-</IfModule>
-
-# ✅ Custom 404 Page (optional)
-ErrorDocument 404 /404.html
-
-# ✅ Enable GZIP Compression
-<IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml
-</IfModule>
-
-# ✅ Browser Caching (long-term)
-<IfModule mod_expires.c>
-  ExpiresActive On
-  ExpiresDefault "access plus 1 month"
-  ExpiresByType image/webp "access plus 6 months"
-  ExpiresByType image/jpeg "access plus 6 months"
-  ExpiresByType image/png "access plus 6 months"
-  ExpiresByType image/svg+xml "access plus 6 months"
-  ExpiresByType text/css "access plus 1 month"
-  ExpiresByType application/javascript "access plus 1 month"
-</IfModule>
-
-# ✅ Cache-Control headers
-<FilesMatch "\.(js|css|jpg|jpeg|png|gif|webp|svg|woff2)$">
-  Header set Cache-Control "public, max-age=31536000, immutable"
-</FilesMatch>
-
-# ✅ Security Headers
-<IfModule mod_headers.c>
-  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-  Header set X-Content-Type-Options "nosniff"
-  Header set X-Frame-Options "SAMEORIGIN"
-  Header set Referrer-Policy "strict-origin-when-cross-origin"
-  Header set X-XSS-Protection "1; mode=block"
-  Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
-</IfModule>
+# Optional: 404 page
+ErrorDocument 404 /index.html

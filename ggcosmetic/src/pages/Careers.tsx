@@ -1,29 +1,60 @@
+import { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Button } from "../components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import hiring from "@/assets/new.png"
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import hiring from "@/assets/new.png";
+
+// ✅ Define types
+interface FormData {
+  name: string;
+  email: string;
+  phone: string;
+  experience: string;
+  message: string;
+}
+
+interface FormErrors {
+  name?: string;
+  email?: string;
+  phone?: string;
+  experience?: string;
+  message?: string;
+}
 
 const Careers = () => {
+  const [selectedJob, setSelectedJob] = useState<string | null>(null);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    email: "",
+    phone: "",
+    experience: "",
+    message: "",
+  });
+  const [errors, setErrors] = useState<FormErrors>({});
+
   const openPositions = [
     {
       title: "Senior Trichologist",
       department: "Medical",
       type: "Full-time",
       experience: "5+ years",
-      location: "Mumbai",
       description:
         "Lead trichologist position for advanced hair and scalp treatments.",
     },
@@ -31,8 +62,7 @@ const Careers = () => {
       title: "Associate Trichologist",
       department: "Medical",
       type: "Full-time",
-      experience: "2-4 years",
-      location: "Delhi",
+      experience: "2–4 years",
       description:
         "Support senior trichologists in patient care and treatments.",
     },
@@ -41,73 +71,104 @@ const Careers = () => {
       department: "Surgical",
       type: "Full-time",
       experience: "3+ years",
-      location: "Bangalore",
-      description:
-        "Assist in hair transplant procedures and patient care.",
+      description: "Assist in hair transplant procedures and patient care.",
     },
     {
       title: "Patient Coordinator",
       department: "Administration",
       type: "Full-time",
-      experience: "1-2 years",
-      location: "Pune",
+      experience: "1–2 years",
       description:
         "Manage patient appointments and treatment coordination.",
     },
   ];
 
-  const benefits = [
-    {
-      icon: "🏥",
-      title: "Health Insurance",
-      description:
-        "Comprehensive medical coverage for you and your family.",
-    },
-    {
-      icon: "📚",
-      title: "Professional Development",
-      description:
-        "Continuous learning opportunities and certification support.",
-    },
-    {
-      icon: "⚖️",
-      title: "Work-Life Balance",
-      description:
-        "Flexible working hours and wellness programs.",
-    },
-    {
-      icon: "💰",
-      title: "Competitive Compensation",
-      description:
-        "Attractive salary packages with performance incentives.",
-    },
-    {
-      icon: "🎯",
-      title: "Career Growth",
-      description:
-        "Clear advancement paths and leadership opportunities.",
-    },
-    {
-      icon: "🤝",
-      title: "Team Collaboration",
-      description:
-        "Work with leading experts in trichology and dermatology.",
-    },
-  ];
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
 
-  const steps = [
-    { step: 1, title: "Apply Online", desc: "Submit your application through our website" },
-    { step: 2, title: "Initial Screening", desc: "Our HR team reviews your application" },
-    { step: 3, title: "Interview Process", desc: "Technical and cultural fit assessment" },
-    { step: 4, title: "Welcome Aboard", desc: "Onboarding and training program" },
-  ];
+    if (name === "phone" && /[^0-9]/.test(value)) return;
+    if (name === "name" && /[^a-zA-Z\s]/.test(value)) return;
+
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    setErrors((prev) => ({ ...prev, [name]: "" }));
+  };
+
+  const handleApply = (jobTitle: string) => {
+    setSelectedJob(jobTitle);
+    setIsDialogOpen(true);
+  };
+
+  const validateForm = (): FormErrors => {
+    let newErrors: FormErrors = {};
+
+    if (!formData.name.trim()) newErrors.name = "Name is required";
+    else if (!/^[A-Za-z\s]+$/.test(formData.name.trim()))
+      newErrors.name = "Only letters and spaces allowed";
+
+    if (!formData.email.trim()) newErrors.email = "Email is required";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email))
+      newErrors.email = "Enter a valid email";
+
+    if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
+    else if (!/^\d{10}$/.test(formData.phone))
+      newErrors.phone = "Enter a valid 10-digit number";
+
+    if (!formData.message.trim()) newErrors.message = "Message is required";
+    else if (formData.message.trim().length < 10)
+      newErrors.message = "Message must be at least 10 characters";
+
+    return newErrors;
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const validationErrors = validateForm();
+
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
+    const submissionData = { ...formData, jobTitle: selectedJob };
+
+    try {
+      const res = await fetch(
+        "https://thegoldengemhairclinic.com/backend/career_apply.php",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(submissionData),
+        }
+      );
+
+      if (res.ok) {
+        alert(`✅ Application submitted for ${selectedJob}!`);
+        setIsDialogOpen(false);
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          experience: "",
+          message: "",
+        });
+        setErrors({});
+      } else {
+        alert("⚠️ Error submitting form. Please try again.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("❌ Something went wrong!");
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
       <main className="flex flex-col">
-        {/* Hero Banner */}
+        {/* Hero */}
         <section className="relative h-[300px] md:h-[400px] w-full">
           <img
             src={hiring}
@@ -115,35 +176,10 @@ const Careers = () => {
             className="absolute top-0 left-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center text-white">
-            <h1 className="text-4xl md:text-5xl font-bold">We Are Hiring</h1>
-            <p className="mt-2 text-lg">
-              Build your career with India's leading trichology experts
+            <h1 className="text-4xl md:text-5xl font-bold">We’re Hiring!</h1>
+            <p className="mt-2 text-lg max-w-2xl">
+              Join India’s Leading Experts in Trichology & Hair Restoration.
             </p>
-          </div>
-        </section>
-
-        {/* Why Work With Us */}
-        <section className="container mx-auto px-4 py-12 max-w-6xl">
-          <h2 className="text-2xl font-semibold mb-8 text-center">
-            Why Choose Golden Gem as Your Career Partner?
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {benefits.map((benefit, index) => (
-              <Card
-                key={index}
-                className="text-center shadow hover:shadow-lg transition"
-              >
-                <CardHeader>
-                  <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-primary text-white text-2xl">
-                    {benefit.icon}
-                  </div>
-                  <CardTitle className="text-lg">{benefit.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>{benefit.description}</CardDescription>
-                </CardContent>
-              </Card>
-            ))}
           </div>
         </section>
 
@@ -156,11 +192,11 @@ const Careers = () => {
             {openPositions.map((position, index) => (
               <AccordionItem key={index} value={`item-${index}`}>
                 <AccordionTrigger className="text-lg font-medium">
-                  {position.title} - {position.location}
+                  {position.title}
                 </AccordionTrigger>
                 <AccordionContent>
                   <p className="mb-2">{position.description}</p>
-                  <div className="grid md:grid-cols-4 gap-4 text-sm mb-4">
+                  <div className="grid md:grid-cols-3 gap-4 text-sm mb-4">
                     <div>
                       <span className="font-semibold">Department:</span>
                       <div className="text-muted-foreground">
@@ -179,58 +215,107 @@ const Careers = () => {
                         {position.experience}
                       </div>
                     </div>
-                    <div>
-                      <span className="font-semibold">Location:</span>
-                      <div className="text-muted-foreground">
-                        {position.location}
-                      </div>
-                    </div>
                   </div>
-                  <Button className="btn-golden">Apply Now</Button>
+                  <Button
+                    onClick={() => handleApply(position.title)}
+                    className="bg-amber-500 hover:bg-amber-600 text-white font-semibold"
+                  >
+                    Apply Now
+                  </Button>
                 </AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
         </section>
-
-        {/* Application Process */}
-        <section className="container mx-auto px-4 py-12 max-w-6xl">
-          <h2 className="text-2xl font-semibold mb-8 text-center">
-            Application Process
-          </h2>
-          <div className="flex flex-col md:flex-row justify-between gap-8">
-            {steps.map((s, i) => (
-              <div key={i} className="flex-1 text-center relative">
-                <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
-                  {s.step}
-                </div>
-                <h3 className="font-semibold mb-2">{s.title}</h3>
-                <p className="text-sm text-muted-foreground">{s.desc}</p>
-
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Call to Action */}
-        {/* <section className="container mx-auto px-4 py-12 max-w-3xl">
-          <div className="bg-white border rounded-lg p-8 text-center shadow">
-            <h3 className="text-2xl font-semibold mb-2">
-              Didn't Find the Right Position?
-            </h3>
-            <p className="mb-6">
-              We're always looking for talented individuals to join our growing
-              team. Send us your resume and we'll keep you in mind for future
-              opportunities.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="btn-golden">
-                Submit General Application
-              </Button>
-            </div>
-          </div>
-        </section> */}
       </main>
+
+      {/* Application Dialog */}
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="max-w-lg">
+          <DialogHeader>
+            <DialogTitle className="text-xl font-semibold text-amber-700">
+              Apply for {selectedJob}
+            </DialogTitle>
+            <DialogDescription>
+              Please fill out all required fields accurately.
+            </DialogDescription>
+          </DialogHeader>
+
+          <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+            {/* Name */}
+            <div>
+              <Input
+                name="name"
+                placeholder="Full Name"
+                value={formData.name}
+                onChange={handleInputChange}
+              />
+              {errors.name && (
+                <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+              )}
+            </div>
+
+            {/* Email */}
+            <div>
+              <Input
+                name="email"
+                type="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleInputChange}
+              />
+              {errors.email && (
+                <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+              )}
+            </div>
+
+            {/* Phone */}
+            <div>
+              <Input
+                name="phone"
+                type="tel"
+                placeholder="Phone Number (10 digits)"
+                maxLength={10} // fixed TypeScript error (must be number)
+                value={formData.phone}
+                onChange={handleInputChange}
+              />
+              {errors.phone && (
+                <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+              )}
+            </div>
+
+            {/* Experience */}
+            <Input
+              name="experience"
+              placeholder="Years of Experience"
+              value={formData.experience}
+              onChange={handleInputChange}
+            />
+
+            {/* Message */}
+            <div>
+              <Textarea
+                name="message"
+                placeholder="Tell us about yourself (min 10 chars)"
+                value={formData.message}
+                onChange={handleInputChange}
+              />
+              {errors.message && (
+                <p className="text-red-500 text-sm mt-1">{errors.message}</p>
+              )}
+            </div>
+
+            <DialogFooter>
+              <Button
+                type="submit"
+                className="bg-amber-500 hover:bg-amber-600 text-white font-semibold"
+              >
+                Submit Application
+              </Button>
+            </DialogFooter>
+          </form>
+        </DialogContent>
+      </Dialog>
 
       <Footer />
     </div>

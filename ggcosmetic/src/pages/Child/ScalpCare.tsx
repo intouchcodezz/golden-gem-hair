@@ -114,60 +114,89 @@ const ScalpCare = () => {
         }}
         treatment="General Consultation"
       />
-      {/* Hero Section - Redesigned */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-amber-900 via-amber-800 to-yellow-700">
-        {/* ✨ Background gradient pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.2),transparent_50%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(255,255,255,0.1),transparent_50%)]" />
+{/* 🧴 HERO SECTION – Expert Scalp Care Solutions */}
+<section className="relative overflow-hidden bg-gradient-to-br from-amber-900 via-amber-800 to-yellow-700">
+  {/* 🌟 Ambient Radial Lights */}
+  <div className="absolute inset-0 opacity-20">
+    <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_40%,rgba(255,255,255,0.25),transparent_60%)]" />
+    <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_60%,rgba(255,255,255,0.15),transparent_60%)]" />
+  </div>
+
+  {/* 🖼️ Background Image */}
+  <img
+    src={scalp}
+    alt="Scalp Treatment Banner"
+    className="absolute inset-0 w-full h-full object-cover opacity-30 sm:opacity-40"
+  />
+
+  {/* 🖤 Overlay */}
+  <div className="absolute inset-0 bg-black/30"></div>
+
+  {/* 🌅 Content */}
+  <div className="relative z-10 container mx-auto px-6 lg:px-10 py-20 lg:py-32">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+
+      {/* 💬 LEFT - TEXT CONTENT */}
+      <div className="text-center md:text-left space-y-8">
+        {/* Label Badge */}
+        <div className="inline-flex items-center bg-amber-200 text-amber-900 text-sm font-semibold px-4 py-2 rounded-full shadow-md">
+          <Sparkles className="w-4 h-4 mr-2" />
+          Expert Scalp Solutions
         </div>
 
-        {/* 🖼️ Background Image */}
-        <img
-          src={scalp} // ← change path to your actual image
-          alt="Scalp Treatment Banner"
-          className="absolute inset-0 w-full h-full object-cover opacity-25 sm:opacity-40"
-        />
+        {/* Headline */}
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
+          Expert Scalp Care
+          <span className="block text-amber-200 mt-2">Solutions</span>
+        </h1>
 
-        {/* 🔲 Overlay for readability */}
-        <div className="absolute inset-0 bg-black/20"></div>
+        {/* Subtext */}
+        <p className="text-base sm:text-lg md:text-xl text-amber-50 leading-relaxed max-w-lg mx-auto md:mx-0">
+          Restore and rejuvenate your scalp health with scientifically designed treatments — 
+          from precision micropigmentation to advanced therapeutic care for stronger, more confident results.
+        </p>
 
-        <div className="relative z-10 px-4 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-32">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-              
-              {/* LEFT - TEXT */}
-              <div className="text-center md:text-left">
-                <Badge className="mb-6 bg-amber-200 text-amber-900 hover:bg-amber-300 border-0 shadow-lg">
-                  <Sparkles className="w-3 h-3 mr-1" />
-                  Expert Scalp Solutions
-                </Badge>
-                
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-                  Expert Scalp Care
-                  <span className="block text-amber-100 mt-2">Solutions</span>
-                </h1>
-                
-                <p className="text-lg sm:text-xl text-amber-50 mb-10 leading-relaxed max-w-xl">
-                  Transform your scalp health with our advanced treatments. From micropigmentation 
-                  to therapeutic care, achieve the confidence you deserve.
-                </p>
-                
-                <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                  <Button 
-                    onClick={() => setIsModalOpen(true)}
-                    size="lg" 
-                    className="w-full sm:w-auto bg-white hover:bg-amber-50 text-amber-900 shadow-xl text-base font-semibold px-8 py-6"
-                  >
-                    <Calendar className="mr-2 h-5 w-5" />
-                    Book Free Consultation
-                  </Button>
-                </div>
-              </div>
+        {/* CTA Button */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+          <Button
+            onClick={() => setIsModalOpen(true)}
+            size="lg"
+            className="bg-white hover:bg-amber-100 text-amber-800 font-semibold text-base px-8 py-5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
+          >
+            <Calendar className="mr-2 h-5 w-5" />
+            Book Free Consultation
+          </Button>
+        </div>
+      </div>
+
+      {/* 🧠 RIGHT SIDE - DECORATIVE IMAGE CARD (Optional Enhancement) */}
+      <div className="hidden md:flex justify-center lg:justify-end relative">
+        <div className="relative rounded-3xl overflow-hidden shadow-2xl w-3/4 lg:w-[90%] max-w-md transition-transform duration-500 hover:scale-[1.02]">
+          <img
+            src={scalp}
+            alt="Professional Scalp Treatment"
+            className="object-cover w-full h-[480px]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+
+          {/* ⭐ Rating Badge */}
+          <div className="absolute bottom-4 left-4 bg-white/80 backdrop-blur-md px-4 py-2 rounded-xl flex items-center gap-2 shadow-md">
+            <div className="flex -space-x-1">
+              {[1, 2, 3, 4, 5].map((i) => (
+                <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
+              ))}
             </div>
+            <span className="font-medium text-slate-800 text-sm">
+              4.9/5 from 1,800+ clients
+            </span>
           </div>
         </div>
-      </section>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
       {/* Introduction Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
