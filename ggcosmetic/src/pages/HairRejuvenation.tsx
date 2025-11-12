@@ -718,7 +718,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
               <div className="bg-amber-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="h-10 w-10 text-amber-600" />
               </div>
-              <div className="text-3xl font-bold text-gray-800 mb-2">10+</div>
+              <div className="text-3xl font-bold text-gray-800 mb-2">8+</div>
               <div className="text-gray-600">Years Experience</div>
             </div>
             <div className="text-center">

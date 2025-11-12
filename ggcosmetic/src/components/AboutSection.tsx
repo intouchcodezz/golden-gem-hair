@@ -12,7 +12,7 @@ const About = () => {
 
   const stats = [
     { icon: Users, label: "Happy Patients", value: "10,000+", color: "text-emerald-600" },
-    { icon: Award, label: "Years of Excellence", value: "10+", color: "text-blue-600" },
+    { icon: Award, label: "Years of Excellence", value: "8+", color: "text-blue-600" },
     { icon: Clock, label: "Successful Procedures", value: "25,000+", color: "text-purple-600" },
     { icon: Star, label: "Success Rate", value: "98%", color: "text-amber-600" }
   ];
@@ -156,7 +156,7 @@ const About = () => {
             {/* Experience Badge */}
             <div className="absolute -top-6 -right-6 bg-[#fff] text-black rounded-2xl p-6 shadow-xl">
               <div className="text-center">
-                <div className="text-2xl font-bold mb-1">10+</div>
+                <div className="text-2xl font-bold mb-1">8+</div>
                 <div className="text-xs font-medium opacity-90">Years of<br/>Excellence</div>
               </div>
             </div>

@@ -47,7 +47,7 @@ const Footer = () => {
               </div>
               
               <p className="text-background/70 leading-relaxed mb-8 text-sm">
-                Leading hair and trichology clinic with 10+ years of excellence in providing 
+                Leading hair and trichology clinic with 8+ years of excellence in providing 
                 cutting-edge treatments with FDA-certified equipment and guaranteed results.
               </p>
 

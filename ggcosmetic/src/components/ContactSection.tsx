@@ -10,7 +10,7 @@ const ContactSection = () => {
     { value: "10,000+", label: "Happy Patients", icon: Heart, color: "from-red-500 to-rose-600" },
     { value: "4.9/5", label: "Average Rating", icon: Star, color: "from-amber-500 to-yellow-600" },
     { value: "98%", label: "Success Rate", icon: TrendingUp, color: "from-green-500 to-emerald-600" },
-    { value: "10+", label: "Years Experience", icon: Award, color: "from-blue-500 to-indigo-600" },
+    { value: "8+", label: "Years Experience", icon: Award, color: "from-blue-500 to-indigo-600" },
   ];
 
   const contactInfo = [

@@ -99,7 +99,7 @@ const ScalpCare = () => {
   const stats = [
     { number: "95%", label: "Patient Satisfaction" },
     { number: "500+", label: "Successful Treatments" },
-    { number: "10+", label: "Years Experience" },
+    { number: "8+", label: "Years Experience" },
     { number: "24/7", label: "Support Available" }
   ];
     const [isModalOpen, setIsModalOpen] = useState(false);

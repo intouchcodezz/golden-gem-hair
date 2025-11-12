@@ -110,7 +110,7 @@ const Growth = () => {
     { value: "95%", label: "Success Rate" },
     { value: "1000+", label: "Happy Patients" },
     { value: "5 Star", label: "Rating" },
-    { value: "10+ Years", label: "Experience" }
+    { value: "8+ Years", label: "Experience" }
   ];
 
   const { open } = useImageLightbox();

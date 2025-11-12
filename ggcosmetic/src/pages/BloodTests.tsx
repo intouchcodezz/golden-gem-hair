@@ -123,7 +123,7 @@ const BloodHormonalTests = () => {
               {/* 📊 Stats */}
               <div className="grid grid-cols-3 gap-4 py-6 max-w-md mx-auto lg:mx-0">
                 {[
-                  { value: "10+", label: "Key Biomarkers" },
+                  { value: "8+", label: "Key Biomarkers" },
                   { value: "5–10 Min", label: "Test Time" },
                   { value: "8000+", label: "Patients Tested" },
                 ].map((stat, i) => (
@@ -219,7 +219,7 @@ const BloodHormonalTests = () => {
               {
                 icon: <Zap className="h-12 w-12 text-yellow-300" />,
                 title: "Comprehensive Analysis",
-                description: "Tests 10+ biomarkers for a complete health profile."
+                description: "Tests 8+ biomarkers for a complete health profile."
               }
             ].map((feature, idx) => (
               <div key={idx} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
