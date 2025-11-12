@@ -28,7 +28,7 @@ const About = () => {
 
   const specializations = [
     "PRP Hair Treatment",
-    "Biocell Therapy", 
+    "Hair Transplant", 
     "Scalp Micro-pigmentation",
     "Hair Rejuvenation Therapy",
     "Advanced Skin Treatments"

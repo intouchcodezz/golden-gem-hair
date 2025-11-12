@@ -9,7 +9,10 @@ import fue from '@/assets/fue.jpg';
 import beforeafter2 from '@/assets/beforeafter2.jpg';
 import beforeafter3 from '@/assets/beforeafter3.jpg';
 import beforeafter4 from '@/assets/beforeafter4.jpg';
-import beforeafter9 from '@/assets/beforeafter9.jpg';
+import ht4 from '@/assets/ht4.jpg';
+import beforeafter8 from '@/assets/beforeafter8.jpg';
+import beforeafter5 from '@/assets/beforeafter5.jpg';
+import ht2 from '@/assets/ht2.jpg'
 import { 
   Phone, 
   Mail, 
@@ -73,10 +76,28 @@ const beforeAfterResults = [
     timeline: "13 months post-op"
   },
   {
-    before: beforeafter9,
+    before: ht4,
     age: "33 years",
     grafts: "3,000 grafts",
-    timeline: "15 months post-op"
+    timeline: "7 months post-op"
+  },
+    {
+    before: beforeafter8,
+    age: "35 years",
+    grafts: "2,500 grafts",
+    timeline: "8 months post-op"
+  },    
+  {
+    before: beforeafter5,
+    age: "28 years",
+    grafts: "1,500 grafts",
+    timeline: "9 months post-op"
+  },
+  {
+    before: ht2,
+    age: "36 years",
+    grafts: "2,700 grafts",
+    timeline: "10 months post-op"
   }
 ];
 

@@ -3,7 +3,7 @@ import { ChevronDown, Menu, X, Phone, Mail, Clock, Instagram, Facebook, Youtube,
 import EnquiryForm from './EnquiryModal';
 import { gsap } from 'gsap';
 import logo from '../assets/newlogo.jpg';
-import prp from '../assets/prp.jpg';
+import prp from '../assets/prp3.webp';
 import ht from '../assets/ht.jpg';
 import HairRejuvenation from '../assets/hairrejuvenation.jpg';
 import folitreat from '../assets/folitreat.jpg'
@@ -511,7 +511,9 @@ export default function Navbar() {
           })}
 
           <div className="px-6 py-6">
-            <button className="flex items-center justify-center w-full gap-2 px-6 py-4 font-semibold text-primary-foreground bg-[#f4a00c] hover:shadow-lg rounded-xl transition-all">
+            <button 
+            onClick={() => setIsModalOpen(true)}
+            className="flex items-center justify-center w-full gap-2 px-6 py-4 font-semibold text-primary-foreground bg-[#f4a00c] hover:shadow-lg rounded-xl transition-all">
               <Calendar className="w-4 h-4" />
               Get Free Consultation
             </button>

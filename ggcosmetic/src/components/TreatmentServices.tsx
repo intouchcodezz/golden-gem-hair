@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight, Play, Pause, Star, Award } from 'lucide-react';
 import EnquiryForm from './EnquiryModal';
 import { Link } from 'react-router-dom';
-import prp from '../assets/prp.jpg';
+import prp from '../assets/prp3.webp';
 import ht from '../assets/ht.jpg';
 import HairRejuvenation from '../assets/hairrejuvenation.jpg';
 import folitreat from '../assets/folitreat.jpg'
@@ -12,22 +12,11 @@ import gfc from '../assets/gfc.webp'
 import smp from '../assets/SMP.jpg'
 import ivhair from '../assets/ivhair.png'
 import cellgraft from '../assets/cellgraft.webp'
-import biocell from '../assets/biocell.jpg'
 import growththearpies from '../assets/growththearpies.jpeg'
 import scalp from '../assets/scalp.jpg'
 
 // Combined treatments data
 const allTreatments = [
-  {
-    id: "biocell-therapy",
-    title: "Biocell Therapy",
-    description: "Advanced stem cell therapy for natural hair restoration and scalp rejuvenation.",
-    image: biocell,
-    category: "Hair",
-    link: "/biocell-therapy",
-    rating: 4.9,
-    duration: "60 min"
-  },
   {
     id: "prp-treatment",
     title: "Platelet Rich Plasma",

@@ -5,9 +5,8 @@ import Footer from '@/components/Footer';
 import EnquiryForm from '@/components/EnquiryModal';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import HT from '@/assets/HT.jpg';
-import beforeafter8 from "@/assets/beforeafter8.jpg";
-import beforeafter18 from "@/assets/beforeafter18.webp";
+import gfc2 from "@/assets/gfc2.jpg";
+import gfc3 from "@/assets/gfc3.jpg";
 import beforeafter12 from "@/assets/beforeafter12.jpg";
 import beforeafter20 from "@/assets/beforeafter20.jpg";
 import { 
@@ -67,13 +66,13 @@ const beforeAfterResults = [
     timeline: "9 months post-treatment"
   },
   {
-    before: beforeafter18,
+    before: gfc3,
     age: "30 years",
     sessions: "4 sessions",
     timeline: "7 months post-treatment"
   },
   {
-    before: beforeafter8,
+    before: gfc2,
     age: "33 years",
     sessions: "5 sessions",
     timeline: "8 months post-treatment"

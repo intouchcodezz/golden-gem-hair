@@ -12,7 +12,6 @@ const Footer = () => {
   ];
 
   const treatments = [
-    { label: "Biocell Therapy", href: "/biocell-therapy" },
     { label: "PRP Treatment", href: "/prp-treatment" },
     { label: "Hair Transplantation", href: "/hair-transplant" },
     { label: "Scalp Micro Pigmentation", href: "/scalp-pigmentation" },

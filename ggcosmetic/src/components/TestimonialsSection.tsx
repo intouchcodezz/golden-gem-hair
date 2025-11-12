@@ -21,7 +21,7 @@ const testimonials = [
     location: "Chennai",
     text: "The Golden Gem treatment exceeded all my expectations. The therapists were incredibly caring and professional throughout my journey. My hair has never looked better.",
     rating: 5,
-    treatment: "Biocell Therapy",
+    treatment: "Hair Transplant",
     months: "6 months ago",
   },
   {
@@ -39,7 +39,7 @@ const testimonials = [
     location: "Hyderabad",
     text: "My confidence was at an all-time low due to hair loss. The Golden Gem team gave me hope. After sessions, my hair growth improved dramatically.",
     rating: 5,
-    treatment: "Biocell & PRP Combo",
+    treatment: "PRP Combo",
     months: "1 year ago",
   },
   {

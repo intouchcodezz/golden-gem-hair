@@ -18,7 +18,7 @@ const Testimonials = () => {
     },
     {
       name: "Mohammed Naveed",
-      quote: "I have undergone Biocell Treatment. The overall treatment is satisfactory. Therapist Sunitha did an outstanding job by doing treatment and as well as explaining the pros & cons. I really impressed with her work a lot. After this Biocell treatment, I will continue taking supplements as suggested by Doctor and will think about going for maintenance treatment suggested by Doctor. I was satisfied completely with the treatment. Thank you!",
+      quote: "I have undergone GFC Treatment. The overall treatment is satisfactory. Therapist Sunitha did an outstanding job by doing treatment and as well as explaining the pros & cons. I really impressed with her work a lot. After this GFC treatment, I will continue taking supplements as suggested by Doctor and will think about going for maintenance treatment suggested by Doctor. I was satisfied completely with the treatment. Thank you!",
       type: "Male",
     },
     {
@@ -38,7 +38,6 @@ const Testimonials = () => {
     { title: "Hairfall and Baldness Treatment", image: "https://picsum.photos/300/300?random=206" },
     { title: "Hairfall Treatment Feedback 1", image: "https://picsum.photos/300/300?random=207" },
     { title: "Hairfall Treatment Feedback 2", image: "https://picsum.photos/300/300?random=208" },
-    { title: "Biocell Therapy Feedback", image: "https://picsum.photos/300/300?random=209" },
   ];
 const [isModalOpen, setIsModalOpen] = useState(false);
   return (
