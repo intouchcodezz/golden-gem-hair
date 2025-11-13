@@ -18,12 +18,13 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ isOpen, onClose, onSubmit, tr
     appointment_date: "",
     treatment: treatment || "",
   });
+
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
   const modalRef = useRef<HTMLDivElement>(null);
-
   const [mounted, setMounted] = useState(false);
+
   useEffect(() => setMounted(true), []);
 
   useEffect(() => {
@@ -65,15 +66,14 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ isOpen, onClose, onSubmit, tr
     const newErrors: Record<string, string> = {};
 
     if (!formData.name.trim()) newErrors.name = "Name is required";
-    if (!formData.phone.trim()) {
-      newErrors.phone = "Phone number is required";
-    } else if (!/^\d{10}$/.test(formData.phone.replace(/\D/g, ""))) {
+    if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
+    else if (!/^\d{10}$/.test(formData.phone.replace(/\D/g, "")))
       newErrors.phone = "Please enter a valid 10-digit phone number";
-    }
+
     if (!formData.appointment_date) newErrors.appointment_date = "Appointment date is required";
-    if (formData.email && !/\S+@\S+\.\S+/.test(formData.email)) {
+
+    if (formData.email && !/\S+@\S+\.\S+/.test(formData.email))
       newErrors.email = "Please enter a valid email";
-    }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -119,23 +119,34 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ isOpen, onClose, onSubmit, tr
     >
       <div
         ref={modalRef}
-        className="relative bg-white rounded-2xl shadow-xl w-[95%] sm:w-[90%] md:max-w-3xl lg:max-w-4xl flex flex-col md:flex-row overflow-hidden transition-all duration-300"
+        className="
+          relative bg-white rounded-2xl shadow-xl
+          w-[95%] sm:w-[90%]
+          md:max-w-2xl lg:max-w-3xl xl:max-w-4xl
+          max-h-[90vh] overflow-y-auto
+          flex flex-col md:flex-row
+          transition-all duration-300
+        "
       >
-        {/* Left side - Poster (plain, no shadows or gradients) */}
-        <div className="hidden md:flex w-1/2 relative bg-white text-black overflow-hidden">
+        {/* Left poster - fully responsive */}
+        <div
+          className="
+            hidden md:flex
+            md:w-[40%] lg:w-[45%] xl:w-[50%]
+            bg-white relative overflow-hidden
+          "
+        >
           <img
             src={posterImg}
             alt="Hair Dermatology Consultation"
-            className="absolute inset-0 h-full object-contain"
+            className="w-full h-full object-cover"
           />
         </div>
 
-
-        {/* Right side - Form */}
-        <div className="w-full md:w-1/2 flex flex-col">
+        {/* Right side form */}
+        <div className="w-full md:w-[60%] lg:w-[55%] xl:w-[50%] flex flex-col">
           <div className="px-5 py-4 md:px-8 md:py-6 border-b border-gray-100 flex justify-between items-center">
             <h2 className="text-xl md:text-2xl font-bold text-gray-800">Book Appointment</h2>
-
             <button onClick={onClose} disabled={isSubmitting} className="p-2 hover:bg-gray-100 rounded-full">
               <X className="w-5 h-5 text-gray-500" />
             </button>
@@ -155,6 +166,7 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ isOpen, onClose, onSubmit, tr
             )}
 
             <form onSubmit={handleSubmit} className="space-y-6">
+              
               {/* Name */}
               <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-700 flex items-center gap-2">
@@ -166,9 +178,8 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ isOpen, onClose, onSubmit, tr
                   value={formData.name}
                   onChange={handleChange}
                   disabled={isSubmitting}
-                  className={`w-full px-4 py-3 border-2 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 outline-none ${
-                    errors.name ? "border-red-300 focus:border-red-500 focus:ring-red-100" : "border-gray-200"
-                  }`}
+                  className={`w-full px-4 py-3 border-2 rounded-xl outline-none 
+                    ${errors.name ? "border-red-300" : "border-gray-200"}`}
                 />
                 {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
               </div>
@@ -185,9 +196,8 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ isOpen, onClose, onSubmit, tr
                   value={formData.email}
                   onChange={handleChange}
                   disabled={isSubmitting}
-                  className={`w-full px-4 py-3 border-2 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 outline-none ${
-                    errors.email ? "border-red-300 focus:border-red-500 focus:ring-red-100" : "border-gray-200"
-                  }`}
+                  className={`w-full px-4 py-3 border-2 rounded-xl outline-none 
+                    ${errors.email ? "border-red-300" : "border-gray-200"}`}
                 />
                 {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
               </div>
@@ -204,9 +214,8 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ isOpen, onClose, onSubmit, tr
                   value={formData.phone}
                   onChange={handleChange}
                   disabled={isSubmitting}
-                  className={`w-full px-4 py-3 border-2 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 outline-none ${
-                    errors.phone ? "border-red-300 focus:border-red-500 focus:ring-red-100" : "border-gray-200"
-                  }`}
+                  className={`w-full px-4 py-3 border-2 rounded-xl outline-none 
+                    ${errors.phone ? "border-red-300" : "border-gray-200"}`}
                 />
                 {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
               </div>
@@ -223,9 +232,8 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ isOpen, onClose, onSubmit, tr
                   onChange={handleChange}
                   disabled={isSubmitting}
                   min={new Date().toISOString().split("T")[0]}
-                  className={`w-full px-4 py-3 border-2 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 outline-none ${
-                    errors.appointment_date ? "border-red-300 focus:border-red-500 focus:ring-red-100" : "border-gray-200"
-                  }`}
+                  className={`w-full px-4 py-3 border-2 rounded-xl outline-none 
+                    ${errors.appointment_date ? "border-red-300" : "border-gray-200"}`}
                 />
                 {errors.appointment_date && <p className="text-red-500 text-sm">{errors.appointment_date}</p>}
               </div>
@@ -239,7 +247,7 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ isOpen, onClose, onSubmit, tr
                   value={formData.treatment}
                   onChange={handleChange}
                   disabled={isSubmitting}
-                  className="w-full px-4 py-3 border-2 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 outline-none border-gray-200"
+                  className="w-full px-4 py-3 border-2 rounded-xl outline-none border-gray-200"
                 />
               </div>
             </form>
@@ -253,6 +261,7 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ isOpen, onClose, onSubmit, tr
             >
               Cancel
             </button>
+
             <button
               onClick={handleSubmit}
               disabled={isSubmitting}
