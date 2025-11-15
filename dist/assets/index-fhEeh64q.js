@@ -407,7 +407,7 @@ Mobile: ${u}`}]),l(!1),k("done"),E(`Thank you, ${c}! Our team will contact you s
                       focus:ring-2 focus:ring-blue-100 focus:border-blue-500
                       transition
                       border-gray-300
-                    `})]})]}),n.jsxs("div",{className:"space-y-2",children:[n.jsxs("label",{className:"font-semibold text-gray-700",children:["Security Question: ",o.text," *"]}),n.jsx("input",{name:"captchaAnswer",type:"text",value:a.captchaAnswer,onChange:N,disabled:h,placeholder:"Enter answer",className:`
+                    `})]})]}),n.jsxs("div",{className:"space-y-2",children:[n.jsxs("label",{className:"font-semibold text-gray-700",children:["Human Verification: ",o.text," *"]}),n.jsx("input",{name:"captchaAnswer",type:"text",value:a.captchaAnswer,onChange:N,disabled:h,placeholder:"Enter answer",className:`
                     w-full px-4 py-3 border rounded-xl text-base
                     focus:ring-2 focus:ring-blue-100 focus:border-blue-500
                     transition
