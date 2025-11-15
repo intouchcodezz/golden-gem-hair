@@ -3,8 +3,11 @@ deployment:
   tasks:
     - echo "🚀 Starting Deployment..."
     - export DEPLOYPATH=/home2/a1761e23/public_html/
+
     - echo "🧹 Cleaning old files..."
     - /bin/rm -rf $DEPLOYPATH/*
-    - echo "📦 Deploying dist output..."
-    - /bin/cp -r dist/* $DEPLOYPATH/
+
+    - echo "📦 Copying new build from dist..."
+    - /bin/cp -R dist/* $DEPLOYPATH/
+
     - echo "🎉 Deployment Completed Successfully!"

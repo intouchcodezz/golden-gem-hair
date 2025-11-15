@@ -377,7 +377,7 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({
               {/* CAPTCHA */}
               <div className="space-y-2">
                 <label className="font-semibold text-gray-700">
-                  Verify You’re Real: {generatedQuestion.text} *
+                  Human Verification: {generatedQuestion.text} *
                 </label>
 
                 <input
