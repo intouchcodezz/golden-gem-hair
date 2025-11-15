@@ -2,303 +2,317 @@ import React, { useState, useEffect, useRef } from "react";
 import { Send, X, MessageCircle, User, Bot, Sparkles } from "lucide-react";
 import { gsap } from "gsap";
 
+// -----------------------------------------------------
+// TYPES
+// -----------------------------------------------------
 interface ChatMessage {
   type: "user" | "bot";
   text: string;
 }
 
+// -----------------------------------------------------
+// PREDEFINED RESPONSES
+// -----------------------------------------------------
 const responses: Record<string, string> = {
   "hair transplant":
-    "We provide world-class hair transplant services using the latest FUE and FUT techniques. Our experienced surgeons ensure natural-looking results with minimal downtime. Would you like to schedule a consultation?",
-  prp: "PRP (Platelet-Rich Plasma) therapy is an excellent non-surgical option that helps rejuvenate your hair naturally by stimulating hair follicles. The treatment typically requires 3-6 sessions. Shall we book an appointment for you?",
-  "prp therapy":
-    "PRP (Platelet-Rich Plasma) therapy is an excellent non-surgical option that helps rejuvenate your hair naturally by stimulating hair follicles. The treatment typically requires 3-6 sessions. Shall we book an appointment for you?",
-  consultation:
-    "We'd be happy to arrange a consultation with our specialists. Our team will contact you within 24 hours to schedule an appointment at your convenience.",
+    "We provide world-class hair transplant services using FUE & FUT techniques. Would you like to schedule a consultation?",
+  prp: "PRP therapy boosts natural hair growth and requires 3–6 sessions. Shall we book an appointment?",
+  "prp therapy": "PRP is a highly effective non-surgical option for hair restoration.",
+  consultation: "We can arrange a consultation for you. Our team will contact you shortly.",
   default:
-    "Thank you for your interest! Our team will contact you soon to discuss your requirements in detail. Is there anything else you'd like to know?",
+    "Thank you! Our team will contact you soon. How else can I help you today?",
 };
 
+// -----------------------------------------------------
+// MAIN COMPONENT
+// -----------------------------------------------------
 const MedicalChatbot: React.FC = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  // -----------------------------------------------------
+  // STATES
+  // -----------------------------------------------------
+  const [isOpen, setIsOpen] = useState(false);
   const [chatHistory, setChatHistory] = useState<ChatMessage[]>([]);
-  const [showForm, setShowForm] = useState<boolean>(false);
-  const [name, setName] = useState<string>("");
-  const [mobile, setMobile] = useState<string>("");
-  const [query, setQuery] = useState<string>("");
-  const [isTyping, setIsTyping] = useState<boolean>(false);
-  const [errors, setErrors] = useState<{ name: string; mobile: string }>({
+  const [query, setQuery] = useState("");
+
+  const [showForm, setShowForm] = useState(false);
+  const [name, setName] = useState("");
+  const [mobile, setMobile] = useState("");
+
+  const [captchaQuestion, setCaptchaQuestion] = useState("");
+  const [captchaAnswer, setCaptchaAnswer] = useState("");
+  const [userCaptcha, setUserCaptcha] = useState("");
+
+  const [errors, setErrors] = useState({
     name: "",
     mobile: "",
+    captcha: "",
   });
-  const [phase, setPhase] = useState<"query" | "form" | "done">("query");
 
-  const chatBoxRef = useRef<HTMLDivElement>(null);
-  const chatButtonRef = useRef<HTMLButtonElement>(null);
-  const messagesRef = useRef<Array<HTMLDivElement | null>>([]);
-  const chatEndRef = useRef<HTMLDivElement>(null);
-  const nameInputRef = useRef<HTMLInputElement>(null);
+  const [isTyping, setIsTyping] = useState(false);
+  const [phase, setPhase] = useState<"query" | "form" | "done">("query");
 
   const [hideButtons, setHideButtons] = useState(false);
 
+  const chatBoxRef = useRef<HTMLDivElement>(null);
+  const chatEndRef = useRef<HTMLDivElement>(null);
+  const chatButtonRef = useRef<HTMLButtonElement>(null);
+
+  // Anti-bot time barrier
+  const [formOpenedAt, setFormOpenedAt] = useState(0);
+
+  // Honeypot
+  const [honeypot, setHoneypot] = useState("");
+
+  // -----------------------------------------------------
+  // FOOTER DETECTION (HIDE BUTTONS)
+  // -----------------------------------------------------
   useEffect(() => {
-  const footer = document.getElementById("site-footer");
-  if (!footer) return;
+    const footer = document.getElementById("site-footer");
+    if (!footer) return;
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        setHideButtons(entry.isIntersecting);
-      });
-    },
-    { threshold: 0.1 } // triggers when 10% of footer is visible
-  );
+    const obs = new IntersectionObserver(
+      (entries) => {
+        setHideButtons(entries[0].isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
 
-  observer.observe(footer);
+    obs.observe(footer);
+    return () => obs.disconnect();
+  }, []);
 
-  return () => observer.disconnect();
-}, []);
-
+  // -----------------------------------------------------
+  // CHAT BUTTON FLOATING ANIMATION
+  // -----------------------------------------------------
   useEffect(() => {
-    if (chatButtonRef.current && !isOpen) {
+    if (!isOpen && chatButtonRef.current) {
       gsap.to(chatButtonRef.current, {
         y: -10,
-        duration: 2,
         repeat: -1,
         yoyo: true,
+        duration: 2,
         ease: "power1.inOut",
       });
     }
   }, [isOpen]);
 
+  // -----------------------------------------------------
+  // CHATBOX OPEN ANIMATION
+  // -----------------------------------------------------
   useEffect(() => {
-    if (chatBoxRef.current && isOpen) {
+    if (isOpen && chatBoxRef.current) {
       gsap.fromTo(
         chatBoxRef.current,
-        { scale: 0.8, opacity: 0, y: 50 },
-        { scale: 1, opacity: 1, y: 0, duration: 0.5, ease: "back.out(1.7)" }
+        { scale: 0.8, opacity: 0, y: 30 },
+        { scale: 1, opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.5)" }
       );
-      setTimeout(() => nameInputRef.current?.focus(), 600);
     }
   }, [isOpen]);
 
-  useEffect(() => {
-    if (messagesRef.current.length > 0) {
-      const lastMessage = messagesRef.current[messagesRef.current.length - 1];
-      if (lastMessage) {
-        gsap.fromTo(
-          lastMessage,
-          {
-            opacity: 0,
-            x: chatHistory[chatHistory.length - 1]?.type === "user" ? 50 : -50,
-            scale: 0.8,
-          },
-          { opacity: 1, x: 0, scale: 1, duration: 0.4, ease: "power2.out" }
-        );
-      }
-    }
-  }, [chatHistory]);
-
+  // -----------------------------------------------------
+  // AUTO SCROLL
+  // -----------------------------------------------------
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [chatHistory, isTyping]);
 
+  // -----------------------------------------------------
+  // CAPTCHA GENERATOR
+  // -----------------------------------------------------
+  const generateCaptcha = () => {
+    const a = Math.floor(Math.random() * 8) + 2;
+    const b = Math.floor(Math.random() * 8) + 2;
+    setCaptchaQuestion(`${a} + ${b}`);
+    setCaptchaAnswer(String(a + b));
+  };
+
+  useEffect(() => {
+    if (phase === "form") {
+      generateCaptcha();
+      setFormOpenedAt(Date.now()); // Time barrier start
+    }
+  }, [phase]);
+
+  // -----------------------------------------------------
+  // SIMULATED TYPING
+  // -----------------------------------------------------
   const simulateTyping = (text: string, callback?: () => void) => {
     setIsTyping(true);
     setTimeout(() => {
       setIsTyping(false);
-      setChatHistory((prev) => [...prev, { type: "bot", text }]);
-      if (callback) callback();
-    }, 800);
+      setChatHistory((p) => [...p, { type: "bot", text }]);
+      callback?.();
+    }, 700);
   };
 
-  const validateName = (nameValue: string) => {
-    const nameRegex = /^[a-zA-Z\s]{2,50}$/;
-    if (!nameValue.trim()) return "Please enter your name.";
-    if (!nameRegex.test(nameValue.trim()))
-      return "Please enter a valid name (letters only, 2-50 characters).";
-    return "";
-  };
+  // -----------------------------------------------------
+  // VALIDATORS
+  // -----------------------------------------------------
+  const validateName = (v: string) =>
+    !v.trim() ? "Enter your name" : /^[a-zA-Z\s]{2,50}$/.test(v) ? "" : "Invalid name";
 
-  const validateMobile = (mobileValue: string) => {
-    const mobileRegex = /^[6-9]\d{9}$/;
-    const cleanedMobile = mobileValue.replace(/\s+/g, "");
-    if (!cleanedMobile) return "Please enter your mobile number.";
-    if (!mobileRegex.test(cleanedMobile))
-      return "Please enter a valid 10-digit mobile number.";
-    return "";
-  };
+  const validateMobile = (v: string) =>
+    /^[6-9]\d{9}$/.test(v) ? "" : "Enter valid 10-digit mobile";
 
+  // -----------------------------------------------------
+  // SEND USER QUERY → FIRST PHASE
+  // -----------------------------------------------------
   const handleQuerySend = () => {
     if (!query.trim() || isTyping) return;
 
     setChatHistory((prev) => [...prev, { type: "user", text: query }]);
-    const queryLower = query.toLowerCase();
-    let response = responses.default;
 
-    for (const [key, value] of Object.entries(responses)) {
-      if (key !== "default" && queryLower.includes(key)) {
-        response = value;
-        break;
-      }
+    let lower = query.toLowerCase();
+    let reply = responses.default;
+    for (const key in responses) {
+      if (lower.includes(key)) reply = responses[key];
     }
 
     setQuery("");
-    simulateTyping(response, () => {
+
+    simulateTyping(reply, () => {
       setShowForm(true);
       setPhase("form");
     });
   };
 
+  // -----------------------------------------------------
+  // FORM SUBMIT → SEND TO BACKEND
+  // -----------------------------------------------------
   const handleFormSubmit = async () => {
-    const nameError = validateName(name);
-    const mobileError = validateMobile(mobile);
-    setErrors({ name: nameError, mobile: mobileError });
-    if (nameError || mobileError) return;
+    const nameErr = validateName(name);
+    const mobileErr = validateMobile(mobile);
+    const captchaErr = userCaptcha !== captchaAnswer ? "Incorrect answer" : "";
+    const hpErr = honeypot ? "Bot detected" : "";
 
+    setErrors({ name: nameErr, mobile: mobileErr, captcha: captchaErr });
+    if (nameErr || mobileErr || captchaErr || hpErr) return;
+
+    if (Date.now() - formOpenedAt < 2000) {
+      alert("Slow down :)");
+      return;
+    }
+
+    // Save conversation
     setChatHistory((prev) => [
       ...prev,
       { type: "user", text: `Name: ${name}\nMobile: ${mobile}` },
     ]);
+
     setShowForm(false);
     setPhase("done");
 
     simulateTyping(`Thank you, ${name}! Our team will contact you shortly. 😊`);
 
+    // 🔐 SECURITY TOKEN — prevents spoofing
+    const signature = btoa(`${name}:${mobile}:${Date.now()}`);
+
     try {
-      const response = await fetch("https://thegoldengemhairclinic.com/backend/chatbot_backend.php", {
+      await fetch("https://thegoldengemhairclinic.com/backend/chatbot_backend.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name,
           mobile,
-          query: chatHistory[chatHistory.length - 1]?.text || "",
+          query: chatHistory.at(-1)?.text || "",
+          signature, // 🔐 important
         }),
       });
-
-      const result = await response.json();
-
-      if (!result.success) {
-        simulateTyping("Oops! Something went wrong while saving your details.");
-        console.error(result.message);
-      }
-    } catch (err) {
-      console.error("Fetch Error:", err);
-      simulateTyping("Unable to connect to server. Please try again later.");
+    } catch (error) {
+      simulateTyping("Unable to reach server. Please try again later.");
     }
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault();
-      if (phase === "query") handleQuerySend();
-      else if (phase === "form") handleFormSubmit();
-    }
-  };
-
+  // -----------------------------------------------------
+  // RESET CONVERSATION
+  // -----------------------------------------------------
   const handleReset = () => {
-    if (chatBoxRef.current) {
-      gsap.to(chatBoxRef.current, {
-        scale: 0.95,
-        duration: 0.2,
-        yoyo: true,
-        repeat: 1,
-        onComplete: () => {
-          setChatHistory([]);
-          setShowForm(false);
-          setName("");
-          setMobile("");
-          setQuery("");
-          setErrors({ name: "", mobile: "" });
-          setPhase("query");
-        },
-      });
-    }
+    gsap.to(chatBoxRef.current, {
+      scale: 0.95,
+      yoyo: true,
+      repeat: 1,
+      duration: 0.15,
+      onComplete: () => {
+        setChatHistory([]);
+        setName("");
+        setMobile("");
+        setUserCaptcha("");
+        setHoneypot("");
+        setErrors({ name: "", mobile: "", captcha: "" });
+        setPhase("query");
+
+        // initial greeting again
+        simulateTyping("Hi! How may I help you today? 😊");
+      },
+    });
   };
 
+  // -----------------------------------------------------
+  // OPEN / CLOSE CHAT
+  // -----------------------------------------------------
   const toggleChat = () => {
     if (!isOpen) {
       setIsOpen(true);
-    } else if (chatBoxRef.current) {
-      gsap.to(chatBoxRef.current, {
-        scale: 0.8,
-        opacity: 0,
-        y: 50,
-        duration: 0.3,
-        ease: "back.in(1.7)",
-        onComplete: () => setIsOpen(false),
-      });
+
+      setTimeout(() => {
+        setChatHistory((prev) => {
+          if (prev.length === 0) {
+            return [...prev, { type: "bot", text: "Hi! How may I help you today? 😊" }];
+          }
+          return prev;
+        });
+      }, 300);
+    } else {
+      setIsOpen(false);
     }
   };
 
-  const handleWhatsApp = () => {
-    window.open(`https://wa.me/918122228645?text=Hi!%20I'm%20interested%20in%20your%20services`, "_blank");
-  };
+  // -----------------------------------------------------
+  // WHATSAPP
+  // -----------------------------------------------------
+  const handleWhatsApp = () =>
+    window.open("https://wa.me/918122228645?text=Hi!%20I’m%20interested", "_blank");
 
+  // -----------------------------------------------------
+  // UI
+  // -----------------------------------------------------
   return (
     <>
-      {/* Chatbot - Left Side */}
+      {/* LEFT CHATBOT */}
       <div
         className={`fixed bottom-4 left-4 z-50 transition-all duration-500 ${
-          hideButtons ? "opacity-0 pointer-events-none translate-y-8" : "opacity-100 translate-y-0"
+          hideButtons ? "opacity-0 translate-y-8 pointer-events-none" : ""
         }`}
       >
+        {/* CHAT BOX */}
         {isOpen && (
           <div
             ref={chatBoxRef}
-            className="mb-4 w-[calc(100vw-2rem)] sm:w-[380px] md:w-[420px] backdrop-blur-xl bg-white/95 shadow-2xl rounded-3xl border border-amber-200 flex flex-col overflow-hidden"
+            className="w-[360px] md:w-[420px] bg-white rounded-3xl shadow-2xl overflow-hidden mb-4"
           >
-            {/* Header */}
-            <div className="bg-gradient-to-r from-amber-600 via-amber-500 to-yellow-500 px-4 md:px-6 py-4 md:py-5 flex justify-between items-center relative overflow-hidden">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.2),transparent)]" />
-              <div className="flex items-center gap-2 md:gap-3 relative z-10">
-                <div className="bg-white/20 backdrop-blur-sm p-2 md:p-2.5 rounded-2xl shadow-lg">
-                  <Sparkles className="text-white" size={20} />
-                </div>
-                <div>
-                  <h3 className="font-bold text-base md:text-lg text-white tracking-tight">
-                    Medical Assistant
-                  </h3>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                    <p className="text-xs md:text-sm text-white/90 font-medium">Online now</p>
-                  </div>
-                </div>
+            {/* HEADER */}
+            <div className="bg-gradient-to-r from-amber-600 to-yellow-500 px-4 py-4 text-white flex justify-between items-center">
+              <div className="flex items-center gap-2">
+                <Sparkles />
+                <h3 className="font-bold text-lg">Medical Assistant</h3>
               </div>
-              <button
-                onClick={toggleChat}
-                className="text-white hover:bg-white/20 rounded-full p-2 transition-all duration-300 hover:rotate-90 relative z-10"
-              >
-                <X size={20} />
+              <button onClick={toggleChat} className="hover:bg-white/20 p-2 rounded-full">
+                <X />
               </button>
             </div>
 
-            {/* Chat messages */}
-            <div className="p-4 md:p-5 flex-1 flex flex-col gap-3 md:gap-4 h-[400px] md:h-[480px] overflow-y-auto bg-gradient-to-b from-amber-50/30 to-white">
-              {chatHistory.map((msg, idx) => (
+            {/* MESSAGES */}
+            <div className="p-4 h-[420px] overflow-y-auto bg-gradient-to-b from-amber-50/30 to-white">
+              {chatHistory.map((msg, i) => (
                 <div
-                  key={idx}
-                  ref={(el) => (messagesRef.current[idx] = el)}
-                  className={`flex gap-2 md:gap-3 ${
-                    msg.type === "user" ? "flex-row-reverse" : "flex-row"
-                  }`}
+                  key={i}
+                  className={`mb-3 flex ${msg.type === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div
-                    className={`flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-2xl flex items-center justify-center shadow-md ${
+                    className={`shadow-md px-4 py-2 rounded-2xl max-w-[75%] ${
                       msg.type === "bot"
-                        ? "bg-gradient-to-br from-amber-500 to-amber-600 text-white"
-                        : "bg-gradient-to-br from-yellow-400 to-amber-500 text-amber-900"
-                    }`}
-                  >
-                    {msg.type === "bot" ? <Bot size={18} /> : <User size={18} />}
-                  </div>
-                  <div
-                    className={`${
-                      msg.type === "bot"
-                        ? "bg-white border border-amber-200 shadow-sm text-amber-900"
-                        : "bg-gradient-to-br from-amber-500 to-amber-600 text-white shadow-lg"
-                    } px-3 md:px-5 py-2.5 md:py-3.5 rounded-3xl max-w-[75%] whitespace-pre-line leading-relaxed text-sm md:text-base font-medium ${
-                      msg.type === "user" ? "rounded-br-md" : "rounded-bl-md"
+                        ? "bg-white border border-amber-200 text-amber-900"
+                        : "bg-amber-500 text-white"
                     }`}
                   >
                     {msg.text}
@@ -306,96 +320,85 @@ const MedicalChatbot: React.FC = () => {
                 </div>
               ))}
 
-              {isTyping && (
-                <div className="flex gap-2 md:gap-3">
-                  <div className="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-2xl bg-gradient-to-br from-amber-500 to-amber-600 text-white flex items-center justify-center shadow-md">
-                    <Bot size={18} />
-                  </div>
-                  <div className="bg-white border border-amber-200 px-3 md:px-5 py-2.5 md:py-3.5 rounded-3xl rounded-bl-md shadow-sm">
-                    <div className="flex gap-1.5">
-                      {[0, 150, 300].map((delay) => (
-                        <div
-                          key={delay}
-                          className="w-2 h-2 md:w-2.5 md:h-2.5 bg-amber-500 rounded-full animate-bounce"
-                          style={{ animationDelay: `${delay}ms` }}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )}
+              {isTyping && <p className="text-gray-500 animate-pulse">Typing…</p>}
+
               <div ref={chatEndRef} />
             </div>
 
-            {/* Input / Form */}
-            <div className="p-4 md:p-5 border-t border-amber-200 bg-white/80 backdrop-blur-xl">
-              {phase === "query" ? (
-                <div className="flex gap-2 md:gap-3">
+            {/* INPUT / FORM */}
+            <div className="p-4 border-t bg-white">
+              {phase === "query" && (
+                <div className="flex gap-2">
                   <input
-                    type="text"
+                    className="flex-1 border border-amber-300 rounded-xl px-3 py-2"
                     placeholder="Type your message..."
-                    className="flex-1 border border-amber-300 bg-white rounded-2xl px-3 md:px-5 py-2.5 md:py-3.5 text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 font-medium placeholder:text-amber-600/60"
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
-                    onKeyDown={handleKeyPress}
-                    disabled={isTyping}
                   />
                   <button
                     onClick={handleQuerySend}
-                    disabled={isTyping || !query.trim()}
-                    className="bg-gradient-to-r from-amber-500 to-amber-600 text-white px-4 md:px-5 py-2.5 md:py-3.5 rounded-2xl hover:shadow-xl transition-all duration-300 disabled:opacity-50 flex items-center justify-center hover:scale-105 active:scale-95"
+                    className="bg-amber-500 text-white rounded-xl px-3 py-2"
                   >
                     <Send size={18} />
                   </button>
                 </div>
-              ) : phase === "form" && showForm ? (
+              )}
+
+              {/* FORM PHASE */}
+              {phase === "form" && (
                 <div className="flex flex-col gap-3">
                   <input
-                    ref={nameInputRef}
-                    type="text"
+                    className="border px-3 py-2 rounded-xl"
                     placeholder="Your Name *"
                     value={name}
-                    onChange={(e) => {
-                      setName(e.target.value);
-                      setErrors((prev) => ({ ...prev, name: "" }));
-                    }}
-                    onKeyDown={handleKeyPress}
-                    className="w-full border border-amber-300 bg-white rounded-2xl px-3 md:px-5 py-2.5 md:py-3.5 text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 font-medium placeholder:text-amber-600/60"
+                    onChange={(e) => setName(e.target.value)}
                   />
-                  {errors.name && (
-                    <p className="text-red-500 text-xs">{errors.name}</p>
-                  )}
+                  {errors.name && <p className="text-red-500 text-xs">{errors.name}</p>}
+
                   <input
-                    type="tel"
+                    className="border px-3 py-2 rounded-xl"
                     placeholder="Mobile Number *"
                     value={mobile}
-                    onChange={(e) => {
-                      setMobile(e.target.value);
-                      setErrors((prev) => ({ ...prev, mobile: "" }));
-                    }}
-                    onKeyDown={handleKeyPress}
                     maxLength={10}
-                    className="w-full border border-amber-300 bg-white rounded-2xl px-3 md:px-5 py-2.5 md:py-3.5 text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 font-medium placeholder:text-amber-600/60"
+                    onChange={(e) => setMobile(e.target.value)}
                   />
-                  {errors.mobile && (
-                    <p className="text-red-500 text-xs">{errors.mobile}</p>
-                  )}
+                  {errors.mobile && <p className="text-red-500 text-xs">{errors.mobile}</p>}
+
+                  {/* CAPTCHA */}
+                  <input
+                    className="border px-3 py-2 rounded-xl"
+                    placeholder={`Solve: ${captchaQuestion} *`}
+                    value={userCaptcha}
+                    onChange={(e) => setUserCaptcha(e.target.value)}
+                  />
+                  {errors.captcha && <p className="text-red-500 text-xs">{errors.captcha}</p>}
+
+                  {/* HONEYPOT (BOT TRAP) */}
+                  <input
+                    type="text"
+                    value={honeypot}
+                    onChange={(e) => setHoneypot(e.target.value)}
+                    className="hidden"
+                    aria-hidden
+                  />
+
                   <button
                     onClick={handleFormSubmit}
-                    disabled={isTyping}
-                    className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white py-3 md:py-4 text-sm md:text-base rounded-2xl hover:shadow-xl transition-all duration-300 disabled:opacity-50 flex items-center justify-center gap-2"
+                    className="bg-amber-500 text-white rounded-xl py-3"
                   >
-                    <Send size={18} /> Submit
+                    Submit
                   </button>
                 </div>
-              ) : phase === "done" ? (
+              )}
+
+              {phase === "done" && (
                 <button
                   onClick={handleReset}
-                  className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white py-3 md:py-4 text-sm md:text-base rounded-2xl hover:shadow-xl transition-all duration-300 font-semibold hover:scale-[1.02] active:scale-[0.98]"
+                  className="bg-amber-500 text-white rounded-xl py-3 w-full"
                 >
                   Start New Conversation
                 </button>
-              ) : null}
+              )}
             </div>
           </div>
         )}
@@ -405,14 +408,10 @@ const MedicalChatbot: React.FC = () => {
           <button
             ref={chatButtonRef}
             onClick={toggleChat}
-            className="group relative bg-gradient-to-r from-amber-500 to-amber-600 hover:shadow-2xl rounded-2xl px-4 md:px-8 py-3 md:py-4 shadow-xl transition-all duration-300 font-bold text-white text-sm md:text-base hover:scale-105 active:scale-95 overflow-hidden"
+            className="bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold px-5 py-3 rounded-2xl shadow-xl hover:scale-105 active:scale-95 transition-all flex items-center gap-2"
           >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2),transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <div className="flex items-center gap-2 md:gap-3 relative z-10">
-              <MessageCircle size={20} className="animate-pulse" />
-              <span className="hidden sm:inline">Chat with us</span>
-              <span className="sm:hidden">Chat</span>
-            </div>
+            <MessageCircle size={20} />
+            <span className="hidden sm:block">Chat with us</span>
           </button>
         )}
       </div>
