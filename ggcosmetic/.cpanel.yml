@@ -2,7 +2,7 @@
 deployment:
   tasks:
     - echo "🚀 Starting Deployment..."
-    - export DEPLOYPATH=/home/a1761e23/public_html/
+    - export DEPLOYPATH=/home2/a1761e23/public_html/
     - echo "📁 Cleaning old files..."
     - /bin/rm -rf $DEPLOYPATH/*
     - echo "📦 Copying new build..."
