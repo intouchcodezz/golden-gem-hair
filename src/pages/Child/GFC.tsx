@@ -106,7 +106,7 @@ const HairTransplantGFC = () => {
           preload="none"
           poster="/images/banner-placeholder.jpg"
         >
-          <source src="/videos/GFC.webm" type="video/mp4" />
+          <source src="/videos/GFC.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
 

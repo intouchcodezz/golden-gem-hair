@@ -9,7 +9,7 @@ import fue from '@/assets/fue.jpg';
 import beforeafter2 from '@/assets/beforeafter2.jpg';
 import beforeafter3 from '@/assets/beforeafter3.jpg';
 import beforeafter4 from '@/assets/beforeafter4.jpg';
-import ht4 from '@/assets/ht4.jpg';
+import beforeafter7 from '@/assets/beforeafter7.jpg';
 import beforeafter8 from '@/assets/beforeafter8.jpg';
 import beforeafter5 from '@/assets/beforeafter5.jpg';
 import ht2 from '@/assets/ht2.jpg'
@@ -76,7 +76,7 @@ const beforeAfterResults = [
     timeline: "13 months post-op"
   },
   {
-    before: ht4,
+    before: beforeafter7,
     age: "33 years",
     grafts: "3,000 grafts",
     timeline: "7 months post-op"

@@ -15,6 +15,7 @@ const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isReady, setIsReady] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const slidesRef = useRef<(HTMLDivElement | null)[]>([]);
   const swirlRef = useRef<HTMLDivElement>(null);
@@ -148,20 +149,46 @@ const HeroSection = () => {
     };
   }, [isMobile]);
 
-  // Initial positioning
+  // Initialize slides position immediately on mount
   useEffect(() => {
+    // Wait for all slides to be mounted
+    const timer = setTimeout(() => {
+      slidesRef.current.forEach((slide, index) => {
+        if (!slide) return;
+
+        if (isMobile) {
+          // Use inline styles for immediate effect
+          slide.style.transform = 'translate(-50%, -50%)';
+          slide.style.opacity = index === currentSlide ? '1' : '0';
+          slide.style.zIndex = index === currentSlide ? '10' : '1';
+          slide.style.filter = 'blur(0px)';
+        } else {
+          const offset = index - currentSlide;
+          const absOffset = Math.abs(offset);
+
+          slide.style.transform = `translate(-50%, -50%) translateX(${offset * 40}%) translateZ(${-absOffset * 400}px) rotateY(${offset * 25}deg) scale(${1 - absOffset * 0.15})`;
+          slide.style.opacity = (absOffset > 1 ? 0 : 1 - absOffset * 0.3).toString();
+          slide.style.filter = `blur(${absOffset * 2}px)`;
+          slide.style.zIndex = (10 - absOffset).toString();
+        }
+      });
+      setIsReady(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [isMobile, currentSlide]);
+
+  // Update positioning when slide changes (after ready)
+  useEffect(() => {
+    if (!isReady) return;
+
     if (isMobile) {
       slidesRef.current.forEach((slide, index) => {
         if (!slide) return;
-        gsap.set(slide, {
-          x: 0,
-          z: 0,
-          rotateY: 0,
-          scale: 1,
-          opacity: index === currentSlide ? 1 : 0,
-          filter: "blur(0px)",
-          zIndex: index === currentSlide ? 10 : 1,
-        });
+        slide.style.transform = 'translate(-50%, -50%)';
+        slide.style.opacity = index === currentSlide ? '1' : '0';
+        slide.style.zIndex = index === currentSlide ? '10' : '1';
+        slide.style.filter = 'blur(0px)';
       });
     } else {
       slidesRef.current.forEach((slide, index) => {
@@ -170,18 +197,13 @@ const HeroSection = () => {
         const offset = index - currentSlide;
         const absOffset = Math.abs(offset);
 
-        gsap.set(slide, {
-          x: offset * 45 + "%",
-          z: -absOffset * 400,
-          rotateY: offset * 25,
-          scale: 1 - absOffset * 0.15,
-          opacity: absOffset > 1 ? 0 : 1 - absOffset * 0.3,
-          filter: `blur(${absOffset * 2}px)`,
-          zIndex: 10 - absOffset
-        });
+        slide.style.transform = `translate(-50%, -50%) translateX(${offset * 40}%) translateZ(${-absOffset * 400}px) rotateY(${offset * 25}deg) scale(${1 - absOffset * 0.15})`;
+        slide.style.opacity = (absOffset > 1 ? 0 : 1 - absOffset * 0.3).toString();
+        slide.style.filter = `blur(${absOffset * 2}px)`;
+        slide.style.zIndex = (10 - absOffset).toString();
       });
     }
-  }, [currentSlide, isMobile]);
+  }, [currentSlide, isMobile, isReady]);
 
   const animateSwirl = (direction: number) => {
     if (isAnimating) return;
@@ -191,89 +213,97 @@ const HeroSection = () => {
       ? (currentSlide + 1) % slides.length
       : (currentSlide - 1 + slides.length) % slides.length;
 
-    const timeline = gsap.timeline({
-      onComplete: () => {
-        setCurrentSlide(newSlide);
-        setIsAnimating(false);
-      }
-    });
+    const timeline = { current: 0 };
+    let animationFrame: number;
 
     if (isMobile) {
       // Simple fade animation for mobile
-      timeline.to(slidesRef.current[currentSlide], {
-        opacity: 0,
-        duration: 0.6,
-        ease: "power2.inOut"
-      }, 0);
+      const duration = 600;
+      const startTime = Date.now();
 
-      timeline.fromTo(slidesRef.current[newSlide], {
-        opacity: 0
-      }, {
-        opacity: 1,
-        duration: 0.6,
-        ease: "power2.inOut"
-      }, 0);
+      const animate = () => {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+
+        const currentSlideEl = slidesRef.current[currentSlide];
+        const newSlideEl = slidesRef.current[newSlide];
+
+        if (currentSlideEl) {
+          currentSlideEl.style.opacity = (1 - progress).toString();
+        }
+        if (newSlideEl) {
+          newSlideEl.style.opacity = progress.toString();
+          newSlideEl.style.zIndex = '10';
+        }
+
+        if (progress < 1) {
+          animationFrame = requestAnimationFrame(animate);
+        } else {
+          setCurrentSlide(newSlide);
+          setIsAnimating(false);
+        }
+      };
+
+      animationFrame = requestAnimationFrame(animate);
     } else {
-      // Original 3D animation for desktop
-    if (swirlRef.current) {
-      timeline.fromTo(swirlRef.current,
-        { scale: 0, rotation: 0, opacity: 0 },
-        {
-          scale: 80,
-          rotation: direction * 1080,
-          opacity: 1,
-          duration: 0.8,
-          ease: "power2.inOut"
-        },
-        0.2
-      );
+      // 3D animation for desktop
+      const duration = 800;
+      const startTime = Date.now();
 
-      timeline.to(swirlRef.current,
-        { opacity: 0, duration: 0.3 },
-        1.1
-      );
+      const animate = () => {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeProgress = progress < 0.5 
+          ? 2 * progress * progress 
+          : 1 - Math.pow(-2 * progress + 2, 2) / 2;
 
-      timeline.set(swirlRef.current, { scale: 0, rotation: 0 });
+        // Animate swirl
+        if (swirlRef.current && progress < 0.8) {
+          const swirlProgress = progress / 0.8;
+          swirlRef.current.style.transform = `translate(-50%, -50%) scale(${80 * swirlProgress}) rotate(${direction * 1080 * swirlProgress}deg)`;
+          swirlRef.current.style.opacity = progress < 0.5 ? (progress * 2).toString() : ((1 - progress) * 5).toString();
+        } else if (swirlRef.current) {
+          swirlRef.current.style.transform = 'translate(-50%, -50%) scale(0) rotate(0deg)';
+          swirlRef.current.style.opacity = '0';
+        }
+
+        // Animate slides
+        slidesRef.current.forEach((slide, index) => {
+          if (!slide) return;
+
+          const newOffset = index - newSlide;
+          const absNewOffset = Math.abs(newOffset);
+
+          slide.style.transform = `translate(-50%, -50%) translateX(${newOffset * 40}%) translateZ(${-absNewOffset * 400}px) rotateY(${newOffset * 25}deg) scale(${1 - absNewOffset * 0.15}) rotate(${direction * 15 * (1 - easeProgress)}deg)`;
+          slide.style.opacity = (absNewOffset > 1 ? 0 : 1 - absNewOffset * 0.3).toString();
+          slide.style.filter = `blur(${absNewOffset * 2}px)`;
+          slide.style.zIndex = (10 - absNewOffset).toString();
+        });
+
+        if (progress < 1) {
+          animationFrame = requestAnimationFrame(animate);
+        } else {
+          setCurrentSlide(newSlide);
+          setIsAnimating(false);
+        }
+      };
+
+      animationFrame = requestAnimationFrame(animate);
     }
-
-    slidesRef.current.forEach((slide, index) => {
-      if (!slide) return;
-
-      const newOffset = index - newSlide;
-      const absNewOffset = Math.abs(newOffset);
-
-      timeline.to(slide, {
-        x: newOffset * 45 + "%",
-        z: -absNewOffset * 400,
-        rotateY: newOffset * 25,
-        scale: 1 - absNewOffset * 0.15,
-        opacity: absNewOffset > 1 ? 0 : 1 - absNewOffset * 0.3,
-        filter: `blur(${absNewOffset * 2}px)`,
-        zIndex: 10 - absNewOffset,
-        rotation: direction * 15,
-        duration: 0.8,
-        ease: "power2.inOut"
-      }, 0.2);
-
-      timeline.to(slide, {
-        rotation: 0,
-        duration: 0.4,
-        ease: "power2.out"
-      }, 1.2);
-    });
-  }
   };
 
   const nextSlide = () => animateSwirl(1);
   const prevSlide = () => animateSwirl(-1);
 
   useEffect(() => {
+    if (!isReady) return;
+    
     const interval = setInterval(() => {
       if (!isAnimating) nextSlide();
     }, 6000);
 
     return () => clearInterval(interval);
-  }, [currentSlide, isAnimating]);
+  }, [currentSlide, isAnimating, isReady]);
 
   // Swipe handler
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -309,7 +339,7 @@ const HeroSection = () => {
       {/* 3D Carousel Container */}
       <div
         ref={containerRef}
-        className="absolute inset-0 flex items-center justify-center"
+        className="absolute inset-0 flex items-center justify-center overflow-hidden"
         style={{
           perspective: isMobile ? "none" : "2000px",
           perspectiveOrigin: "50% 50%"
@@ -326,14 +356,15 @@ const HeroSection = () => {
             style={{
               background: "radial-gradient(circle, rgba(255,245,200,0.9) 0%, rgba(255,230,150,0.6) 30%, rgba(255,215,100,0.2) 60%, transparent 100%)",
               boxShadow: "0 0 120px 60px rgba(255,230,150,0.4), inset 0 0 60px rgba(255,245,200,0.6)",
-              scale: 0
+              transform: "translate(-50%, -50%) scale(0)",
+              opacity: 0
             }}
             aria-hidden="true"
           />
         )}
 
         {/* Carousel Slides */}
-        <div className="relative w-full h-full" style={{ transformStyle: "preserve-3d" }}>
+        <div className="relative w-full h-full overflow-hidden" style={{ transformStyle: "preserve-3d" }}>
           {slides.map((slide, index) => (
             <div
               key={index}
@@ -341,10 +372,12 @@ const HeroSection = () => {
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
               w-[90vw] sm:w-[75vw] md:w-[70vw] lg:w-[65vw] xl:w-[60vw] 
               max-w-6xl aspect-[3/2] 
-              rounded-xl sm:rounded-2xl overflow-hidden"
+              rounded-xl sm:rounded-2xl overflow-hidden
+              will-change-transform transition-opacity duration-300"
               style={{
                 transformStyle: "preserve-3d",
-                boxShadow: "0 25px 100px rgba(0, 0, 0, 0.5), 0 0 60px rgba(255, 150, 50, 0.2)"
+                boxShadow: "0 25px 100px rgba(0, 0, 0, 0.5), 0 0 60px rgba(255, 150, 50, 0.2)",
+                opacity: isReady ? (index === currentSlide ? 1 : 0) : 0
               }}
               role="group"
               aria-roledescription="slide"
@@ -357,7 +390,6 @@ const HeroSection = () => {
                 alt={slide.alt}
                 className="w-full h-full object-cover"
                 loading={index === 0 ? "eager" : "lazy"}
-                {...(index === 0 && { fetchpriority: "high" as any })}
               />
 
               {/* Subtle Overlay for Depth */}
