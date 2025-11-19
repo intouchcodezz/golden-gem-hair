@@ -153,7 +153,7 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("https://api.thegoldengemhairclinic.com/submit-appointment.php", {
+      const response = await fetch("https://thegoldengemhairclinic.com/api/submit-appointment.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData)

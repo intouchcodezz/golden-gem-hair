@@ -52,23 +52,23 @@ const Footer = () => {
               </p>
 
               <div className="space-y-4">
-                <a href="tel:+918122733730" className="flex items-start gap-3 group hover:translate-x-1 transition-transform duration-300">
+                <a href="tel:+918122229557" className="flex items-start gap-3 group hover:translate-x-1 transition-transform duration-300">
                   <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/30 transition-colors">
                     <Phone className="w-4 h-4 text-primary" />
                   </div>
                   <div>
                     <p className="text-xs text-background/50 mb-0.5">Call Us</p>
-                    <span className="text-background/90 font-medium">+91 8122733730</span>
+                    <span className="text-background/90 font-medium">+91 8122229557</span>
                   </div>
                 </a>
                 
-                <a href="mailto:info@thegoldengem.com" className="flex items-start gap-3 group hover:translate-x-1 transition-transform duration-300">
+                <a href="mailto:thegoldengemskinhairlaserclini@gmail.com" className="flex items-start gap-3 group hover:translate-x-1 transition-transform duration-300">
                   <div className="w-10 h-10 rounded-lg bg-secondary/20 flex items-center justify-center flex-shrink-0 group-hover:bg-secondary/30 transition-colors">
                     <Mail className="w-4 h-4 text-secondary" />
                   </div>
                   <div>
                     <p className="text-xs text-background/50 mb-0.5">Email Us</p>
-                    <span className="text-background/90 font-medium">info@thegoldengem.com</span>
+                    <span className="text-background/90 font-medium">thegoldengemskinhairlaserclini@gmail.com</span>
                   </div>
                 </a>
                 

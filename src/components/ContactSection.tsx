@@ -17,13 +17,13 @@ const ContactSection = () => {
     {
       icon: Phone,
       title: "Call Us",
-      value: "+91 8122733730",
+      value: "+91 8122229557",
       description: "Book Free Consultation and Pay Only for Test",
     },
     {
       icon: Mail,
       title: "Email Us",
-      value: "info@thegoldengem.com",
+      value: "thegoldengemskinhairlaserclini@gmail.com",
       description: "Get detailed information about treatments",
     },
     {

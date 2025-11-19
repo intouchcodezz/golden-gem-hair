@@ -212,13 +212,13 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex justify-between items-center py-2.5 text-[13px] text-primary-foreground/95">
             <div className="flex items-center gap-8">
-              <a href="tel:+918122733730" className="flex items-center gap-2 hover:text-accent transition-colors group">
+              <a href="tel:+918122229557" className="flex items-center gap-2 hover:text-accent transition-colors group">
                 <Phone className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
-                <span className="font-medium">+91 8122733730</span>
+                <span className="font-medium">+91 8122229557</span>
               </a>
-              <a href="mailto:info@goldengemcosmetic.com" className="flex items-center gap-2 hover:text-accent transition-colors group">
+              <a href="mailto:thegoldengemskinhairlaserclini@gmail.com" className="flex items-center gap-2 hover:text-accent transition-colors group">
                 <Mail className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
-                <span>info@goldengemcosmetic.com</span>
+                <span>thegoldengemskinhairlaserclini@gmail.com</span>
               </a>
               <div className="flex items-center gap-2 text-primary-foreground/70">
                 <Clock className="w-3.5 h-3.5" />

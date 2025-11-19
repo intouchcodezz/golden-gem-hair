@@ -16,7 +16,6 @@ import ScalpPigmentation from "./pages/ScalpPigmentation";
 import PRPTherapy from "./pages/PRP";
 import Hair from "./pages/hair";
 import Diagnostic from "./pages/Diagnostic";
-import Treatments from "./pages/Treatments";
 import Blog from "./pages/Blog";
 import Results from "./pages/Results";
 import Careers from "./pages/Careers";
@@ -107,7 +106,6 @@ const AppContent: React.FC = () => {
         <Route path="/about/*" element={<About />} />
         <Route path="/hair-treatments/*" element={<Hair />} />
         <Route path="/diagnostic/*" element={<Diagnostic />} />
-        <Route path="/treatments/*" element={<Treatments />} />
         <Route path="/blog/*" element={<Blog />} />
         <Route path="/results/*" element={<Results />} />
         <Route path="/careers/*" element={<Careers />} />

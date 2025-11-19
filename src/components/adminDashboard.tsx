@@ -114,7 +114,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onLogout }) => {
   // Fetch appointments
   const fetchAppointments = async () => {
     try {
-      const res = await fetch('https://api.thegoldengemhairclinic.com/getAppointments.php');
+      const res = await fetch('https://thegoldengemhairclinic.com/api/getAppointments.php');
       const data = await res.json();
       if (data.success) setAppointments(data.data);
     } catch (err) {
@@ -125,7 +125,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onLogout }) => {
   // Fetch chat logs
   const fetchChatLogs = async () => {
     try {
-      const res = await fetch('https://api.thegoldengemhairclinic.com/getChatLogs.php');
+      const res = await fetch('https://thegoldengemhairclinic.com/api/getChatLogs.php');
       const data = await res.json();
       if (data.success) setChatLogs(data.data);
     } catch (err) {
@@ -135,7 +135,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onLogout }) => {
 
   const fetchJobApplications = async () => {
     try {
-      const res = await fetch('https://api.thegoldengemhairclinic.com/getCareerApplications.php');
+      const res = await fetch('https://thegoldengemhairclinic.com/api/getCareerApplications.php');
       const data = await res.json();
       if (data.success) setJobApplications(data.data);
     } catch (err) {

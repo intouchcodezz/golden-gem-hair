@@ -1,240 +1,132 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { Button } from "../components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Phone, Mail, MapPin, Clock, Shield } from "lucide-react";
+import { useState } from "react";
+import EnquiryForm from "../components/EnquiryModal";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 const Contact = () => {
-  const contactMethods = [
-    {
-      icon: <Phone className="w-6 h-6" />,
-      title: "Phone",
-      details: ["+91 8122733730", "+91 9876543211"],
-      description: "Call us for immediate assistance"
-    },
-    {
-      icon: <Mail className="w-6 h-6" />,
-      title: "Email",
-      details: ["info@thegoldengem.com", "appointments@thegoldengem.com"],
-      description: "Send us your queries anytime"
-    },
-    {
-      icon: <MapPin className="w-6 h-6" />,
-      title: "Location",
-      details: ["123 Medical Plaza", "Mumbai, Maharashtra 400001"],
-      description: "Visit our state-of-the-art clinic"
-    },
-    {
-      icon: <Shield className="w-6 h-6" />,
-      title: "Emergency",
-      details: ["+91 9876543200", "24/7 Support Available"],
-      description: "For urgent hair and scalp concerns"
-    }
-  ];
-
-  const operatingHours = [
-    { day: "Monday - Friday", time: "9:00 AM - 7:00 PM" },
-    { day: "Saturday", time: "9:00 AM - 5:00 PM" },
-    { day: "Sunday", time: "10:00 AM - 4:00 PM" },
-    { day: "Public Holidays", time: "Emergency Only" }
-  ];
-
-  const branches = [
-    {
-      city: "Mumbai",
-      address: "123 Medical Plaza, Bandra West",
-      phone: "+91 8122733730",
-      manager: "Dr. Priya Sharma"
-    },
-    {
-      city: "Delhi",
-      address: "456 Healthcare Center, Connaught Place",
-      phone: "+91 9876543211",
-      manager: "Dr. Rajesh Kumar"
-    },
-    {
-      city: "Bangalore",
-      address: "789 Wellness Hub, Koramangala",
-      phone: "+91 9876543212",
-      manager: "Dr. Anita Reddy"
-    },
-    {
-      city: "Pune",
-      address: "321 Medical Square, Camp Area",
-      phone: "+91 9876543213",
-      manager: "Dr. Sunil Patil"
-    }
-  ];
+  const [formOpen, setFormOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[#fafafa] text-[#1a1a1a]">
       <Header />
-      <main className="container mx-auto px-4 py-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-primary mb-4">Contact Us</h1>
-            <p className="text-lg text-muted-foreground">
-              Get in touch with our hair and scalp specialists
-            </p>
-          </div>
 
-          {/* Contact Methods */}
-          <section className="mb-12">
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {contactMethods.map((method, index) => (
-                <Card key={index} className="card-treatment text-center">
-                  <CardHeader>
-                    <div className="text-primary mx-auto mb-3">{method.icon}</div>
-                    <CardTitle className="text-lg">{method.title}</CardTitle>
-                    <CardDescription>{method.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-1">
-                      {method.details.map((detail, idx) => (
-                        <div key={idx} className="font-medium text-sm">{detail}</div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
+      {/* HERO */}
+      <section className="w-full py-20 border-b border-gray-200 bg-white">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <h1 className="text-5xl font-semibold tracking-tight">Contact Us</h1>
+          <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+            We're here to help you with appointments, enquiries, and clinic directions.
+          </p>
+        </div>
+      </section>
+
+      <main className="max-w-6xl mx-auto px-6 py-16 space-y-20">
+
+        {/* CONTACT GRID */}
+        <section className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {[
+            {
+              icon: <Phone className="w-6 h-6 text-gray-700" />,
+              title: "Phone",
+              details: ["+91 8122229557"],
+            },
+            {
+              icon: <Mail className="w-6 h-6 text-gray-700" />,
+              title: "Email",
+              details: ["thegoldengemskinhairlaserclini@gmail.com"],
+            },
+            {
+              icon: <MapPin className="w-6 h-6 text-gray-700" />,
+              title: "Location",
+              details: [
+                "No: 325/255, MKN Rd",
+                "Near Old Sukkubhai Hotel",
+                "Ramapuram, Chennai - 600016",
+              ],
+            },
+            {
+              icon: <Clock className="w-6 h-6 text-gray-700" />,
+              title: "Hours",
+              details: ["Mon–Sat: 9 AM – 7 PM", "Sun: 10 AM – 4 PM"],
+            },
+          ].map((item, i) => (
+          <div
+            key={i}
+            className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition"
+          >
+            {item.icon}
+            <h3 className="mt-4 font-semibold text-xl">{item.title}</h3>
+
+            {/* FIX: Prevent long text from overflowing */}
+            <div className="mt-2 text-gray-600 text-sm space-y-1 break-words">
+              {item.details.map((d, idx) => (
+                <p key={idx}>{d}</p>
               ))}
             </div>
-          </section>
-
-          <div className="grid lg:grid-cols-2 gap-12 mb-12">
-            {/* Contact Form */}
-            <section>
-              <Card className="card-treatment">
-                <CardHeader>
-                  <CardTitle className="text-2xl">Book Appointment</CardTitle>
-                  <CardDescription>Fill out the form below and we'll get back to you within 24 hours</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="text-sm font-medium mb-1 block">Full Name</label>
-                      <Input placeholder="Enter your full name" />
-                    </div>
-                    <div>
-                      <label className="text-sm font-medium mb-1 block">Phone Number</label>
-                      <Input placeholder="Enter your phone number" />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium mb-1 block">Email Address</label>
-                    <Input type="email" placeholder="Enter your email address" />
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium mb-1 block">Preferred Location</label>
-                    <select className="w-full p-2 border border-border rounded-md bg-background">
-                      <option>Select a branch</option>
-                      <option>Mumbai</option>
-                      <option>Delhi</option>
-                      <option>Bangalore</option>
-                      <option>Pune</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium mb-1 block">Service Needed</label>
-                    <select className="w-full p-2 border border-border rounded-md bg-background">
-                      <option>Select a service</option>
-                      <option>Diagnostic Consultation</option>
-                      <option>Hair Loss Treatment</option>
-                      <option>PRP Therapy</option>
-                      <option>Hair Transplant Consultation</option>
-                      <option>Scalp Treatment</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium mb-1 block">Message</label>
-                    <Textarea placeholder="Describe your concerns or questions..." rows={4} />
-                  </div>
-                  <Button className="w-full btn-golden">
-                    Submit Appointment Request
-                  </Button>
-                  <p className="text-xs text-muted-foreground text-center">
-                    We respect your privacy. Your information is kept confidential.
-                  </p>
-                </CardContent>
-              </Card>
-            </section>
-
-            {/* Operating Hours & Branches */}
-            <section className="space-y-6">
-              {/* Operating Hours */}
-              <Card className="card-treatment">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Clock className="w-5 h-5" />
-                    Operating Hours
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    {operatingHours.map((schedule, index) => (
-                      <div key={index} className="flex justify-between items-center">
-                        <span className="font-medium">{schedule.day}</span>
-                        <span className="text-muted-foreground">{schedule.time}</span>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Branches */}
-              <Card className="card-treatment">
-                <CardHeader>
-                  <CardTitle>Our Branches</CardTitle>
-                  <CardDescription>Visit any of our convenient locations</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    {branches.map((branch, index) => (
-                      <div key={index} className="border-l-4 border-primary pl-4">
-                        <div className="font-semibold text-lg">{branch.city}</div>
-                        <div className="text-sm text-muted-foreground">{branch.address}</div>
-                        <div className="text-sm">{branch.phone}</div>
-                        <div className="text-xs text-primary">Manager: {branch.manager}</div>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </section>
           </div>
+          ))}
+        </section>
 
-          {/* Map Section */}
-          <section className="mb-12">
-            <Card className="card-treatment">
-              <CardHeader>
-                <CardTitle>Find Us</CardTitle>
-                <CardDescription>Our main clinic location in Mumbai</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="bg-muted rounded-lg h-64 flex items-center justify-center">
-                  <p className="text-muted-foreground">Interactive map would be embedded here</p>
-                </div>
-              </CardContent>
-            </Card>
-          </section>
+{/* CTA + BRANCHES GRID */}
+<section className="grid md:grid-cols-2 gap-10">
+  
+  {/* LEFT — BOOK APPOINTMENT */}
+  <div className="bg-white border border-gray-200 rounded-3xl p-12 shadow-sm text-center">
+    <h2 className="text-3xl font-semibold">Book an Appointment</h2>
+    <p className="text-gray-600 mt-2 max-w-lg mx-auto">
+      Schedule your consultation with our specialists. We respond within 24 hours.
+    </p>
 
-          {/* Quick Contact */}
-          <div className="bg-primary text-primary-foreground p-8 rounded-lg text-center">
-            <h3 className="text-2xl font-semibold mb-4">Need Immediate Assistance?</h3>
-            <p className="mb-6">Our expert team is ready to help with your hair and scalp concerns</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-primary hover:bg-white/90">
-                Call Now: +91 8122733730
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                WhatsApp Chat
-              </Button>
+    <button
+      onClick={() => setFormOpen(true)}
+      className="mt-6 px-8 py-4 bg-black text-white rounded-xl text-lg font-medium 
+                 hover:bg-gray-900 transition-all"
+    >
+      Open Booking Form
+    </button>
+  </div>
+
+  {/* RIGHT — ADDRESS / BRANCH */}
+  <div className="bg-white border border-gray-200 rounded-3xl p-10 shadow-sm">
+    <h2 className="text-2xl font-semibold mb-6">Our Branch</h2>
+
+    <div className="space-y-4 pl-4 border-l-2 border-black/20">
+      <div>
+        <h3 className="font-medium text-xl">Chennai</h3>
+        <p className="text-gray-600 text-sm leading-relaxed">
+          No: 325/255, MKN Rd, Near Old Sukkubhai Hotel,<br />
+          Ramapuram, Chennai - 600016
+        </p>
+        <p className="text-gray-800 font-medium mt-2">+91 8122733730</p>
+        <p className="text-xs text-gray-500">Manager: Dr. Priya Sharma</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+        {/* MAP */}
+        <section>
+          <div className="bg-white border border-gray-200 rounded-2xl shadow-sm p-4">
+            <h2 className="text-xl font-semibold px-2">Find Us</h2>
+            <div className="mt-4 rounded-xl overflow-hidden h-[350px] border border-gray-200">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.857615953522!2d80.1991982!3d12.998470299999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267b9f851b17d%3A0x313027a186a53301!2sThe%20Golden%20Gem%20Cosmetic%20Clinic!5e0!3m2!1sen!2sin!4v1732020000000!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+              ></iframe>
             </div>
           </div>
-        </div>
+        </section>
       </main>
+
       <Footer />
+      <EnquiryForm isOpen={formOpen} onClose={() => setFormOpen(false)} />
     </div>
   );
 };

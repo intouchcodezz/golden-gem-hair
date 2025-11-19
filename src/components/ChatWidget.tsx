@@ -208,7 +208,7 @@ const MedicalChatbot: React.FC = () => {
     const signature = btoa(`${name}:${mobile}:${Date.now()}`);
 
     try {
-      await fetch("https://api.thegoldengemhairclinic.com/chatbot_backend.php", {
+      await fetch("https://thegoldengemhairclinic.com/api/chatbot_backend.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
