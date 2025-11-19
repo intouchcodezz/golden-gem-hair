@@ -135,7 +135,7 @@ const Careers = () => {
 
     try {
       const res = await fetch(
-        "https://thegoldengemhairclinic.com/backend/career_apply.php",
+        "https://api.thegoldengemhairclinic.com/career_apply.php",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
