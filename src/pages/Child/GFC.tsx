@@ -129,7 +129,7 @@ const HairTransplantGFC = () => {
               Why Choose GFC Therapy?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              GFC therapy offers a non-surgical, natural approach to hair restoration, 
+              GFC therapy is a Non-invasive, natural approach to hair restoration, 
               using your body’s own growth factors to rejuvenate hair follicles with minimal downtime.
             </p>
           </div>
@@ -224,8 +224,8 @@ const HairTransplantGFC = () => {
                     factor: "Sessions Needed",
                     fut: "1-2 sessions",
                     fue: "1-3 sessions",
-                    prp: "4-8 sessions",
-                    gfc: "4-6 sessions"
+                    prp: "5-10 sessions",
+                    gfc: "4-8 sessions"
                   },
                   {
                     factor: "Results Timeline",

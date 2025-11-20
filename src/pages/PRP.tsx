@@ -229,7 +229,6 @@ const PRPTherapy = () => {
                   <th className="px-6 py-4 text-center font-semibold">Medications</th>
                   <th className="px-6 py-4 text-center font-semibold bg-amber-600">PRP Therapy</th>
                   <th className="px-6 py-4 text-center font-semibold">Hair Transplant</th>
-                  <th className="px-6 py-4 text-center font-semibold">Stem Cell Therapy</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
@@ -239,84 +238,72 @@ const PRPTherapy = () => {
                     medications: "Chemical intervention with drugs",
                     prp: "Platelet-rich plasma injections",
                     transplant: "Surgical hair follicle relocation",
-                    stemcell: "Stem cell regenerative therapy"
                   },
                   {
                     factor: "Success Rate",
                     medications: "40-60% (varies by individual)",
                     prp: "70-80% improvement in hair density",
                     transplant: "85-95% graft survival",
-                    stemcell: "85-90% follicle regeneration"
                   },
                   {
                     factor: "Natural Process",
                     medications: "Artificial hormone manipulation",
                     prp: "Uses body's own healing factors",
                     transplant: "Surgical redistribution",
-                    stemcell: "Cellular regeneration therapy"
                   },
                   {
                     factor: "Side Effects",
                     medications: "Sexual dysfunction, depression",
                     prp: "Minimal swelling, temporary discomfort",
                     transplant: "Scarring, infection risk",
-                    stemcell: "Minimal (autologous treatment)"
                   },
                   {
                     factor: "Treatment Duration",
                     medications: "Lifelong daily medication",
                     prp: "4-6 sessions over 6 months",
                     transplant: "Single surgery (6-8 hours)",
-                    stemcell: "3-4 sessions over 4-6 months"
                   },
                   {
                     factor: "Results Timeline",
                     medications: "3-6 months for stabilization",
                     prp: "3-6 months for visible improvement",
                     transplant: "12-18 months for full results",
-                    stemcell: "4-8 months for significant growth"
                   },
                   {
                     factor: "Invasiveness Level",
                     medications: "Non-invasive (oral/topical)",
                     prp: "Minimally invasive injections",
                     transplant: "Highly invasive surgery",
-                    stemcell: "Minimally invasive procedure"
                   },
                   {
                     factor: "Downtime Required",
                     medications: "None",
                     prp: "24-48 hours mild discomfort",
                     transplant: "2-3 weeks recovery",
-                    stemcell: "24-48 hours minimal discomfort"
                   },
                   {
                     factor: "Long-term Effectiveness",
                     medications: "Requires continuous use",
                     prp: "12-18 months with maintenance",
                     transplant: "Permanent (transplanted hair)",
-                    stemcell: "2-3 years lasting regeneration"
                   },
                   {
                     factor: "Cost Effectiveness",
                     medications: "Low initial, high lifetime cost",
                     prp: "Moderate cost, good value for results",
                     transplant: "High upfront, one-time cost",
-                    stemcell: "Higher cost, longer-lasting"
                   },
                   {
                     factor: "Suitable For",
                     medications: "Early-stage hair loss only",
                     prp: "Early to moderate hair thinning",
                     transplant: "Advanced hair loss",
-                    stemcell: "All stages of hair loss"
                   },
                   {
                     factor: "Hair Quality Improvement",
                     medications: "Maintains existing hair",
                     prp: "Improves thickness and strength",
                     transplant: "Natural transplanted hair",
-                    stemcell: "Significant density improvement"
                   }
                 ].map((row, idx) => (
                   <tr key={idx} className={idx % 2 === 0 ? "bg-gray-50" : "bg-white"}>
@@ -324,7 +311,6 @@ const PRPTherapy = () => {
                     <td className="px-6 py-4 text-center text-red-600">{row.medications}</td>
                     <td className="px-6 py-4 text-center text-blue-700 font-semibold bg-blue-50">{row.prp}</td>
                     <td className="px-6 py-4 text-center text-yellow-600">{row.transplant}</td>
-                    <td className="px-6 py-4 text-center text-green-600">{row.stemcell}</td>
                   </tr>
                 ))}
               </tbody>
@@ -642,7 +628,7 @@ const PRPTherapy = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
-              Why Choose VCare for PRP Hair Therapy
+              Why Choose The Golden Gem for PRP Hair Therapy
             </h2>
           </div>
 
@@ -658,7 +644,7 @@ const PRPTherapy = () => {
               <div className="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="h-10 w-10 text-green-600" />
               </div>
-              <div className="text-3xl font-bold text-gray-800 mb-2">15+</div>
+              <div className="text-3xl font-bold text-gray-800 mb-2">8+</div>
               <div className="text-gray-600">Years Experience</div>
             </div>
             <div className="text-center">

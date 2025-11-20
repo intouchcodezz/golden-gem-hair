@@ -8,12 +8,14 @@ import ht from '../assets/ht.jpg';
 import HairRejuvenation from '../assets/hairrejuvenation.jpg';
 import folitreat from '../assets/folitreat.jpg'
 import exogro from '../assets/exogro.webp'
-import mesotherapy from '../assets/mesotherapy.jpg'
+import geneticAssesment from '../assets/gh.png'
+import blood from '../assets/blood.webp'
+import mesotherapy from '../assets/meso.jpg'
+import hd from '../assets/exogro.jpg'
 import gfc from '../assets/gfc.webp'
 import smp from '../assets/SMP.jpg'
 import ivhair from '../assets/ivhair.png'
-import cellgraft from '../assets/cellgraft.webp'
-import growththearpies from '../assets/growththearpies.jpeg'
+import growththearpies from '../assets/growth.jpg'
 import scalp from '../assets/scalp.jpg'
 import smp1 from '../assets/smp1.jpg'
 
@@ -51,7 +53,6 @@ const navigationItems: Record<string, NavigationItem> = {
           { title: 'Scalp Micro Pigmentation', href: '/scalp-pigmentation', image: smp, desc: 'Even skin tone' },
           { title: 'Exogro', href: '/exogro', image: exogro, desc: 'Advanced treatment' },
           { title: 'IV Hair Therapy', href: '/iv-hair-therapy', image: ivhair, desc: 'Vitamin infusion' },
-          { title: 'Cell Graft Therapy', href: '/cell-graft', image: cellgraft, desc: 'Cell regeneration' },
         ]
       },
       hair: {
@@ -79,9 +80,9 @@ const navigationItems: Record<string, NavigationItem> = {
         name: 'Diagnosis',
         items: [
           { title: 'Trichoscopy', href: '/trichoscopy', image: prp, desc: 'Advanced diagnostics' },
-          { title: 'Hair Density', href: '/hair-density', image: mesotherapy, desc: 'Complete analysis' },
-          { title: 'Blood Tests', href: '/blood-hormonal', image: gfc, desc: 'Detailed assessment' },
-          { title: 'Genetic Assessment', href: '/genetic-assessment', image: exogro, desc: 'Genetic profiling' },
+          { title: 'Hair Density', href: '/hair-density', image: hd, desc: 'Complete analysis' },
+          { title: 'Blood Tests', href: '/blood-hormonal', image: blood, desc: 'Detailed assessment' },
+          { title: 'Genetic Assessment', href: '/genetic-assessment', image: geneticAssesment, desc: 'Genetic profiling' },
         ]
       },
     }
@@ -222,7 +223,9 @@ export default function Navbar() {
               </a>
               <div className="flex items-center gap-2 text-primary-foreground/70">
                 <Clock className="w-3.5 h-3.5" />
-                <span>Mon-Sat: 9AM-7PM</span>
+                <span>
+                  Mon–Sun: 10AM–8PM <span className="text-red-500 font-semibold">(Tuesday Closed)</span>
+                </span>
               </div>
             </div>
 
@@ -268,7 +271,7 @@ export default function Navbar() {
             </a>
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
+            <nav className="hidden lg:flex items-center gap-1 xl:gap-2 text-sm">
               <a 
                 href="/" 
                 className="px-4 py-2.5 text-sm font-semibold text-foreground rounded-lg hover:text-primary hover:bg-muted/50 transition-all"
@@ -307,7 +310,7 @@ export default function Navbar() {
               })}
               
                 {['Offers', 'About'].map((link) => (
-                  <a key={link} href={`/${link.toLowerCase()}`} className="px-4 py-3 text-slate-700 font-medium rounded hover:text-amber-500 hover:bg-amber-100/20 transition-colors">{link}</a>
+                  <a key={link} href={`/${link.toLowerCase()}`} className="px-4 py-2.5 text-sm font-semibold text-foreground rounded-lg hover:text-primary hover:bg-muted/50 transition-all">{link}</a>
                 ))}
             </nav>
 

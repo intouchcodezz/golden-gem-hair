@@ -698,7 +698,7 @@ const ScalpMicroPigmentation = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
-              Why Choose VCare for Scalp Micro Pigmentation
+              Why Choose The Golden Gem for Scalp Micro Pigmentation
             </h2>
           </div>
 

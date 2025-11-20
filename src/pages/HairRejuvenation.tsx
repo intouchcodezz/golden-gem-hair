@@ -702,7 +702,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
-              Why Choose VCare for Hair Rejuvenation
+              Why Choose The Golden Gem for Hair Rejuvenation
             </h2>
           </div>
 

@@ -25,30 +25,28 @@ import befoeafter10 from "@/assets/beforeafter10.jpg";
 import beforeafter12 from "@/assets/beforeafter12.jpg";
 import beforeafter15 from "@/assets/beforeafter15.jpg";
 import beforeafter20 from "@/assets/beforeafter20.jpg";
-// import ht4 from "@/assets/ht4.jpg"
-import ht2 from "@/assets/ht2.jpg"
-import gfc2 from "@/assets/gfc2.jpg"
-import gfc3 from "@/assets/gfc3.jpg"
+import ht2 from "@/assets/ht2.jpg";
+import gfc2 from "@/assets/gfc2.jpg";
+import gfc3 from "@/assets/gfc3.jpg";
 
 const Results = () => {
   const beforeAfterImages = [
-    { before: beforeafter1, alt: "Hair Rejuvenation Therapy - Male Pattern Hair Loss" },
-    { before: beforeafter2, alt: "Hair Rejuvenation Therapy - Female Hair Thinning" },
-    { before: beforeafter3, alt: "Hair Rejuvenation Therapy - Scalp Condition" },
-    { before: beforeafter4, alt: "Hair Rejuvenation Therapy - Case 4" },
-    { before: beforeafter5, alt: "Hair Rejuvenation Therapy - Case 5" },
-    { before: beforeafter6, alt: "Hair Rejuvenation Therapy - Case 6" },
-    { before: beforeafter7, alt: "Hair Rejuvenation Therapy - Case 7" },
-    { before: beforeafter8, alt: "Hair Rejuvenation Therapy - Case 8" },
-    { before: beforeafter9, alt: "Hair Rejuvenation Therapy - Case 9" },
-    { before: befoeafter10, alt: "Hair Rejuvenation Therapy - Case 10" },
-    { before: beforeafter12, alt: "Hair Rejuvenation Therapy - Case 12" },
-    { before: beforeafter15, alt: "Hair Rejuvenation Therapy - Case 15" },
-    { before: beforeafter20, alt: "Hair Rejuvenation Therapy - Case 20" },
-    { before: ht2, alt: "Hair Transplant - Case 11" },
-    // { before: ht4, alt: "Hair Transplant - Case 13" },
-    { before: gfc2, alt: "GFC - Case 14" },
-    { before: gfc3, alt: "GFC - Case 16" },
+    { before: beforeafter1, alt: "Hair Rejuvenation Therapy - Male Pattern Hair Loss", title: "PRP therapy" },
+    { before: beforeafter2, alt: "Hair Rejuvenation Therapy - Female Hair Thinning", title: "Hair Transplant" },
+    { before: beforeafter3, alt: "Hair Rejuvenation Therapy - Scalp Condition", title: "Hair Transplant" },
+    { before: beforeafter4, alt: "Hair Rejuvenation Therapy - Case 4", title: "Hair Transplant" },
+    { before: beforeafter5, alt: "Hair Rejuvenation Therapy - Case 5", title: "Hair Transplant" },
+    { before: beforeafter6, alt: "Hair Rejuvenation Therapy - Case 6", title: "PRP therapy" },
+    { before: beforeafter7, alt: "Hair Rejuvenation Therapy - Case 7", title: "GFC therapy" },
+    { before: beforeafter8, alt: "Hair Rejuvenation Therapy - Case 8", title: "PRP therapy" },
+    { before: beforeafter9, alt: "Hair Rejuvenation Therapy - Case 9", title: "Hair Transplant" },
+    { before: befoeafter10, alt: "Hair Rejuvenation Therapy - Case 10", title: "Improved Volume" },
+    { before: beforeafter12, alt: "Hair Rejuvenation Therapy - Case 12", title: "Pattern Baldness" },
+    { before: beforeafter15, alt: "Hair Rejuvenation Therapy - Case 15", title: "GFC Hairline Restoration" },
+    { before: beforeafter20, alt: "Hair Rejuvenation Therapy - Case 20", title: "PRP therapy" },
+    { before: ht2, alt: "Hair Transplant - Case 11", title: "Hair Transplant" },
+    { before: gfc2, alt: "GFC - Case 14", title: "GFC Therapy" },
+    { before: gfc3, alt: "GFC - Case 16", title: "GFC Therapy" },
   ];
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -104,6 +102,11 @@ const Results = () => {
                           loading="lazy"
                         />
                       </button>
+
+                      {/* NAME / TITLE */}
+                      <p className="text-center text-sm text-gray-700 mt-2 font-medium">
+                        {image.title}
+                      </p>
                     </div>
                   </CardContent>
                 </Card>
@@ -134,6 +137,11 @@ const Results = () => {
                               loading="lazy"
                             />
                           </button>
+
+                          {/* NAME / TITLE */}
+                          <p className="text-center text-sm text-gray-700 mt-2 font-medium">
+                            {image.title}
+                          </p>
                         </div>
                       </CardContent>
                     </Card>
@@ -141,7 +149,7 @@ const Results = () => {
                 ))}
               </CarouselContent>
 
-              {/* Carousel Navigation */}
+              {/* Navigation */}
               <CarouselPrevious
                 className="absolute left-2 top-1/2 transform -translate-y-1/2 z-20 bg-white/80 text-gray-700 shadow-md hover:bg-white hover:scale-105 transition-all duration-300"
               />
@@ -153,9 +161,7 @@ const Results = () => {
 
           {/* Contact Section */}
           <section className="bg-gradient-to-r from-primary/10 to-primary/5 p-8 rounded-lg text-center">
-            <h3 className="text-2xl font-semibold mb-4 font-heading">
-              Get In Touch With Us
-            </h3>
+            <h3 className="text-2xl font-semibold mb-4 font-heading">Get In Touch With Us</h3>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
               One-Click Away For A Personalized Consultation With Our Team Of Highly Qualified Trichologist, Cosmetologists & Surgeons.
             </p>

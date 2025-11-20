@@ -28,7 +28,6 @@ import GFC from "./pages/Child/GFC";
 import Mesotherapy from "./pages/Child/mesotherapy";
 import Exogro from "./pages/Child/exogro";
 import IVHairTherapy from "./pages/Child/IVhair";
-import CellGrafttherapy from "./pages/Child/cellgraft";
 import Beforeafter from "./pages/Child/beforeafter";
 import Trichoscopy from "./pages/trichoscopy";
 import HairDensity from "./pages/HairDensity";
@@ -124,7 +123,6 @@ const AppContent: React.FC = () => {
         <Route path="/gfc-treatment" element={<GFC />} />
         <Route path="/mesotherapy" element={<Mesotherapy />} />
         <Route path="/iv-hair-therapy" element={<IVHairTherapy />} />
-        <Route path="/cell-graft" element={<CellGrafttherapy />} />
         <Route path="/prp-treatment" element={<PRPTherapy />} />
         <Route path="/scalp-pigmentation" element={<ScalpPigmentation />} />
         <Route path="/exogro" element={<Exogro />} />

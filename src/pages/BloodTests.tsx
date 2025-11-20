@@ -262,8 +262,7 @@ const BloodHormonalTests = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
               >
-                Learn more about our partner labs
-              </a>.
+              </a>
             </p>
           </div>
         </div>

@@ -282,7 +282,6 @@ const HairTransplantFUE = () => {
                   <th className="px-6 py-4 text-center font-semibold">FUT (Strip)</th>
                   <th className="px-6 py-4 text-center font-semibold bg-yellow-500">Traditional FUE</th>
                   <th className="px-6 py-4 text-center font-semibold">DHI</th>
-                  <th className="px-6 py-4 text-center font-semibold">AFT</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
@@ -292,70 +291,60 @@ const HairTransplantFUE = () => {
                     fut: "Strip of scalp removed surgically for dissection",
                     fue: "Individual punch extraction (1.0-1.2mm)",
                     dhi: "Punch extraction with direct implanter",
-                    aft: "Ultra-fine titanium punches (0.6-0.7mm)"
                   },
                   {
                     factor: "Grafts Per Session",
                     fut: "3,000-5,000+ grafts possible",
                     fue: "2,000-3,000 grafts typical",
                     dhi: "2,500-3,500 grafts",
-                    aft: "2,000-3,000 grafts"
                   },
                   {
                     factor: "Scarring Pattern",
                     fut: "Linear scar (concealed with hair >1-2cm)",
                     fue: "Multiple dotted scars across donor",
                     dhi: "Minimal dotted scars",
-                    aft: "Virtually no visible scarring"
                   },
                   {
                     factor: "Healing Time",
                     fut: "10-14 days (suture removal needed)",
                     fue: "7-10 days",
                     dhi: "5-7 days",
-                    aft: "2-3 days"
                   },
                   {
                     factor: "Graft Survival Rate",
                     fut: "85-95% (minimal transection)",
                     fue: "70-80%",
                     dhi: "80-85%",
-                    aft: "90-95%"
                   },
                   {
                     factor: "Procedure Duration",
                     fut: "4-6 hours for large sessions",
                     fue: "6-8 hours",
                     dhi: "6-8 hours",
-                    aft: "5-7 hours"
                   },
                   {
                     factor: "Cost Per Graft",
                     fut: "Most economical for large sessions",
                     fue: "Moderate to high",
                     dhi: "High",
-                    aft: "Premium pricing"
                   },
                   {
                     factor: "Ideal Candidate",
                     fut: "Extensive hair loss, need max grafts",
                     fue: "Mild to moderate hair loss",
                     dhi: "Precision coverage needs",
-                    aft: "Premium results, minimal downtime"
                   },
                   {
                     factor: "Hair Length Requirement",
                     fut: "Can keep hair longer during procedure",
                     fie: "Must shave donor area",
                     dhi: "Partial shaving possible",
-                    aft: "Minimal shaving"
                   },
                   {
                     factor: "Future Procedures",
                     fut: "Donor area preserved for future use",
                     fue: "Limited by donor depletion",
                     dhi: "Moderate donor preservation",
-                    aft: "Good donor preservation"
                   }
                 ].map((row, idx) => (
                   <tr key={idx} className={idx % 2 === 0 ? "bg-gray-50" : "bg-white"}>
@@ -363,7 +352,6 @@ const HairTransplantFUE = () => {
                     <td className="px-6 py-4 text-center text-orange-600">{row.fut}</td>
                     <td className="px-6 py-4 text-center text-yellow-700 font-semibold bg-yellow-50">{row.fue}</td>
                     <td className="px-6 py-4 text-center text-amber-600">{row.dhi}</td>
-                    <td className="px-6 py-4 text-center text-yellow-600">{row.aft}</td>
                   </tr>
                 ))}
               </tbody>

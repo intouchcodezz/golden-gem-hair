@@ -7,12 +7,11 @@ import ht from '../assets/ht.jpg';
 import HairRejuvenation from '../assets/hairrejuvenation.jpg';
 import folitreat from '../assets/folitreat.jpg'
 import exogro from '../assets/exogro.webp'
-import mesotherapy from '../assets/mesotherapy.jpg'
+import mesotherapy from '../assets/meso.jpg'
 import gfc from '../assets/gfc.webp'
 import smp from '../assets/SMP.jpg'
 import ivhair from '../assets/ivhair.png'
-import cellgraft from '../assets/cellgraft.webp'
-import growththearpies from '../assets/growththearpies.jpeg'
+import growththearpies from '../assets/growth.jpg'
 import scalp from '../assets/scalp.jpg'
 
 // Combined treatments data
@@ -147,16 +146,6 @@ const allTreatments = [
     link: "/iv-hair-therapy",
     rating: 4.6,
     duration: "90 min"
-  },
-  {
-    id: "cell-graft",
-    title: "Cell Graft Therapy",
-    description: "Autologous cell grafting to restore follicular units and improve scalp regenerative capacity.",
-    image: cellgraft,
-    category: "Hair",
-    link: "/cell-graft",
-    rating: 4.7,
-    duration: "75 min"
   },
 
 ];

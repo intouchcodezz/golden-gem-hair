@@ -131,7 +131,7 @@ const hairOffers = [
 
   const testimonials = [
     { name: "Priya Malhotra", city: "Mumbai", review: "Stopped my hair fall in just 21 days with PRP. Best decision ever!" },
-    { name: "Rohan Kapoor", city: "Delhi", review: "Got my full hairline back with AFT 2.0. Looks 100% natural!" },
+    { name: "Rohan Kapoor", city: "Delhi", review: "Got my full hairline back with FUE 2.0. Looks 100% natural!" },
     { name: "Ananya Sharma", city: "Bangalore", review: "Laser therapy made my hair so thick. I finally love my hair again!" },
     { name: "Vikram Singh", city: "Chennai", review: "Professional team, transparent process. Results exceeded expectations!" },
     { name: "Neha Gupta", city: "Pune", review: "The care and attention I received was unmatched. Confidence restored!" },
@@ -194,7 +194,6 @@ const hairOffers = [
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Exclusive Limited-Time Offers
             </h2>
-            <p className="text-xl text-gray-600">Book before 30th November 2025</p>
           </div>
 
           <motion.div variants={stagger} initial="hidden" whileInView="visible" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

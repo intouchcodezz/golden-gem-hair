@@ -193,11 +193,11 @@ const About = () => {
               <div>
                 <h4 className="text-lg font-bold text-gray-900 mb-4">Qualifications & Expertise</h4>
                 {[
-                  "MD in Dermatology & Cosmetology",
+                  "Certified Cosmetologist and Aesthetician",
                   "Fellowship in Aesthetic Medicine",
                   "8+ Years Clinical Experience",
                   "International Training in Advanced Procedures",
-                  "Member of Indian Association of Dermatologists",
+                  "Team of Certified Dermatologists and Cosmetology's",
                 ].map((q, i) => (
                   <div key={i} className="flex items-start mb-2">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-1 flex-shrink-0" />

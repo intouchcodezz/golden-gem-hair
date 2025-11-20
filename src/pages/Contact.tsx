@@ -98,7 +98,7 @@ const Contact = () => {
           No: 325/255, MKN Rd, Near Old Sukkubhai Hotel,<br />
           Ramapuram, Chennai - 600016
         </p>
-        <p className="text-gray-800 font-medium mt-2">+91 8122733730</p>
+        <p className="text-gray-800 font-medium mt-2">+91 8122229557</p>
         <p className="text-xs text-gray-500">Manager: Dr. Priya Sharma</p>
       </div>
     </div>
