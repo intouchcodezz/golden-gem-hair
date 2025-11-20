@@ -41,22 +41,22 @@ import { title } from "process";
 const About = () => {
   // ONLY Before & After images
   const beforeAfterItems = [
-    { image: beforeafter1, title: "Hair Rejuvenation Therapy - Male Pattern Hair Loss" },
-    { image: beforeafter2, title: "Hair Rejuvenation Therapy - Female Hair Thinning" },
-    { image: beforeafter3, title: "Hair Rejuvenation Therapy - Scalp Condition" },
-    { image: beforeafter4, title: "Hair Rejuvenation Therapy - Case 4" },
-    { image: beforeafter5, title: "Hair Rejuvenation Therapy - Case 5" },
-    { image: beforeafter6, title: "Hair Rejuvenation Therapy - Case 6" },
-    { image: beforeafter7, title: "Hair Rejuvenation Therapy - Case 7" },
-    { image: beforeafter8, title: "Hair Rejuvenation Therapy - Case 8" },
-    { image: beforeafter9, title: "Hair Rejuvenation Therapy - Case 9" },
-    { image: befoeafter10, title: "Hair Rejuvenation Therapy - Case 10" },
-    { image: beforeafter12, title: "Hair Rejuvenation Therapy - Case 12" },
-    { image: beforeafter15, title: "Hair Rejuvenation Therapy - Case 15" },
-    { image: beforeafter20, title: "Hair Rejuvenation Therapy - Case 20" },
-    { image: ht2, title: "Hair Transplant - Case 11" },
-    { image: gfc2, title: "GFC - Case 14" },
-    { image: gfc3, titles: "GFC - Case 16" },
+    { image: beforeafter1, alt: "Hair Rejuvenation Therapy - Male Pattern Hair Loss", title: "PRP therapy" },
+    { image: beforeafter2, alt: "Hair Rejuvenation Therapy - Female Hair Thinning", title: "Hair Transplant" },
+    { image: beforeafter3, alt: "Hair Rejuvenation Therapy - Scalp Condition", title: "Hair Transplant" },
+    { image: beforeafter4, alt: "Hair Rejuvenation Therapy - Case 4", title: "Hair Transplant" },
+    { image: beforeafter5, alt: "Hair Rejuvenation Therapy - Case 5", title: "Hair Transplant" },
+    { image: beforeafter6, alt: "Hair Rejuvenation Therapy - Case 6", title: "PRP therapy" },
+    { image: beforeafter7, alt: "Hair Rejuvenation Therapy - Case 7", title: "GFC therapy" },
+    { image: beforeafter8, alt: "Hair Rejuvenation Therapy - Case 8", title: "PRP therapy" },
+    { image: beforeafter9, alt: "Hair Rejuvenation Therapy - Case 9", title: "Hair Transplant" },
+    { image: befoeafter10, alt: "Hair Rejuvenation Therapy - Case 10", title: "Improved Volume" },
+    { image: beforeafter12, alt: "Hair Rejuvenation Therapy - Case 12", title: "Pattern Baldness" },
+    { image: beforeafter15, alt: "Hair Rejuvenation Therapy - Case 15", title: "GFC Hairline Restoration" },
+    { image: beforeafter20, alt: "Hair Rejuvenation Therapy - Case 20", title: "PRP therapy" },
+    { image: ht2, alt: "Hair Transplant - Case 11", title: "Hair Transplant" },
+    { image: gfc2, alt: "GFC - Case 14", title: "GFC Therapy" },
+    { image: gfc3, alt: "GFC - Case 16", title: "GFC Therapy" },
   ];
 
   const testimonials = [
@@ -261,6 +261,10 @@ const About = () => {
                   alt={item.title}
                   className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
                 />
+                {/* TITLE (added only this) */}
+                <p className="text-center text-sm text-gray-700 mt-2 mb-3">
+                  {item.title}
+                </p>
               </div>
             ))}
           </div>
