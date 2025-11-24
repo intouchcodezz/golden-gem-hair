@@ -557,7 +557,7 @@ const IVHairTherapy = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
-              Why Trust Us for Your IV Hair Therapy
+              Why Trust The Golden Gem for Your IV Hair Therapy
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Our clinic combines medical expertise with advanced IV therapy protocols to deliver exceptional hair restoration results.

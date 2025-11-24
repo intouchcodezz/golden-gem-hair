@@ -557,7 +557,7 @@ const HairTransplantExoGro = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
-              Why Trust Us for Your ExoGro Therapy
+              Why Trust The Golden Gem for Your ExoGro Therapy
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Our clinic pioneers exosome-based treatments with certified experts and cutting-edge protocols for superior hair restoration.

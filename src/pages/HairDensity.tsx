@@ -360,7 +360,7 @@ const HairDensityAnalysis = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
-              Why Trust Us for Your Hair Analysis
+              Why Trust The Golden Gem for Your Hair Analysis
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Our clinic uses state-of-the-art digital imaging and expert analysis to deliver precise, actionable insights for your hair restoration journey.

@@ -31,22 +31,22 @@ import gfc3 from "@/assets/gfc3.jpg";
 
 const Results = () => {
   const beforeAfterImages = [
-    { before: beforeafter1, alt: "Hair Rejuvenation Therapy - Male Pattern Hair Loss", title: "PRP therapy" },
-    { before: beforeafter2, alt: "Hair Rejuvenation Therapy - Female Hair Thinning", title: "Hair Transplant" },
-    { before: beforeafter3, alt: "Hair Rejuvenation Therapy - Scalp Condition", title: "Hair Transplant" },
-    { before: beforeafter4, alt: "Hair Rejuvenation Therapy - Case 4", title: "Hair Transplant" },
-    { before: beforeafter5, alt: "Hair Rejuvenation Therapy - Case 5", title: "Hair Transplant" },
-    { before: beforeafter6, alt: "Hair Rejuvenation Therapy - Case 6", title: "PRP therapy" },
-    { before: beforeafter7, alt: "Hair Rejuvenation Therapy - Case 7", title: "GFC therapy" },
-    { before: beforeafter8, alt: "Hair Rejuvenation Therapy - Case 8", title: "PRP therapy" },
-    { before: beforeafter9, alt: "Hair Rejuvenation Therapy - Case 9", title: "Hair Transplant" },
-    { before: befoeafter10, alt: "Hair Rejuvenation Therapy - Case 10", title: "Improved Volume" },
-    { before: beforeafter12, alt: "Hair Rejuvenation Therapy - Case 12", title: "Pattern Baldness" },
-    { before: beforeafter15, alt: "Hair Rejuvenation Therapy - Case 15", title: "GFC Hairline Restoration" },
-    { before: beforeafter20, alt: "Hair Rejuvenation Therapy - Case 20", title: "PRP therapy" },
-    { before: ht2, alt: "Hair Transplant - Case 11", title: "Hair Transplant" },
-    { before: gfc2, alt: "GFC - Case 14", title: "GFC Therapy" },
-    { before: gfc3, alt: "GFC - Case 16", title: "GFC Therapy" },
+    { image: beforeafter1, alt: "Hair Rejuvenation Therapy - Male Pattern Hair Loss", title: "PRP therapy" },
+    { image: beforeafter2, alt: "Hair Rejuvenation Therapy - Female Hair Thinning", title: "Hair Transplant" },
+    { image: beforeafter3, alt: "Hair Rejuvenation Therapy - Scalp Condition", title: "Hair Transplant" },
+    { image: beforeafter4, alt: "Hair Rejuvenation Therapy - Case 4", title: "Hair Transplant" },
+    { image: beforeafter5, alt: "Hair Rejuvenation Therapy - Case 5", title: "Hair Transplant" },
+    { image: beforeafter6, alt: "Hair Rejuvenation Therapy - Case 6", title: "PRP therapy" },
+    { image: beforeafter7, alt: "Hair Rejuvenation Therapy - Case 7", title: "Hair Transplant" },
+    { image: beforeafter8, alt: "Hair Rejuvenation Therapy - Case 8", title: "Hair Transplant" },
+    { image: beforeafter9, alt: "Hair Rejuvenation Therapy - Case 9", title: "Hair Transplant" },
+    { image: befoeafter10, alt: "Hair Rejuvenation Therapy - Case 10", title: "Improved Volume" },
+    { image: beforeafter12, alt: "Hair Rejuvenation Therapy - Case 12", title: "Pattern Baldness" },
+    { image: beforeafter15, alt: "Hair Rejuvenation Therapy - Case 15", title: "GFC Hairline Restoration" },
+    { image: beforeafter20, alt: "Hair Rejuvenation Therapy - Case 20", title: "PRP therapy" },
+    { image: ht2, alt: "Hair Transplant - Case 11", title: "GFC Therapy" },
+    { image: gfc2, alt: "GFC - Case 14", title: "GFC Therapy" },
+    { image: gfc3, alt: "GFC - Case 16", title: "GFC Therapy" },
   ];
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -90,12 +90,12 @@ const Results = () => {
                     <div className="p-2">
                       <button
                         onClick={() =>
-                          (window as any).__openImageLightbox?.(image.before, image.alt)
+                          (window as any).__openImageLightbox?.(image.image, image.alt)
                         }
                         className="block w-full"
                       >
                         <img
-                          src={image.before}
+                          src={image.image}
                           alt={image.alt}
                           className="w-full h-full object-cover rounded-lg"
                           style={{ aspectRatio: "1/1" }}
@@ -125,12 +125,12 @@ const Results = () => {
                         <div className="p-2">
                           <button
                             onClick={() =>
-                              (window as any).__openImageLightbox?.(image.before, image.alt)
+                              (window as any).__openImageLightbox?.(image.image, image.alt)
                             }
                             className="block w-full"
                           >
                             <img
-                              src={image.before}
+                              src={image.image}
                               alt={image.alt}
                               className="w-full h-full object-cover rounded-lg"
                               style={{ aspectRatio: "1/1" }}

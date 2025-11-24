@@ -597,7 +597,7 @@ const HairTransplantFUE = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
-              Why Trust Us for Your FUE Procedure
+              Why Trust The Golden Gem for Your FUE Procedure
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Our clinic offers unmatched expertise, advanced technology, and a commitment to patient satisfaction for exceptional FUE results.
