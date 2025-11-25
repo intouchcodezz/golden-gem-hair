@@ -201,18 +201,18 @@ const Growth = () => {
                 <Badge className="mb-4 bg-gold-100 text-gold-700 border-gold-300">
                   About Our Treatments
                 </Badge>
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gold-900 mb-6">
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gold-900 mb-6">
                   What Are Growth Therapies?
                 </h2>
               </div>
               
               <div className="space-y-4 text-gold-800">
-                <p className="text-base sm:text-lg leading-relaxed">
+                <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] leading-relaxed">
                   Growth therapies are advanced treatments designed to stimulate hair follicles, 
                   improve scalp health, and promote hair regeneration. Our specialized therapies 
                   combine medical science with cutting-edge technology.
                 </p>
-                <p className="text-base sm:text-lg leading-relaxed">
+                <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] leading-relaxed">
                   We offer PRP + Microneedling, GFC + Microneedling, and Exosome therapies 
                   tailored to your specific hair loss pattern and scalp condition.
                 </p>
@@ -251,10 +251,10 @@ const Growth = () => {
             <Badge className="mb-4 bg-gold-500 text-gold-50">
               Our Services
             </Badge>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gold-900 mb-6">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gold-900 mb-6">
               Our Growth Therapies
             </h2>
-            <p className="text-base sm:text-lg text-gold-700 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-3xl mx-auto">
               Explore our scientifically-backed treatments designed to restore hair density and improve scalp health
             </p>
           </div>
@@ -315,10 +315,10 @@ const Growth = () => {
             <Badge className="mb-4 bg-gold-100 text-gold-700 border-gold-300">
               Our Approach
             </Badge>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gold-900 mb-6">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gold-900 mb-6">
               Our Treatment Process
             </h2>
-            <p className="text-base sm:text-lg text-gold-700 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-3xl mx-auto">
               We follow a systematic, science-based approach to deliver the best results in hair restoration
             </p>
           </div>
@@ -369,10 +369,10 @@ const Growth = () => {
             <Badge className="mb-4 bg-gold-500 text-gold-50">
               Results
             </Badge>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gold-900 mb-6">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gold-900 mb-6">
               Success Stories
             </h2>
-            <p className="text-base sm:text-lg text-gold-700 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-3xl mx-auto">
               Transformative results achieved by our patients through Growth Therapies
             </p>
           </div>
@@ -400,10 +400,10 @@ const Growth = () => {
                 </div>
 
                 <CardContent className="p-4 sm:p-6 text-center">
-                  <h4 className="text-base sm:text-lg font-bold text-gold-900 mb-2">
+                  <h4 className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-bold text-gold-900 mb-2">
                     {result.title}
                   </h4>
-                  <p className="text-xs sm:text-sm text-gold-700">
+                  <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A]">
                     {result.description}
                   </p>
                 </CardContent>
@@ -420,10 +420,10 @@ const Growth = () => {
             <Badge className="mb-4 bg-gold-100 text-gold-700 border-gold-300">
               FAQ
             </Badge>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gold-900 mb-6">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gold-900 mb-6">
               Frequently Asked Questions
             </h2>
-            <p className="text-base sm:text-lg text-gold-700">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A]">
               Common questions about Growth Therapies
             </p>
           </div>
@@ -437,7 +437,7 @@ const Growth = () => {
               >
                 <CardContent className="p-6">
                   <div className="flex justify-between items-center">
-                    <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-gold-900 pr-4">
+                    <h3 className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-semibold text-gold-900 pr-4">
                       {faq.question}
                     </h3>
                     <ArrowRight 
@@ -449,7 +449,7 @@ const Growth = () => {
                   
                   {activeTab === index && (
                     <div className="mt-4 pt-4 border-t border-gold-200">
-                      <p className="text-sm sm:text-base text-gold-700 leading-relaxed">
+                      <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] leading-relaxed">
                         {faq.answer}
                       </p>
                     </div>

@@ -8,11 +8,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../co
 const Treatments = () => {
   const treatmentCategories = [
     {
-      title: "Hair Loss Treatments",
-      description: "Comprehensive solutions for male and female pattern baldness",
-      treatments: ["Minoxidil Therapy", "Finasteride Treatment", "DHT Blockers", "Topical Solutions"]
-    },
-    {
       title: "Scalp Disorders",
       description: "Specialized treatments for various scalp conditions",
       treatments: ["Dandruff Treatment", "Scalp Psoriasis", "Seborrheic Dermatitis", "Fungal Infections"]
@@ -55,8 +50,8 @@ const Treatments = () => {
       <main className="container mx-auto px-4 py-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-primary mb-4">Hair & Scalp Treatments</h1>
-            <p className="text-lg text-muted-foreground">
+            <h1 className="text-2xl font-bold text-primary mb-4">Hair & Scalp Treatments</h1>
+            <p className="text-base text-muted-foreground">
               Comprehensive treatment solutions for all your hair and scalp concerns
             </p>
           </div>

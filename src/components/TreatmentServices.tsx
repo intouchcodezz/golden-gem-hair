@@ -199,14 +199,14 @@ const TreatmentsCarousel: React.FC = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className={`text-center mb-16 `}>
-            <h1 className="text-3xl md:text-4xl lg:text-4xl font-bold leading-tight text-gray-900 mb-4">
+            <h1 className="text-2xl md:text-3xl lg:text-3xl font-bold leading-tight text-gray-900 mb-4">
             A one-stop solution for all your{' '}
             <span className="golden-gradient-text font-extrabold">
               hair and skin
             </span>
             {' '}problems
           </h1>
-          <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base md:text-sm lg:text-sm text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Experience cutting-edge treatments with guaranteed results from certified specialists.
           </p>
         </div>

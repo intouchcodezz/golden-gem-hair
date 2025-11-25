@@ -135,13 +135,13 @@ const ScalpMicroPigmentation = () => {
                 <p className="text-amber-600 font-semibold tracking-wide uppercase text-sm">
                   Advanced Cosmetic Tattooing
                 </p>
-                <h1 className="text-5xl lg:text-6xl font-bold text-slate-800 leading-tight">
+                <h1 className="text-3xl md:text-4xl font-bold leading-[3.2rem] md:leading-[3.4rem] text-slate-800"> 
                   Professional <span className="text-amber-500">Scalp Micro</span><br />
                   Pigmentation
                 </h1>
               </div>
 
-              <p className="text-lg text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
+              <p className="text-sm sm:text-sm md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
                 Transform your appearance with the most advanced non-surgical hair restoration. 
                 Achieve the perfect illusion of natural hair density — instant, lasting, and completely safe.
               </p>
@@ -149,15 +149,15 @@ const ScalpMicroPigmentation = () => {
               {/* Stats */}
               <div className="grid grid-cols-3 gap-6 py-6">
                 <div className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-amber-600">98%+</div>
+                  <div className="text-xl sm:text-xl md:text-2xl font-bold text-amber-600">98%+</div>
                   <div className="text-sm text-slate-700">Client Satisfaction</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-amber-600">Non-Surgical</div>
+                  <div className="text-xl sm:text-xl md:text-2xl font-bold text-amber-600">Non-Surgical</div>
                   <div className="text-sm text-slate-700">Safe Procedure</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-amber-600">5000+</div>
+                  <div className="text-xl sm:text-xl md:text-2xl font-bold text-amber-600">5000+</div>
                   <div className="text-sm text-slate-700">Successful Cases</div>
                 </div>
               </div>
@@ -218,10 +218,10 @@ const ScalpMicroPigmentation = () => {
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               What is Scalp Micro Pigmentation?
             </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               Scalp Micro Pigmentation is a groundbreaking non-surgical cosmetic procedure that uses specialized 
               micro-needles to deposit natural pigments into the scalp's epidermal layer. This creates the visual 
               impression of natural hair follicles, delivering an incredibly realistic appearance of a full head of hair.
@@ -251,10 +251,10 @@ const ScalpMicroPigmentation = () => {
                 description: "Visible improvement immediately after first session with progressive enhancement"
               }
             ].map((feature, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div key={idx} className="bg-white p-8 rounded-md shadow-md hover:shadow-lg transition-shadow duration-300">
                 <div className="mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <h3 className="text-md font-semibold text-gray-800 mb-3">{feature.title}</h3>
+                <p className="text-xs text-gray-600">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -262,13 +262,13 @@ const ScalpMicroPigmentation = () => {
       </section>
 
       {/* DETAILED COMPARISON TABLE */}
-      <section className="py-20 bg-white">
+      <section className="py-0 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               SMP vs Other Hair Loss Solutions
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               Compare Scalp Micro Pigmentation against traditional hair loss treatments to understand 
               why it's becoming the preferred choice for millions worldwide.
             </p>
@@ -277,12 +277,12 @@ const ScalpMicroPigmentation = () => {
           <div className="overflow-x-auto rounded-2xl shadow-2xl">
             <table className="min-w-full bg-white">
               <thead>
-                <tr className="bg-gradient-to-r from-amber-600 to-amber-700 text-white">
+                <tr className="bg-gradient-to-r from-amber-600 to-amber-700 text-white text-xs sm:text-xs md:text-base">
                   <th className="px-6 py-4 text-left font-semibold">Comparison Factors</th>
-                  <th className="px-6 py-4 text-center font-semibold">Hair Systems/Wigs</th>
-                  <th className="px-6 py-4 text-center font-semibold">Hair Medications</th>
-                  <th className="px-6 py-4 text-center font-semibold">Hair Transplant</th>
-                  <th className="px-6 py-4 text-center font-semibold bg-amber-600">Scalp Micro Pigmentation</th>
+                  <th className="px-6 py-4 text-center font-semibold text-xs sm:text-xs md:text-base">Hair Systems/Wigs</th>
+                  <th className="px-6 py-4 text-center font-semibold text-xs sm:text-xs md:text-base">Hair Medications</th>
+                  <th className="px-6 py-4 text-center font-semibold text-xs sm:text-xs md:text-base">Hair Transplant</th>
+                  <th className="px-6 py-4 text-center font-semibold text-xs sm:text-xs md:text-base bg-amber-600">Scalp Micro Pigmentation</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
@@ -390,10 +390,10 @@ const ScalpMicroPigmentation = () => {
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               The Professional SMP Process
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               Our comprehensive 4-phase approach ensures exceptional results through meticulous 
               planning, artistic execution, and progressive refinement.
             </p>
@@ -428,15 +428,15 @@ const ScalpMicroPigmentation = () => {
                 }
               ].map((process, idx) => (
                 <div key={idx} className="relative">
-                  <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
+                  <div className="bg-white rounded-md p-8 shadow-md hover:shadow-lg transition-shadow duration-300 h-full">
                     <div className="bg-gradient-to-r from-amber-600 to-amber-500 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
                       {process.icon}
                     </div>
                     <div className="absolute top-4 right-4 text-6xl font-bold text-amber-100">
                       {process.step}
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-800 mb-4">{process.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{process.description}</p>
+                    <h3 className="text-md font-semibold text-gray-800 mb-4">{process.title}</h3>
+                    <p className="text-xs text-gray-600 leading-relaxed">{process.description}</p>
                   </div>
                   {idx < 3 && (
                     <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2">
@@ -454,10 +454,10 @@ const ScalpMicroPigmentation = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               Incredible Patient Transformations
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               Experience the dramatic before and after results achieved through our advanced SMP techniques. 
               These authentic results showcase the life-changing potential of professional scalp micro pigmentation.
             </p>
@@ -465,7 +465,7 @@ const ScalpMicroPigmentation = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {beforeAfterResults.map((result, idx) => (
-              <div key={idx} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+              <div key={idx} className="bg-white rounded-md shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
                 <div className="relative">
                   <button onClick={() => (window as any).__openImageLightbox?.(result.before, result.age)} className="block w-full">
                     <img 
@@ -476,7 +476,7 @@ const ScalpMicroPigmentation = () => {
                   </button>
                 </div>
                 <div className="p-6">
-                  <div className="space-y-2 text-sm text-gray-600">
+                  <div className="space-y-2 text-xs sm:text-xs md:text-base text-[#1A1A1A]">
                     <div className="flex justify-between">
                       <span>Age:</span>
                       <span className="font-semibold">{result.age}</span>
@@ -501,10 +501,10 @@ const ScalpMicroPigmentation = () => {
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               Essential Treatment Guidelines
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               Following these detailed pre and post-treatment instructions is crucial for achieving 
               optimal results and ensuring proper healing of your SMP treatment.
             </p>
@@ -512,16 +512,16 @@ const ScalpMicroPigmentation = () => {
 
             <div className="grid lg:grid-cols-2 gap-12">
             {/* Pre-Treatment Instructions */}
-            <div className="bg-gradient-to-br from-amber-50 to-yellow-100 rounded-2xl p-8">
+            <div className="bg-gradient-to-br from-amber-50 to-yellow-100 rounded-md p-8">
               <div className="flex items-center mb-6">
                 <div className="bg-amber-600 p-3 rounded-xl mr-4">
                   <CheckCircle className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-amber-800">Pre-Treatment Preparation</h3>
+                <h3 className="text-xl font-bold text-amber-800">Pre-Treatment Preparation</h3>
               </div>
               
               <div className="space-y-4">
-                <h4 className="font-semibold text-blue-700 mb-3">1 Week Before Treatment:</h4>
+                <h4 className="font-medium text-blue-700 mb-3">1 Week Before Treatment:</h4>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <ChevronRight className="h-4 w-4 text-amber-600 mt-1 mr-2 flex-shrink-0" />
@@ -541,7 +541,7 @@ const ScalpMicroPigmentation = () => {
                   </li>
                 </ul>
 
-                <h4 className="font-semibold text-amber-700 mb-3 mt-6">24 Hours Before:</h4>
+                <h4 className="font-medium text-amber-700 mb-3 mt-6">24 Hours Before:</h4>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <ChevronRight className="h-4 w-4 text-amber-600 mt-1 mr-2 flex-shrink-0" />
@@ -561,7 +561,7 @@ const ScalpMicroPigmentation = () => {
                   </li>
                 </ul>
 
-                <h4 className="font-semibold text-blue-700 mb-3 mt-6">Day of Treatment:</h4>
+                <h4 className="font-medium text-blue-700 mb-3 mt-6">Day of Treatment:</h4>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <ChevronRight className="h-4 w-4 text-blue-600 mt-1 mr-2 flex-shrink-0" />
@@ -593,7 +593,7 @@ const ScalpMicroPigmentation = () => {
               </div>
               
               <div className="space-y-4">
-                <h4 className="font-semibold text-amber-700 mb-3">First 4 Days (Critical Healing Period):</h4>
+                <h4 className="font-medium text-amber-700 mb-3">First 4 Days (Critical Healing Period):</h4>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <ChevronRight className="h-4 w-4 text-amber-600 mt-1 mr-2 flex-shrink-0" />
@@ -613,7 +613,7 @@ const ScalpMicroPigmentation = () => {
                   </li>
                 </ul>
 
-                <h4 className="font-semibold text-amber-700 mb-3 mt-6">Days 5-10:</h4>
+                <h4 className="font-medium text-amber-700 mb-3 mt-6">Days 5-10:</h4>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <ChevronRight className="h-4 w-4 text-amber-600 mt-1 mr-2 flex-shrink-0" />
@@ -633,7 +633,7 @@ const ScalpMicroPigmentation = () => {
                   </li>
                 </ul>
 
-                <h4 className="font-semibold text-amber-700 mb-3 mt-6">Long-term Care (Weeks 2+):</h4>
+                <h4 className="font-medium text-amber-700 mb-3 mt-6">Long-term Care (Weeks 2+):</h4>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <ChevronRight className="h-4 w-4 text-amber-600 mt-1 mr-2 flex-shrink-0" />
@@ -662,10 +662,10 @@ const ScalpMicroPigmentation = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               Frequently Asked Questions
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               Get detailed answers to the most common questions about Scalp Micro Pigmentation 
               from our expert practitioners.
             </p>
@@ -674,16 +674,16 @@ const ScalpMicroPigmentation = () => {
           <div className="max-w-4xl mx-auto">
             <div className="space-y-6">
               {faqs.map((faq, idx) => (
-                <div key={idx} className="bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                <div key={idx} className="bg-white rounded-md shadow-md border border-gray-100 hover:shadow-lg transition-shadow duration-300">
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-start">
+                    <h3 className="text-md font-semibold text-gray-800 mb-4 flex items-start">
                       <div className="bg-blue-100 text-blue-600 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 mt-1 flex-shrink-0">
                         Q
                       </div>
                       {faq.q}
                     </h3>
                     <div className="ml-12">
-                      <p className="text-gray-700 leading-relaxed">{faq.a}</p>
+                      <p className="text-xs text-gray-700 leading-relaxed">{faq.a}</p>
                     </div>
                   </div>
                 </div>
@@ -697,8 +697,8 @@ const ScalpMicroPigmentation = () => {
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
-              Why Choose The Golden Gem for Scalp Micro Pigmentation
+          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
+              Why Choose The Golden Gem Clinic for Scalp Micro Pigmentation
             </h2>
           </div>
 
@@ -707,28 +707,28 @@ const ScalpMicroPigmentation = () => {
               <div className="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="h-10 w-10 text-blue-600" />
               </div>
-              <div className="text-3xl font-bold text-gray-800 mb-2">5000+</div>
+              <div className="text-xl sm:text-xl md:text-3xl font-bold text-gray-800 mb-2">5000+</div>
               <div className="text-gray-600">Successful Treatments</div>
             </div>
             <div className="text-center">
               <div className="bg-indigo-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="h-10 w-10 text-indigo-600" />
               </div>
-              <div className="text-3xl font-bold text-gray-800 mb-2">15+</div>
+              <div className="text-xl sm:text-xl md:text-3xl font-bold text-gray-800 mb-2">15+</div>
               <div className="text-gray-600">Years Experience</div>
             </div>
             <div className="text-center">
               <div className="bg-purple-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Star className="h-10 w-10 text-purple-600" />
               </div>
-              <div className="text-3xl font-bold text-gray-800 mb-2">4.9/5</div>
+              <div className="text-xl sm:text-xl md:text-3xl font-bold text-gray-800 mb-2">4.9/5</div>
               <div className="text-gray-600">Client Rating</div>
             </div>
             <div className="text-center">
               <div className="bg-cyan-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Shield className="h-10 w-10 text-cyan-600" />
               </div>
-              <div className="text-3xl font-bold text-gray-800 mb-2">98%+</div>
+              <div className="text-xl sm:text-xl md:text-3xl font-bold text-gray-800 mb-2">98%+</div>
               <div className="text-gray-600">Satisfaction Rate</div>
             </div>
           </div>

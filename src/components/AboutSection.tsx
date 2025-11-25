@@ -175,87 +175,92 @@ const About = () => {
         </div>
 
         {/* Promise Section */}
-        <div className="bg-white/80 backdrop-blur-sm rounded-3xl mt-12 p-8 lg:p-12 border border-white/50 shadow-xl relative overflow-hidden">
-          {/* Decorative elements */}
-          <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-blue-100/50 to-emerald-100/50 rounded-full -translate-y-20 translate-x-20"></div>
-          <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-purple-100/50 to-pink-100/50 rounded-full translate-y-16 -translate-x-16"></div>
-          
-          <div className="relative z-10">
-            <div className="text-center mb-12">              
-              <h3 className="text-3xl md:text-3xl font-bold mb-6 golden-gradient-text">
-                We Deliver on Our Promise
-              </h3>
-              <p className="text-lg text-slate-600 max-w-4xl mx-auto leading-relaxed">
-                Your concerns are our priority. Experience consultations with highly experienced specialists 
-                and treatments at our ultra-modern facility with cutting-edge, FDA-certified equipment.
-              </p>
-            </div>
-            
-            <div className="grid md:grid-cols-2 gap-12 items-start">
-              <div className="space-y-8">
-                <div className="bg-gradient-to-br from-blue-50 to-emerald-50 rounded-2xl p-8 border border-blue-200/30">
-                  <h4 className="text-xl font-semibold text-slate-900 mb-4 flex items-center">
-                    <Shield className="w-6 h-6 text-blue-600 mr-3" />
-                    Our Commitment to You
-                  </h4>
-                  <p className="text-slate-600 leading-relaxed">
-                    At The Golden Gem, we provide guaranteed natural hair growth and healthy lifestyle 
-                    solutions through our comprehensive approach including nutritional supplements for 
-                    deficiencies and disorders.
-                  </p>
-                </div>
-                
-                <div className="space-y-4">
-                  <h5 className="font-semibold text-slate-900 flex items-center text-lg">
-                    <Microscope className="w-6 h-6 text-emerald-600 mr-3" />
-                    Advanced Treatment Range
-                  </h5>
+      <div className="bg-white/80 backdrop-blur-sm rounded-3xl mt-12 p-8 lg:p-12 border border-white/50 shadow-xl relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-blue-100/50 to-emerald-100/50 rounded-full -translate-y-20 translate-x-20"></div>
+        <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-purple-100/50 to-pink-100/50 rounded-full translate-y-16 -translate-x-16"></div>
+
+        <div className="relative z-10">
+          <div className="text-center mb-10">
+            <h3 className="text-2xl md:text-2xl font-bold mb-4 golden-gradient-text">
+              We Deliver on Our Promise
+            </h3>
+            <p className="text-base text-slate-600 max-w-3xl mx-auto leading-relaxed">
+              Your concerns are our priority. Experience consultations with highly experienced specialists 
+              and treatments at our ultra-modern facility with cutting-edge, FDA-certified equipment.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-10 items-start">
+            <div className="space-y-6">
+              <div className="bg-gradient-to-br from-blue-50 to-emerald-50 rounded-2xl p-6 border border-blue-200/30">
+                <h4 className="text-lg font-semibold text-slate-900 mb-3 flex items-center">
+                  <Shield className="w-5 h-5 text-blue-600 mr-3" />
+                  Our Commitment to You
+                </h4>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  At The Golden Gem, we provide guaranteed natural hair growth and healthy lifestyle 
+                  solutions through our comprehensive approach including nutritional supplements for 
+                  deficiencies and disorders.
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <h5 className="font-semibold text-slate-900 flex items-center text-base">
+                  <Microscope className="w-5 h-5 text-emerald-600 mr-3" />
+                  Advanced Treatment Range
+                </h5>
+
                 <div className="grid grid-cols-2 gap-3">
-                    {specializations.map((item, index) => (
-                      <div
-                        key={index}
-                        className="flex items-center space-x-3 group p-3 rounded-lg hover:bg-blue-50 transition-colors"
-                      >
-                        <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
-                        <span className="text-slate-700 group-hover:text-blue-700 transition-colors font-medium">
-                          {item}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
+                  {specializations.map((item, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center space-x-2 group p-3 rounded-lg hover:bg-blue-50 transition-colors"
+                    >
+                      <CheckCircle className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+                      <span className="text-slate-700 group-hover:text-blue-700 transition-colors text-sm font-medium">
+                        {item}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               </div>
-              
-              <div className="space-y-8">
-                <div className="bg-gradient-to-br from-emerald-50 to-blue-50 rounded-2xl p-8 border border-emerald-200/30">
-                  <h4 className="text-xl font-semibold text-slate-900 mb-6 flex items-center">
-                    <Heart className="w-6 h-6 text-emerald-600 mr-3" />
-                    Why Choose Us?
-                  </h4>
-                  <div className="space-y-4">
-                    {[
-                      "FDA-certified equipment ensuring complete safety",
-                      "Guaranteed natural hair growth results",
-                      "Comprehensive health and wellness approach",
-                      "Certified industry specialists and experts",
-                      "State-of-the-art facility with modern technology"
-                    ].map((point, index) => (
-                      <div key={index} className="flex items-start space-x-4">
-                        <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-600 to-emerald-600 mt-3 flex-shrink-0"></div>
-                        <p className="text-slate-700 leading-relaxed">{point}</p>
-                      </div>
-                    ))}
-                  </div>
+            </div>
+
+            <div className="space-y-6">
+              <div className="bg-gradient-to-br from-emerald-50 to-blue-50 rounded-2xl p-6 border border-emerald-200/30">
+                <h4 className="text-lg font-semibold text-slate-900 mb-4 flex items-center">
+                  <Heart className="w-5 h-5 text-emerald-600 mr-3" />
+                  Why Choose Us?
+                </h4>
+
+                <div className="space-y-3">
+                  {[
+                    "FDA-certified equipment ensuring complete safety",
+                    "Guaranteed natural hair growth results",
+                    "Comprehensive health and wellness approach",
+                    "Certified industry specialists and experts",
+                    "State-of-the-art facility with modern technology",
+                  ].map((point, index) => (
+                    <div key={index} className="flex items-start space-x-3">
+                      <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-600 to-emerald-600 mt-3 flex-shrink-0"></div>
+                      <p className="text-slate-700 text-sm leading-relaxed">{point}</p>
+                    </div>
+                  ))}
                 </div>
-                
-                <Link to="/#treatments" className="w-full bg-[#f4a00c] text-[#fff] hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 py-4 rounded-xl text-lg font-semibold flex items-center justify-center group">
-                  Explore All Treatments
-                  <CheckCircle className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform" />
-                </Link>
               </div>
+
+              <Link
+                to="/#treatments"
+                className="w-full bg-[#f4a00c] text-white hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 py-3 rounded-xl text-base font-semibold flex items-center justify-center group"
+              >
+                Explore All Treatments
+                <CheckCircle className="w-4 h-4 ml-2 group-hover:scale-110 transition-transform" />
+              </Link>
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

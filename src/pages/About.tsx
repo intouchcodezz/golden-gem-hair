@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import akshara from "../assets/cabin-room.png";
+import akshara from "../assets/doctor.jpg";
 
 import beforeafter1 from "@/assets/beforeafter1.jpg";
 import beforeafter2 from "@/assets/beforeafter2.jpg";

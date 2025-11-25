@@ -21,10 +21,15 @@ const Diagnostic = () => {
       </main>
       <main className="container mx-auto px-4 py-8">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-primary mb-4">Advanced Hair & Scalp Diagnostics</h1>
-            <p className="text-lg text-muted-foreground">Comprehensive assessment and testing for accurate diagnosis</p>
-          </div>
+        <div className="text-center mb-12">
+          <h1 className="text-2xl md:text-3xl font-bold text-primary mb-4">
+            Advanced Hair & Scalp Diagnostics
+          </h1>
+          <p className="text-sm md:text-base text-muted-foreground">
+            Comprehensive assessment and testing for accurate diagnosis
+          </p>
+        </div>
+
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             <div className="card-treatment">

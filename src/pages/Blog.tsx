@@ -29,7 +29,7 @@ export default function Blog() {
       readTime: '6 min read',
       category: 'Hair Restoration',
       summary: 'Essential aftercare steps to maximize graft survival and healing post hair transplant surgery.',
-      image: 'https://images.pexels.com/photos/3059704/pexels-photo-3059704.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      image: 'https://images.pexels.com/photos/973401/pexels-photo-973401.jpeg',
       content: `
         <div class="space-y-6">
           <p class="text-lg leading-relaxed">Proper aftercare following a hair transplant is critical to ensure optimal graft survival and achieve the best possible results. The first 48-72 hours are particularly crucial for the newly transplanted follicles.</p>
@@ -197,7 +197,7 @@ export default function Blog() {
       readTime: '5 min read',
       category: 'Education',
       summary: 'Separating facts from fiction so patients can make better decisions about their hair health.',
-      image: 'https://images.pexels.com/photos/3059610/pexels-photo-3059610.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      image: 'https://images.pexels.com/photos/1159334/pexels-photo-1159334.jpeg',
       content: `
         <div class="space-y-6">
           <p class="text-lg leading-relaxed">Hair loss is surrounded by countless myths and misconceptions that can lead to ineffective treatments and unnecessary worry. Let's examine the science behind common hair loss beliefs.</p>
@@ -243,7 +243,7 @@ export default function Blog() {
               <h3 class="text-xl font-bold text-gray-900 mb-3">Myth #5: There's No Effective Treatment for Hair Loss</h3>
               <div class="bg-green-50 p-4 rounded-lg mb-3">
                 <p class="font-semibold text-green-900 mb-2">The Truth:</p>
-                <p class="text-gray-700">Multiple FDA-approved treatments exist with proven efficacy: Minoxidil (topical), Finasteride (oral for men), hair transplant surgery, PRP therapy, and low-level laser therapy. Early intervention yields the best results.</p>
+                <p class="text-gray-700">Multiple FDA-approved treatments exist with proven efficacy: Minoxidil (topical), hair transplant surgery, PRP therapy, and low-level laser therapy. Early intervention yields the best results.</p>
               </div>
               <p class="text-gray-600 italic">Scientific Basis: Clinical studies demonstrate significant hair regrowth and prevention of further loss with proper treatment.</p>
             </div>
@@ -1092,7 +1092,7 @@ export default function Blog() {
             <p class="text-gray-700 mb-4">LLLT is a legitimate, FDA-cleared treatment that can help slow hair loss and modestly improve hair density for people with early to moderate pattern baldness. However, it's not a miracle cure.</p>
             <p class="text-gray-700 font-semibold">Best used as:</p>
             <ul class="text-gray-700 space-y-2 mt-3">
-              <li class="flex items-start"><span class="text-amber-600 mr-3">•</span><span>Part of a comprehensive treatment plan (combined with minoxidil, finasteride, or PRP)</span></li>
+              <li class="flex items-start"><span class="text-amber-600 mr-3">•</span><span>Part of a comprehensive treatment plan (combined with minoxidil, or PRP)</span></li>
               <li class="flex items-start"><span class="text-amber-600 mr-3">•</span><span>A maintenance therapy after hair transplant</span></li>
               <li class="flex items-start"><span class="text-amber-600 mr-3">•</span><span>An option for those who can't or won't use pharmaceutical treatments</span></li>
             </ul>

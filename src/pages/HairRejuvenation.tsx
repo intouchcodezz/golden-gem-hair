@@ -128,13 +128,13 @@ const [isModalOpen, setIsModalOpen] = useState(false);
                 <p className="text-amber-600 font-semibold tracking-wide uppercase text-sm">
                   Comprehensive Hair Restoration
                 </p>
-                <h1 className="text-5xl lg:text-6xl font-bold text-slate-800 leading-tight">
+                <h1 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem] text-slate-800 leading-tight">
                   Complete <span className="text-amber-500">Hair</span><br />
                   Rejuvenation Therapy
                 </h1>
               </div>
 
-              <p className="text-lg text-slate-600 leading-relaxed max-w-lg mx-auto lg:mx-0">
+              <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
                 Experience the ultimate transformation through a multi-modal approach that combines 
                 cutting-edge treatments for natural, comprehensive hair rejuvenation and long-lasting results.
               </p>
@@ -143,15 +143,15 @@ const [isModalOpen, setIsModalOpen] = useState(false);
               <div className="grid grid-cols-3 gap-6 py-6 max-w-md mx-auto lg:mx-0">
                 <div className="text-center">
                   <div className="text-2xl md:text-3xl font-bold text-amber-600">85%+</div>
-                  <div className="text-sm text-slate-700">Success Rate</div>
+                  <div className="text-xs sm:text-xs md:text-base text-[#1A1A1A]">Success Rate</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl md:text-3xl font-bold text-amber-600">6-in-1</div>
-                  <div className="text-sm text-slate-700">Combined Therapies</div>
+                  <div className="text-xs sm:text-xs md:text-base text-[#1A1A1A]">Combined Therapies</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl md:text-3xl font-bold text-amber-600">4000+</div>
-                  <div className="text-sm text-slate-700">Happy Clients</div>
+                  <div className="text-xs sm:text-xs md:text-base text-[#1A1A1A]">Happy Clients</div>
                 </div>
               </div>
 
@@ -214,10 +214,10 @@ const [isModalOpen, setIsModalOpen] = useState(false);
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               What is Hair Rejuvenation Therapy?
             </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               Hair Rejuvenation Therapy is a comprehensive, multi-modal treatment approach that combines 
               6 different advanced therapies in each session. This holistic method addresses all aspects 
               of hair health - from follicle stimulation to scalp environment optimization for complete restoration.
@@ -247,10 +247,10 @@ const [isModalOpen, setIsModalOpen] = useState(false);
                 description: "Improves hair density, quality, strength, and overall scalp health"
               }
             ].map((feature, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div key={idx} className="bg-white p-8 rounded-md shadow-md hover:shadow-lg transition-shadow duration-300">
                 <div className="mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <h3 className="text-md font-semibold text-gray-800 mb-3">{feature.title}</h3>
+                <p className="text-xs text-gray-600">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -258,27 +258,27 @@ const [isModalOpen, setIsModalOpen] = useState(false);
       </section>
 
       {/* DETAILED COMPARISON TABLE */}
-      <section className="py-20 bg-white">
+      <section className="bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               Hair Rejuvenation vs Other Hair Loss Treatments
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               See how our comprehensive Hair Rejuvenation therapy compares to other treatments 
               in effectiveness, approach, and overall patient satisfaction.
             </p>
           </div>
 
-          <div className="overflow-x-auto rounded-2xl shadow-2xl">
+          <div className="overflow-x-auto rounded-md shadow-md">
             <table className="min-w-full bg-white">
               <thead>
                 <tr className="bg-gradient-to-r from-yellow-600 to-yellow-700 text-white">
-                  <th className="px-6 py-4 text-left font-semibold">Treatment Factors</th>
-                  <th className="px-6 py-4 text-center font-semibold">Medications</th>
-                  <th className="px-6 py-4 text-center font-semibold">PRP Therapy</th>
-                  <th className="px-6 py-4 text-center font-semibold">Hair Transplant</th>
-                  <th className="px-6 py-4 text-center font-semibold bg-amber-600">Hair Rejuvenation</th>
+                  <th className="px-6 py-4 text-left font-semibold text-xs sm:text-xs md:text-base">Treatment Factors</th>
+                  <th className="px-6 py-4 text-center font-semibold text-xs sm:text-xs md:text-base">Medications</th>
+                  <th className="px-6 py-4 text-center font-semibold text-xs sm:text-xs md:text-base">PRP Therapy</th>
+                  <th className="px-6 py-4 text-center font-semibold text-xs sm:text-xs md:text-base">Hair Transplant</th>
+                  <th className="px-6 py-4 text-center font-semibold text-xs sm:text-xs md:text-base bg-amber-600">Hair Rejuvenation</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
@@ -386,10 +386,10 @@ const [isModalOpen, setIsModalOpen] = useState(false);
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               The Complete Hair Rejuvenation Process
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               Our comprehensive 6-step process combines multiple therapies in each 90-minute session 
               for maximum hair restoration and scalp rejuvenation.
             </p>
@@ -436,15 +436,15 @@ const [isModalOpen, setIsModalOpen] = useState(false);
                 }
               ].map((process, idx) => (
                 <div key={idx} className="relative">
-                  <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
+                  <div className="bg-white rounded-md p-8 shadow-md hover:shadow-lg transition-shadow duration-300 h-full">
                     <div className="bg-gradient-to-r from-yellow-600 to-amber-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
                       {process.icon}
                     </div>
                     <div className="absolute top-4 right-4 text-6xl font-bold text-yellow-100">
                       {process.step}
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-800 mb-4">{process.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{process.description}</p>
+                    <h3 className="text-md font-semibold text-gray-800 mb-4">{process.title}</h3>
+                    <p className="text-xs text-gray-600 leading-relaxed">{process.description}</p>
                   </div>
                   {idx < 5 && idx % 3 !== 2 && (
                     <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2">
@@ -459,13 +459,13 @@ const [isModalOpen, setIsModalOpen] = useState(false);
       </section>
 
       {/* BEFORE & AFTER RESULTS */}
-      <section className="py-20 bg-white">
+      <section className="bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               Real Patient Transformations
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               Witness the remarkable improvements achieved through our comprehensive Hair Rejuvenation Therapy. 
               These authentic results showcase the power of our multi-modal approach.
             </p>
@@ -473,7 +473,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {beforeAfterResults.map((result, idx) => (
-              <div key={idx} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+              <div key={idx} className="bg-white rounded-md shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
                 <div className="relative">
                   <button onClick={() => (window as any).__openImageLightbox?.(result.before || result.after || '', result.age)} className="block w-full">
                     <img 
@@ -484,7 +484,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
                   </button>
                 </div>
                 <div className="p-6">
-                  <div className="space-y-2 text-sm text-gray-600">
+                  <div className="space-y-2 text-xs sm:text-xs md:text-base text-[#1A1A1A]">
                     <div className="flex justify-between">
                       <span>Age:</span>
                       <span className="font-semibold">{result.age}</span>
@@ -509,10 +509,10 @@ const [isModalOpen, setIsModalOpen] = useState(false);
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               Complete Treatment Guidelines
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               Follow these comprehensive guidelines to maximize your Hair Rejuvenation results 
               and ensure optimal healing and hair growth stimulation.
             </p>
@@ -520,16 +520,16 @@ const [isModalOpen, setIsModalOpen] = useState(false);
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Pre-Treatment Instructions */}
-            <div className="bg-gradient-to-br from-yellow-50 to-amber-100 rounded-2xl p-8">
+            <div className="bg-gradient-to-br from-yellow-50 to-amber-100 rounded-md p-8">
               <div className="flex items-center mb-6">
                 <div className="bg-yellow-600 p-3 rounded-xl mr-4">
                   <CheckCircle className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-yellow-800">Pre-Treatment Preparation</h3>
+                <h3 className="text-xl font-bold text-yellow-800">Pre-Treatment Preparation</h3>
               </div>
               
               <div className="space-y-4">
-                <h4 className="font-semibold text-yellow-700 mb-3">1 Week Before Treatment:</h4>
+                <h4 className="font-medium text-yellow-700 mb-3">1 Week Before Treatment:</h4>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <ChevronRight className="h-4 w-4 text-yellow-600 mt-1 mr-2 flex-shrink-0" />
@@ -549,7 +549,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
                   </li>
                 </ul>
 
-                <h4 className="font-semibold text-yellow-700 mb-3 mt-6">24 Hours Before:</h4>
+                <h4 className="font-medium text-yellow-700 mb-3 mt-6">24 Hours Before:</h4>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <ChevronRight className="h-4 w-4 text-yellow-600 mt-1 mr-2 flex-shrink-0" />
@@ -565,7 +565,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
                   </li>
                 </ul>
 
-                <h4 className="font-semibold text-yellow-700 mb-3 mt-6">Day of Treatment:</h4>
+                <h4 className="font-medium text-yellow-700 mb-3 mt-6">Day of Treatment:</h4>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <ChevronRight className="h-4 w-4 text-yellow-600 mt-1 mr-2 flex-shrink-0" />
@@ -588,16 +588,16 @@ const [isModalOpen, setIsModalOpen] = useState(false);
             </div>
 
             {/* Post-Treatment Instructions */}
-            <div className="bg-gradient-to-br from-amber-50 to-yellow-100 rounded-2xl p-8">
+            <div className="bg-gradient-to-br from-amber-50 to-yellow-100 rounded-md p-8">
               <div className="flex items-center mb-6">
                 <div className="bg-amber-600 p-3 rounded-xl mr-4">
                   <Heart className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-amber-800">Post-Treatment Care</h3>
+                <h3 className="text-xl font-bold text-amber-800">Post-Treatment Care</h3>
               </div>
               
               <div className="space-y-4">
-                <h4 className="font-semibold text-amber-700 mb-3">First 24 Hours:</h4>
+                <h4 className="font-medium text-amber-700 mb-3">First 24 Hours:</h4>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <ChevronRight className="h-4 w-4 text-amber-600 mt-1 mr-2 flex-shrink-0" />
@@ -617,7 +617,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
                   </li>
                 </ul>
 
-                <h4 className="font-semibold text-amber-700 mb-3 mt-6">First Week:</h4>
+                <h4 className="font-medium text-amber-700 mb-3 mt-6">First Week:</h4>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <ChevronRight className="h-4 w-4 text-amber-600 mt-1 mr-2 flex-shrink-0" />
@@ -637,7 +637,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
                   </li>
                 </ul>
 
-                <h4 className="font-semibold text-amber-700 mb-3 mt-6">Long-term Care:</h4>
+                <h4 className="font-medium text-amber-700 mb-3 mt-6">Long-term Care:</h4>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <ChevronRight className="h-4 w-4 text-amber-600 mt-1 mr-2 flex-shrink-0" />
@@ -663,13 +663,13 @@ const [isModalOpen, setIsModalOpen] = useState(false);
       </section>
 
       {/* FAQ SECTION */}
-      <section className="py-20 bg-white">
+      <section className="py-0 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               Frequently Asked Questions
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               Get comprehensive answers to the most common questions about Hair Rejuvenation Therapy 
               from our experienced specialists.
             </p>
@@ -678,16 +678,16 @@ const [isModalOpen, setIsModalOpen] = useState(false);
           <div className="max-w-4xl mx-auto">
             <div className="space-y-6">
               {faqs.map((faq, idx) => (
-                <div key={idx} className="bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                <div key={idx} className="bg-white rounded-md shadow-md border border-gray-100 hover:shadow-lg transition-shadow duration-300">
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-start">
+                    <h3 className="text-md font-semibold text-gray-800 mb-4 flex items-start">
                       <div className="bg-yellow-100 text-yellow-600 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 mt-1 flex-shrink-0">
                         Q
                       </div>
                       {faq.q}
                     </h3>
                     <div className="ml-12">
-                      <p className="text-gray-700 leading-relaxed">{faq.a}</p>
+                      <p className="text-xs text-gray-700 leading-relaxed">{faq.a}</p>
                     </div>
                   </div>
                 </div>
@@ -701,8 +701,8 @@ const [isModalOpen, setIsModalOpen] = useState(false);
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
-              Why Choose The Golden Gem for Hair Rejuvenation
+          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
+              Why Choose The Golden Gem Clinic for Hair Rejuvenation
             </h2>
           </div>
 
@@ -711,75 +711,33 @@ const [isModalOpen, setIsModalOpen] = useState(false);
               <div className="bg-yellow-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="h-10 w-10 text-yellow-600" />
               </div>
-              <div className="text-3xl font-bold text-gray-800 mb-2">4000+</div>
+              <div className="text-xl sm:text-xl md:text-3xl font-bold text-gray-800 mb-2">4000+</div>
               <div className="text-gray-600">Successful Treatments</div>
             </div>
             <div className="text-center">
               <div className="bg-amber-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="h-10 w-10 text-amber-600" />
               </div>
-              <div className="text-3xl font-bold text-gray-800 mb-2">8+</div>
+              <div className="text-xl sm:text-xl md:text-3xl font-bold text-gray-800 mb-2">8+</div>
               <div className="text-gray-600">Years Experience</div>
             </div>
             <div className="text-center">
               <div className="bg-yellow-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Star className="h-10 w-10 text-yellow-600" />
               </div>
-              <div className="text-3xl font-bold text-gray-800 mb-2">4.9/5</div>
+              <div className="text-xl sm:text-xl md:text-3xl font-bold text-gray-800 mb-2">4.9/5</div>
               <div className="text-gray-600">Patient Rating</div>
             </div>
             <div className="text-center">
               <div className="bg-amber-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Crown className="h-10 w-10 text-amber-600" />
               </div>
-              <div className="text-3xl font-bold text-gray-800 mb-2">85%+</div>
+              <div className="text-xl sm:text-xl md:text-3xl font-bold text-gray-800 mb-2">85%+</div>
               <div className="text-gray-600">Success Rate</div>
             </div>
           </div>
         </div>
       </section>
-
-      {/* CALL TO ACTION */}
-      {/* <section className="py-20 bg-gradient-to-r from-yellow-600 via-yellow-700 to-amber-800 relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/10"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center text-white space-y-8">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6 !text-[#FEF08A] no-gradient">
-              Ready to Experience Complete Hair Rejuvenation?
-            </h2>
-            <p className="text-xl text-yellow-100 max-w-3xl mx-auto leading-relaxed">
-              Join thousands of satisfied patients who chose our comprehensive Hair Rejuvenation Therapy 
-              for natural, holistic hair restoration. Begin your transformation journey today.
-            </p>
-            
-            <div className="grid md:grid-cols-3 gap-8 my-12">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-yellow-200">Step 1</div>
-                <div className="text-lg">Free Consultation</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-yellow-200">Step 2</div>
-                <div className="text-lg">Multi-Modal Treatment</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-yellow-200">Step 3</div>
-                <div className="text-lg">Complete Rejuvenation</div>
-              </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <Button size="lg" className="bg-white text-yellow-600 hover:bg-gray-100 font-semibold px-8 py-4 text-lg">
-                <Phone className="mr-2 h-5 w-5" />
-                Call Now: +91 8122733730
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-yellow-600 font-semibold px-8 py-4 text-lg">
-                <Mail className="mr-2 h-5 w-5" />
-                Book Online Consultation
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section> */}
 
       {/* Lightbox Modal */}
       {lightboxOpen && lightboxSrc && (

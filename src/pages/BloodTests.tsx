@@ -108,13 +108,13 @@ const BloodHormonalTests = () => {
                 <p className="text-amber-700 font-semibold tracking-wide uppercase text-sm">
                   Uncover Internal Causes
                 </p>
-                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-slate-900">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-[3.2rem] md:leading-[3.4rem] text-slate-900">
                   Blood & Hormonal<br />
                   <span className="text-amber-600">Tests for Hair Loss</span>
                 </h1>
               </div>
 
-              <p className="text-base md:text-lg text-slate-700 leading-relaxed max-w-lg mx-auto lg:mx-0">
+              <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] leading-relaxed max-w-lg mx-auto lg:mx-0">
                 Identify the <span className="font-semibold text-amber-700">root causes of hair loss</span> 
                 through advanced blood and hormonal profiling — analyzing thyroid, vitamins, minerals, 
                 and hormone levels to build a <span className="font-semibold">data-driven, personalized treatment plan</span>.
@@ -128,8 +128,8 @@ const BloodHormonalTests = () => {
                   { value: "8000+", label: "Patients Tested" },
                 ].map((stat, i) => (
                   <div key={i} className="text-center">
-                    <div className="text-2xl md:text-3xl font-bold text-amber-700">{stat.value}</div>
-                    <div className="text-xs md:text-sm text-slate-700">{stat.label}</div>
+                    <div className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-bold text-amber-700">{stat.value}</div>
+                    <div className="text-xs sm:text-xs md:text-base text-[#1A1A1A]">{stat.label}</div>
                   </div>
                 ))}
               </div>
@@ -190,10 +190,10 @@ const BloodHormonalTests = () => {
       <section id='viewbloodhormone' className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               Why Choose Blood & Hormonal Tests?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-3xl mx-auto">
               Blood and hormonal tests uncover internal factors like thyroid dysfunction, nutrient deficiencies, 
               or hormonal imbalances, enabling precise, personalized hair restoration strategies.
             </p>
@@ -224,8 +224,8 @@ const BloodHormonalTests = () => {
             ].map((feature, idx) => (
               <div key={idx} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <h3 className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-semibold text-gray-800 mb-3">{feature.title}</h3>
+                <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A]">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -236,10 +236,10 @@ const BloodHormonalTests = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               Key Tests for Hair Loss
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-3xl mx-auto">
               Our hair loss profile includes essential blood and hormonal tests to identify underlying causes and guide effective treatment.
             </p>
           </div>
@@ -247,14 +247,14 @@ const BloodHormonalTests = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {keyTests.map((test, idx) => (
               <div key={idx} className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">{test.title}</h3>
-                <p className="text-gray-600">{test.description}</p>
+                <h3 className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-semibold text-gray-800 mb-3">{test.title}</h3>
+                <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A]">{test.description}</p>
               </div>
             ))}
           </div>
 
           <div className="text-center mt-12">
-            <p className="text-lg text-gray-600 mb-4">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] mb-4">
               Tests are conducted at our trusted partner diagnostics center. 
               <a 
                 href="https://example-diagnostics.com" 
@@ -272,10 +272,10 @@ const BloodHormonalTests = () => {
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               Benefits of Blood & Hormonal Tests
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-3xl mx-auto">
               Understand how blood and hormonal tests empower targeted hair restoration by addressing internal health factors.
             </p>
           </div>
@@ -308,8 +308,8 @@ const BloodHormonalTests = () => {
               }
             ].map((benefit, idx) => (
               <div key={idx} className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">{benefit.title}</h3>
-                <p className="text-gray-600">{benefit.description}</p>
+                <h3 className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-semibold text-gray-800 mb-3">{benefit.title}</h3>
+                <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A]">{benefit.description}</p>
               </div>
             ))}
           </div>
@@ -320,10 +320,10 @@ const BloodHormonalTests = () => {
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               Frequently Asked Questions
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-3xl mx-auto">
               Answers to common questions about Blood & Hormonal Tests for hair loss.
             </p>
           </div>
@@ -333,14 +333,14 @@ const BloodHormonalTests = () => {
               {faqs.map((faq, idx) => (
                 <div key={idx} className="bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-start">
+                    <h3 className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-semibold text-gray-800 mb-4 flex items-start">
                       <div className="bg-yellow-100 text-yellow-600 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 mt-1 flex-shrink-0">
                         Q
                       </div>
                       {faq.q}
                     </h3>
                     <div className="ml-12">
-                      <p className="text-gray-700 leading-relaxed">{faq.a}</p>
+                      <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] leading-relaxed">{faq.a}</p>
                     </div>
                   </div>
                 </div>
@@ -354,10 +354,10 @@ const BloodHormonalTests = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
-              Why Trust The Golden Gem for Your Hair Loss Tests
+          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
+              Why trust The Golden Gem Clinic for Your Hair Loss Tests
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-3xl mx-auto">
               Our clinic partners with accredited diagnostics centers to deliver precise, reliable blood and hormonal test results for your hair restoration journey.
             </p>
           </div>
@@ -394,28 +394,6 @@ const BloodHormonalTests = () => {
           </div>
         </div>
       </section>
-
-      {/* CALL TO ACTION SECTION */}
-      {/* <section className="py-20 bg-gradient-to-br from-yellow-600 via-yellow-400 to-yellow-200">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Ready to Uncover the Cause of Your Hair Loss?
-          </h2>
-          <p className="text-xl text-yellow-100 max-w-2xl mx-auto mb-8">
-            Book your Blood & Hormonal Hair Loss Profile Test today to identify internal factors and start your personalized restoration plan.
-          </p>
-          <div className="flex justify-center gap-4">
-            <Button size="lg" className="bg-white text-yellow-800 hover:bg-yellow-100 font-semibold px-6 py-3">
-              <Phone className="mr-2 h-5 w-5" />
-              Book Hair Loss Profile Test
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-black hover:bg-yellow-600 hover:text-white font-semibold px-6 py-3">
-              <Mail className="mr-2 h-5 w-5" />
-              Contact Us
-            </Button>
-          </div>
-        </div>
-      </section> */}
 
       <Footer />
     </div>

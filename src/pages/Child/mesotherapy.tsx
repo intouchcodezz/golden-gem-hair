@@ -114,12 +114,12 @@ const HairTransplantMesotherapy = () => {
                 <p className="text-amber-600 font-semibold tracking-wide uppercase text-sm">
                   Non-Surgical Hair Rejuvenation
                 </p>
-                <h1 className="text-5xl lg:text-6xl font-bold text-slate-800 leading-tight">
+                <h1 className="text-3xl md:text-4xl font-bold leading-[3.2rem] md:leading-[3.4rem] text-slate-800 leading-tight">
                   Mesotherapy <span className="text-amber-500">for Hair</span>
                 </h1>
               </div>
 
-              <p className="text-lg text-slate-600 leading-relaxed max-w-md mx-auto md:mx-0">
+              <p className="text-sm sm:text-sm md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
                 Revitalize your hair with microinjections of essential nutrients and medications, 
                 stimulating follicles and enhancing scalp health — completely non-surgical and safe.
               </p>
@@ -128,15 +128,15 @@ const HairTransplantMesotherapy = () => {
               <div className="grid grid-cols-3 gap-6 py-6">
                 <div className="text-center">
                   <div className="text-2xl md:text-3xl font-bold text-amber-600">95%+</div>
-                  <div className="text-sm text-slate-700">Patient Satisfaction</div>
+                  <div className="text-xs sm:text-xs md:text-base text-[#1A1A1A]">Patient Satisfaction</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl md:text-3xl font-bold text-amber-600">20–40 Min</div>
-                  <div className="text-sm text-slate-700">Session Time</div>
+                  <div className="text-xs sm:text-xs md:text-base text-[#1A1A1A]">Session Time</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl md:text-3xl font-bold text-amber-600">3500+</div>
-                  <div className="text-sm text-slate-700">Happy Patients</div>
+                  <div className="text-xs sm:text-xs md:text-base text-[#1A1A1A]">Happy Patients</div>
                 </div>
               </div>
 
@@ -147,7 +147,7 @@ const HairTransplantMesotherapy = () => {
                   size="lg"
                   className="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-white font-semibold px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
                 >
-                  <Phone className="mr-2 h-5 w-5" />
+                  <Phone className="mr-2 h-4 w-4" />
                   Free Consultation
                 </Button>
 
@@ -197,10 +197,10 @@ const HairTransplantMesotherapy = () => {
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               Why Choose Mesotherapy?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               Mesotherapy offers a non-invasive, nutrient-rich solution to boost hair growth, 
               improve scalp health, and achieve thicker hair with no downtime.
             </p>
@@ -240,13 +240,13 @@ const HairTransplantMesotherapy = () => {
       </section>
 
       {/* DETAILED COMPARISON TABLE */}
-      <section className="py-20 bg-white">
+      <section className="py-0 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               Mesotherapy vs Other Hair Restoration Methods
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               Compare Mesotherapy with other hair restoration techniques to find the best solution for your needs.
             </p>
           </div>
@@ -255,11 +255,11 @@ const HairTransplantMesotherapy = () => {
             <table className="min-w-full bg-white">
               <thead>
                 <tr className="bg-gradient-to-r from-yellow-600 to-yellow-400 text-white">
-                  <th className="px-6 py-4 text-left font-semibold">Comparison Factors</th>
+                  <th className="px-6 py-4 text-left font-semibold text-sm sm:text-sm md:text-base">Comparison Factors</th>
                   <th className="px-6 py-4 text-center font-semibold">FUT (Strip)</th>
-                  <th className="px-6 py-4 text-center font-semibold">FUE</th>
-                  <th className="px-6 py-4 text-center font-semibold">GFC</th>
-                  <th className="px-6 py-4 text-center font-semibold bg-yellow-500">Mesotherapy</th>
+                  <th className="px-6 py-4 text-center font-semibold text-sm sm:text-sm md:text-base">FUE</th>
+                  <th className="px-6 py-4 text-center font-semibold text-sm sm:text-sm md:text-base">GFC</th>
+                  <th className="px-6 py-4 text-center font-semibold bg-yellow-500 text-sm sm:text-sm md:text-base">Mesotherapy</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
@@ -353,17 +353,17 @@ const HairTransplantMesotherapy = () => {
       <section id='viewmesotherapy' className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               Real Patient Results
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               Explore the transformations achieved with Mesotherapy, showcasing improved hair density and scalp vitality.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {beforeAfterResults.map((result, idx) => (
-              <div key={idx} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+              <div key={idx} className="bg-white rounded-md shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
                 <div className="relative">
                   <button onClick={() => (window as any).__openImageLightbox?.(result.before, result.age)} className="block w-full">
                     <img 
@@ -374,7 +374,7 @@ const HairTransplantMesotherapy = () => {
                   </button>
                 </div>
                 <div className="p-6">
-                  <div className="space-y-2 text-sm text-gray-600">
+                  <div className="space-y-2 text-xs sm:text-xs md:text-base text-[#1A1A1A]">
                     <div className="flex justify-between">
                       <span>Age:</span>
                       <span className="font-semibold">{result.age}</span>
@@ -399,10 +399,10 @@ const HairTransplantMesotherapy = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               Complete Care Instructions
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               Follow these guidelines to ensure optimal results and a comfortable experience with Mesotherapy.
             </p>
           </div>
@@ -418,7 +418,7 @@ const HairTransplantMesotherapy = () => {
               </div>
               
               <div className="space-y-4">
-                <h4 className="font-semibold text-yellow-700 mb-3">1 Week Before Treatment:</h4>
+                <h4 className="font-medium text-yellow-700 mb-3">1 Week Before Treatment:</h4>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <ChevronRight className="h-4 w-4 text-yellow-600 mt-1 mr-2 flex-shrink-0" />
@@ -434,7 +434,7 @@ const HairTransplantMesotherapy = () => {
                   </li>
                 </ul>
 
-                <h4 className="font-semibold text-yellow-700 mb-3 mt-6">Day of Treatment:</h4>
+                <h4 className="font-medium text-yellow-700 mb-3 mt-6">Day of Treatment:</h4>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <ChevronRight className="h-4 w-4 text-yellow-600 mt-1 mr-2 flex-shrink-0" />
@@ -458,11 +458,11 @@ const HairTransplantMesotherapy = () => {
                 <div className="bg-green-600 p-3 rounded-xl mr-4">
                   <Heart className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-green-800">Post-Treatment Care</h3>
+                <h3 className="text-xl font-bold text-green-800">Post-Treatment Care</h3>
               </div>
               
               <div className="space-y-4">
-                <h4 className="font-semibold text-green-700 mb-3">First 24 Hours:</h4>
+                <h4 className="font-medium text-green-700 mb-3">First 24 Hours:</h4>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <ChevronRight className="h-4 w-4 text-green-600 mt-1 mr-2 flex-shrink-0" />
@@ -478,7 +478,7 @@ const HairTransplantMesotherapy = () => {
                   </li>
                 </ul>
 
-                <h4 className="font-semibold text-green-700 mb-3 mt-6">First Week:</h4>
+                <h4 className="font-medium text-green-700 mb-3 mt-6">First Week:</h4>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <ChevronRight className="h-4 w-4 text-green-600 mt-1 mr-2 flex-shrink-0" />
@@ -494,7 +494,7 @@ const HairTransplantMesotherapy = () => {
                   </li>
                 </ul>
 
-                <h4 className="font-semibold text-green-700 mb-3 mt-6">Long-term Care:</h4>
+                <h4 className="font-medium text-green-700 mb-3 mt-6">Long-term Care:</h4>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <ChevronRight className="h-4 w-4 text-green-600 mt-1 mr-2 flex-shrink-0" />
@@ -523,10 +523,10 @@ const HairTransplantMesotherapy = () => {
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               Frequently Asked Questions
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               Answers to common questions about Mesotherapy for hair restoration.
             </p>
           </div>
@@ -557,10 +557,10 @@ const HairTransplantMesotherapy = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
-              Why Trust The Golden Gem for Your Mesotherapy
+          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
+              Why trust The Golden Gem Clinic for Your Mesotherapy
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               Our clinic delivers exceptional Mesotherapy results with expert care, advanced techniques, and a patient-first approach.
             </p>
           </div>
@@ -588,38 +588,15 @@ const HairTransplantMesotherapy = () => {
                 description: "Accredited facilities with strict safety and hygiene standards."
               }
             ].map((indicator, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div key={idx} className="bg-white p-8 rounded-md shadow-md hover:shadow-lg transition-shadow duration-300">
                 <div className="mb-4">{indicator.icon}</div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">{indicator.title}</h3>
-                <p className="text-gray-600">{indicator.description}</p>
+                <h3 className="text-md font-semibold text-gray-800 mb-3">{indicator.title}</h3>
+                <p className="text-xs text-gray-600">{indicator.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
-
-      {/* CALL TO ACTION SECTION */}
-      {/* <section className="py-20 bg-gradient-to-br from-yellow-600 via-yellow-400 to-yellow-200">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Ready to Boost Your Hair Health?
-          </h2>
-          <p className="text-xl text-yellow-100 max-w-2xl mx-auto mb-8">
-            Book your free consultation today and start your journey to thicker, healthier hair with Mesotherapy.
-          </p>
-          <div className="flex justify-center gap-4">
-            <Button onClick={() => setIsModalOpen(true)} size="lg" className="bg-white text-yellow-700 hover:bg-yellow-50 font-semibold px-6 py-3">
-              <Phone className="mr-2 h-5 w-5" />
-              Book Free Consultation
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-yellow-600 hover:text-white font-semibold px-6 py-3">
-              <Mail className="mr-2 h-5 w-5" />
-              Contact Us
-            </Button>
-          </div>
-        </div>
-      </section> */}
-
       <Footer />
     </div>
   );

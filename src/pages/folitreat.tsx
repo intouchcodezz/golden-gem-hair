@@ -129,13 +129,13 @@ const FolitreatHairTreatment = () => {
                 <p className="text-amber-600 font-semibold tracking-wide uppercase text-sm">
                   Advanced Hair Restoration
                 </p>
-                <h1 className="text-5xl lg:text-6xl font-bold text-slate-800 leading-tight">
+                <h1 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem] text-slate-800 leading-tight">
                   Folitreat <span className="text-amber-500">Advanced</span><br />
                   Hair Treatment
                 </h1>
               </div>
 
-              <p className="text-lg text-slate-600 leading-relaxed max-w-lg mx-auto lg:mx-0">
+              <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
                 A biotechnology-powered solution combining clinical innovation with botanical actives 
                 to promote stronger, denser, and healthier hair — safely and naturally.
               </p>
@@ -144,15 +144,15 @@ const FolitreatHairTreatment = () => {
               <div className="grid grid-cols-3 gap-6 py-6 max-w-md mx-auto lg:mx-0">
                 <div className="text-center">
                   <div className="text-2xl md:text-3xl font-bold text-amber-600">90%+</div>
-                  <div className="text-sm text-slate-700">Success Rate</div>
+                  <div className="text-xs sm:text-xs md:text-base text-[#1A1A1A]">Success Rate</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl md:text-3xl font-bold text-amber-600">Pain-Free</div>
-                  <div className="text-sm text-slate-700">Treatment</div>
+                  <div className="text-xs sm:text-xs md:text-base text-[#1A1A1A]">Treatment</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl md:text-3xl font-bold text-amber-600">5000+</div>
-                  <div className="text-sm text-slate-700">Happy Clients</div>
+                  <div className="text-xs sm:text-xs md:text-base text-[#1A1A1A]">Happy Clients</div>
                 </div>
               </div>
 
@@ -212,16 +212,16 @@ const FolitreatHairTreatment = () => {
       </section>
 
       {/* WHAT IS FOLITREAT */}
-      <section className="py-20 bg-white">
+      <section className="bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold flex items-center justify-center mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               <Star className="w-6 h-6 text-amber-400 animate-bounce mr-3" />
               <span className="golden-gradient-text">
                 What is Folitreat Hair Treatment?
               </span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               Folitreat is a breakthrough hair restoration treatment that uses advanced peptide technology 
               combined with natural botanical extracts to rejuvenate hair follicles, strengthen hair roots, 
               and stimulate natural hair growth for lasting results.
@@ -251,10 +251,10 @@ const FolitreatHairTreatment = () => {
                 description: "Awakens dormant follicles and improves scalp blood circulation"
               }
             ].map((feature, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+              <div key={idx} className="bg-white p-8 rounded-md shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100">
                 <div className="mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <h3 className="text-md font-semibold text-gray-800 mb-3">{feature.title}</h3>
+                <p className="text-xs text-gray-600">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -262,30 +262,30 @@ const FolitreatHairTreatment = () => {
       </section>
 
       {/* COMPARISON TABLE */}
-      <section className="py-20 bg-gray-50">
+      <section className="bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold flex items-center justify-center mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               <Star className="w-6 h-6 text-amber-400 animate-bounce mr-3" />
               <span className="golden-gradient-text">
                 Folitreat vs Traditional Treatments
               </span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               See how Folitreat's advanced technology outperforms traditional hair loss treatments 
               in effectiveness, safety, and patient satisfaction.
             </p>
           </div>
 
-          <div className="overflow-x-auto rounded-2xl shadow-2xl">
+          <div className="overflow-x-auto rounded-md shadow-md">
             <table className="min-w-full bg-white">
               <thead>
                 <tr className="bg-gradient-to-r from-yellow-600 to-yellow-700 text-white">
-                  <th className="px-6 py-4 text-left font-semibold">Treatment Factors</th>
-                  <th className="px-6 py-4 text-center font-semibold">Oral Medications</th>
-                  <th className="px-6 py-4 text-center font-semibold">Topical Solutions</th>
-                  <th className="px-6 py-4 text-center font-semibold">PRP Therapy</th>
-                  <th className="px-6 py-4 text-center font-semibold bg-amber-600">Folitreat</th>
+                  <th className="px-6 py-4 text-left font-semibold text-xs sm:text-xs md:text-base">Treatment Factors</th>
+                  <th className="px-6 py-4 text-center font-semibold text-xs sm:text-xs md:text-base">Oral Medications</th>
+                  <th className="px-6 py-4 text-center font-semibold text-xs sm:text-xs md:text-base">Topical Solutions</th>
+                  <th className="px-6 py-4 text-center font-semibold text-xs sm:text-xs md:text-base">PRP Therapy</th>
+                  <th className="px-6 py-4 text-center font-semibold text-xs sm:text-xs md:text-base bg-amber-600">Folitreat</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
@@ -379,13 +379,12 @@ const FolitreatHairTreatment = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold flex items-center justify-center mb-6">
-              <Star className="w-6 h-6 text-amber-400 animate-bounce mr-3" />
+            <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               <span className="golden-gradient-text">
                 The Folitreat Treatment Process
               </span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               Each 60-minute Folitreat session is designed to be relaxing and effective, 
               combining multiple advanced therapies for optimal hair restoration.
             </p>
@@ -453,13 +452,12 @@ const FolitreatHairTreatment = () => {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold flex items-center justify-center mb-6">
-              <Star className="w-6 h-6 text-amber-400 animate-bounce mr-3" />
+            <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               <span className="golden-gradient-text">
                 Real Folitreat Transformations
               </span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               See the remarkable improvements our clients have achieved with Folitreat treatment. 
               These authentic results showcase the power of advanced hair restoration technology.
             </p>
@@ -467,7 +465,7 @@ const FolitreatHairTreatment = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {beforeAfterResults.map((result, idx) => (
-              <div key={idx} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+              <div key={idx} className="bg-white rounded-md shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
                 <div className="relative">
                   <button onClick={() => (window as any).__openImageLightbox?.(result.before, result.age)} className="block w-full">
                     <img 
@@ -478,7 +476,7 @@ const FolitreatHairTreatment = () => {
                   </button>
                 </div>
                 <div className="p-6">
-                  <div className="space-y-2 text-sm text-gray-600">
+                  <div className="space-y-2 text-xs sm:text-xs md:text-base text-[#1A1A1A]">
                     <div className="flex justify-between">
                       <span>Age:</span>
                       <span className="font-semibold">{result.age}</span>
@@ -500,32 +498,32 @@ const FolitreatHairTreatment = () => {
       </section>
 
       {/* PRE & POST CARE */}
-      <section className="py-20 bg-white">
+      <section className="bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold flex items-center justify-center mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               <Star className="w-6 h-6 text-amber-400 animate-bounce mr-3" />
               <span className="golden-gradient-text">
                 Treatment Care Guidelines
               </span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               Follow these guidelines to maximize your Folitreat results and ensure optimal healing.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Pre-Treatment */}
-            <div className="bg-gradient-to-br from-yellow-50 to-amber-100 rounded-2xl p-8">
+            <div className="bg-gradient-to-br from-yellow-50 to-amber-100 rounded-md p-8">
               <div className="flex items-center mb-6">
                 <div className="bg-yellow-600 p-3 rounded-xl mr-4">
                   <CheckCircle className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-yellow-800">Pre-Treatment Care</h3>
+                <h3 className="text-xl font-bold text-yellow-800">Pre-Treatment Care</h3>
               </div>
               
               <div className="space-y-4">
-                <h4 className="font-semibold text-yellow-700 mb-3">Before Your Session:</h4>
+                <h4 className="font-medium text-yellow-700 mb-3">Before Your Session:</h4>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <ChevronRight className="h-4 w-4 text-yellow-600 mt-1 mr-2 flex-shrink-0" />
@@ -556,16 +554,16 @@ const FolitreatHairTreatment = () => {
             </div>
 
             {/* Post-Treatment */}
-            <div className="bg-gradient-to-br from-amber-50 to-yellow-100 rounded-2xl p-8">
+            <div className="bg-gradient-to-br from-amber-50 to-yellow-100 rounded-md p-8">
               <div className="flex items-center mb-6">
                 <div className="bg-amber-600 p-3 rounded-xl mr-4">
                   <Heart className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-amber-800">Post-Treatment Care</h3>
+                <h3 className="text-xl font-bold text-amber-800">Post-Treatment Care</h3>
               </div>
               
               <div className="space-y-4">
-                <h4 className="font-semibold text-amber-700 mb-3">After Your Session:</h4>
+                <h4 className="font-medium text-amber-700 mb-3">After Your Session:</h4>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <ChevronRight className="h-4 w-4 text-amber-600 mt-1 mr-2 flex-shrink-0" />
@@ -599,28 +597,28 @@ const FolitreatHairTreatment = () => {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-10 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold flex items-center justify-center mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               <Star className="w-6 h-6 text-amber-400 animate-bounce mr-3" />
               <span className="bg-gradient-to-r from-gray-900 via-yellow-600 to-yellow-400 bg-clip-text text-transparent">
                 Frequently Asked Questions
               </span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               Answers to common questions about Folitreat treatment, sessions, safety, and results.
             </p>
           </div>
 
           <div className="max-w-4xl mx-auto space-y-4">
             {faqs.map((f, idx) => (
-              <div key={idx} className="bg-white p-6 rounded-2xl shadow-lg">
+              <div key={idx} className="bg-white p-6 rounded-md shadow-md">
                 <button
                   type="button"
                   aria-expanded={false}
                   onClick={() => toggleFaq(idx)}
-                  className="w-full flex items-center justify-between text-left text-lg font-semibold"
+                  className="w-full flex items-center justify-between text-left text-md font-semibold"
                 >
                   <span>{f.q}</span>
                   <ChevronDown className={`w-5 h-5 ml-4 transition-transform ${openFaq === idx ? 'rotate-180' : 'rotate-0'}`} />

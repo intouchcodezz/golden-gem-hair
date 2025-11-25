@@ -13,7 +13,7 @@ const Footer = () => {
 
   const treatments = [
     { label: "PRP Treatment", href: "/prp-treatment" },
-    { label: "Hair Transplantation", href: "/hair-transplant" },
+    { label: "Hair Transplantation", href: "/fue-transplant" },
     { label: "Scalp Micro Pigmentation", href: "/scalp-pigmentation" },
     { label: "Hair Rejuvenation", href: "/hair-rejuvenation" },
     { label: "Follitreat Therapy", href: "/folitreat-treatment" },

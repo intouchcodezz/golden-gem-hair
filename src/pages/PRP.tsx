@@ -36,10 +36,6 @@ const faqs = [
     a: "PRP (Platelet Rich Plasma) therapy is a non-surgical treatment that uses your own blood platelets to stimulate hair growth. We draw your blood, concentrate the platelets using a centrifuge, and inject the platelet-rich plasma into your scalp. These platelets release growth factors that improve blood circulation, strengthen existing hair follicles, and potentially awaken dormant follicles to promote new hair growth."
   },
   {
-    q: "How is PRP different from hair transplant surgery or medications?",
-    a: "Unlike hair transplant surgery, PRP is non-invasive with no incisions or scarring. Unlike medications like finasteride or minoxidil, PRP uses your body's natural healing factors without systemic side effects. PRP works by improving the health of existing follicles rather than relocating hair (transplant) or blocking hormones (medications), making it a natural regenerative approach."
-  },
-  {
     q: "How many PRP sessions do I need and when will I see results?",
     a: "Most patients require 4-6 initial sessions spaced 4-6 weeks apart, followed by maintenance sessions every 6-12 months. You may notice reduced hair shedding within 2-4 weeks. Visible hair thickening typically appears after 3-4 months, with optimal results visible at 6-9 months. Results vary based on individual response and extent of hair loss."
   },
@@ -116,10 +112,10 @@ const PRPTherapy = () => {
               <p className="text-amber-600 font-semibold tracking-wide uppercase text-sm">
                 Regrow Hair Naturally
               </p>
-              <h1 className="text-5xl lg:text-6xl font-bold text-slate-800 leading-tight">
+              <h1 className="text-3xl md:text-4xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
                 Platelet Rich <span className="text-amber-600">Plasma Therapy</span>
               </h1>
-              <p className="text-lg text-slate-600 leading-relaxed max-w-xl">
+              <p className="text-sm sm:text-sm md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
                 Rejuvenate your hair using your body’s natural healing power. Safe, 
                 effective, and backed by thousands of success stories.
               </p>
@@ -165,10 +161,10 @@ const PRPTherapy = () => {
       <section id='aboutprp' className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               What is PRP Hair Therapy?
             </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               Platelet Rich Plasma (PRP) therapy is a cutting-edge, non-surgical treatment that uses the healing 
               power of your own blood platelets to stimulate hair follicles and promote natural hair growth. 
               This FDA-approved procedure concentrates your blood's growth factors to rejuvenate dormant hair follicles.
@@ -178,30 +174,30 @@ const PRPTherapy = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {[
               {
-                icon: <Droplet className="h-12 w-12 text-blue-600" />,
+                icon: <Droplet className="h-10 w-10 text-blue-600" />,
                 title: "Blood Concentration",
                 description: "Uses your own blood platelets concentrated 3-5x higher than normal levels"
               },
               {
-                icon: <Activity className="h-12 w-12 text-green-600" />,
+                icon: <Activity className="h-10 w-10 text-green-600" />,
                 title: "Growth Factor Release",
                 description: "Platelets release multiple growth factors that stimulate cellular repair and regeneration"
               },
               {
-                icon: <Target className="h-12 w-12 text-purple-600" />,
+                icon: <Target className="h-10 w-10 text-purple-600" />,
                 title: "Follicle Stimulation",
                 description: "Direct injection into scalp targets hair follicles for maximum therapeutic benefit"
               },
               {
-                icon: <TrendingUp className="h-12 w-12 text-orange-600" />,
+                icon: <TrendingUp className="h-10 w-10 text-orange-600" />,
                 title: "Natural Results",
                 description: "Gradual improvement over 6-9 months with enhanced hair thickness and density"
               }
             ].map((feature, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div key={idx} className="bg-white p-6 rounded-md shadow-md hover:shadow-lg transition-shadow duration-300">
                 <div className="mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <h3 className="text-md font-semibold text-gray-800 mb-3">{feature.title}</h3>
+                <p className="text-xs text-gray-600 leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -209,13 +205,13 @@ const PRPTherapy = () => {
       </section>
 
       {/* DETAILED COMPARISON TABLE */}
-      <section className="py-20 bg-white">
+      <section className="py-0 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               PRP Therapy vs Other Hair Loss Treatments
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               Compare how PRP therapy stands against other popular hair loss treatments 
               in effectiveness, safety, and overall patient satisfaction.
             </p>
@@ -224,11 +220,11 @@ const PRPTherapy = () => {
           <div className="overflow-x-auto rounded-2xl shadow-2xl">
             <table className="min-w-full bg-white">
               <thead>
-                <tr className="bg-gradient-to-r from-amber-600 to-amber-700 text-white">
-                  <th className="px-6 py-4 text-left font-semibold">Treatment Factors</th>
-                  <th className="px-6 py-4 text-center font-semibold">Medications</th>
-                  <th className="px-6 py-4 text-center font-semibold bg-amber-600">PRP Therapy</th>
-                  <th className="px-6 py-4 text-center font-semibold">Hair Transplant</th>
+                <tr className="bg-gradient-to-r from-amber-600 to-amber-700 text-white text-sm sm:text-sm md:text-base">
+                  <th className="px-6 py-4 text-left font-semibold text-sm sm:text-sm md:text-base">Treatment Factors</th>
+                  <th className="px-6 py-4 text-center font-semibold text-sm sm:text-sm md:text-base">Medications</th>
+                  <th className="px-6 py-4 text-center font-semibold bg-amber-600 text-sm sm:text-sm md:text-base">PRP Therapy</th>
+                  <th className="px-6 py-4 text-center font-semibold text-sm sm:text-sm md:text-base">Hair Transplant</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
@@ -307,10 +303,10 @@ const PRPTherapy = () => {
                   }
                 ].map((row, idx) => (
                   <tr key={idx} className={idx % 2 === 0 ? "bg-gray-50" : "bg-white"}>
-                    <td className="px-6 py-4 font-semibold text-gray-800">{row.factor}</td>
-                    <td className="px-6 py-4 text-center text-red-600">{row.medications}</td>
-                    <td className="px-6 py-4 text-center text-blue-700 font-semibold bg-blue-50">{row.prp}</td>
-                    <td className="px-6 py-4 text-center text-yellow-600">{row.transplant}</td>
+                    <td className="px-6 py-4 font-semibold text-gray-800 text-sm sm:text-sm md:text-base">{row.factor}</td>
+                    <td className="px-6 py-4 text-center text-red-600 text-sm sm:text-sm md:text-base">{row.medications}</td>
+                    <td className="px-6 py-4 text-center text-blue-700 font-semibold bg-blue-50 text-sm sm:text-sm md:text-base">{row.prp}</td>
+                    <td className="px-6 py-4 text-center text-yellow-600 text-sm sm:text-sm md:text-base">{row.transplant}</td>
                   </tr>
                 ))}
               </tbody>
@@ -320,13 +316,13 @@ const PRPTherapy = () => {
       </section>
 
       {/* TREATMENT PROCESS */}
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-10 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               The PRP Treatment Process
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               Our proven 4-step PRP process takes just 60-90 minutes per session, 
               ensuring optimal platelet concentration and precise delivery for maximum results.
             </p>
@@ -361,15 +357,15 @@ const PRPTherapy = () => {
                 }
               ].map((process, idx) => (
                 <div key={idx} className="relative">
-                  <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
+                  <div className="bg-white rounded-md p-6 shadow-md hover:shadow-lg transition-shadow duration-300 h-full">
                     <div className="bg-gradient-to-r from-blue-600 to-indigo-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
                       {process.icon}
                     </div>
                     <div className="absolute top-4 right-4 text-6xl font-bold text-blue-100">
                       {process.step}
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-800 mb-4">{process.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{process.description}</p>
+                    <h3 className="text-md font-semibold text-gray-800 mb-4">{process.title}</h3>
+                    <p className="text-xs text-gray-600 leading-relaxed">{process.description}</p>
                   </div>
                   {idx < 3 && (
                     <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2">
@@ -384,13 +380,13 @@ const PRPTherapy = () => {
       </section>
 
       {/* BEFORE & AFTER RESULTS */}
-      <section className="py-20 bg-white">
+      <section className="py-10 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               Real Patient Transformations
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               See the remarkable improvements achieved through our PRP Hair Therapy. 
               These authentic results demonstrate the effectiveness of our treatment protocol.
             </p>
@@ -418,8 +414,7 @@ const PRPTherapy = () => {
                     <div className="flex justify-between">
                       <span>Sessions:</span>
                       <span className="font-semibold text-blue-600">{result.sessions}</span>
-                    </div>
-                    <div className="flex justify-between">
+                    </div>                    <div className="flex justify-between">
                       <span>Timeline:</span>
                       <span className="font-semibold text-green-600">{result.timeline}</span>
                     </div>
@@ -435,10 +430,10 @@ const PRPTherapy = () => {
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               Complete Treatment Guidelines
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               Follow these detailed instructions to maximize your PRP therapy results 
               and ensure optimal healing and hair growth stimulation.
             </p>
@@ -451,11 +446,11 @@ const PRPTherapy = () => {
                 <div className="bg-blue-600 p-3 rounded-xl mr-4">
                   <CheckCircle className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-blue-800">Pre-Treatment Preparation</h3>
+                <h3 className="text-xl font-bold text-blue-800">Pre-Treatment Preparation</h3>
               </div>
               
               <div className="space-y-4">
-                <h4 className="font-semibold text-blue-700 mb-3">1 Week Before Treatment:</h4>
+                <h4 className="font-medium text-blue-700 mb-3">1 Week Before Treatment:</h4>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <ChevronRight className="h-4 w-4 text-blue-600 mt-1 mr-2 flex-shrink-0" />
@@ -475,7 +470,7 @@ const PRPTherapy = () => {
                   </li>
                 </ul>
 
-                <h4 className="font-semibold text-blue-700 mb-3 mt-6">24 Hours Before:</h4>
+                <h4 className="font-medium text-blue-700 mb-3 mt-6">24 Hours Before:</h4>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <ChevronRight className="h-4 w-4 text-blue-600 mt-1 mr-2 flex-shrink-0" />
@@ -491,7 +486,7 @@ const PRPTherapy = () => {
                   </li>
                 </ul>
 
-                <h4 className="font-semibold text-blue-700 mb-3 mt-6">Day of Treatment:</h4>
+                <h4 className="font-medium text-blue-700 mb-3 mt-6">Day of Treatment:</h4>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <ChevronRight className="h-4 w-4 text-blue-600 mt-1 mr-2 flex-shrink-0" />
@@ -519,11 +514,11 @@ const PRPTherapy = () => {
                 <div className="bg-green-600 p-3 rounded-xl mr-4">
                   <Heart className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-green-800">Post-Treatment Care</h3>
+                <h3 className="text-xl font-bold text-green-800">Post-Treatment Care</h3>
               </div>
               
               <div className="space-y-4">
-                <h4 className="font-semibold text-green-700 mb-3">First 24 Hours (Critical):</h4>
+                <h4 className="font-medium text-green-700 mb-3">First 24 Hours (Critical):</h4>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <ChevronRight className="h-4 w-4 text-green-600 mt-1 mr-2 flex-shrink-0" />
@@ -543,7 +538,7 @@ const PRPTherapy = () => {
                   </li>
                 </ul>
 
-                <h4 className="font-semibold text-green-700 mb-3 mt-6">First Week:</h4>
+                <h4 className="font-medium text-green-700 mb-3 mt-6">First Week:</h4>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <ChevronRight className="h-4 w-4 text-green-600 mt-1 mr-2 flex-shrink-0" />
@@ -563,7 +558,7 @@ const PRPTherapy = () => {
                   </li>
                 </ul>
 
-                <h4 className="font-semibold text-green-700 mb-3 mt-6">Long-term Care (1-6 months):</h4>
+                <h4 className="font-medium text-green-700 mb-3 mt-6">Long-term Care (1-6 months):</h4>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <ChevronRight className="h-4 w-4 text-green-600 mt-1 mr-2 flex-shrink-0" />
@@ -592,10 +587,10 @@ const PRPTherapy = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               Frequently Asked Questions
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               Get detailed answers to the most common questions about PRP Hair Therapy 
               from our experienced medical professionals.
             </p>
@@ -604,16 +599,16 @@ const PRPTherapy = () => {
           <div className="max-w-4xl mx-auto">
             <div className="space-y-6">
               {faqs.map((faq, idx) => (
-                <div key={idx} className="bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                <div key={idx} className="bg-white rounded-md shadow-md border border-gray-100 hover:shadow-lg transition-shadow duration-300">
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-start">
+                    <h3 className="text-md font-semibold text-gray-800 mb-4 flex items-start">
                       <div className="bg-blue-100 text-blue-600 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 mt-1 flex-shrink-0">
                         Q
                       </div>
                       {faq.q}
                     </h3>
                     <div className="ml-12">
-                      <p className="text-gray-700 leading-relaxed">{faq.a}</p>
+                      <p className="text-xs text-gray-700 leading-relaxed">{faq.a}</p>
                     </div>
                   </div>
                 </div>
@@ -627,8 +622,8 @@ const PRPTherapy = () => {
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
-              Why Choose The Golden Gem for PRP Hair Therapy
+          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
+              Why Choose The Golden Gem Clinic for PRP Hair Therapy
             </h2>
           </div>
 
@@ -637,75 +632,33 @@ const PRPTherapy = () => {
               <div className="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="h-10 w-10 text-blue-600" />
               </div>
-              <div className="text-3xl font-bold text-gray-800 mb-2">5000+</div>
+              <div className="text-md font-bold text-gray-800 mb-2">5000+</div>
               <div className="text-gray-600">Successful PRP Treatments</div>
             </div>
             <div className="text-center">
               <div className="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="h-10 w-10 text-green-600" />
               </div>
-              <div className="text-3xl font-bold text-gray-800 mb-2">8+</div>
+              <div className="text-md font-bold text-gray-800 mb-2">8+</div>
               <div className="text-gray-600">Years Experience</div>
             </div>
             <div className="text-center">
               <div className="bg-yellow-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Star className="h-10 w-10 text-yellow-600" />
               </div>
-              <div className="text-3xl font-bold text-gray-800 mb-2">4.8/5</div>
+              <div className="text-md font-bold text-gray-800 mb-2">4.8/5</div>
               <div className="text-gray-600">Patient Rating</div>
             </div>
             <div className="text-center">
               <div className="bg-purple-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Shield className="h-10 w-10 text-purple-600" />
               </div>
-              <div className="text-3xl font-bold text-gray-800 mb-2">75%+</div>
+              <div className="text-md font-bold text-gray-800 mb-2">75%+</div>
               <div className="text-gray-600">Success Rate</div>
             </div>
           </div>
         </div>
       </section>
-
-      {/* CALL TO ACTION */}
-      {/* <section className="py-20 bg-gradient-to-r from-amber-600 via-amber-500 to-yellow-400 relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/10"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center text-white space-y-8">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-              Ready to Restore Your Hair Naturally?
-            </h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-              Join thousands of satisfied patients who chose PRP Hair Therapy for safe, natural, 
-              and effective hair restoration. Start your journey to thicker, healthier hair today.
-            </p>
-            
-            <div className="grid md:grid-cols-3 gap-8 my-12">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-blue-200">Step 1</div>
-                <div className="text-lg">Free Consultation</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-blue-200">Step 2</div>
-                <div className="text-lg">PRP Treatment</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-blue-200">Step 3</div>
-                <div className="text-lg">Natural Hair Growth</div>
-              </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 font-semibold px-8 py-4 text-lg">
-                <Phone className="mr-2 h-5 w-5" />
-                Call Now: +91 8122733730
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600 font-semibold px-8 py-4 text-lg">
-                <Mail className="mr-2 h-5 w-5" />
-                Book Online Consultation
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section> */}
       <Footer />
     </div>
   );

@@ -115,13 +115,13 @@ const HairDensityAnalysis = () => {
                 <p className="text-amber-700 font-semibold tracking-wide uppercase text-sm">
                   Precision Hair Monitoring
                 </p>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-slate-900">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-[3.2rem] md:leading-[3.4rem] text-slate-900">
                   Hair Density &<br />
                   <span className="text-amber-600">Thickness Analysis</span>
                 </h1>
               </div>
 
-              <p className="text-base md:text-lg text-slate-700 leading-relaxed max-w-lg mx-auto lg:mx-0">
+              <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] leading-relaxed max-w-lg mx-auto lg:mx-0">
                 Track your <span className="font-semibold text-amber-700">hair growth progress</span> with advanced imaging technology.  
                 Measure hair density (hairs/cm²) and thickness accurately to design personalized 
                 treatment plans for <span className="font-semibold">optimal regrowth and vitality</span>.
@@ -135,8 +135,8 @@ const HairDensityAnalysis = () => {
                   { value: "7000+", label: "Patients Analyzed" },
                 ].map((stat, i) => (
                   <div key={i} className="text-center">
-                    <div className="text-2xl md:text-3xl font-bold text-amber-700">{stat.value}</div>
-                    <div className="text-xs md:text-sm text-slate-700">{stat.label}</div>
+                    <div className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-bold text-amber-700">{stat.value}</div>
+                    <div className="text-xs sm:text-xs md:text-base text-[#1A1A1A]">{stat.label}</div>
                   </div>
                 ))}
               </div>
@@ -196,10 +196,10 @@ const HairDensityAnalysis = () => {
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               Why Choose Hair Density & Thickness Analysis?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-3xl mx-auto">
               Our advanced digital imaging technology provides precise measurements of hair density and thickness, 
               enabling accurate tracking of treatment progress and customized hair restoration strategies.
             </p>
@@ -230,8 +230,8 @@ const HairDensityAnalysis = () => {
             ].map((feature, idx) => (
               <div key={idx} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <h3 className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-semibold text-gray-800 mb-3">{feature.title}</h3>
+                <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A]">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -239,13 +239,13 @@ const HairDensityAnalysis = () => {
       </section>
 
       {/* DETAILED BENEFITS SECTION */}
-      <section id='viewhairdensity' className="py-20 bg-white">
+      <section id='viewhairdensity' className="bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               Benefits of Hair Density & Thickness Analysis
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-3xl mx-auto">
               Understand how precise density and thickness measurements empower effective hair restoration and long-term hair health.
             </p>
           </div>
@@ -278,57 +278,22 @@ const HairDensityAnalysis = () => {
               }
             ].map((benefit, idx) => (
               <div key={idx} className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">{benefit.title}</h3>
-                <p className="text-gray-600">{benefit.description}</p>
+                <h3 className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-semibold text-gray-800 mb-3">{benefit.title}</h3>
+                <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A]">{benefit.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* BEFORE & AFTER VISUALS SECTION */}
-      {/* <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
-              Before vs After Results
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              See how Hair Density & Thickness Analysis tracks improvements in hair volume and strength post-treatment.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {densityVisuals.map((visual, idx) => (
-              <div key={idx} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                <div className="relative">
-                  <img 
-                    src={visual.image} 
-                    alt={visual.description}
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className={`absolute top-4 left-4 ${visual.condition.includes('Before') ? 'bg-red-500' : 'bg-green-500'} text-white px-3 py-1 rounded-full text-sm font-semibold`}>
-                    {visual.condition}
-                  </div>
-                </div>
-                <div className="p-6">
-                  <p className="text-sm text-gray-600 mb-2">{visual.description}</p>
-                  <p className="text-sm font-semibold text-yellow-600">{visual.metrics}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
       {/* FAQ SECTION */}
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               Frequently Asked Questions
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-3xl mx-auto">
               Answers to common questions about Hair Density & Thickness Analysis and its role in hair restoration.
             </p>
           </div>
@@ -338,14 +303,14 @@ const HairDensityAnalysis = () => {
               {faqs.map((faq, idx) => (
                 <div key={idx} className="bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-start">
+                    <h3 className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-semibold text-gray-800 mb-4 flex items-start">
                       <div className="bg-yellow-100 text-yellow-600 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 mt-1 flex-shrink-0">
                         Q
                       </div>
                       {faq.q}
                     </h3>
                     <div className="ml-12">
-                      <p className="text-gray-700 leading-relaxed">{faq.a}</p>
+                      <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] leading-relaxed">{faq.a}</p>
                     </div>
                   </div>
                 </div>
@@ -359,10 +324,10 @@ const HairDensityAnalysis = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
-              Why Trust The Golden Gem for Your Hair Analysis
+          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
+              Why trust The Golden Gem Clinic for Your Hair Analysis
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-3xl mx-auto">
               Our clinic uses state-of-the-art digital imaging and expert analysis to deliver precise, actionable insights for your hair restoration journey.
             </p>
           </div>
@@ -392,36 +357,13 @@ const HairDensityAnalysis = () => {
             ].map((indicator, idx) => (
               <div key={idx} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="mb-4">{indicator.icon}</div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">{indicator.title}</h3>
-                <p className="text-gray-600">{indicator.description}</p>
+                <h3 className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-semibold text-gray-800 mb-3">{indicator.title}</h3>
+                <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A]">{indicator.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
-
-      {/* CALL TO ACTION SECTION */}
-      {/* <section className="py-20 bg-gradient-to-br from-yellow-600 via-yellow-400 to-yellow-200">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Ready to Track Your Hair Health?
-          </h2>
-          <p className="text-xl text-yellow-100 max-w-2xl mx-auto mb-8">
-            Schedule your Hair Density & Thickness Analysis today to monitor your progress and optimize your hair restoration plan.
-          </p>
-          <div className="flex justify-center gap-4">
-            <Button size="lg" className="bg-white text-yellow-800 hover:bg-yellow-100 font-semibold px-6 py-3">
-              <Phone className="mr-2 h-5 w-5" />
-              Schedule Your Hair Checkup
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-black hover:bg-yellow-600 hover:text-white font-semibold px-6 py-3">
-              <Mail className="mr-2 h-5 w-5" />
-              Contact Us
-            </Button>
-          </div>
-        </div>
-      </section> */}
-
       <Footer />
     </div>
   );

@@ -125,42 +125,45 @@ const HairTransplantGFC = () => {
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               Why Choose GFC Therapy?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-sm sm:text-sm md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               GFC therapy is a Non-invasive, natural approach to hair restoration, 
               using your body’s own growth factors to rejuvenate hair follicles with minimal downtime.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                icon: <Users className="h-12 w-12 text-yellow-600" />,
+                icon: <Users className="h-10 w-10 text-yellow-600" />, 
                 title: "Non-Surgical",
                 description: "No incisions or stitches, ideal for those avoiding surgery"
               },
               {
-                icon: <Shield className="h-12 w-12 text-yellow-500" />,
+                icon: <Shield className="h-10 w-10 text-yellow-500" />,
                 title: "No Downtime",
                 description: "Resume daily activities immediately after treatment"
               },
               {
-                icon: <Award className="h-12 w-12 text-yellow-400" />,
+                icon: <Award className="h-10 w-10 text-yellow-400" />,
                 title: "Natural Results",
                 description: "Uses your own growth factors for safe, effective hair growth"
               },
               {
-                icon: <Microscope className="h-12 w-12 text-yellow-300" />,
+                icon: <Microscope className="h-10 w-10 text-yellow-300" />,
                 title: "Complementary",
                 description: "Enhances results when combined with FUT or FUE"
               }
             ].map((feature, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <div className="mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+              <div
+                key={idx}
+                className="bg-white p-6 rounded-md shadow-md hover:shadow-lg transition-shadow duration-300" // Reduced padding & shadow
+              >
+                <div className="mb-3">{feature.icon}</div>                         
+                <h3 className="text-md font-semibold text-gray-800 mb-2">{feature.title}</h3> 
+                <p className="text-xs text-gray-600 leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -171,10 +174,10 @@ const HairTransplantGFC = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               GFC vs Other Hair Restoration Methods
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-sm sm:text-sm md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               Compare GFC therapy with other hair restoration techniques to find the best solution for your needs.
             </p>
           </div>
@@ -327,10 +330,10 @@ const HairTransplantGFC = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               Complete Care Instructions
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-sm sm:text-sm md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               Follow these guidelines to ensure optimal results and a smooth experience with GFC therapy.
             </p>
           </div>
@@ -342,11 +345,11 @@ const HairTransplantGFC = () => {
                 <div className="bg-yellow-600 p-3 rounded-xl mr-4">
                   <CheckCircle className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-yellow-800">Pre-Treatment Preparation</h3>
+                <h3 className="text-xl font-bold text-yellow-800">Pre-Treatment Preparation</h3>
               </div>
               
               <div className="space-y-4">
-                <h4 className="font-semibold text-yellow-700 mb-3">1 Week Before Treatment:</h4>
+                <h4 className="font-medium text-yellow-700 mb-3">1 Week Before Treatment:</h4>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <ChevronRight className="h-4 w-4 text-yellow-600 mt-1 mr-2 flex-shrink-0" />
@@ -362,7 +365,7 @@ const HairTransplantGFC = () => {
                   </li>
                 </ul>
 
-                <h4 className="font-semibold text-yellow-700 mb-3 mt-6">Day of Treatment:</h4>
+                <h4 className="font-medium text-yellow-700 mb-3 mt-6">Day of Treatment:</h4>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <ChevronRight className="h-4 w-4 text-yellow-600 mt-1 mr-2 flex-shrink-0" />
@@ -386,11 +389,11 @@ const HairTransplantGFC = () => {
                 <div className="bg-green-600 p-3 rounded-xl mr-4">
                   <Heart className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-green-800">Post-Treatment Care</h3>
+                <h3 className="text-xl font-bold text-green-800">Post-Treatment Care</h3>
               </div>
               
               <div className="space-y-4">
-                <h4 className="font-semibold text-green-700 mb-3">First 24 Hours:</h4>
+                <h4 className="font-medium text-green-700 mb-3">First 24 Hours:</h4>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <ChevronRight className="h-4 w-4 text-green-600 mt-1 mr-2 flex-shrink-0" />
@@ -406,7 +409,7 @@ const HairTransplantGFC = () => {
                   </li>
                 </ul>
 
-                <h4 className="font-semibold text-green-700 mb-3 mt-6">First Week:</h4>
+                <h4 className="font-medium text-green-700 mb-3 mt-6">First Week:</h4>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <ChevronRight className="h-4 w-4 text-green-600 mt-1 mr-2 flex-shrink-0" />
@@ -422,7 +425,7 @@ const HairTransplantGFC = () => {
                   </li>
                 </ul>
 
-                <h4 className="font-semibold text-green-700 mb-3 mt-6">Long-term Care:</h4>
+                <h4 className="font-medium text-green-700 mb-3 mt-6">Long-term Care:</h4>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <ChevronRight className="h-4 w-4 text-green-600 mt-1 mr-2 flex-shrink-0" />
@@ -451,10 +454,10 @@ const HairTransplantGFC = () => {
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
               Frequently Asked Questions
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               Answers to common questions about GFC therapy for hair restoration.
             </p>
           </div>
@@ -485,10 +488,10 @@ const HairTransplantGFC = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
-              Why Trust The Golden Gem for Your GFC Therapy
+            <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
+              Why trust The Golden Gem Clinic for Your GFC Therapy
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-sm sm:text-sm md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
               Our clinic combines advanced technology, experienced specialists, and a patient-focused approach for exceptional GFC therapy results.
             </p>
           </div>
@@ -496,57 +499,35 @@ const HairTransplantGFC = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
-                icon: <Award className="h-12 w-12 text-yellow-600" />,
+                icon: <Award className="h-10 w-10 text-yellow-600" />,
                 title: "Specialized Expertise",
                 description: "Certified dermatologists with over 10 years of GFC therapy experience."
               },
               {
-                icon: <Heart className="h-12 w-12 text-yellow-500" />,
+                icon: <Heart className="h-10 w-10 text-yellow-500" />,
                 title: "Patient Satisfaction",
                 description: "Over 4,000 successful GFC treatments with a 95% satisfaction rate."
               },
               {
-                icon: <Zap className="h-12 w-12 text-yellow-400" />,
+                icon: <Zap className="h-10 w-10 text-yellow-400" />,
                 title: "Advanced Technology",
                 description: "State-of-the-art centrifugation for high-potency growth factor preparation."
               },
               {
-                icon: <Shield className="h-12 w-12 text-yellow-300" />,
+                icon: <Shield className="h-10 w-10 text-yellow-300" />,
                 title: "Safe Environment",
                 description: "Accredited facilities ensuring the highest safety and hygiene standards."
               }
             ].map((indicator, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div key={idx} className="bg-white p-6 rounded-md shadow-md hover:shadow-lg transition-shadow duration-300">
                 <div className="mb-4">{indicator.icon}</div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">{indicator.title}</h3>
-                <p className="text-gray-600">{indicator.description}</p>
+                <h3 className="text-md font-semibold text-gray-800 mb-3">{indicator.title}</h3>
+                <p className="text-xs text-gray-600 leading-relaxed">{indicator.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
-
-      {/* CALL TO ACTION SECTION */}
-      {/* <section className="py-20 bg-gradient-to-br from-yellow-600 via-yellow-400 to-yellow-200">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Ready to Revitalize Your Hair?
-          </h2>
-          <p className="text-xl text-yellow-100 max-w-2xl mx-auto mb-8">
-            Schedule your free consultation today and start your journey to thicker, healthier hair with GFC therapy.
-          </p>
-          <div className="flex justify-center gap-4">
-            <Button onClick={() => setIsModalOpen(true)} size="lg" className="bg-white text-yellow-700 hover:bg-yellow-50 font-semibold px-6 py-3">
-              <Phone className="mr-2 h-5 w-5" />
-              Book Free Consultation
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-yellow-600 hover:text-white font-semibold px-6 py-3">
-              <Mail className="mr-2 h-5 w-5" />
-              Contact Us
-            </Button>
-          </div>
-        </div>
-      </section> */}
 
       <Footer />
     </div>

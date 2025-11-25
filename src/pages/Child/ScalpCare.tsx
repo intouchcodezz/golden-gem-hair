@@ -145,13 +145,13 @@ const ScalpCare = () => {
         </div>
 
         {/* Headline */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-[3.2rem] md:leading-[3.4rem] text-white leading-tight">
           Expert Scalp Care
-          <span className="block text-amber-200 mt-2">Solutions</span>
+          <span className="block text-white mt-2">Solutions</span>
         </h1>
 
         {/* Subtext */}
-        <p className="text-base sm:text-lg md:text-xl text-amber-50 leading-relaxed max-w-lg mx-auto md:mx-0">
+        <p className="text-xs sm:text-xs md:text-base text-white leading-relaxed max-w-lg mx-auto md:mx-0">
           Restore and rejuvenate your scalp health with scientifically designed treatments — 
           from precision micropigmentation to advanced therapeutic care for stronger, more confident results.
         </p>
@@ -161,7 +161,7 @@ const ScalpCare = () => {
           <Button
             onClick={() => setIsModalOpen(true)}
             size="lg"
-            className="bg-white hover:bg-amber-100 text-amber-800 font-semibold text-base px-8 py-5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
+            className="bg-white hover:bg-amber-100 text-amber-800 font-semibold text-xs sm:text-xs md:text-base px-8 py-5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
           >
             <Calendar className="mr-2 h-5 w-5" />
             Book Free Consultation
@@ -207,18 +207,18 @@ const ScalpCare = () => {
                 <Badge className="mb-4 bg-amber-200 text-amber-900 border-0">
                   About Our Treatments
                 </Badge>
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-amber-900 mb-6 leading-tight">
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-amber-900 mb-6 leading-tight">
                   Comprehensive Scalp Solutions
                 </h2>
               </div>
               
               <div className="space-y-4 text-amber-800">
-                <p className="text-lg leading-relaxed">
+                <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] leading-relaxed">
                   Our scalp care expertise combines medical science with artistic precision to address 
                   a wide range of scalp concerns. Whether you're dealing with hair loss, scalp conditions, 
                   or seeking aesthetic enhancement, we provide personalized solutions.
                 </p>
-                <p className="text-lg leading-relaxed">
+                <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] leading-relaxed">
                   From innovative micropigmentation techniques to therapeutic scalp treatments, our 
                   certified specialists deliver results that restore both appearance and confidence.
                 </p>
@@ -255,10 +255,10 @@ const ScalpCare = () => {
             <Badge className="mb-4 bg-amber-600 text-white border-0">
               Our Services
             </Badge>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-amber-900 mb-6">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-amber-900 mb-6">
               Our Scalp Care Treatments
             </h2>
-            <p className="text-lg text-amber-700 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-3xl mx-auto">
               Discover our range of specialized treatments designed to address various scalp concerns and aesthetic goals
             </p>
           </div>
@@ -311,10 +311,10 @@ const ScalpCare = () => {
             <Badge className="mb-4 bg-amber-200 text-amber-900 border-0">
               Our Approach
             </Badge>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-amber-900 mb-6">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-amber-900 mb-6">
               Our Treatment Process
             </h2>
-            <p className="text-lg text-amber-700 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-3xl mx-auto">
               We follow a comprehensive, patient-centered approach to ensure optimal results and exceptional care
             </p>
           </div>
@@ -358,10 +358,10 @@ const ScalpCare = () => {
             <Badge className="mb-4 bg-amber-200 text-amber-900 border-0">
               FAQ
             </Badge>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-amber-900 mb-6">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-amber-900 mb-6">
               Frequently Asked Questions
             </h2>
-            <p className="text-lg text-amber-700">
+            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A]">
               Common questions about our scalp care treatments and procedures
             </p>
           </div>
@@ -375,7 +375,7 @@ const ScalpCare = () => {
               >
                 <CardContent className="p-6">
                   <div className="flex justify-between items-center">
-                    <h3 className="text-lg font-semibold text-amber-900 pr-4">
+                    <h3 className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-semibold text-amber-900 pr-4">
                       {faq.question}
                     </h3>
                     <ArrowRight 
@@ -387,7 +387,7 @@ const ScalpCare = () => {
                   
                   {activeTab === index && (
                     <div className="mt-4 pt-4 border-t border-amber-200">
-                      <p className="text-amber-700 leading-relaxed">
+                      <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] leading-relaxed">
                         {faq.answer}
                       </p>
                     </div>
@@ -398,46 +398,6 @@ const ScalpCare = () => {
           </div>
         </div>
       </section>
-
-      {/* Call to Action */}
-      {/* <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <Card className="relative overflow-hidden bg-gradient-to-br from-amber-900 via-amber-800 to-yellow-700 border-0 shadow-2xl">
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.3),transparent_50%)]" />
-            </div>
-            <CardContent className="relative z-10 p-12 text-center">
-              <div className="mb-8">
-                <Star className="h-16 w-16 text-amber-200 mx-auto mb-6" />
-                <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 no-gradient">
-                  Ready to Transform Your Scalp?
-                </h2>
-                <p className="text-lg text-amber-100 max-w-2xl mx-auto leading-relaxed">
-                  Take the first step towards healthier, more confident you. Our expert team is ready to create a personalized scalp care plan that delivers exceptional results.
-                </p>
-              </div>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Button 
-                  size="lg" 
-                  className="w-full sm:w-auto bg-white text-amber-900 hover:bg-amber-50 shadow-xl font-semibold px-8"
-                >
-                  <Calendar className="mr-2 h-5 w-5" />
-                  Schedule Consultation
-                </Button>
-                <Button 
-                  variant="outline" 
-                  size="lg"
-                  className="w-full sm:w-auto border-2 border-white text-white hover:bg-white hover:text-amber-900 font-semibold px-8"
-                >
-                  <Phone className="mr-2 h-5 w-5" />
-                  Call 8122733730
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section> */}
     </div>
   );
 };
