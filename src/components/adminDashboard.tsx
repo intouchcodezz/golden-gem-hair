@@ -1,44 +1,38 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { 
-  Lock, LogOut, Shield, Calendar, MessageSquare, Phone,
-  User as UserIcon, Clock, Eye, EyeOff, Briefcase 
-} from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import {
+  Lock,
+  LogOut,
+  Shield,
+  Calendar,
+  MessageSquare,
+  Phone,
+  User as UserIcon,
+  Clock,
+  Eye,
+  EyeOff,
+  Briefcase,
+  Mail,
+} from "lucide-react";
 
-interface DashboardProps {
-  onLogout: () => void;
-}
+// -------------------------------
+// ADMIN CREDENTIALS
+// -------------------------------
+const ADMIN_CREDENTIALS = { username: "admin", password: "admin123" };
 
-// 🔐 Correct credentials
-const ADMIN_CREDENTIALS = { 
-  username: 'admin', 
-  password: 'admin123' 
-};
-
-// 🌟 Timestamp formatter
-const formatDateTime = (val: string) => {
-  const d = new Date(val);
-  if (isNaN(d.getTime())) return val;
-  return (
-    d.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }) +
-    " • " +
-    d.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })
-  );
-};
-
-/* ===============================
-   ADMIN LOGIN COMPONENT
-=================================*/
+// -------------------------------
+// LOGIN COMPONENT
+// -------------------------------
 const AdminLogin = ({ onLogin }: { onLogin: () => void }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
+    setError("");
     setLoading(true);
 
     setTimeout(() => {
@@ -48,29 +42,28 @@ const AdminLogin = ({ onLogin }: { onLogin: () => void }) => {
       ) {
         onLogin();
       } else {
-        setError('Invalid username or password');
+        setError("Invalid username or password");
       }
       setLoading(false);
     }, 800);
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center p-6">
       <div className="w-full max-w-md">
         <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
           <div className="bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-10 text-center">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl mb-4">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-2xl mb-4">
               <Shield className="w-8 h-8 text-white" />
             </div>
-            <h1 className="text-3xl font-bold text-white mb-2">Admin Portal</h1>
+            <h1 className="text-3xl font-bold text-white mb-1">Admin Portal</h1>
             <p className="text-blue-100">Clinic Management System</p>
           </div>
 
           <div className="px-8 py-10">
             <form onSubmit={handleSubmit} className="space-y-6">
-              
               {/* Username */}
-              <div className="space-y-2">
+              <div>
                 <label className="text-sm font-semibold text-gray-700 flex items-center gap-2">
                   <UserIcon className="w-4 h-4 text-blue-600" /> Username
                 </label>
@@ -78,52 +71,47 @@ const AdminLogin = ({ onLogin }: { onLogin: () => void }) => {
                   type="text"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
-                  placeholder="Enter username"
-                  className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all outline-none"
+                  className="w-full mt-1 px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 outline-none"
                   required
                 />
               </div>
 
               {/* Password */}
-              <div className="space-y-2">
+              <div>
                 <label className="text-sm font-semibold text-gray-700 flex items-center gap-2">
                   <Lock className="w-4 h-4 text-blue-600" /> Password
                 </label>
                 <div className="relative">
                   <input
-                    type={showPassword ? 'text' : 'password'}
+                    type={showPassword ? "text" : "password"}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Enter password"
-                    className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all outline-none pr-12"
+                    className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 outline-none pr-12"
                     required
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
                   >
-                    {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                    {showPassword ? <EyeOff /> : <Eye />}
                   </button>
                 </div>
               </div>
 
-              {/* Errors */}
               {error && (
-                <div className="bg-red-50 border-2 border-red-200 rounded-xl px-4 py-3 text-red-700 text-sm font-medium">
+                <div className="bg-red-50 border-2 border-red-200 text-red-700 px-4 py-3 rounded-xl text-sm">
                   {error}
                 </div>
               )}
 
-              {/* Login */}
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3.5 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 py-3.5 text-white font-semibold rounded-xl hover:scale-105 transition-all disabled:opacity-50"
               >
-                {loading ? 'Signing in...' : 'Sign In'}
+                {loading ? "Signing in..." : "Sign In"}
               </button>
-
             </form>
           </div>
         </div>
@@ -132,302 +120,352 @@ const AdminLogin = ({ onLogin }: { onLogin: () => void }) => {
   );
 };
 
-/* ===============================
-   DASHBOARD COMPONENT
-=================================*/
-const Dashboard: React.FC<DashboardProps> = ({ onLogout }) => {
+// -------------------------------
+// DASHBOARD COMPONENT
+// -------------------------------
+const Dashboard = ({ onLogout }: { onLogout: () => void }) => {
+  const [activeTab, setActiveTab] = useState("appointments");
 
-  const [activeTab, setActiveTab] = useState('appointments');
   const [appointments, setAppointments] = useState<any[]>([]);
   const [chatLogs, setChatLogs] = useState<any[]>([]);
   const [jobApplications, setJobApplications] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
-
-  /* ------------ FETCH APPOINTMENTS (Sorted) ------------ */
+  // -------------------------------
+  // Fetch: Appointments
+  // -------------------------------
   const fetchAppointments = async () => {
     try {
-      const res = await fetch('https://thegoldengemhairclinic.com/api/getAppointments.php');
-      const data = await res.json();
-
-      if (data.success) {
-        const sorted = data.data.sort(
-          (a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime()
+      const res = await fetch(
+        "https://thegoldengemhairclinic.com/api/getAppointments.php"
+      );
+      const json = await res.json();
+      if (json.success) {
+        const sorted = json.data.sort(
+          (a: any, b: any) =>
+            new Date(b.created_at).getTime() -
+            new Date(a.created_at).getTime()
         );
         setAppointments(sorted);
       }
-    } catch (err) {
-      console.error(err);
+    } catch (e) {
+      console.error(e);
     }
   };
 
-  /* ------------ FETCH CHAT LOGS (Sorted) ------------ */
+  // -------------------------------
+  // Fetch: Chatlogs
+  // -------------------------------
   const fetchChatLogs = async () => {
     try {
-      const res = await fetch('https://thegoldengemhairclinic.com/api/getChatLogs.php');
-      const data = await res.json();
-
-      if (data.success) {
-        const sorted = data.data.sort(
-          (a: any, b: any) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+      const res = await fetch(
+        "https://thegoldengemhairclinic.com/api/getChatLogs.php"
+      );
+      const json = await res.json();
+      if (json.success) {
+        const sorted = json.data.sort(
+          (a: any, b: any) =>
+            new Date(b.created_at).getTime() -
+            new Date(a.created_at).getTime()
         );
         setChatLogs(sorted);
       }
-    } catch (err) {
-      console.error(err);
+    } catch (e) {
+      console.error(e);
     }
   };
 
-  /* ------------ FETCH JOB APPLICATIONS (Sorted) ------------ */
+  // -------------------------------
+  // Fetch: Job Applications
+  // -------------------------------
   const fetchJobApplications = async () => {
     try {
-      const res = await fetch('https://thegoldengemhairclinic.com/api/getCareerApplications.php');
-      const data = await res.json();
-
-      if (data.success) {
-        const sorted = data.data.sort(
-          (a: any, b: any) => new Date(b.submitted_at).getTime() - new Date(a.submitted_at).getTime()
+      const res = await fetch(
+        "https://thegoldengemhairclinic.com/api/getCareerApplications.php"
+      );
+      const json = await res.json();
+      if (json.success) {
+        const sorted = json.data.sort(
+          (a: any, b: any) =>
+            new Date(b.submitted_at).getTime() -
+            new Date(a.submitted_at).getTime()
         );
         setJobApplications(sorted);
       }
-    } catch (err) {
-      console.error(err);
+    } catch (e) {
+      console.error(e);
     }
   };
 
-  /* ------------ LOAD ALL ONCE ------------ */
+  // -------------------------------
+  // Load All Data Once
+  // -------------------------------
   useEffect(() => {
-    const loadData = async () => {
+    const load = async () => {
       setLoading(true);
-      await Promise.all([fetchAppointments(), fetchChatLogs(), fetchJobApplications()]);
+      await Promise.all([
+        fetchAppointments(),
+        fetchChatLogs(),
+        fetchJobApplications(),
+      ]);
       setLoading(false);
     };
-    loadData();
+    load();
   }, []);
 
-  const tabs = [
-    { id: 'appointments', label: 'Appointments', icon: Calendar, count: appointments.length },
-    { id: 'chatbot', label: 'Chatbot Q&A', icon: MessageSquare, count: chatLogs.length },
-    { id: 'jobs', label: 'Apply Job', icon: Briefcase, count: jobApplications.length },
-  ];
+  if (loading) return <div className="p-10 text-center">Loading...</div>;
 
-  if (loading) return <div className="p-10 text-center text-lg">Loading...</div>;
-
+  // -------------------------------
+  // UI STARTS HERE
+  // -------------------------------
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50">
-
-      {/* HEADER */}
-      <header className="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+      {/* Header */}
+      <header className="bg-white shadow border-b sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-2.5 rounded-xl">
-              <Shield className="w-6 h-6 text-white" />
-            </div>
+            <Shield className="w-10 h-10 text-blue-600" />
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">Admin Dashboard</h1>
+              <h1 className="text-xl font-bold">Admin Dashboard</h1>
               <p className="text-sm text-gray-500">Clinic Management System</p>
             </div>
           </div>
-
           <button
             onClick={onLogout}
-            className="flex items-center gap-2 px-6 py-2.5 bg-red-50 text-red-600 rounded-xl hover:bg-red-100 transition-all font-medium hover:scale-105 active:scale-95"
+            className="bg-red-50 px-5 py-2 rounded-lg text-red-600 font-medium hover:bg-red-100 flex items-center gap-2"
           >
-            <LogOut className="w-5 h-5" /> Logout
+            <LogOut /> Logout
           </button>
         </div>
       </header>
 
-      {/* TABS */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
+      {/* Tabs */}
+      <div className="max-w-7xl mx-auto mt-6 bg-white rounded-2xl border shadow">
+        <nav className="border-b flex">
+          {[
+            {
+              id: "appointments",
+              label: "Appointments",
+              icon: Calendar,
+              count: appointments.length,
+            },
+            {
+              id: "chatbot",
+              label: "Chatbot Q&A",
+              icon: MessageSquare,
+              count: chatLogs.length,
+            },
+            {
+              id: "jobs",
+              label: "Apply Job",
+              icon: Briefcase,
+              count: jobApplications.length,
+            },
+          ].map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`flex-1 px-6 py-4 flex items-center justify-center gap-2 font-semibold relative ${
+                activeTab === tab.id ? "text-blue-600 bg-white" : "text-gray-600"
+              }`}
+            >
+              <tab.icon className="w-5 h-5" />
+              {tab.label}
+              <span
+                className={`px-3 py-1 text-xs font-bold rounded-full ${
+                  activeTab === tab.id
+                    ? "bg-blue-100 text-blue-600"
+                    : "bg-gray-200 text-gray-600"
+                }`}
+              >
+                {tab.count}
+              </span>
 
-          <div className="border-b border-gray-200 bg-gray-50">
-            <nav className="flex">
-              {tabs.map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`flex-1 flex items-center justify-center gap-2 px-6 py-4 font-semibold transition-all relative ${
-                    activeTab === tab.id
-                      ? 'text-blue-600 bg-white'
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-white/50'
-                  }`}
-                >
-                  <tab.icon className="w-5 h-5" />
-                  <span>{tab.label}</span>
-                  <span
-                    className={`px-2 py-0.5 rounded-full text-xs font-bold ${
-                      activeTab === tab.id ? 'bg-blue-100 text-blue-600' : 'bg-gray-200 text-gray-600'
-                    }`}
+              {activeTab === tab.id && (
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 to-purple-600" />
+              )}
+            </button>
+          ))}
+        </nav>
+
+        {/* -----------------------------
+            TAB 1 — APPOINTMENTS
+        ------------------------------ */}
+        {activeTab === "appointments" && (
+          <div className="p-6 overflow-auto">
+            <table className="w-full">
+              <thead>
+                <tr className="border-b bg-gray-50">
+                  <th className="p-3 text-left">Patient</th>
+                  <th className="p-3 text-left">Contact</th>
+                  <th className="p-3 text-left">Appointment</th>
+                  <th className="p-3 text-left">Treatment</th>
+                </tr>
+              </thead>
+              <tbody>
+                {appointments.map((apt) => (
+                  <tr
+                    key={apt.id}
+                    className="border-b hover:bg-gray-50 transition"
                   >
-                    {tab.count}
-                  </span>
-                  {activeTab === tab.id && (
-                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 to-purple-600" />
-                  )}
-                </button>
-              ))}
-            </nav>
-          </div>
+                    <td className="p-3">{apt.name}</td>
 
-          {/* CONTENT */}
-          <div className="p-6">
+                    <td className="p-3">{apt.phone}</td>
 
-            {/* =======================
-                TAB: APPOINTMENTS
-            ======================== */}
-            {activeTab === 'appointments' && (
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead>
-                    <tr className="border-b border-gray-200">
-                      <th className="py-3 px-4 text-left font-semibold text-gray-700">Patient</th>
-                      <th className="py-3 px-4 text-left font-semibold text-gray-700">Contact</th>
-                      <th className="py-3 px-4 text-left font-semibold text-gray-700">Date</th>
-                      <th className="py-3 px-4 text-left font-semibold text-gray-700">Treatment</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {appointments.map((apt) => (
-                      <tr key={apt.id} className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                        <td className="py-4 px-4">{apt.name}</td>
-                        <td className="py-4 px-4">{apt.phone}</td>
-                        <td className="py-4 px-4">{formatDateTime(apt.date)}</td>
-                        <td className="py-4 px-4">{apt.treatment}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            )}
-
-            {/* =======================
-                TAB: CHATBOT LOGS
-            ======================== */}
-            {activeTab === 'chatbot' && (
-              <div className="space-y-4">
-                {chatLogs.map((log) => (
-                  <div
-                    key={log.id}
-                    className="bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:shadow-md transition-shadow"
-                  >
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
-                          {log.name.charAt(0)}
-                        </div>
-                        <div>
-                          <h3 className="font-bold text-gray-900">{log.name}</h3>
-                          <div className="flex items-center gap-3 text-sm text-gray-600">
-                            <span className="flex items-center gap-1">
-                              <Phone className="w-3 h-3" /> {log.mobile}
-                            </span>
-                            <span className="flex items-center gap-1">
-                              <Clock className="w-3 h-3" /> {formatDateTime(log.timestamp)}
-                            </span>
-                          </div>
-                        </div>
+                    <td className="p-3">
+                      <div className="font-medium">
+                        {new Date(apt.appointment_date).toLocaleDateString(
+                          "en-IN",
+                          {
+                            day: "2-digit",
+                            month: "short",
+                            year: "numeric",
+                          }
+                        )}
                       </div>
+
+                      <div className="text-xs text-gray-500">
+                        Booked on:{" "}
+                        {new Date(apt.created_at).toLocaleString("en-IN", {
+                          day: "2-digit",
+                          month: "short",
+                          year: "numeric",
+                          hour: "2-digit",
+                          minute: "2-digit",
+                        })}
+                      </div>
+                    </td>
+
+                    <td className="p-3">{apt.treatment}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+
+        {/* -----------------------------
+            TAB 2 — CHAT LOGS (PREMIUM UI)
+        ------------------------------ */}
+        {activeTab === "chatbot" && (
+          <div className="p-6 space-y-4">
+            {chatLogs.map((log) => (
+              <div
+                key={log.id}
+                className="bg-white border rounded-xl p-5 shadow-sm hover:shadow-md transition"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 text-white rounded-full flex items-center justify-center font-bold text-lg">
+                    {log.name.charAt(0).toUpperCase()}
+                  </div>
+
+                  <div className="flex-1">
+                    <div className="flex justify-between items-center">
+                      <h3 className="text-lg font-bold">{log.name}</h3>
+                      <span className="text-xs text-gray-500">
+                        {new Date(log.created_at).toLocaleString("en-IN", {
+                          day: "2-digit",
+                          month: "short",
+                          year: "numeric",
+                          hour: "2-digit",
+                          minute: "2-digit",
+                        })}
+                      </span>
                     </div>
 
-                    <div className="space-y-3">
-                      <div>
-                        <div className="text-xs font-semibold text-gray-500 uppercase mb-1">Query</div>
-                        <div className="bg-white px-4 py-3 rounded-xl border border-gray-200 text-gray-900 font-medium">
-                          {log.query}
-                        </div>
-                      </div>
+                    <div className="text-sm text-gray-600 flex items-center gap-2">
+                      <Phone className="w-4 h-4" />
+                      {log.mobile}
+                    </div>
 
-                      <div>
-                        <div className="text-xs font-semibold text-gray-500 uppercase mb-1">Response</div>
-                        <div className="bg-gradient-to-r from-blue-50 to-purple-50 px-4 py-3 rounded-xl border border-blue-200 text-gray-800">
-                          {log.response}
-                        </div>
+                    <div className="mt-3">
+                      <p className="text-xs text-gray-500 uppercase mb-1">
+                        Query
+                      </p>
+                      <div className="bg-gray-50 p-3 rounded-lg border">
+                        {log.query}
                       </div>
                     </div>
                   </div>
-                ))}
+                </div>
               </div>
-            )}
-
-            {/* =======================
-                TAB: JOB APPLICATIONS
-            ======================== */}
-            {activeTab === 'jobs' && (
-              <div className="overflow-x-auto">
-                <table className="w-full border-collapse">
-                  <thead>
-                    <tr className="border-b border-gray-200 bg-gray-50">
-                      <th className="py-3 px-4 text-left font-semibold text-gray-700">Name</th>
-                      <th className="py-3 px-4 text-left font-semibold text-gray-700">Email</th>
-                      <th className="py-3 px-4 text-left font-semibold text-gray-700">Phone</th>
-                      <th className="py-3 px-4 text-left font-semibold text-gray-700">Experience</th>
-                      <th className="py-3 px-4 text-left font-semibold text-gray-700">Job Title</th>
-                      <th className="py-3 px-4 text-left font-semibold text-gray-700">Message</th>
-                      <th className="py-3 px-4 text-left font-semibold text-gray-700">Submitted</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {jobApplications.map((job) => (
-                      <tr key={job.id} className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                        <td className="py-4 px-4">{job.name}</td>
-                        <td className="py-4 px-4">{job.email}</td>
-                        <td className="py-4 px-4">{job.phone}</td>
-                        <td className="py-4 px-4">{job.experience}</td>
-                        <td className="py-4 px-4 text-blue-600 font-medium">{job.job_title}</td>
-                        <td className="py-4 px-4">{job.message || '-'}</td>
-                        <td className="py-4 px-4 text-sm text-gray-500">{formatDateTime(job.submitted_at)}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            )}
-
+            ))}
           </div>
-        </div>
+        )}
+
+        {/* -----------------------------
+            TAB 3 — JOB APPLICATIONS
+        ------------------------------ */}
+        {activeTab === "jobs" && (
+          <div className="p-6 overflow-auto">
+            <table className="w-full">
+              <thead>
+                <tr className="border-b bg-gray-50">
+                  <th className="p-3 text-left">Name</th>
+                  <th className="p-3 text-left">Email</th>
+                  <th className="p-3 text-left">Phone</th>
+                  <th className="p-3 text-left">Experience</th>
+                  <th className="p-3 text-left">Job Title</th>
+                  <th className="p-3 text-left">Message</th>
+                  <th className="p-3 text-left">Submitted</th>
+                </tr>
+              </thead>
+              <tbody>
+                {jobApplications.map((job) => (
+                  <tr
+                    key={job.id}
+                    className="border-b hover:bg-gray-50 transition"
+                  >
+                    <td className="p-3">{job.name}</td>
+                    <td className="p-3">{job.email}</td>
+                    <td className="p-3">{job.phone}</td>
+                    <td className="p-3">{job.experience}</td>
+                    <td className="p-3 text-blue-600">{job.job_title}</td>
+                    <td className="p-3">{job.message}</td>
+                    <td className="p-3 text-sm text-gray-500">
+                      {new Date(job.submitted_at).toLocaleString("en-IN", {
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                      })}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
-/* ===============================
-   MAIN ADMIN APP WRAPPER
-=================================*/
+// -------------------------------
+// MAIN APP WRAPPER
+// -------------------------------
 const AdminApp = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
-    const handlePopState = () => {
-      sessionStorage.removeItem('adminAuth');
-      setIsAuthenticated(false);
-      navigate('/admin/login', { replace: true });
-    };
-
-    window.addEventListener('popstate', handlePopState);
-
-    if (sessionStorage.getItem('adminAuth') === 'true') {
-      setIsAuthenticated(true);
-    } else {
-      navigate('/admin/login', { replace: true });
-    }
-
-    return () => window.removeEventListener('popstate', handlePopState);
-  }, [navigate]);
+    sessionStorage.getItem("adminAuth") === "true"
+      ? setIsAuthenticated(true)
+      : navigate("/admin/login", { replace: true });
+  }, []);
 
   const handleLogin = () => {
-    sessionStorage.setItem('adminAuth', 'true');
+    sessionStorage.setItem("adminAuth", "true");
     setIsAuthenticated(true);
-    navigate('/admin/dashboard', { replace: true });
+    navigate("/admin/dashboard", { replace: true });
   };
 
   const handleLogout = () => {
-    sessionStorage.removeItem('adminAuth');
+    sessionStorage.removeItem("adminAuth");
     setIsAuthenticated(false);
-    navigate('/admin/login', { replace: true });
+    navigate("/admin/login", { replace: true });
   };
 
   if (!isAuthenticated) return <AdminLogin onLogin={handleLogin} />;
