@@ -456,9 +456,6 @@ const Dashboard: React.FC<{ onLogout: () => void }> = ({ onLogout }) => {
                         <div className="font-medium">
                           {apptDate ? formatDateOnly(apptDate) : "N/A"}
                         </div>
-                        <div className="text-xs text-gray-500 mt-1">
-                          Time: {apptTime ? apptTime : "N/A"}
-                        </div>
                       </td>
 
                       <td className="p-3">{apt.treatment || "-"}</td>
