@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import {
   Lock,
@@ -15,42 +15,53 @@ import {
   Mail,
 } from "lucide-react";
 
-/**
- * Standalone AdminApp.tsx
- *
- * - appointment_date is used strictly as Appointment Date (date-only from DB).
- * - A new normalized field `timestamp` is added for every record (created_at / submitted_at fallback).
- * - Friendly date formatting and safe parsing avoids "Invalid Date".
- * - Chat logs UI updated to prominently show timestamp.
- */
+/*
+  AdminApp.tsx
+  - Vite + React + TypeScript
+  - Clean Table Layout
+  - Appointment date + separate Time (Option 1)
+*/
 
-// Admin credentials (example)
+// -------------------- Admin credentials (example) --------------------
 const ADMIN_CREDENTIALS = { username: "admin", password: "admin123" };
 
-// Small util: safely parse a date-only or datetime string.
-// If the string is date-only like "2025-11-09", we append "T00:00:00" to make it deterministic.
-function safeParseDate(input?: string | null) {
-  if (!input) return null;
-  // Try direct parse
-  let d = new Date(input);
-  if (!isNaN(d.getTime())) return d;
-  // Try date-only (YYYY-MM-DD)
-  try {
-    d = new Date(input + "T00:00:00");
-    if (!isNaN(d.getTime())) return d;
-  } catch (e) {}
-  return null;
-}
+// -------------------- Utilities --------------------
+const safeParseDate = (value?: any): Date | null => {
+  if (!value && value !== 0) return null;
+  // if it's already a Date
+  if (value instanceof Date) {
+    if (!isNaN(value.getTime())) return value;
+    return null;
+  }
+  // Try ISO/Datetime parse
+  let v = String(value).trim();
+  if (v === "") return null;
+  // If it's a plain date like YYYY-MM-DD, append time
+  const dateOnlyRegex = /^\d{4}-\d{1,2}-\d{1,2}$/;
+  if (dateOnlyRegex.test(v)) v = v + "T00:00:00";
+  const d = new Date(v);
+  return isNaN(d.getTime()) ? null : d;
+};
 
-function formatDateOnly(d: Date | null) {
+const formatDateOnly = (d?: Date | null) => {
   if (!d) return "N/A";
   return d.toLocaleDateString("en-IN", {
     day: "2-digit",
     month: "short",
     year: "numeric",
   });
-}
-function formatDateTime(d: Date | null) {
+};
+
+const formatTimeOnly = (d?: Date | null) => {
+  if (!d) return null;
+  return d.toLocaleTimeString("en-IN", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  });
+};
+
+const formatDateTime = (d?: Date | null) => {
   if (!d) return "N/A";
   return d.toLocaleString("en-IN", {
     day: "2-digit",
@@ -59,10 +70,10 @@ function formatDateTime(d: Date | null) {
     hour: "2-digit",
     minute: "2-digit",
   });
-}
+};
 
-// ---------- Login Component ----------
-const AdminLogin = ({ onLogin }: { onLogin: () => void }) => {
+// -------------------- Login Component --------------------
+const AdminLogin: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -105,10 +116,9 @@ const AdminLogin = ({ onLogin }: { onLogin: () => void }) => {
                   <UserIcon className="w-4 h-4 text-blue-600" /> Username
                 </label>
                 <input
-                  type="text"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
-                  className="w-full mt-1 px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 outline-none"
+                  className="w-full mt-1 px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl outline-none focus:ring-4 focus:ring-blue-100"
                   required
                 />
               </div>
@@ -122,7 +132,7 @@ const AdminLogin = ({ onLogin }: { onLogin: () => void }) => {
                     type={showPassword ? "text" : "password"}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 outline-none pr-12"
+                    className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl outline-none focus:ring-4 focus:ring-blue-100 pr-12"
                     required
                   />
                   <button
@@ -156,44 +166,109 @@ const AdminLogin = ({ onLogin }: { onLogin: () => void }) => {
   );
 };
 
-// ---------- Dashboard ----------
-const Dashboard = ({ onLogout }: { onLogout: () => void }) => {
-  const [activeTab, setActiveTab] = useState<"appointments" | "chatbot" | "jobs">(
-    "appointments"
-  );
+// -------------------- Dashboard Component --------------------
+type AppointmentRaw = Record<string, any>;
+type Appointment = AppointmentRaw & {
+  appointmentDate: Date | null;
+  appointmentTime: string | null;
+  appointmentDateTime: Date | null;
+  timestamp: Date | null;
+};
 
-  const [appointments, setAppointments] = useState<any[]>([]);
-  const [chatLogs, setChatLogs] = useState<any[]>([]);
-  const [jobApplications, setJobApplications] = useState<any[]>([]);
+type ChatLog = Record<string, any> & { timestamp: Date | null };
+type JobApp = Record<string, any> & { timestamp: Date | null };
+
+const Dashboard: React.FC<{ onLogout: () => void }> = ({ onLogout }) => {
+  const [activeTab, setActiveTab] = useState<
+    "appointments" | "chatbot" | "jobs"
+  >("appointments");
+
+  const [appointments, setAppointments] = useState<Appointment[]>([]);
+  const [chatLogs, setChatLogs] = useState<ChatLog[]>([]);
+  const [jobApplications, setJobApplications] = useState<JobApp[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Helper to normalize records, attach `timestamp` field
-  // Appointment: uses appointment_date as appointment and uses created_at as timestamp
-  const normalizeAppointments = (rows: any[]) =>
+  // Normalizer for appointments (handles old and new fields)
+  const normalizeAppointments = (rows: AppointmentRaw[]): Appointment[] =>
     rows.map((r) => {
-      const appointmentDate = safeParseDate(r.appointment_date);
-      // define timestamp from created_at fallback
-      const timestamp =
-        r.created_at || r.submitted_at || r.timestamp || r.createdAt || null;
-      const parsedTimestamp = safeParseDate(timestamp);
-      return { ...r, appointmentDate, timestamp: parsedTimestamp };
-    });
+      const appointmentDate =
+        safeParseDate(r.appointment_date) || safeParseDate(r.date) || null;
 
-  // Chatlogs: created_at -> timestamp
-  const normalizeChatLogs = (rows: any[]) =>
-    rows.map((r) => {
-      const ts = r.created_at || r.timestamp || r.createdAt || null;
-      return { ...r, timestamp: safeParseDate(ts) };
-    });
+      // appointment time could be stored as 'appointment_time' or old 'time'
+      const appointmentTimeRaw = r.appointment_time || r.time || "";
+      let appointmentTime: string | null = appointmentTimeRaw
+        ? String(appointmentTimeRaw).trim()
+        : null;
 
-  const normalizeJobs = (rows: any[]) =>
-    rows.map((r) => {
+      // Build appointmentDateTime when possible (date + time)
+      let appointmentDateTime: Date | null = null;
+      if (appointmentDate) {
+        try {
+          // If appointmentTime is like "05:30" or "05:30:00" or "05:30 AM" try to create a date
+          if (appointmentTime) {
+            // normalize time to HH:MM (24h) if possible, else append raw
+            let t = appointmentTime;
+            // if input has AM/PM, use it directly
+            if (!/[aApP]/.test(t)) {
+              // ensure HH:MM
+              const parts = t.split(":");
+              if (parts.length >= 2) {
+                const hh = parts[0].padStart(2, "0");
+                const mm = parts[1].padStart(2, "0");
+                t = `${hh}:${mm}`;
+              } else {
+                t = "00:00";
+              }
+            }
+            // create ISO combined
+            const iso = appointmentDate.toISOString().split("T")[0] + "T" + t;
+            const dt = safeParseDate(iso);
+            appointmentDateTime = dt || appointmentDate;
+          } else {
+            appointmentDateTime = appointmentDate;
+          }
+        } catch {
+          appointmentDateTime = appointmentDate;
+        }
+      }
+
       const ts =
-        r.submitted_at || r.created_at || r.timestamp || r.createdAt || null;
-      return { ...r, timestamp: safeParseDate(ts) };
+        safeParseDate(r.created_at) ||
+        safeParseDate(r.submitted_at) ||
+        safeParseDate(r.timestamp) ||
+        safeParseDate(r.time) || // fallback to old 'time' if it was used as timestamp
+        null;
+
+      return {
+        ...r,
+        appointmentDate,
+        appointmentTime,
+        appointmentDateTime,
+        timestamp: ts,
+      };
     });
 
-  // Fetch functions - fallback-safe and sort by timestamp (newest first)
+  const normalizeChatLogs = (rows: Record<string, any>[]): ChatLog[] =>
+    rows.map((r) => ({
+      ...r,
+      timestamp:
+        safeParseDate(r.created_at) ||
+        safeParseDate(r.timestamp) ||
+        safeParseDate(r.submitted_at) ||
+        null,
+    }));
+
+  const normalizeJobs = (rows: Record<string, any>[]): JobApp[] =>
+    rows.map((r) => ({
+      ...r,
+      timestamp:
+        safeParseDate(r.submitted_at) ||
+        safeParseDate(r.created_at) ||
+        safeParseDate(r.timestamp) ||
+        null,
+    }));
+
+  // Fetchers (replace URLs if needed)
   const fetchAppointments = async () => {
     try {
       const res = await fetch(
@@ -202,11 +277,19 @@ const Dashboard = ({ onLogout }: { onLogout: () => void }) => {
       const json = await res.json();
       if (json.success && Array.isArray(json.data)) {
         const normalized = normalizeAppointments(json.data);
-        // sort by timestamp (booked time) newest first; if timestamp missing, keep appointmentDate fallback
+        // sort by booking timestamp (newest first). If timestamp missing, fallback to appointmentDateTime, then appointmentDate
         normalized.sort((a, b) => {
-          const ta = a.timestamp ? a.timestamp.getTime() : a.appointmentDate ? a.appointmentDate.getTime() : 0;
-          const tb = b.timestamp ? b.timestamp.getTime() : b.appointmentDate ? b.appointmentDate.getTime() : 0;
-          return tb - ta;
+          const aKey =
+            (a.timestamp && a.timestamp.getTime()) ||
+            (a.appointmentDateTime && a.appointmentDateTime.getTime()) ||
+            (a.appointmentDate && a.appointmentDate.getTime()) ||
+            0;
+          const bKey =
+            (b.timestamp && b.timestamp.getTime()) ||
+            (b.appointmentDateTime && b.appointmentDateTime.getTime()) ||
+            (b.appointmentDate && b.appointmentDate.getTime()) ||
+            0;
+          return bKey - aKey;
         });
         setAppointments(normalized);
       } else {
@@ -265,7 +348,7 @@ const Dashboard = ({ onLogout }: { onLogout: () => void }) => {
   };
 
   useEffect(() => {
-    const load = async () => {
+    const loadAll = async () => {
       setLoading(true);
       await Promise.all([
         fetchAppointments(),
@@ -274,7 +357,7 @@ const Dashboard = ({ onLogout }: { onLogout: () => void }) => {
       ]);
       setLoading(false);
     };
-    load();
+    loadAll();
   }, []);
 
   if (loading) return <div className="p-10 text-center">Loading...</div>;
@@ -346,7 +429,7 @@ const Dashboard = ({ onLogout }: { onLogout: () => void }) => {
           ))}
         </nav>
 
-        {/* Appointments tab */}
+        {/* Appointments tab (table) */}
         {activeTab === "appointments" && (
           <div className="p-6 overflow-auto">
             <table className="w-full">
@@ -361,74 +444,80 @@ const Dashboard = ({ onLogout }: { onLogout: () => void }) => {
               </thead>
               <tbody>
                 {appointments.map((apt) => {
-                  const apptDate = apt.appointmentDate ? apt.appointmentDate : null;
-                  const ts = apt.timestamp ? apt.timestamp : null;
+                  const apptDate = apt.appointmentDate ?? null;
+                  const apptTime = apt.appointmentTime ?? null;
+                  const ts = apt.timestamp ?? null;
                   return (
                     <tr key={apt.id} className="border-b hover:bg-gray-50 transition">
-                      <td className="p-3">{apt.name}</td>
-                      <td className="p-3">{apt.phone}</td>
+                      <td className="p-3">{apt.name || "-"}</td>
+                      <td className="p-3">{apt.phone || apt.mobile || "-"}</td>
+
                       <td className="p-3">
                         <div className="font-medium">
                           {apptDate ? formatDateOnly(apptDate) : "N/A"}
                         </div>
+                        <div className="text-xs text-gray-500 mt-1">
+                          Time: {apptTime ? apptTime : "N/A"}
+                        </div>
                       </td>
-                      <td className="p-3">{apt.treatment}</td>
+
+                      <td className="p-3">{apt.treatment || "-"}</td>
+
                       <td className="p-3 text-sm text-gray-600">
                         {ts ? formatDateTime(ts) : "N/A"}
                       </td>
                     </tr>
                   );
                 })}
+                {appointments.length === 0 && (
+                  <tr>
+                    <td colSpan={5} className="p-6 text-center text-gray-500">
+                      No appointments found.
+                    </td>
+                  </tr>
+                )}
               </tbody>
             </table>
           </div>
         )}
 
-        {/* Chat logs tab with improved UI */}
+        {/* Chat logs (cards) */}
         {activeTab === "chatbot" && (
           <div className="p-6 space-y-4">
-            {chatLogs.map((log) => {
-              const ts = log.timestamp ? log.timestamp : null;
-              return (
-                <div key={log.id} className="bg-white border rounded-xl p-5 shadow-sm hover:shadow-md transition">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 text-white rounded-full flex items-center justify-center font-bold text-lg">
-                      {String(log.name || "U").charAt(0).toUpperCase()}
+            {chatLogs.map((log) => (
+              <div key={log.id} className="bg-white border rounded-xl p-5 shadow-sm hover:shadow-md transition">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 text-white rounded-full flex items-center justify-center font-bold text-lg">
+                    {String(log.name || "U").charAt(0).toUpperCase()}
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex justify-between items-center">
+                      <h3 className="text-lg font-bold">{log.name || "-"}</h3>
+                      <div className="text-xs text-gray-500">
+                        {log.timestamp ? formatDateTime(log.timestamp) : "N/A"}
+                      </div>
                     </div>
 
-                    <div className="flex-1">
-                      <div className="flex justify-between items-center">
-                        <h3 className="text-lg font-bold">{log.name || "-"}</h3>
-                        <div className="text-xs text-gray-500">
-                          {ts ? formatDateTime(ts) : "N/A"}
-                        </div>
-                      </div>
+                    <div className="mt-2 text-sm text-gray-600 flex items-center gap-3">
+                      <Phone className="w-4 h-4" />
+                      <span>{log.mobile || "-"}</span>
+                    </div>
 
-                      <div className="text-sm text-gray-600 flex items-center gap-3 mt-2">
-                        <div className="flex items-center gap-2">
-                          <Phone className="w-4 h-4" />
-                          <span>{log.mobile || "-"}</span>
-                        </div>
-                      </div>
-
-                      <div className="mt-4">
-                        <p className="text-xs text-gray-500 uppercase mb-1">Query</p>
-                        <div className="bg-gray-50 p-3 rounded-lg border text-gray-800">
-                          {log.query || "-"}
-                        </div>
-                      </div>
+                    <div className="mt-4">
+                      <p className="text-xs text-gray-500 uppercase mb-1">Query</p>
+                      <div className="bg-gray-50 p-3 rounded-lg border text-gray-800">{log.query || "-"}</div>
                     </div>
                   </div>
                 </div>
-              );
-            })}
+              </div>
+            ))}
             {chatLogs.length === 0 && (
               <div className="p-6 text-center text-gray-500">No chat logs found.</div>
             )}
           </div>
         )}
 
-        {/* Jobs tab */}
+        {/* Job applications (table) */}
         {activeTab === "jobs" && (
           <div className="p-6 overflow-auto">
             <table className="w-full">
@@ -452,11 +541,14 @@ const Dashboard = ({ onLogout }: { onLogout: () => void }) => {
                     <td className="p-3">{job.experience}</td>
                     <td className="p-3 text-blue-600">{job.job_title}</td>
                     <td className="p-3">{job.message || "-"}</td>
-                    <td className="p-3 text-sm text-gray-600">
-                      {job.timestamp ? formatDateTime(job.timestamp) : "N/A"}
-                    </td>
+                    <td className="p-3 text-sm text-gray-600">{job.timestamp ? formatDateTime(job.timestamp) : "N/A"}</td>
                   </tr>
                 ))}
+                {jobApplications.length === 0 && (
+                  <tr>
+                    <td colSpan={7} className="p-6 text-center text-gray-500">No applications found.</td>
+                  </tr>
+                )}
               </tbody>
             </table>
           </div>
@@ -466,8 +558,8 @@ const Dashboard = ({ onLogout }: { onLogout: () => void }) => {
   );
 };
 
-// ---------- App wrapper ----------
-const AdminApp = () => {
+// -------------------- Admin App wrapper --------------------
+const AdminApp: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
