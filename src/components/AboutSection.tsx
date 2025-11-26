@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Award, Users, Clock, Star, CheckCircle, Shield, Heart, Microscope, PackageCheck } from "lucide-react";
-import doctor from "@/assets/doctor.jpg"
+import doctor from "@/assets/cabin-room.png"
 import EnquiryForm from "./EnquiryModal";
 
 const About = () => {

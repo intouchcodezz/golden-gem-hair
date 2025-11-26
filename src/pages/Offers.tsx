@@ -160,7 +160,7 @@ const hairOffers = [
       <section className="relative h-screen flex items-center justify-center bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-700">
         <div className="absolute inset-0 bg-black/30" />
         <img
-          src="https://images.pexels.com/photos/973401/pexels-photo-973401.jpeg"
+          src="https://images.pexels.com/photos/1036620/pexels-photo-1036620.jpeg"
           alt="Hair Restoration"
           className="absolute inset-0 w-full h-full object-cover"
         />

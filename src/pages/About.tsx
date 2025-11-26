@@ -13,6 +13,7 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import akshara from "../assets/doctor.jpg";
+import aksharaClinic from "../assets/clinic.jpg";
 
 import beforeafter1 from "@/assets/beforeafter1.jpg";
 import beforeafter2 from "@/assets/beforeafter2.jpg";
@@ -110,7 +111,7 @@ const About = () => {
       <section className="relative h-screen w-full overflow-hidden bg-gradient-to-br from-yellow-50 via-white to-yellow-50">
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
         <img
-          src={akshara}
+          src={aksharaClinic}
           alt="Dr. Akshara’s Clinic"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
