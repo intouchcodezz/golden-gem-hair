@@ -12,6 +12,9 @@ import beforeafter4 from '@/assets/beforeafter4.jpg';
 import beforeafter7 from '@/assets/beforeafter7.jpg';
 import beforeafter8 from '@/assets/beforeafter8.jpg';
 import beforeafter5 from '@/assets/beforeafter5.jpg';
+import beforeafter23 from '@/assets/beforeafter23.jpg';
+import beforeafter24 from '@/assets/beforeafter24.jpg';
+import beforeafter25 from '@/assets/beforeafter25.jpg';
 import ht2 from '@/assets/ht2.jpg'
 import { 
   Phone, 
@@ -75,12 +78,12 @@ const beforeAfterResults = [
     grafts: "2,500 grafts",
     timeline: "13 months post-op"
   },
-  {
-    before: beforeafter7,
-    age: "33 years",
-    grafts: "3,000 grafts",
-    timeline: "7 months post-op"
-  },
+  // {
+  //   before: beforeafter7,
+  //   age: "33 years",
+  //   grafts: "3,000 grafts",
+  //   timeline: "7 months post-op"
+  // },
     {
     before: beforeafter8,
     age: "35 years",
@@ -98,7 +101,25 @@ const beforeAfterResults = [
     age: "36 years",
     grafts: "2,700 grafts",
     timeline: "10 months post-op"
-  }
+  },
+    {
+    before: beforeafter23,
+    age: "28 years",
+    grafts: "1,500 grafts",
+    timeline: "6 months post-op"
+  },
+    {
+    before: beforeafter24,
+    age: "32 years",
+    grafts: "2,800 grafts",
+    timeline: "9 months post-op"
+  },
+    {
+    before: beforeafter25,
+    age: "45 years",
+    grafts: "2,500 grafts",
+    timeline: "8 months post-op"
+  },
 ];
 
 const HairTransplantFUE = () => {
