@@ -26,6 +26,9 @@ import befoeafter10 from "@/assets/beforeafter10.jpg";
 import beforeafter12 from "@/assets/beforeafter12.jpg";
 import beforeafter15 from "@/assets/beforeafter15.jpg";
 import beforeafter20 from "@/assets/beforeafter20.jpg";
+import beforeafter23 from '@/assets/beforeafter23.jpg';
+import beforeafter24 from '@/assets/beforeafter24.jpg';
+import beforeafter25 from '@/assets/beforeafter25.jpg';
 import ht2 from "@/assets/ht2.jpg";
 import gfc2 from "@/assets/gfc2.jpg";
 import gfc3 from "@/assets/gfc3.jpg";
@@ -45,6 +48,9 @@ const Results = () => {
     { image: beforeafter12, alt: "Hair Rejuvenation Therapy - Case 12", title: "Pattern Baldness" },
     { image: beforeafter15, alt: "Hair Rejuvenation Therapy - Case 15", title: "GFC Hairline Restoration" },
     { image: beforeafter20, alt: "Hair Rejuvenation Therapy - Case 20", title: "PRP therapy" },
+    { image: beforeafter23, alt: "Hair Rejuvenation Therapy - Case 21", title: "Hair Transplant" },
+    { image: beforeafter24, alt: "Hair Rejuvenation Therapy - Case 22", title: "Hair Transplant" },
+    { image: beforeafter25, alt: "Hair Rejuvenation Therapy - Case 23", title: "Hair Transplant" },
     { image: ht2, alt: "Hair Transplant - Case 11", title: "GFC Therapy" },
     { image: gfc2, alt: "GFC - Case 14", title: "GFC Therapy" },
     { image: gfc3, alt: "GFC - Case 16", title: "GFC Therapy" },
