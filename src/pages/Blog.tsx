@@ -4,6 +4,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
 
+import blogs1 from '../assets/blogs1.png'
+
 interface BlogPost {
   id: number;
   title: string;
@@ -22,6 +24,73 @@ export default function Blog() {
   const observerTarget = useRef<HTMLDivElement>(null);
 
   const blogs: BlogPost[] = [
+    {
+      id: 11,
+      title: 'Hair Transplant Solutions You Can Trust in Chennai',
+      author: 'The Golden Gem Cosmetic Clinic',
+      date: 'September 2025',
+      readTime: '5 min read',
+      category: 'Hair Transplant',
+      summary: 'Choosing a reliable hair transplant clinic in Chennai can make a huge difference in achieving natural and long-lasting results.',
+      image: blogs1,
+      content: `
+        <div class="space-y-6">
+          <p>Hair Transplant Solutions You Can Trust in Chennai</p>
+
+          <p>
+            Hair loss can affect confidence, appearance, and overall self-esteem. If you’re experiencing thinning hair or bald patches, choosing the right clinic is the first and most important step. Finding a reliable hair transplant clinic Chennai residents trust can make a huge difference in achieving natural and long-lasting results. With modern techniques and experienced specialists, hair restoration today is safer, effective, and more comfortable than ever before.
+          </p>
+
+          <p>
+            Why Choose a Professional Hair Transplant Clinic in Chennai?
+            Chennai has become a leading destination for advanced cosmetic treatments, including hair restoration. A professional hair transplant Chennai clinic offers access to trained doctors, advanced equipment, and proven techniques such as FUE and FUT. These methods ensure minimal scarring, faster recovery, and natural hair growth.
+            Patients benefit from personalized treatment plans, ensuring results that match their facial structure and hair density goals.
+          </p>
+
+          <p>
+            Looking for a Hair Transplant Clinic Near Me?
+            When searching for a hair transplant clinic near me, it’s important to consider factors beyond location. Look for clinics that offer:
+          </p>
+
+          <ul class="list-disc pl-6 space-y-2">
+            <li>Experienced and certified surgeons</li>
+            <li>Advanced hair transplant technology</li>
+            <li>Transparent consultation and pricing</li>
+            <li>Proven before-and-after results</li>
+            <li>Strong patient reviews and testimonials</li>
+          </ul>
+
+          <p>
+            A nearby clinic also helps with easy follow-ups and post-treatment care, making the recovery process smooth and stress-free.
+          </p>
+
+          <p>
+            Advanced Hair Transplant Techniques in Chennai
+            Modern hair transplant clinics in Chennai use advanced procedures designed for comfort and precision. These techniques focus on:
+          </p>
+
+          <ul class="list-disc pl-6 space-y-2">
+            <li>Natural hairline design</li>
+            <li>High graft survival rate</li>
+            <li>Minimal downtime</li>
+            <li>Long-lasting and natural-looking results</li>
+          </ul>
+
+          <p>
+            With proper aftercare and guidance, patients can enjoy permanent hair restoration and improved confidence.
+          </p>
+
+          <p>
+            Regain Your Confidence with Expert Hair Care
+            Hair transplant treatment is not just about restoring hair—it’s about restoring confidence. Choosing the right clinic ensures safe procedures, natural outcomes, and long-term satisfaction. A trusted clinic will guide you through consultation, treatment, and aftercare every step of the way.
+          </p>
+
+          <p>
+            For expert care, advanced technology, and personalized hair restoration solutions, trust The Golden Gem Cosmetic Clinic.
+          </p>
+        </div>
+      `
+    },
     {
       id: 1,
       title: 'Hair Transplant Aftercare: Essential Do\'s and Don\'ts',
