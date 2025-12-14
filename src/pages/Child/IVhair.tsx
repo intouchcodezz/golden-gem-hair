@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Link } from 'react-router-dom';
 import EnquiryForm from '@/components/EnquiryModal';
+import SEO from '@/components/SEO';
 import { useState } from 'react';
 import HT from '@/assets/ivhair.png';
 import beforeafter18 from '@/assets/beforeafter18.webp';
@@ -83,6 +84,12 @@ const beforeAfterResults = [
 const IVHairTherapy = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
+     <>
+      <SEO
+        title="IV Hair Therapy in Chennai | Hair Strength & Growth"
+        description="Revitalize hair from within with IV hair therapy. Nutrient-rich infusion reduces hair fall and promotes stronger, denser hair naturally."
+        canonical="https://thegoldengemhairclinic.com/iv-hair-therapy"
+      />
     <div className="min-h-screen bg-white">
            <EnquiryForm
               isOpen={isModalOpen}
@@ -598,6 +605,7 @@ const IVHairTherapy = () => {
       </section>
       <Footer />
     </div>
+    </>
   );
 };
 

@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Link } from 'react-router-dom';
 import EnquiryForm from '@/components/EnquiryModal';
+import SEO from '@/components/SEO';
 import { useImageLightbox } from '@/components/ImageLightbox';
 import beforeafter7 from '@/assets/beforeafter7.jpg';
 import beforeafter8 from '@/assets/beforeafter8.jpg';
@@ -85,6 +86,12 @@ const PRPTherapy = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
+        <>
+      <SEO
+        title="Best PRP Hair Treatment in Chennai"
+        description="Experience natural hair regrowth with PRP treatment. Uses your own platelets to reduce thinning, strengthen roots, and boost hair density."
+        canonical="https://thegoldengemhairclinic.com/prp-treatment"
+      />
     <div className="min-h-screen bg-white">
            <EnquiryForm
         isOpen={isModalOpen}
@@ -661,6 +668,7 @@ const PRPTherapy = () => {
       </section>
       <Footer />
     </div>
+    </>
   );
 };
 

@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import EnquiryForm from '@/components/EnquiryModal';
 import scalp from '@/assets/scalp-therapy.jpg';
+import SEO from '@/components/SEO';
 import { 
   Video, 
   CheckCircle, 
@@ -104,6 +105,12 @@ const ScalpCare = () => {
   ];
     const [isModalOpen, setIsModalOpen] = useState(false);
   return (
+    <>
+      <SEO
+        title="Scalp Care Treatments in Chennai | Healthy Hair Solutions"
+        description="Protect and nourish your scalp with expert treatments. Reduce hair fall and promote strong, healthy hair from the roots."
+        canonical="https://thegoldengemhairclinic.com/hair-treatments/scalp-care"
+      />
     <div className="min-h-screen bg-gradient-to-b from-amber-50 via-yellow-50 to-amber-100">
            <EnquiryForm
         isOpen={isModalOpen}
@@ -145,7 +152,7 @@ const ScalpCare = () => {
         </div>
 
         {/* Headline */}
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-[3.2rem] md:leading-[3.4rem] text-white leading-tight">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-[3.2rem] md:leading-[3.4rem] text-white">
           Expert Scalp Care
           <span className="block text-white mt-2">Solutions</span>
         </h1>
@@ -375,7 +382,7 @@ const ScalpCare = () => {
               >
                 <CardContent className="p-6">
                   <div className="flex justify-between items-center">
-                    <h3 className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-semibold text-amber-900 pr-4">
+                    <h3 className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-semibold pr-4">
                       {faq.question}
                     </h3>
                     <ArrowRight 
@@ -399,6 +406,7 @@ const ScalpCare = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

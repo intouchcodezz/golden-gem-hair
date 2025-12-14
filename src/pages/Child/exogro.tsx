@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import EnquiryForm from '@/components/EnquiryModal';
+import SEO from '@/components/SEO';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import exogro from '@/assets/exogro.jpg';
@@ -83,6 +84,12 @@ const beforeAfterResults = [
 const HairTransplantExoGro = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
+    <>
+      <SEO
+        title="Exogro Hair Treatment in Chennai | Hair Growth Therapy"
+        description="Boost hair growth and reduce hair fall with Exogro therapy. Stimulate follicles naturally for thicker, healthier hair in Chennai."
+        canonical="https://thegoldengemhairclinic.com/exogro"
+      />
     <div className="min-h-screen bg-white">
            <EnquiryForm
         isOpen={isModalOpen}
@@ -598,6 +605,7 @@ const HairTransplantExoGro = () => {
       </section>
       <Footer />
     </div>
+    </>
   );
 };
 

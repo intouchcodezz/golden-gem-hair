@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Calendar, User, Clock, ChevronDown, ChevronUp } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 
 interface BlogPost {
   id: number;
@@ -1562,6 +1563,12 @@ export default function Blog() {
   };
 
   return (
+      <>
+      <SEO
+        title="The Golden Gem Clinic Chennai | Expert Blog Updates"
+        description="Read the latest on hair transplants, aftercare tips, and cosmetic clinic insights from The Golden Gem — your trusted source for hair restoration knowledge."
+        canonical="https://thegoldengemhairclinic.com/blog"
+      />
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-amber-50">
       <Header />
 
@@ -1675,5 +1682,6 @@ export default function Blog() {
         }
       `}</style>
     </div>
+    </>
   );
 }

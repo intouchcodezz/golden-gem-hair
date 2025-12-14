@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import SEO from "@/components/SEO";
+
 import { Button } from "../components/ui/button";
 import {
   Accordion,
@@ -164,6 +166,12 @@ const Careers = () => {
   };
 
   return (
+    <>
+      <SEO
+        title="Careers at Hair Clinic in Chennai | Join Our Team"
+        description="Explore career opportunities at our hair clinic. Join expert teams in hair restoration, patient care, and cosmetic services in Chennai."
+        canonical="https://thegoldengemhairclinic.com/careers"
+      />
     <div className="min-h-screen bg-background">
       <Header />
 
@@ -319,6 +327,7 @@ const Careers = () => {
 
       <Footer />
     </div>
+    </>
   );
 };
 

@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useState } from "react";
 import EnquiryForm from "@/components/EnquiryModal";
+import SEO from "@/components/SEO";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -52,6 +53,12 @@ const Results = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
+    <>
+      <SEO
+        title="Hair Transplant Before & After Photos | Chennai"
+        description="See real results of hair treatments and transplants. Explore before and after photos of satisfied patients in Chennai."
+        canonical="https://thegoldengemhairclinic.com/results/before-after"
+      />
     <div className="min-h-screen bg-gray-100">
       {/* Enquiry Modal */}
       <EnquiryForm
@@ -178,6 +185,7 @@ const Results = () => {
 
       <Footer />
     </div>
+    </>
   );
 };
 

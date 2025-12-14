@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import beforeafter12 from '@/assets/beforeafter12.jpg';
 import beforeafter19 from '@/assets/beforeafter19.webp';
 import EnquiryForm from '@/components/EnquiryModal';
+import SEO from '@/components/SEO';
 import { 
   Video, 
   CheckCircle, 
@@ -117,6 +118,12 @@ const Growth = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
+    <>
+      <SEO
+        title="Hair Growth Therapies in Chennai | Hair Fall Solutions"
+        description="Advanced therapies to stimulate hair follicles, reduce fall, and improve hair density. Personalized hair restoration solutions in Chennai."
+        canonical="https://thegoldengemhairclinic.com/hair-treatments/growth-therapies"
+      />
     <div className="min-h-screen bg-gradient-hero font-sans">
      <EnquiryForm
         isOpen={isModalOpen}
@@ -499,6 +506,7 @@ const Growth = () => {
         </div>
       </section> */}
     </div>
+    </>
   );
 };
 

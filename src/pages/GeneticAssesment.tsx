@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useState } from 'react';
 import EnquiryForm from '@/components/EnquiryModal';
+import SEO from '@/components/SEO';
 import { Link } from 'react-router-dom';
 import HT from '@/assets/gh.png';
 import { 
@@ -98,6 +99,12 @@ const sampleReports = [
 const GeneticHormonalAssessment = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
+    <>
+      <SEO
+        title="Genetic Hair Loss Assessment in Chennai"
+        description="Predict hair loss risk with genetic testing. Personalized hair treatment plans based on your DNA for effective hair care solutions."
+        canonical="https://thegoldengemhairclinic.com/genetic-assessment"
+      />
     <div className="min-h-screen bg-white">
            <EnquiryForm
         isOpen={isModalOpen}
@@ -416,6 +423,7 @@ const GeneticHormonalAssessment = () => {
 
       <Footer />
     </div>
+    </>
   );
 };
 

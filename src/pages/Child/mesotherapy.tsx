@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import EnquiryForm from '@/components/EnquiryModal';
+import SEO from '@/components/SEO';
 import mesotherapy from '@/assets/mesotherap.jpg';
 import beforeafter7 from '@/assets/beforeafter7.jpg';
 import beforeafter8 from '@/assets/beforeafter8.jpg';
@@ -83,6 +84,12 @@ const beforeAfterResults = [
 const HairTransplantMesotherapy = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
+    <>
+      <SEO
+        title="Advanced Hair Mesotherapy Treatment in Chennai"
+        description="Stimulate hair growth and restore scalp health with professional mesotherapy — nourishing follicles, reducing hair loss, and boosting hair density naturally."
+        canonical="https://thegoldengemhairclinic.com/mesotherapy"
+      />
     <div className="min-h-screen bg-white">
            <EnquiryForm
         isOpen={isModalOpen}
@@ -114,7 +121,7 @@ const HairTransplantMesotherapy = () => {
                 <p className="text-amber-600 font-semibold tracking-wide uppercase text-sm">
                   Non-Surgical Hair Rejuvenation
                 </p>
-                <h1 className="text-3xl md:text-4xl font-bold leading-[3.2rem] md:leading-[3.4rem] text-slate-800 leading-tight">
+                <h1 className="text-3xl md:text-4xl font-bold md:leading-[3.4rem] text-slate-800 leading-tight">
                   Mesotherapy <span className="text-amber-500">for Hair</span>
                 </h1>
               </div>
@@ -599,6 +606,7 @@ const HairTransplantMesotherapy = () => {
       </section>
       <Footer />
     </div>
+    </>
   );
 };
 

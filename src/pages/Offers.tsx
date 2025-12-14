@@ -3,6 +3,8 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import EnquiryForm from "@/components/EnquiryModal";
+import SEO from "@/components/SEO";
+
 import { Star } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -141,6 +143,12 @@ const hairOffers = [
   ];
 
   return (
+    <>
+      <SEO
+        title="Hair Treatment Offers in Chennai | The Golden Gem Cosmetic Clinic"
+        description="Get the best deals on hair treatments, transplants, and therapies. Save on professional hair restoration services in Chennai."
+        canonical="https://thegoldengemhairclinic.com/offers"
+      />
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white">
       <Header />
 
@@ -292,6 +300,7 @@ const hairOffers = [
 
       <Footer />
     </div>
+    </>
   );
 };
 

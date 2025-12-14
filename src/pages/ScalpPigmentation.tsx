@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import EnquiryForm from '@/components/EnquiryModal';
+import SEO from '@/components/SEO';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import beforeafter18 from '@/assets/beforeafter18.webp';
@@ -97,6 +98,12 @@ const beforeAfterResults = [
 const ScalpMicroPigmentation = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
+    <>
+      <SEO
+        title="Scalp Micropigmentation in Chennai | Hair Loss Solution"
+        description="Conceal thinning hair and scars with scalp micropigmentation. Safe, non-surgical solution to restore natural hair appearance in Chennai."
+        canonical="https://thegoldengemhairclinic.com/scalp-pigmentation"
+      />
     <div className="min-h-screen bg-white">
            <EnquiryForm
         isOpen={isModalOpen}
@@ -736,6 +743,7 @@ const ScalpMicroPigmentation = () => {
       </section>
       <Footer />
     </div>
+    </>
   );
 };
 

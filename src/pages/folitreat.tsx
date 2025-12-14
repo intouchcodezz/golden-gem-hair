@@ -3,6 +3,7 @@ import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import { Link } from 'react-router-dom';
 import EnquiryForm from '@/components/EnquiryModal';
+import SEO from '@/components/SEO';
 import { Button } from "@/components/ui/button";
 import beforeafter5 from "@/assets/beforeafter5.jpg";
 import beforeafter8 from "@/assets/beforeafter8.jpg";
@@ -97,6 +98,12 @@ const FolitreatHairTreatment = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   
   return (
+    <>
+      <SEO
+        title="Folitreat Hair Treatment in Chennai | Hair Growth Therapy"
+        description="Boost hair growth and reduce hair loss with Folitreat therapy. Safe, effective, and non-invasive treatment for healthier hair."
+        canonical="https://thegoldengemhairclinic.com/folitreat-treatment"
+      />
     <div className="min-h-screen bg-white">
                   <EnquiryForm
         isOpen={isModalOpen}
@@ -129,7 +136,7 @@ const FolitreatHairTreatment = () => {
                 <p className="text-amber-600 font-semibold tracking-wide uppercase text-sm">
                   Advanced Hair Restoration
                 </p>
-                <h1 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem] text-slate-800 leading-tight">
+                <h1 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem] text-slate-800">
                   Folitreat <span className="text-amber-500">Advanced</span><br />
                   Hair Treatment
                 </h1>
@@ -636,6 +643,7 @@ const FolitreatHairTreatment = () => {
       </section>
       <Footer />
     </div>
+    </>
   );
 };
 

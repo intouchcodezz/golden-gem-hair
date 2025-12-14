@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import { useState } from 'react';
 import EnquiryForm from '@/components/EnquiryModal';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 import fue from '@/assets/fue.jpg';
 import beforeafter2 from '@/assets/beforeafter2.jpg';
 import beforeafter3 from '@/assets/beforeafter3.jpg';
@@ -125,6 +126,13 @@ const beforeAfterResults = [
 const HairTransplantFUE = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
+    <>
+      <SEO
+        title="FUE Hair Transplant in Chennai | Permanent Hair Restoration"
+        description="Restore hair naturally with FUE hair transplant. Minimally invasive, permanent solution for hair loss in Chennai."
+        canonical="https://thegoldengemhairclinic.com/fue-transplant"
+      />
+
     <div className="min-h-screen bg-white">
            <EnquiryForm
         isOpen={isModalOpen}
@@ -660,6 +668,7 @@ const HairTransplantFUE = () => {
 
       <Footer />
     </div>
+    </>
   );
 };
 

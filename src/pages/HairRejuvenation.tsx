@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
+import SEO from '@/components/SEO';
 import { Link } from "react-router-dom";
 import { 
   Phone, 
@@ -98,6 +99,14 @@ const HairRejuvenation = () => {
   };
 const [isModalOpen, setIsModalOpen] = useState(false);
   return (
+    <>
+    
+      <SEO
+        title="Hair Rejuvenation Treatments in Chennai | Hair Health"
+        description="Revitalize thinning hair with advanced hair rejuvenation treatments. Improve hair density, strength, and shine naturally."
+        canonical="https://thegoldengemhairclinic.com/hair-treatments/hair-rejuvenation"
+      />
+
     <div className="min-h-screen bg-white">
             <EnquiryForm
         isOpen={isModalOpen}
@@ -128,7 +137,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
                 <p className="text-amber-600 font-semibold tracking-wide uppercase text-sm">
                   Comprehensive Hair Restoration
                 </p>
-                <h1 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem] text-slate-800 leading-tight">
+                <h1 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem] text-slate-800">
                   Complete <span className="text-amber-500">Hair</span><br />
                   Rejuvenation Therapy
                 </h1>
@@ -751,6 +760,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
         </div>
       )}
     </div>
+    </>
   );
 };
 

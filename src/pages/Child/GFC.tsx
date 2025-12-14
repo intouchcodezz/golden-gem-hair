@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import EnquiryForm from '@/components/EnquiryModal';
+import SEO from '@/components/SEO';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import gfc2 from "@/assets/gfc2.jpg";
@@ -82,6 +83,12 @@ const beforeAfterResults = [
 const HairTransplantGFC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
+        <>
+        <SEO
+          title="Advanced GFC Treatment for Hair Regrowth in Chennai"
+          description="Experience advanced GFC hair therapy at The Golden Gem Cosmetic Clinic, Chennai. Stimulate natural growth, reduce hair fall & boost hair density."
+          canonical="https://thegoldengemhairclinic.com/gfc-treatment"
+        />
     <div className="min-h-screen bg-white">
            <EnquiryForm
         isOpen={isModalOpen}
@@ -531,6 +538,7 @@ const HairTransplantGFC = () => {
 
       <Footer />
     </div>
+    </>
   );
 };
 

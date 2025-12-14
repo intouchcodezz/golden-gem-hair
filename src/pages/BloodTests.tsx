@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 import HT from '@/assets/blood.webp';
 import { 
   Phone, 
@@ -75,6 +76,12 @@ const keyTests = [
 const BloodHormonalTests = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
+    <>
+      <SEO
+        title="Hair Loss Blood & Hormonal Tests in Chennai"
+        description="Detect underlying causes of hair loss with blood and hormonal tests. Accurate insights to create personalized hair restoration plans."
+        canonical="https://thegoldengemhairclinic.com/blood-hormonal"
+      />
     <div className="min-h-screen bg-white">
            <EnquiryForm
               isOpen={isModalOpen}
@@ -86,23 +93,19 @@ const BloodHormonalTests = () => {
               treatment="General Consultation"
             />
       <Header />
-
-      {/* 🩸 HERO SECTION – Blood & Hormonal Tests for Hair Loss */}
+=
       <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-yellow-50 via-amber-100 to-white">
-        {/* 🌟 Ambient Glow */}
+
         <div className="absolute inset-0 opacity-30">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_35%,rgba(255,220,150,0.3),transparent_60%)]" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_65%,rgba(255,210,100,0.25),transparent_60%)]" />
         </div>
 
-        {/* 🧱 Overlay */}
         <div className="absolute inset-0 bg-gradient-to-tr from-amber-200/40 via-white/60 to-transparent backdrop-blur-[2px]" />
 
-        {/* 🧬 Content */}
         <div className="relative z-10 container mx-auto px-6 lg:px-12 py-20 lg:py-28">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-            {/* 💬 LEFT – TEXT CONTENT */}
             <div className="space-y-8 text-center lg:text-left">
               <div className="space-y-3">
                 <p className="text-amber-700 font-semibold tracking-wide uppercase text-sm">
@@ -120,7 +123,6 @@ const BloodHormonalTests = () => {
                 and hormone levels to build a <span className="font-semibold">data-driven, personalized treatment plan</span>.
               </p>
 
-              {/* 📊 Stats */}
               <div className="grid grid-cols-3 gap-4 py-6 max-w-md mx-auto lg:mx-0">
                 {[
                   { value: "8+", label: "Key Biomarkers" },
@@ -128,7 +130,7 @@ const BloodHormonalTests = () => {
                   { value: "8000+", label: "Patients Tested" },
                 ].map((stat, i) => (
                   <div key={i} className="text-center">
-                    <div className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-bold text-amber-700">{stat.value}</div>
+                    <div className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-bold">{stat.value}</div>
                     <div className="text-xs sm:text-xs md:text-base text-[#1A1A1A]">{stat.label}</div>
                   </div>
                 ))}
@@ -224,7 +226,7 @@ const BloodHormonalTests = () => {
             ].map((feature, idx) => (
               <div key={idx} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="mb-4">{feature.icon}</div>
-                <h3 className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-semibold text-gray-800 mb-3">{feature.title}</h3>
+                <h3 className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-semibold mb-3">{feature.title}</h3>
                 <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A]">{feature.description}</p>
               </div>
             ))}
@@ -247,7 +249,7 @@ const BloodHormonalTests = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {keyTests.map((test, idx) => (
               <div key={idx} className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <h3 className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-semibold text-gray-800 mb-3">{test.title}</h3>
+                <h3 className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-semibold mb-3">{test.title}</h3>
                 <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A]">{test.description}</p>
               </div>
             ))}
@@ -308,7 +310,7 @@ const BloodHormonalTests = () => {
               }
             ].map((benefit, idx) => (
               <div key={idx} className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <h3 className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-semibold text-gray-800 mb-3">{benefit.title}</h3>
+                <h3 className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-semibold mb-3">{benefit.title}</h3>
                 <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A]">{benefit.description}</p>
               </div>
             ))}
@@ -333,7 +335,7 @@ const BloodHormonalTests = () => {
               {faqs.map((faq, idx) => (
                 <div key={idx} className="bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
                   <div className="p-6">
-                    <h3 className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-semibold text-gray-800 mb-4 flex items-start">
+                    <h3 className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-semibold mb-4 flex items-start">
                       <div className="bg-yellow-100 text-yellow-600 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 mt-1 flex-shrink-0">
                         Q
                       </div>
@@ -397,6 +399,7 @@ const BloodHormonalTests = () => {
 
       <Footer />
     </div>
+    </>
   );
 };
 

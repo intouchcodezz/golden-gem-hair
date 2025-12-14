@@ -12,6 +12,8 @@ import {
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+
 import akshara from "../assets/doctor.jpg";
 import aksharaClinic from "../assets/clinic.jpg";
 
@@ -104,6 +106,13 @@ const About = () => {
   ];
 
   return (
+  <>
+    <SEO
+      title="About The Golden Gem Cosmetic Clinic – Chennai"
+      description="Discover expert hair transplant solutions at The Golden Gem Cosmetic Clinic, Chennai. Trusted FUE & FUT treatments, natural results — book a consultation today!"
+      canonical="https://thegoldengemhairclinic.com/about"
+    />
+
     <div className="bg-[#FAFBFC] min-h-screen font-sans overflow-x-hidden">
       <Header />
 
@@ -318,6 +327,7 @@ const About = () => {
 
       <Footer />
     </div>
+    </>
   );
 };
 

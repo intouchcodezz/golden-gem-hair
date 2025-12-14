@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 import HT from '@/assets/trichoscopy.jpeg';
 import { 
   Phone, 
@@ -79,6 +80,12 @@ const trichoscopyVisuals = [
 const Trichoscopy = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
+    <>
+      <SEO
+        title="Trichoscopy in Chennai | Hair & Scalp Analysis"
+        description="Get accurate diagnosis of hair and scalp issues with advanced trichoscopy. Personalized treatment plans for hair loss and scalp health."
+        canonical="https://thegoldengemhairclinic.com/trichoscopy"
+      />
     <div className="min-h-screen bg-white">
            <EnquiryForm
         isOpen={isModalOpen}
@@ -131,7 +138,7 @@ const Trichoscopy = () => {
                   { value: "6000+", label: "Patients Analyzed" },
                 ].map((stat, i) => (
                   <div key={i} className="text-center">
-                    <div className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-bold text-amber-700">{stat.value}</div>
+                    <div className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-bold">{stat.value}</div>
                     <div className="text-xs sm:text-xs md:text-base text-[#1A1A1A]">{stat.label}</div>
                   </div>
                 ))}
@@ -227,7 +234,7 @@ const Trichoscopy = () => {
             ].map((feature, idx) => (
               <div key={idx} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="mb-4">{feature.icon}</div>
-                <h3 className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-semibold text-gray-800 mb-3">{feature.title}</h3>
+                <h3 className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-semibold mb-3">{feature.title}</h3>
                 <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A]">{feature.description}</p>
               </div>
             ))}
@@ -276,7 +283,7 @@ const Trichoscopy = () => {
               }
             ].map((benefit, idx) => (
               <div key={idx} className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <h3 className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-semibold text-gray-800 mb-3">{benefit.title}</h3>
+                <h3 className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-semibold mb-3">{benefit.title}</h3>
                 <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A]">{benefit.description}</p>
               </div>
             ))}
@@ -300,7 +307,7 @@ const Trichoscopy = () => {
               {faqs.map((faq, idx) => (
                 <div key={idx} className="bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
                   <div className="p-6">
-                    <h3 className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-semibold text-gray-800 mb-4 flex items-start">
+                    <h3 className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-semibold mb-4 flex items-start">
                       <div className="bg-yellow-100 text-yellow-600 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 mt-1 flex-shrink-0">
                         Q
                       </div>
@@ -354,7 +361,7 @@ const Trichoscopy = () => {
             ].map((indicator, idx) => (
               <div key={idx} className="bg-white p-8 mb-4 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="mb-4">{indicator.icon}</div>
-                <h3 className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-semibold text-gray-800 mb-3">{indicator.title}</h3>
+                <h3 className="text-xs sm:text-xs md:text-base text-[#1A1A1A] font-semibold mb-3">{indicator.title}</h3>
                 <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A]">{indicator.description}</p>
               </div>
             ))}
@@ -364,6 +371,7 @@ const Trichoscopy = () => {
 
       <Footer />
     </div>
+    </>
   );
 };
 
