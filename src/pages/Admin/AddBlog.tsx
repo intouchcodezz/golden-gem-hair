@@ -18,30 +18,34 @@ export default function AddBlog() {
   const [saving, setSaving] = useState(false);
 
   const submit = async () => {
-    if (!title || !slug || !content) {
-      alert("Title, slug and content are required");
-      return;
-    }
-
     setSaving(true);
 
-    await fetch(`${import.meta.env.VITE_API_BASE}/api/createblog.php`, {
+    const payload = {
+      title,
+      slug,
+      excerpt,
+      content,
+      meta_title: title,
+      meta_description: excerpt,
+      cover_image: "",
+      status,
+    };
+
+    const res = await fetch("/api/createblog.php", {
       method: "POST",
+      credentials: "include",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        title,
-        slug,
-        excerpt,
-        content,
-        cover_image: "",
-        meta_title: title,
-        meta_description: excerpt,
-        status,
-      }),
+      body: JSON.stringify(payload),
     });
 
     setSaving(false);
-    navigate("/admin/dashboard");
+
+    if (!res.ok) {
+      alert("Session expired. Login again.");
+      return;
+    }
+
+    navigate("/admin/blogs");
   };
 
   return (
@@ -84,7 +88,7 @@ export default function AddBlog() {
       <select
         className="border p-3 mb-4"
         value={status}
-        onChange={(e) => setStatus(e.target.value as any)}
+        onChange={(e) => setStatus(e.target.value as "draft" | "published")}
       >
         <option value="draft">Draft</option>
         <option value="published">Published</option>

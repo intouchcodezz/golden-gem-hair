@@ -1,57 +1,35 @@
 <?php
-session_start();
+require __DIR__ . '/auth_guard.php';
 
-header("Content-Type: application/json; charset=UTF-8");
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: Content-Type");
-header("Access-Control-Allow-Methods: POST, OPTIONS");
-
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    exit;
-}
-
-if (!isset($_SESSION['admin'])) {
-    http_response_code(401);
-    echo json_encode(["success" => false, "message" => "Unauthorized"]);
-    exit;
-}
+$DB_HOST = 'localhost';
+$DB_NAME = 'a1761e23_appointments_db';
+$DB_USER = 'a1761e23_goldengemappoinment';
+$DB_PASS = 'goldengem@25';
 
 $data = json_decode(file_get_contents("php://input"), true);
 
-if (!$data || empty($data['title']) || empty($data['slug'])) {
-    http_response_code(400);
-    echo json_encode(["success" => false, "message" => "Invalid payload"]);
-    exit;
-}
+$pdo = new PDO(
+    "mysql:host=$DB_HOST;dbname=$DB_NAME;charset=utf8mb4",
+    $DB_USER,
+    $DB_PASS,
+    [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+);
 
-try {
-    $pdo = new PDO(
-        "mysql:host=localhost;dbname=a1761e23_appointments_db;charset=utf8mb4",
-        "a1761e23_goldengemappoinment",
-        "goldengem@25",
-        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
-    );
+$stmt = $pdo->prepare(
+    "INSERT INTO blogs
+    (title, slug, excerpt, content, meta_title, meta_description, cover_image, status)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+);
 
-    $stmt = $pdo->prepare(
-        "INSERT INTO blogs 
-        (title, slug, excerpt, content, meta_title, meta_description, cover_image, status)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
-    );
+$stmt->execute([
+    $data['title'],
+    $data['slug'],
+    $data['excerpt'],
+    $data['content'],
+    $data['meta_title'],
+    $data['meta_description'],
+    $data['cover_image'],
+    $data['status']
+]);
 
-    $stmt->execute([
-        $data['title'],
-        $data['slug'],
-        $data['excerpt'] ?? '',
-        $data['content'] ?? '',
-        $data['meta_title'] ?? '',
-        $data['meta_description'] ?? '',
-        $data['cover_image'] ?? '',
-        $data['status'] ?? 'draft'
-    ]);
-
-    echo json_encode(["success" => true]);
-
-} catch (PDOException $e) {
-    http_response_code(500);
-    echo json_encode(["success" => false, "message" => "Database error"]);
-}
+echo json_encode(["success" => true]);
