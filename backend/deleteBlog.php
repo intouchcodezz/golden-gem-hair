@@ -1,21 +1,35 @@
 <?php
+session_start();
+
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: DELETE, GET, OPTIONS");
 
-$DB_HOST = 'localhost';
-$DB_NAME = 'a1761e23_appointments_db';
-$DB_USER = 'a1761e23_goldengemappoinment';
-$DB_PASS = 'goldengem@25';
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    exit;
+}
 
-$id = $_GET['id'] ?? 0;
+if (!isset($_SESSION['admin'])) {
+    http_response_code(401);
+    echo json_encode(["success" => false, "message" => "Unauthorized"]);
+    exit;
+}
+
+$id = $_GET['id'] ?? null;
+
+if (!$id) {
+    http_response_code(400);
+    echo json_encode(["success" => false, "message" => "Missing ID"]);
+    exit;
+}
 
 try {
     $pdo = new PDO(
-        "mysql:host=$DB_HOST;dbname=$DB_NAME;charset=utf8mb4",
-        $DB_USER,
-        $DB_PASS
+        "mysql:host=localhost;dbname=a1761e23_appointments_db;charset=utf8mb4",
+        "a1761e23_goldengemappoinment",
+        "goldengem@25",
+        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
     );
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $stmt = $pdo->prepare("DELETE FROM blogs WHERE id = ?");
     $stmt->execute([$id]);
@@ -24,8 +38,5 @@ try {
 
 } catch (PDOException $e) {
     http_response_code(500);
-    echo json_encode([
-        "success" => false,
-        "message" => "Database error: " . $e->getMessage()
-    ]);
+    echo json_encode(["success" => false, "message" => "Database error"]);
 }

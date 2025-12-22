@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 type Blog = {
   title: string;
@@ -10,6 +11,7 @@ type Blog = {
   cover_image: string;
   meta_title: string;
   meta_description: string;
+  slug: string;
 };
 
 export default function BlogDetail() {
@@ -20,7 +22,7 @@ export default function BlogDetail() {
   useEffect(() => {
     if (!slug) return;
 
-    fetch(`/api/getBlog.php?slug=${slug}`)
+    fetch(`${import.meta.env.VITE_API_BASE}/api/getblog.php?slug=${slug}`)
       .then((res) => (res.ok ? res.json() : null))
       .then((data) => {
         setBlog(data);
@@ -51,6 +53,13 @@ export default function BlogDetail() {
 
   return (
     <>
+      {/* ✅ SEO INJECTION */}
+      <SEO
+        title={blog.meta_title || blog.title}
+        description={blog.meta_description}
+        canonical={`https://thegoldengemhairclinic.com/blog/${blog.slug}`}
+      />
+
       <Header />
 
       <div className="max-w-3xl mx-auto p-6">

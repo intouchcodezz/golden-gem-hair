@@ -39,7 +39,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import MedicalDisclaimer from "./pages/MedicalDisclaimer";
 
 import AdminLogin from "./components/adminLogin";
-import AdminApp from "./components/adminDashboard";
+import AdminApp from "./components/AdminApp";
 import ProtectedRoute from "./components/ProtectedRoute";
 import EnquiryModal from "./components/EnquiryModal";
 
@@ -140,18 +140,48 @@ const AppContent: React.FC = () => {
         <Route path="/hair-rejuvenation" element={<HairRejuvenation />} />
         <Route path="/fue-transplant" element={<HairTransplantFUE />} />
 
-        <Route path="/admin/login" element={<AdminLogin onLogin={handleLogin} />} />
+        {/* 🔐 Admin Routes */}
         <Route
-          path="/admin/dashboard"
+          path="/admin/login"
+          element={<AdminLogin onLogin={handleLogin} />}
+        />
+
+        <Route
+          path="/admin/*"
           element={
             <ProtectedRoute>
               <AdminApp />
             </ProtectedRoute>
           }
         />
-        <Route path="/admin/blogs/add" element={<AddBlog />} />
-        <Route path="/admin/blogs" element={<BlogAdminList />} />
-        <Route path="/admin/blogs/edit/:id" element={<EditBlog />} />
+
+        <Route
+          path="/admin/blogs"
+          element={
+            <ProtectedRoute>
+              <BlogAdminList />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin/blogs/add"
+          element={
+            <ProtectedRoute>
+              <AddBlog />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin/blogs/edit/:id"
+          element={
+            <ProtectedRoute>
+              <EditBlog />
+            </ProtectedRoute>
+          }
+        />
+
       </Routes>
 
       {/* 💬 Conditionally show Chatwidget */}
