@@ -8,6 +8,7 @@ import {
   Briefcase,
   Phone,
 } from "lucide-react";
+import { authFetch } from "../../src/utils/authFetch";
 
 type Props = {
   onLogout: () => void;
@@ -44,9 +45,9 @@ const AdminDashboard: React.FC<Props> = ({ onLogout }) => {
     const load = async () => {
       try {
         const [a, c, j] = await Promise.all([
-          fetch("/api/getAppointments.php").then((r) => r.json()),
-          fetch("/api/getChatLogs.php").then((r) => r.json()),
-          fetch("/api/getCareerApplications.php").then((r) => r.json()),
+          authFetch("/api/getAppointments.php").then((r) => r.json()),
+          authFetch("/api/getChatLogs.php").then((r) => r.json()),
+          authFetch("/api/getCareerApplications.php").then((r) => r.json()),
         ]);
 
         setAppointments(a?.data ?? []);
@@ -70,7 +71,6 @@ const AdminDashboard: React.FC<Props> = ({ onLogout }) => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
       <header className="bg-white border-b shadow sticky top-0 z-50">
         <div className="max-w-7xl mx-auto p-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
@@ -86,9 +86,7 @@ const AdminDashboard: React.FC<Props> = ({ onLogout }) => {
         </div>
       </header>
 
-      {/* Content */}
       <div className="max-w-7xl mx-auto mt-6 bg-white rounded-xl shadow">
-        {/* Tabs */}
         <nav className="flex border-b">
           {[
             { id: "appointments", label: "Appointments", icon: Calendar },
@@ -110,7 +108,6 @@ const AdminDashboard: React.FC<Props> = ({ onLogout }) => {
           ))}
         </nav>
 
-        {/* Appointments */}
         {activeTab === "appointments" && (
           <div className="p-6 divide-y">
             {appointments.map((a) => (
@@ -135,7 +132,6 @@ const AdminDashboard: React.FC<Props> = ({ onLogout }) => {
           </div>
         )}
 
-        {/* Chatbot */}
         {activeTab === "chatbot" && (
           <div className="p-6 space-y-4">
             {chatLogs.map((c) => (
@@ -154,7 +150,6 @@ const AdminDashboard: React.FC<Props> = ({ onLogout }) => {
           </div>
         )}
 
-        {/* Jobs */}
         {activeTab === "jobs" && (
           <div className="p-6 divide-y">
             {jobs.map((j) => (

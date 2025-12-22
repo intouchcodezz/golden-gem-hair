@@ -49,14 +49,14 @@ import EditBlog from "./pages/Admin/EditBlog";
 
 const queryClient = new QueryClient();
 
-// ✅ App content that can use useLocation()
+/* ---------------- App Content ---------------- */
+
 const AppContent: React.FC = () => {
   const location = useLocation();
   const [showModal, setShowModal] = useState(false);
 
   const isAdminPage = location.pathname.startsWith("/admin");
 
-  // ✅ Pages where Chatwidget should be hidden
   const hideChatOn = [
     "/admin",
     "/terms",
@@ -64,31 +64,19 @@ const AppContent: React.FC = () => {
     "/medical-disclaimer",
   ];
 
-  const shouldHideChat = hideChatOn.some((path) =>
-    location.pathname.startsWith(path)
+  const shouldHideChat = hideChatOn.some((p) =>
+    location.pathname.startsWith(p)
   );
 
-  const handleClose = () => setShowModal(false);
-  const handleSubmit = (data: any) => {
-    console.log("Enquiry submitted:", data);
-    setShowModal(false);
-  };
-
-  const handleLogin = () => {
-    localStorage.setItem("isAdminLoggedIn", "true");
-    window.location.href = "/admin/dashboard";
-  };
-
-  // 🕒 Show enquiry modal after 5s (only once per session)
   useEffect(() => {
     if (!isAdminPage) {
-      const hasSeenModal = sessionStorage.getItem("hasSeenModal");
-      if (!hasSeenModal) {
-        const timer = setTimeout(() => {
+      const seen = sessionStorage.getItem("hasSeenModal");
+      if (!seen) {
+        const t = setTimeout(() => {
           setShowModal(true);
           sessionStorage.setItem("hasSeenModal", "true");
         }, 5000);
-        return () => clearTimeout(timer);
+        return () => clearTimeout(t);
       }
     }
   }, [isAdminPage]);
@@ -98,14 +86,14 @@ const AppContent: React.FC = () => {
       {!isAdminPage && (
         <EnquiryModal
           isOpen={showModal}
-          onClose={handleClose}
-          onSubmit={handleSubmit}
+          onClose={() => setShowModal(false)}
+          onSubmit={() => setShowModal(false)}
           treatment="Consultation"
         />
       )}
 
       <Routes>
-        {/* 🌐 Public pages */}
+        {/* Public */}
         <Route path="/" element={<Index />} />
         <Route path="/about/*" element={<About />} />
         <Route path="/hair-treatments/*" element={<Hair />} />
@@ -116,15 +104,14 @@ const AppContent: React.FC = () => {
         <Route path="/careers/*" element={<Careers />} />
         <Route path="/contact/*" element={<Contact />} />
         <Route path="/offers" element={<Offers />} />
-        <Route path="/testimonials" element={<Results />} />
         <Route path="*" element={<NotFound />} />
 
-        {/* ⚖️ Legal Pages */}
+        {/* Legal */}
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/medical-disclaimer" element={<MedicalDisclaimer />} />
 
-        {/* 💇‍♀️ Treatments */}
+        {/* Treatments */}
         <Route path="/folitreat-treatment" element={<FolitreatHairTreatment />} />
         <Route path="/gfc-treatment" element={<GFC />} />
         <Route path="/mesotherapy" element={<Mesotherapy />} />
@@ -140,11 +127,8 @@ const AppContent: React.FC = () => {
         <Route path="/hair-rejuvenation" element={<HairRejuvenation />} />
         <Route path="/fue-transplant" element={<HairTransplantFUE />} />
 
-        {/* 🔐 Admin Routes */}
-        <Route
-          path="/admin/login"
-          element={<AdminLogin onLogin={handleLogin} />}
-        />
+        {/* Admin */}
+        <Route path="/admin/login" element={<AdminLogin />} />
 
         <Route
           path="/admin/*"
@@ -181,14 +165,14 @@ const AppContent: React.FC = () => {
             </ProtectedRoute>
           }
         />
-
       </Routes>
 
-      {/* 💬 Conditionally show Chatwidget */}
       {!shouldHideChat && <Chatwidget />}
     </>
   );
 };
+
+/* ---------------- App Wrapper ---------------- */
 
 const App: React.FC = () => {
   return (

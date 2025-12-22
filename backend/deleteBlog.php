@@ -1,6 +1,8 @@
 <?php
 require __DIR__ . '/auth_guard.php';
 
+header("Content-Type: application/json; charset=UTF-8");
+
 $DB_HOST = 'localhost';
 $DB_NAME = 'a1761e23_appointments_db';
 $DB_USER = 'a1761e23_goldengemappoinment';

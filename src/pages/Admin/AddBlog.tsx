@@ -1,47 +1,29 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-const slugify = (v: string) =>
-  v
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
+import { authFetch } from "../../utils/authFetch";
 
 export default function AddBlog() {
   const navigate = useNavigate();
-
   const [title, setTitle] = useState("");
-  const [slug, setSlug] = useState("");
-  const [excerpt, setExcerpt] = useState("");
   const [content, setContent] = useState("");
-  const [status, setStatus] = useState<"draft" | "published">("draft");
-  const [saving, setSaving] = useState(false);
 
-  const submit = async () => {
-    setSaving(true);
-
-    const payload = {
-      title,
-      slug,
-      excerpt,
-      content,
-      meta_title: title,
-      meta_description: excerpt,
-      cover_image: "",
-      status,
-    };
-
-    const res = await fetch("/api/createblog.php", {
+  const save = async () => {
+    const res = await authFetch("/api/createblog.php", {
       method: "POST",
-      credentials: "include",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
+      body: JSON.stringify({
+        title,
+        slug: title.toLowerCase().replace(/\s+/g, "-"),
+        excerpt: "",
+        content,
+        meta_title: title,
+        meta_description: "",
+        cover_image: "",
+        status: "published",
+      }),
     });
 
-    setSaving(false);
-
     if (!res.ok) {
-      alert("Session expired. Login again.");
+      alert("Auth failed");
       return;
     }
 
@@ -49,57 +31,26 @@ export default function AddBlog() {
   };
 
   return (
-    <div className="p-8 max-w-3xl mx-auto">
-      <h1 className="text-2xl font-bold mb-6">Add Blog</h1>
+    <div className="p-6 max-w-2xl">
+      <h1 className="text-xl font-bold mb-4">Add Blog</h1>
 
       <input
-        className="w-full border p-3 mb-4"
+        className="border p-2 w-full mb-3"
         placeholder="Title"
-        value={title}
-        onChange={(e) => {
-          setTitle(e.target.value);
-          setSlug(slugify(e.target.value));
-        }}
-      />
-
-      <input
-        className="w-full border p-3 mb-4"
-        placeholder="Slug"
-        value={slug}
-        onChange={(e) => setSlug(slugify(e.target.value))}
+        onChange={(e) => setTitle(e.target.value)}
       />
 
       <textarea
-        className="w-full border p-3 mb-4"
-        placeholder="Excerpt"
-        rows={3}
-        value={excerpt}
-        onChange={(e) => setExcerpt(e.target.value)}
-      />
-
-      <textarea
-        className="w-full border p-3 mb-4"
-        placeholder="Content (HTML allowed)"
-        rows={10}
-        value={content}
+        className="border p-2 w-full mb-4 h-40"
+        placeholder="Content"
         onChange={(e) => setContent(e.target.value)}
       />
 
-      <select
-        className="border p-3 mb-4"
-        value={status}
-        onChange={(e) => setStatus(e.target.value as "draft" | "published")}
-      >
-        <option value="draft">Draft</option>
-        <option value="published">Published</option>
-      </select>
-
       <button
-        onClick={submit}
-        disabled={saving}
-        className="bg-blue-600 text-white px-6 py-3 rounded disabled:opacity-50"
+        onClick={save}
+        className="bg-blue-600 text-white px-4 py-2"
       >
-        {saving ? "Saving..." : "Save Blog"}
+        Save
       </button>
     </div>
   );

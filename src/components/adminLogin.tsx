@@ -1,94 +1,59 @@
-// src/components/AdminLogin.tsx
-import React, { useState } from "react";
-import { Eye, EyeOff, Lock, User, Shield } from "lucide-react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-interface AdminLoginProps {
-  onLogin: () => void;
-}
-
-const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin }) => {
+export default function AdminLogin() {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError("");
+  const submit = async () => {
     setLoading(true);
 
-    try {
-      const res = await fetch("/api/admin_login.php", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include", // 🔴 IMPORTANT
-        body: JSON.stringify({ username, password }),
-      });
+    const res = await fetch("/api/admin_login.php", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password }),
+    });
 
-      if (!res.ok) throw new Error("Invalid credentials");
+    const data = await res.json();
+    setLoading(false);
 
-      onLogin();
-    } catch {
-      setError("Invalid username or password");
-    } finally {
-      setLoading(false);
+    if (!data.success) {
+      alert("Invalid login");
+      return;
     }
+
+    localStorage.setItem("admin_token", data.token);
+    navigate("/admin/dashboard");
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white p-8 rounded-xl shadow w-full max-w-md space-y-6"
-      >
-        <div className="text-center">
-          <Shield className="mx-auto mb-2 text-blue-600" size={40} />
-          <h1 className="text-2xl font-bold">Admin Login</h1>
-        </div>
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="w-96 border p-6 rounded">
+        <h1 className="text-xl font-bold mb-4">Admin Login</h1>
 
-        <div>
-          <label className="block text-sm font-medium">Username</label>
-          <input
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            className="w-full border rounded px-3 py-2"
-            required
-          />
-        </div>
+        <input
+          className="border p-2 w-full mb-3"
+          placeholder="Username"
+          onChange={(e) => setUsername(e.target.value)}
+        />
 
-        <div>
-          <label className="block text-sm font-medium">Password</label>
-          <div className="relative">
-            <input
-              type={showPassword ? "text" : "password"}
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full border rounded px-3 py-2 pr-10"
-              required
-            />
-            <button
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-2 top-2.5 text-gray-400"
-            >
-              {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
-            </button>
-          </div>
-        </div>
-
-        {error && <div className="text-red-600 text-sm">{error}</div>}
+        <input
+          className="border p-2 w-full mb-4"
+          type="password"
+          placeholder="Password"
+          onChange={(e) => setPassword(e.target.value)}
+        />
 
         <button
-          type="submit"
+          onClick={submit}
           disabled={loading}
-          className="w-full bg-blue-600 text-white py-2 rounded"
+          className="bg-blue-600 text-white px-4 py-2 w-full"
         >
-          {loading ? "Signing in..." : "Login"}
+          {loading ? "Logging in..." : "Login"}
         </button>
-      </form>
+      </div>
     </div>
   );
-};
-
-export default AdminLogin;
+}

@@ -1,16 +1,15 @@
-import React from "react";
+import { Navigate } from "react-router-dom";
 
-interface ProtectedRouteProps {
-  children: React.ReactNode;
+export default function ProtectedRoute({
+  children,
+}: {
+  children: JSX.Element;
+}) {
+  const token = localStorage.getItem("admin_token");
+
+  if (!token) {
+    return <Navigate to="/admin/login" replace />;
+  }
+
+  return children;
 }
-
-/**
- * Backend-driven auth.
- * PHP session (cookie) is the source of truth.
- * If session is invalid, APIs will return 401 and frontend will redirect.
- */
-const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
-  return <>{children}</>;
-};
-
-export default ProtectedRoute;

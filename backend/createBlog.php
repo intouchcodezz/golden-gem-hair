@@ -9,27 +9,27 @@ $DB_PASS = 'goldengem@25';
 $data = json_decode(file_get_contents("php://input"), true);
 
 $pdo = new PDO(
-    "mysql:host=$DB_HOST;dbname=$DB_NAME;charset=utf8mb4",
-    $DB_USER,
-    $DB_PASS,
-    [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+  "mysql:host=$DB_HOST;dbname=$DB_NAME;charset=utf8mb4",
+  $DB_USER,
+  $DB_PASS,
+  [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
 );
 
-$stmt = $pdo->prepare(
-    "INSERT INTO blogs
-    (title, slug, excerpt, content, meta_title, meta_description, cover_image, status)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
-);
+$stmt = $pdo->prepare("
+  INSERT INTO blogs
+  (title, slug, excerpt, content, meta_title, meta_description, cover_image, status)
+  VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+");
 
 $stmt->execute([
-    $data['title'],
-    $data['slug'],
-    $data['excerpt'],
-    $data['content'],
-    $data['meta_title'],
-    $data['meta_description'],
-    $data['cover_image'],
-    $data['status']
+  $data['title'],
+  $data['slug'],
+  $data['excerpt'],
+  $data['content'],
+  $data['meta_title'],
+  $data['meta_description'],
+  $data['cover_image'],
+  $data['status']
 ]);
 
 echo json_encode(["success" => true]);
