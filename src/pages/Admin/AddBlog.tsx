@@ -25,7 +25,7 @@ export default function AddBlog() {
 
     setSaving(true);
 
-    await fetch(`${import.meta.env.VITE_API_BASE}/api/createBlog.php`, {
+    await fetch(`${import.meta.env.VITE_API_BASE}/api/createblog.php`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
