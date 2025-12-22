@@ -43,6 +43,10 @@ import AdminApp from "./components/adminDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 import EnquiryModal from "./components/EnquiryModal";
 
+import AddBlog from "./pages/Admin/AddBlog";
+import BlogAdminList from "./pages/Admin/BlogAdminList";
+import EditBlog from "./pages/Admin/EditBlog";
+
 const queryClient = new QueryClient();
 
 // ✅ App content that can use useLocation()
@@ -145,6 +149,9 @@ const AppContent: React.FC = () => {
             </ProtectedRoute>
           }
         />
+        <Route path="/admin/blogs/add" element={<AddBlog />} />
+        <Route path="/admin/blogs" element={<BlogAdminList />} />
+        <Route path="/admin/blogs/edit/:id" element={<EditBlog />} />
       </Routes>
 
       {/* 💬 Conditionally show Chatwidget */}

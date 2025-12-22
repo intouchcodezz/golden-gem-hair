@@ -17,7 +17,7 @@ export default function BlogList() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/api/getBlogs.php")
+    fetch(`${import.meta.env.VITE_API_BASE}/api/getblogs.php`)
       .then((res) => res.json())
       .then((json) => {
         if (json.success) {
