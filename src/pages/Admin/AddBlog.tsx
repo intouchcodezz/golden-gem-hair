@@ -29,16 +29,19 @@ export default function AddBlog() {  // ← Make sure it says "export default"
 
   const uploadImage = async (): Promise<string> => {
     if (!imageFile) return "";
-
+  
     const form = new FormData();
     form.append("image", imageFile);
     form.append("auth_key", "GG_ADMIN_9f3c8e2b7a1d");
-
-    const res = await fetch("API_BASE/api/upload_blog_image.php", {
-      method: "POST",
-      body: form,
-    });
-
+  
+    const res = await fetch(
+      "https://thegoldengemhairclinic.com/api/upload_blog_image.php",
+      {
+        method: "POST",
+        body: form,
+      }
+    );
+  
     const json = await res.json();
     if (!json.success) throw new Error(json.message);
     return json.url;
@@ -47,20 +50,27 @@ export default function AddBlog() {  // ← Make sure it says "export default"
   const submit = async () => {
     if (saving) return;
     setError("");
-
-    if (!title || !content) {
+  
+    if (!title.trim() || !content.trim()) {
       setError("Title and content are required");
       return;
     }
-
+  
     setSaving(true);
-
+  
     try {
+      // 1️⃣ Upload image first
       const imageUrl = await uploadImage();
-
-      const res = await fetch("API_BASE/api/createblog.php", {
+  
+      // 2️⃣ Correct API base
+      const API_BASE = "https://thegoldengemhairclinic.com";
+  
+      // 3️⃣ Create blog
+      const res = await fetch(`${API_BASE}/api/createblog.php`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
           admin_secret: "GG_ADMIN_9f3c8e2b7a1d",
           title,
@@ -73,13 +83,16 @@ export default function AddBlog() {  // ← Make sure it says "export default"
           status: "published",
         }),
       });
-
+  
       const json = await res.json();
-      if (!json.success) throw new Error(json.message);
-
+  
+      if (!json.success) {
+        throw new Error(json.message || "Failed to create blog");
+      }
+  
       navigate("/admin/blogs");
     } catch (e: any) {
-      setError(e.message || "Failed");
+      setError(e.message || "Something went wrong");
     } finally {
       setSaving(false);
     }
