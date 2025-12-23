@@ -11,18 +11,15 @@ const slugify = (v: string) =>
 export default function AddBlog() {
   const navigate = useNavigate();
 
-  // Core fields
   const [title, setTitle] = useState("");
   const [slug, setSlug] = useState("");
   const [excerpt, setExcerpt] = useState("");
   const [content, setContent] = useState("");
 
-  // SEO fields
   const [metaTitle, setMetaTitle] = useState("");
   const [metaDescription, setMetaDescription] = useState("");
 
-  // Other
-  const [status, setStatus] = useState<"draft" | "published">("published");
+  const [status, setStatus] = useState<"published">("published");
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
 
@@ -45,17 +42,16 @@ export default function AddBlog() {
       meta_description: metaDescription || excerpt,
       cover_image: "",
       status,
+      admin_key: import.meta.env.VITE_ADMIN_KEY, // 🔑 IMPORTANT
     };
 
     try {
       const API_BASE = import.meta.env.VITE_API_BASE || "";
-      const ADMIN_KEY = import.meta.env.VITE_ADMIN_KEY;
 
       const res = await fetch(`${API_BASE}/api/createblog.php`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "X-Admin-Key": ADMIN_KEY, // 🔐 REQUIRED
         },
         body: JSON.stringify(payload),
       });
@@ -85,7 +81,6 @@ export default function AddBlog() {
           </div>
         )}
 
-        {/* Title */}
         <label className="block text-sm font-semibold mb-1">Title</label>
         <input
           className="w-full border rounded-lg px-4 py-3 mb-4"
@@ -97,7 +92,6 @@ export default function AddBlog() {
           }}
         />
 
-        {/* Slug */}
         <label className="block text-sm font-semibold mb-1">Slug</label>
         <input
           className="w-full border rounded-lg px-4 py-3 mb-4"
@@ -105,7 +99,6 @@ export default function AddBlog() {
           onChange={(e) => setSlug(slugify(e.target.value))}
         />
 
-        {/* Excerpt */}
         <label className="block text-sm font-semibold mb-1">Excerpt</label>
         <textarea
           className="w-full border rounded-lg px-4 py-3 mb-4"
@@ -117,7 +110,6 @@ export default function AddBlog() {
           }}
         />
 
-        {/* Content */}
         <label className="block text-sm font-semibold mb-1">Content</label>
         <textarea
           className="w-full border rounded-lg px-4 py-3 mb-6"
@@ -126,7 +118,6 @@ export default function AddBlog() {
           onChange={(e) => setContent(e.target.value)}
         />
 
-        {/* SEO */}
         <div className="border-t pt-6 mt-6">
           <h2 className="text-lg font-semibold mb-4">SEO Settings</h2>
 
@@ -148,7 +139,6 @@ export default function AddBlog() {
           />
         </div>
 
-        {/* Actions */}
         <div className="flex justify-end gap-4">
           <button
             onClick={() => navigate("/admin/blogs")}

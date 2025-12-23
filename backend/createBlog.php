@@ -1,6 +1,10 @@
 <?php
 require __DIR__ . '/auth_guard.php';
-require __DIR__ . '/config.php';
+
+$DB_HOST = 'localhost';
+$DB_NAME = 'a1761e23_appointments_db';
+$DB_USER = 'a1761e23_goldengemappoinment';
+$DB_PASS = 'goldengem@25';
 
 $data = json_decode(file_get_contents("php://input"), true);
 
@@ -28,4 +32,6 @@ $stmt->execute([
   $data['status']
 ]);
 
-echo json_encode(["success" => true]);
+echo json_encode([
+  "success" => true
+]);

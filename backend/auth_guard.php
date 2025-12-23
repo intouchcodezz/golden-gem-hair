@@ -1,14 +1,16 @@
 <?php
 header("Content-Type: application/json");
 
-ini_set('session.cookie_secure', '1');
-ini_set('session.cookie_samesite', 'Lax');
-ini_set('session.cookie_httponly', '1');
+$data = json_decode(file_get_contents("php://input"), true);
 
-session_start();
-
-if (empty($_SESSION['admin_logged_in'])) {
+if (
+  !isset($data['admin_key']) ||
+  $data['admin_key'] !== 'GG_ADMIN_9f3c8e2b'
+) {
   http_response_code(401);
-  echo json_encode(["success" => false, "message" => "Unauthorized"]);
+  echo json_encode([
+    "success" => false,
+    "message" => "Unauthorized"
+  ]);
   exit;
 }
