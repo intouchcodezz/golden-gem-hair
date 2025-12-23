@@ -1,23 +1,68 @@
 <?php
-require __DIR__ . '/auth_guard.php';
+header("Content-Type: application/json");
 
-header("Content-Type: application/json; charset=UTF-8");
+/* Read JSON */
+$data = json_decode(file_get_contents("php://input"), true);
 
-$DB_HOST = 'localhost';
-$DB_NAME = 'a1761e23_appointments_db';
-$DB_USER = 'a1761e23_goldengemappoinment';
-$DB_PASS = 'goldengem@25';
+/* Validate JSON */
+if (!is_array($data)) {
+  http_response_code(400);
+  echo json_encode(["success" => false, "message" => "Invalid JSON"]);
+  exit;
+}
 
-$id = $_GET['id'] ?? 0;
+/* Admin secret */
+if (
+  empty($data['admin_secret']) ||
+  $data['admin_secret'] !== 'GG_ADMIN_9f3c8e2b7a1d'
+) {
+  http_response_code(401);
+  echo json_encode(["success" => false, "message" => "Unauthorized"]);
+  exit;
+}
 
-$pdo = new PDO(
-    "mysql:host=$DB_HOST;dbname=$DB_NAME;charset=utf8mb4",
-    $DB_USER,
-    $DB_PASS,
+/* Blog ID */
+$id = intval($data['id'] ?? 0);
+if ($id <= 0) {
+  http_response_code(400);
+  echo json_encode(["success" => false, "message" => "Invalid blog id"]);
+  exit;
+}
+
+try {
+  $pdo = new PDO(
+    "mysql:host=localhost;dbname=a1761e23_appointments_db;charset=utf8mb4",
+    "a1761e23_goldengemappoinment",
+    "goldengem@25",
     [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
-);
+  );
 
-$stmt = $pdo->prepare("DELETE FROM blogs WHERE id = ?");
-$stmt->execute([$id]);
+  /* Fetch blog */
+  $stmt = $pdo->prepare("SELECT cover_image FROM blogs WHERE id = ?");
+  $stmt->execute([$id]);
+  $blog = $stmt->fetch(PDO::FETCH_ASSOC);
 
-echo json_encode(["success" => true]);
+  if (!$blog) {
+    http_response_code(404);
+    echo json_encode(["success" => false, "message" => "Blog not found"]);
+    exit;
+  }
+
+  /* Delete image file */
+  if (!empty($blog['cover_image'])) {
+    $imagePath = $_SERVER['DOCUMENT_ROOT'] . $blog['cover_image'];
+    if (file_exists($imagePath)) {
+      unlink($imagePath);
+    }
+  }
+
+  /* Delete blog row */
+  $del = $pdo->prepare("DELETE FROM blogs WHERE id = ?");
+  $del->execute([$id]);
+
+  echo json_encode(["success" => true]);
+
+} catch (PDOException $e) {
+  http_response_code(500);
+  echo json_encode(["success" => false, "message" => "Database error"]);
+}

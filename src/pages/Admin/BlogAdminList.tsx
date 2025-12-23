@@ -20,12 +20,30 @@ export default function BlogAdminList() {
   };
 
   const deleteBlog = async (id: number) => {
-    if (!confirm("Delete this blog?")) return;
-
-    await fetch(`${import.meta.env.VITE_API_BASE}/api/deleteblog.php?id=${id}`);
-    loadBlogs();
+    if (!confirm("Are you sure you want to delete this blog?")) return;
+  
+    const API_BASE = import.meta.env.VITE_API_BASE;
+  
+    const res = await fetch(`${API_BASE}/api/deleteblog.php`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        admin_secret: import.meta.env.VITE_ADMIN_KEY,
+        id,
+      }),
+    });
+  
+    const data = await res.json();
+  
+    if (!data.success) {
+      alert(data.message || "Failed to delete blog");
+      return;
+    }
+  
+    // refresh list
+    setBlogs((prev) => prev.filter((b) => b.id !== id));
   };
-
+  
   useEffect(() => {
     loadBlogs();
   }, []);
