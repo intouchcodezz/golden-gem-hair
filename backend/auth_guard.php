@@ -1,20 +1,14 @@
 <?php
 header("Content-Type: application/json");
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
-$headers = getallheaders();
+ini_set('session.cookie_secure', '1');
+ini_set('session.cookie_samesite', 'Lax');
+ini_set('session.cookie_httponly', '1');
 
-if (!isset($headers['Authorization'])) {
+session_start();
+
+if (empty($_SESSION['admin_logged_in'])) {
   http_response_code(401);
-  echo json_encode(["success" => false, "message" => "No token"]);
-  exit;
-}
-
-$token = str_replace("Bearer ", "", $headers['Authorization']);
-
-if (strlen($token) < 20) {
-  http_response_code(401);
-  echo json_encode(["success" => false, "message" => "Invalid token"]);
+  echo json_encode(["success" => false, "message" => "Unauthorized"]);
   exit;
 }

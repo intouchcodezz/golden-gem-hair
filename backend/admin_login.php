@@ -1,13 +1,12 @@
 <?php
 header("Content-Type: application/json");
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: Content-Type, Authorization");
-header("Access-Control-Allow-Methods: POST");
 
-$DB_HOST = 'localhost';
-$DB_NAME = 'a1761e23_appointments_db';
-$DB_USER = 'a1761e23_goldengemappoinment';
-$DB_PASS = 'goldengem@25';
+ini_set('session.cookie_secure', '1');
+ini_set('session.cookie_samesite', 'Lax');
+ini_set('session.cookie_httponly', '1');
+
+session_start();
+require __DIR__ . '/config.php';
 
 $data = json_decode(file_get_contents("php://input"), true);
 
@@ -34,16 +33,7 @@ if (!$user || $user['password'] !== $data['password']) {
   exit;
 }
 
-/**
- * SIMPLE TOKEN (HMAC)
- */
-$token = hash_hmac(
-  'sha256',
-  $user['id'] . '|' . time(),
-  'SECRET_ADMIN_KEY'
-);
+$_SESSION['admin_logged_in'] = true;
+$_SESSION['admin_id'] = $user['id'];
 
-echo json_encode([
-  "success" => true,
-  "token" => $token
-]);
+echo json_encode(["success" => true]);
