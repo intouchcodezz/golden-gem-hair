@@ -32,7 +32,7 @@ export default function AddBlog() {  // ← Make sure it says "export default"
 
     const form = new FormData();
     form.append("image", imageFile);
-    form.append("admin_secret", "VITE_ADMIN_KEY");
+    form.append("auth_key", "GG_ADMIN_9f3c8e2b7a1d");
 
     const res = await fetch("API_BASE/api/upload_blog_image.php", {
       method: "POST",
@@ -62,7 +62,7 @@ export default function AddBlog() {  // ← Make sure it says "export default"
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          admin_secret: "VITE_ADMIN_KEY",
+          admin_secret: "GG_ADMIN_9f3c8e2b7a1d",
           title,
           slug: slug || slugify(title),
           excerpt,

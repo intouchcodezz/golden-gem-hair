@@ -1,57 +1,49 @@
 <?php
 header("Content-Type: application/json");
+require_once __DIR__ . '/config.php';
 
-/* ===== ADMIN SECRET CHECK ===== */
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+  http_response_code(405);
+  echo json_encode(["success" => false, "message" => "Method not allowed"]);
+  exit;
+}
+
 if (
-  !isset($_POST['admin_secret']) ||
-  $_POST['admin_secret'] !== 'GG_ADMIN_9f3c8e2b7a1d'
+  empty($_POST['admin_secret']) ||
+  $_POST['admin_secret'] !== ADMIN_SECRET
 ) {
   http_response_code(401);
   echo json_encode(["success" => false, "message" => "Unauthorized"]);
   exit;
 }
 
-/* ===== FILE CHECK ===== */
-if (!isset($_FILES['image'])) {
+if (empty($_FILES['image']) || $_FILES['image']['error'] !== UPLOAD_ERR_OK) {
   http_response_code(400);
   echo json_encode(["success" => false, "message" => "No image uploaded"]);
   exit;
 }
 
-$file = $_FILES['image'];
-
-/* ===== SIZE LIMIT (2MB) ===== */
-if ($file['size'] > 2 * 1024 * 1024) {
-  echo json_encode(["success" => false, "message" => "Max 2MB allowed"]);
-  exit;
-}
-
-/* ===== MIME VALIDATION ===== */
-$allowedTypes = ["image/jpeg", "image/png", "image/webp"];
-if (!in_array($file['type'], $allowedTypes)) {
+$allowed = ['image/jpeg', 'image/png', 'image/webp'];
+if (!in_array($_FILES['image']['type'], $allowed)) {
+  http_response_code(400);
   echo json_encode(["success" => false, "message" => "Invalid image type"]);
   exit;
 }
 
-/* ===== UPLOAD DIR ===== */
-$uploadDir = __DIR__ . "/../uploads/blogs/";
-if (!is_dir($uploadDir)) {
-  mkdir($uploadDir, 0755, true);
-}
+$dir = $_SERVER['DOCUMENT_ROOT'] . "/uploads/blogs/";
+if (!is_dir($dir)) mkdir($dir, 0755, true);
 
-/* ===== UNIQUE FILE NAME ===== */
-$ext = pathinfo($file['name'], PATHINFO_EXTENSION);
-$filename = uniqid("blog_", true) . "." . $ext;
-$uploadPath = $uploadDir . $filename;
+$ext = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+$name = "blog_" . time() . "_" . rand(1000, 9999) . "." . $ext;
+$path = $dir . $name;
 
-/* ===== MOVE FILE ===== */
-if (!move_uploaded_file($file['tmp_name'], $uploadPath)) {
+if (!move_uploaded_file($_FILES['image']['tmp_name'], $path)) {
+  http_response_code(500);
   echo json_encode(["success" => false, "message" => "Upload failed"]);
   exit;
 }
 
-/* ===== SUCCESS ===== */
 echo json_encode([
   "success" => true,
-  "url" => "/uploads/blogs/" . $filename
+  "url" => "/uploads/blogs/" . $name
 ]);

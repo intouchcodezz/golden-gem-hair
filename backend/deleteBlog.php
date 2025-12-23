@@ -1,64 +1,55 @@
 <?php
 header("Content-Type: application/json");
+require_once __DIR__ . '/config.php';
 
-/* Read JSON */
 $data = json_decode(file_get_contents("php://input"), true);
 
-/* Validate JSON */
 if (!is_array($data)) {
   http_response_code(400);
   echo json_encode(["success" => false, "message" => "Invalid JSON"]);
   exit;
 }
 
-/* Admin secret */
 if (
   empty($data['admin_secret']) ||
-  $data['admin_secret'] !== 'GG_ADMIN_9f3c8e2b7a1d'
+  $data['admin_secret'] !== ADMIN_SECRET
 ) {
   http_response_code(401);
   echo json_encode(["success" => false, "message" => "Unauthorized"]);
   exit;
 }
 
-/* Blog ID */
 $id = intval($data['id'] ?? 0);
 if ($id <= 0) {
   http_response_code(400);
-  echo json_encode(["success" => false, "message" => "Invalid blog id"]);
+  echo json_encode(["success" => false, "message" => "Invalid ID"]);
   exit;
 }
 
 try {
   $pdo = new PDO(
-    "mysql:host=localhost;dbname=a1761e23_appointments_db;charset=utf8mb4",
-    "a1761e23_goldengemappoinment",
-    "goldengem@25",
+    "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8mb4",
+    DB_USER,
+    DB_PASS,
     [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
   );
 
-  /* Fetch blog */
-  $stmt = $pdo->prepare("SELECT cover_image FROM blogs WHERE id = ?");
-  $stmt->execute([$id]);
-  $blog = $stmt->fetch(PDO::FETCH_ASSOC);
+  $q = $pdo->prepare("SELECT cover_image FROM blogs WHERE id = ?");
+  $q->execute([$id]);
+  $blog = $q->fetch(PDO::FETCH_ASSOC);
 
   if (!$blog) {
     http_response_code(404);
-    echo json_encode(["success" => false, "message" => "Blog not found"]);
+    echo json_encode(["success" => false, "message" => "Not found"]);
     exit;
   }
 
-  /* Delete image file */
-  if (!empty($blog['cover_image'])) {
-    $imagePath = $_SERVER['DOCUMENT_ROOT'] . $blog['cover_image'];
-    if (file_exists($imagePath)) {
-      unlink($imagePath);
-    }
+  if ($blog['cover_image']) {
+    $path = $_SERVER['DOCUMENT_ROOT'] . $blog['cover_image'];
+    if (file_exists($path)) unlink($path);
   }
 
-  /* Delete blog row */
-  $del = $pdo->prepare("DELETE FROM blogs WHERE id = ?");
-  $del->execute([$id]);
+  $pdo->prepare("DELETE FROM blogs WHERE id = ?")->execute([$id]);
 
   echo json_encode(["success" => true]);
 
