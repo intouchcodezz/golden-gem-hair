@@ -48,15 +48,17 @@ export default function AddBlog() {
     };
 
     try {
-      const res = await fetch("/api/createblog.php", {
+      const API_BASE = import.meta.env.VITE_API_BASE;
+
+      const res = await fetch(`${API_BASE}/api/createblog.php`, {
         method: "POST",
-        credentials: "include", // 🔐 session auth
+        credentials: "include",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(payload),
       });
-
+      
       if (!res.ok) {
         throw new Error("Unauthorized");
       }
@@ -163,7 +165,6 @@ export default function AddBlog() {
             setStatus(e.target.value as "draft" | "published")
           }
         >
-          <option value="draft">Draft</option>
           <option value="published">Published</option>
         </select>
 
