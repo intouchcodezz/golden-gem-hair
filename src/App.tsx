@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
 import { TooltipProvider } from "./components/ui/tooltip";
 import { Toaster } from "./components/ui/toaster";
 import { Toaster as Sonner } from "./components/ui/sonner";
 import { ImageLightboxProvider } from "./components/ImageLightbox";
+
 import ScrollToTop from "./components/ScrollToTop";
 import ScrollToHash from "./components/ScrollToHash";
-import Chatwidget from "./components/ChatWidget";
+import ChatWidget from "./components/ChatWidget";
+import EnquiryModal from "./components/EnquiryModal";
 
+/* -------- Pages -------- */
 import Index from "./pages/Index";
 import About from "./pages/About";
-import HairRejuvenation from "./pages/HairRejuvenation";
-import ScalpPigmentation from "./pages/ScalpPigmentation";
-import PRPTherapy from "./pages/PRP";
 import Hair from "./pages/hair";
 import Diagnostic from "./pages/Diagnostic";
 import BlogList from "./pages/Blog/BlogList";
@@ -23,6 +24,11 @@ import Careers from "./pages/Careers";
 import Contact from "./pages/Contact";
 import Offers from "./pages/Offers";
 import NotFound from "./pages/NotFound";
+
+/* -------- Treatments -------- */
+import HairRejuvenation from "./pages/HairRejuvenation";
+import ScalpPigmentation from "./pages/ScalpPigmentation";
+import PRPTherapy from "./pages/PRP";
 import FolitreatHairTreatment from "./pages/folitreat";
 import HairTransplantFUE from "./pages/Child/fueTransplant";
 import GFC from "./pages/Child/GFC";
@@ -34,22 +40,24 @@ import Trichoscopy from "./pages/trichoscopy";
 import HairDensity from "./pages/HairDensity";
 import BloodHormonalTests from "./pages/BloodTests";
 import GeneticAssesment from "./pages/GeneticAssesment";
+
+/* -------- Legal -------- */
 import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import MedicalDisclaimer from "./pages/MedicalDisclaimer";
 
-import AdminLogin from "./components/adminLogin";
+/* -------- Admin -------- */
 import AdminApp from "./components/AdminApp";
 import ProtectedRoute from "./components/ProtectedRoute";
-import EnquiryModal from "./components/EnquiryModal";
-
-import AddBlog from "./pages/Admin/AddBlog";
 import BlogAdminList from "./pages/Admin/BlogAdminList";
+import AddBlog from "./pages/Admin/AddBlog";
 import EditBlog from "./pages/Admin/EditBlog";
+
+/* ----------------------------- */
 
 const queryClient = new QueryClient();
 
-/* ---------------- App Content ---------------- */
+/* ================= App Content ================= */
 
 const AppContent: React.FC = () => {
   const location = useLocation();
@@ -72,11 +80,11 @@ const AppContent: React.FC = () => {
     if (!isAdminPage) {
       const seen = sessionStorage.getItem("hasSeenModal");
       if (!seen) {
-        const t = setTimeout(() => {
+        const timer = setTimeout(() => {
           setShowModal(true);
           sessionStorage.setItem("hasSeenModal", "true");
         }, 5000);
-        return () => clearTimeout(t);
+        return () => clearTimeout(timer);
       }
     }
   }, [isAdminPage]);
@@ -93,7 +101,7 @@ const AppContent: React.FC = () => {
       )}
 
       <Routes>
-        {/* Public */}
+        {/* -------- Public -------- */}
         <Route path="/" element={<Index />} />
         <Route path="/about/*" element={<About />} />
         <Route path="/hair-treatments/*" element={<Hair />} />
@@ -104,14 +112,13 @@ const AppContent: React.FC = () => {
         <Route path="/careers/*" element={<Careers />} />
         <Route path="/contact/*" element={<Contact />} />
         <Route path="/offers" element={<Offers />} />
-        <Route path="*" element={<NotFound />} />
 
-        {/* Legal */}
+        {/* -------- Legal -------- */}
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/medical-disclaimer" element={<MedicalDisclaimer />} />
 
-        {/* Treatments */}
+        {/* -------- Treatments -------- */}
         <Route path="/folitreat-treatment" element={<FolitreatHairTreatment />} />
         <Route path="/gfc-treatment" element={<GFC />} />
         <Route path="/mesotherapy" element={<Mesotherapy />} />
@@ -127,18 +134,10 @@ const AppContent: React.FC = () => {
         <Route path="/hair-rejuvenation" element={<HairRejuvenation />} />
         <Route path="/fue-transplant" element={<HairTransplantFUE />} />
 
-        {/* Admin */}
-        <Route path="/admin/login" element={<AdminLogin />} />
+        {/* -------- Admin Shell -------- */}
+        <Route path="/admin/*" element={<AdminApp />} />
 
-        <Route
-          path="/admin/*"
-          element={
-            <ProtectedRoute>
-              <AdminApp />
-            </ProtectedRoute>
-          }
-        />
-
+        {/* -------- Admin Blogs -------- */}
         <Route
           path="/admin/blogs"
           element={
@@ -147,7 +146,6 @@ const AppContent: React.FC = () => {
             </ProtectedRoute>
           }
         />
-
         <Route
           path="/admin/blogs/add"
           element={
@@ -156,7 +154,6 @@ const AppContent: React.FC = () => {
             </ProtectedRoute>
           }
         />
-
         <Route
           path="/admin/blogs/edit/:id"
           element={
@@ -165,14 +162,17 @@ const AppContent: React.FC = () => {
             </ProtectedRoute>
           }
         />
+
+        {/* -------- 404 -------- */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
 
-      {!shouldHideChat && <Chatwidget />}
+      {!shouldHideChat && <ChatWidget />}
     </>
   );
 };
 
-/* ---------------- App Wrapper ---------------- */
+/* ================= App Wrapper ================= */
 
 const App: React.FC = () => {
   return (

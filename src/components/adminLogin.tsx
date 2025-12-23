@@ -1,59 +1,99 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Eye, EyeOff, Shield } from "lucide-react";
 
-export default function AdminLogin() {
-  const navigate = useNavigate();
+/* ================= Props ================= */
+
+export type AdminLoginProps = {
+  onLogin: () => void;
+};
+
+/* ================= Component ================= */
+
+const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState("");
 
-  const submit = async () => {
-    setLoading(true);
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setError("");
 
-    const res = await fetch("/api/admin_login.php", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, password }),
-    });
+    try {
+      const res = await fetch("/api/admin_login.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({ username, password }),
+      });
 
-    const data = await res.json();
-    setLoading(false);
+      if (!res.ok) {
+        setError("Invalid username or password");
+        return;
+      }
 
-    if (!data.success) {
-      alert("Invalid login");
-      return;
+      sessionStorage.setItem("adminAuth", "true");
+      onLogin();
+    } catch {
+      setError("Server error. Please try again.");
     }
-
-    localStorage.setItem("admin_token", data.token);
-    navigate("/admin/dashboard");
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="w-96 border p-6 rounded">
-        <h1 className="text-xl font-bold mb-4">Admin Login</h1>
+    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white p-8 rounded-xl shadow w-full max-w-md"
+      >
+        <div className="text-center mb-6">
+          <Shield className="mx-auto text-blue-600" size={36} />
+          <h1 className="text-2xl font-bold mt-2">Admin Login</h1>
+        </div>
 
+        {/* Username */}
         <input
-          className="border p-2 w-full mb-3"
+          type="text"
           placeholder="Username"
+          className="w-full border p-3 mb-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          value={username}
           onChange={(e) => setUsername(e.target.value)}
+          required
         />
 
-        <input
-          className="border p-2 w-full mb-4"
-          type="password"
-          placeholder="Password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        {/* Password */}
+        <div className="relative mb-4">
+          <input
+            type={showPassword ? "text" : "password"}
+            placeholder="Password"
+            className="w-full border p-3 rounded pr-10 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <button
+            type="button"
+            onClick={() => setShowPassword((v) => !v)}
+            className="absolute right-3 top-3 text-gray-400"
+          >
+            {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+          </button>
+        </div>
 
+        {/* Error */}
+        {error && (
+          <p className="text-red-600 text-sm mb-3 text-center">{error}</p>
+        )}
+
+        {/* Submit */}
         <button
-          onClick={submit}
-          disabled={loading}
-          className="bg-blue-600 text-white px-4 py-2 w-full"
+          type="submit"
+          className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded font-semibold transition"
         >
-          {loading ? "Logging in..." : "Login"}
+          Login
         </button>
-      </div>
+      </form>
     </div>
   );
-}
+};
+
+export default AdminLogin;

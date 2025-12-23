@@ -1,26 +1,34 @@
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import AdminLogin from "./adminLogin";
 import AdminDashboard from "./adminDashboard";
-import AddBlog from "../pages/Admin/AddBlog";
-import BlogAdminList from "../pages/Admin/BlogAdminList";
-import EditBlog from "../pages/Admin/EditBlog";
 
-export default function AdminApp() {
+const AdminApp = () => {
   const navigate = useNavigate();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const logout = () => {
-    localStorage.removeItem("admin_token");
-    navigate("/admin/login");
+  useEffect(() => {
+    if (sessionStorage.getItem("adminAuth") === "true") {
+      setIsAuthenticated(true);
+    }
+  }, []);
+
+  const handleLogin = () => {
+    setIsAuthenticated(true);
+    navigate("/admin/dashboard", { replace: true });
   };
 
-  return (
-    <Routes>
-      <Route
-        path="dashboard"
-        element={<AdminDashboard onLogout={logout} />}
-      />
-      <Route path="blogs" element={<BlogAdminList />} />
-      <Route path="blogs/add" element={<AddBlog />} />
-      <Route path="blogs/edit/:id" element={<EditBlog />} />
-    </Routes>
-  );
-}
+  const handleLogout = () => {
+    sessionStorage.removeItem("adminAuth");
+    setIsAuthenticated(false);
+    navigate("/admin/login", { replace: true });
+  };
+
+  if (!isAuthenticated) {
+    return <AdminLogin onLogin={handleLogin} />;
+  }
+
+  return <AdminDashboard onLogout={handleLogout} />;
+};
+
+export default AdminApp;
