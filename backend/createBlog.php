@@ -3,39 +3,25 @@ header("Content-Type: application/json");
 
 $data = json_decode(file_get_contents("php://input"), true);
 
-/**
- * 🔐 SIMPLE SERVER SECRET CHECK
- */
+/* ===== ADMIN SECRET ===== */
 if (
   !isset($data['admin_secret']) ||
-  $data['admin_secret'] !== 'GG_ADMIN_9f3c8e2b'
+  $data['admin_secret'] !== 'GG_ADMIN_9f3c8e2b7a1d'
 ) {
   http_response_code(401);
-  echo json_encode([
-    "success" => false,
-    "message" => "Unauthorized"
-  ]);
+  echo json_encode(["success" => false, "message" => "Unauthorized"]);
   exit;
 }
 
-/**
- * DB CONFIG
- */
-$DB_HOST = 'localhost';
-$DB_NAME = 'a1761e23_appointments_db';
-$DB_USER = 'a1761e23_goldengemappoinment';
-$DB_PASS = 'goldengem@25';
-
+/* ===== DB CONNECTION ===== */
 $pdo = new PDO(
-  "mysql:host=$DB_HOST;dbname=$DB_NAME;charset=utf8mb4",
-  $DB_USER,
-  $DB_PASS,
+  "mysql:host=localhost;dbname=a1761e23_appointments_db;charset=utf8mb4",
+  "a1761e23_goldengemappoinment",
+  "goldengem",
   [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
 );
 
-/**
- * INSERT BLOG
- */
+/* ===== INSERT ===== */
 $stmt = $pdo->prepare("
   INSERT INTO blogs
   (title, slug, excerpt, content, meta_title, meta_description, cover_image, status)
@@ -53,6 +39,4 @@ $stmt->execute([
   $data['status']
 ]);
 
-echo json_encode([
-  "success" => true
-]);
+echo json_encode(["success" => true]);

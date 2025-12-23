@@ -1,42 +1,38 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Eye, EyeOff, Shield } from "lucide-react";
-
-/* ================= Props ================= */
-
-export type AdminLoginProps = {
-  onLogin: () => void;
-};
 
 /* ================= Component ================= */
 
-const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin }) => {
+const AdminLogin: React.FC = () => {
+  const navigate = useNavigate();
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");
 
-    try {
-      const res = await fetch("/api/admin_login.php", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-        body: JSON.stringify({ username, password }),
-      });
+    /**
+     * 🔐 FRONTEND-ONLY AUTH
+     * Change these values if needed
+     */
+    const ADMIN_USERNAME = "admin";
+    const ADMIN_PASSWORD = "goldengem@admin";
 
-      if (!res.ok) {
-        setError("Invalid username or password");
-        return;
-      }
-
-      sessionStorage.setItem("adminAuth", "true");
-      onLogin();
-    } catch {
-      setError("Server error. Please try again.");
+    if (username !== ADMIN_USERNAME || password !== ADMIN_PASSWORD) {
+      setError("Invalid username or password");
+      return;
     }
+
+    // ✅ Mark admin as logged in
+    sessionStorage.setItem("adminAuth", "true");
+
+    // ✅ Redirect to admin dashboard
+    navigate("/admin/blogs");
   };
 
   return (

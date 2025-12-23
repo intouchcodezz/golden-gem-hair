@@ -67,7 +67,7 @@ export default function BlogDetail() {
 
         {blog.cover_image && (
           <img
-            src={blog.cover_image}
+            src={`${import.meta.env.VITE_API_BASE}${blog.cover_image}`}
             alt={blog.title}
             className="w-full rounded-xl mb-6"
           />

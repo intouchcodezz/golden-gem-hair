@@ -1,15 +1,15 @@
 import { Navigate } from "react-router-dom";
 
-export default function ProtectedRoute({
-  children,
-}: {
-  children: JSX.Element;
-}) {
-  const token = localStorage.getItem("admin_token");
+interface Props {
+  children: React.ReactNode;
+}
 
-  if (!token) {
+export default function ProtectedRoute({ children }: Props) {
+  const isAuthed = sessionStorage.getItem("adminAuth") === "true";
+
+  if (!isAuthed) {
     return <Navigate to="/admin/login" replace />;
   }
 
-  return children;
+  return <>{children}</>;
 }

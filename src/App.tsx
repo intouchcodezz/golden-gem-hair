@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import { TooltipProvider } from "./components/ui/tooltip";
@@ -48,6 +53,7 @@ import MedicalDisclaimer from "./pages/MedicalDisclaimer";
 
 /* -------- Admin -------- */
 import AdminApp from "./components/AdminApp";
+import AdminLogin from "./components/adminLogin";
 import ProtectedRoute from "./components/ProtectedRoute";
 import BlogAdminList from "./pages/Admin/BlogAdminList";
 import AddBlog from "./pages/Admin/AddBlog";
@@ -134,34 +140,22 @@ const AppContent: React.FC = () => {
         <Route path="/hair-rejuvenation" element={<HairRejuvenation />} />
         <Route path="/fue-transplant" element={<HairTransplantFUE />} />
 
-        {/* -------- Admin Shell -------- */}
-        <Route path="/admin/*" element={<AdminApp />} />
+        {/* -------- Admin Login -------- */}
+        <Route path="/admin/login" element={<AdminLogin />} />
 
-        {/* -------- Admin Blogs -------- */}
+        {/* -------- Admin Protected -------- */}
         <Route
-          path="/admin/blogs"
+          path="/admin"
           element={
             <ProtectedRoute>
-              <BlogAdminList />
+              <AdminApp />
             </ProtectedRoute>
           }
-        />
-        <Route
-          path="/admin/blogs/add"
-          element={
-            <ProtectedRoute>
-              <AddBlog />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/admin/blogs/edit/:id"
-          element={
-            <ProtectedRoute>
-              <EditBlog />
-            </ProtectedRoute>
-          }
-        />
+        >
+          <Route path="blogs" element={<BlogAdminList />} />
+          <Route path="blogs/add" element={<AddBlog />} />
+          <Route path="blogs/edit/:id" element={<EditBlog />} />
+        </Route>
 
         {/* -------- 404 -------- */}
         <Route path="*" element={<NotFound />} />
