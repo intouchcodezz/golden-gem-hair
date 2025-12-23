@@ -1,12 +1,30 @@
 <?php
-require __DIR__ . '/auth_guard.php';
+header("Content-Type: application/json");
 
+$data = json_decode(file_get_contents("php://input"), true);
+
+/**
+ * 🔐 SIMPLE SERVER SECRET CHECK
+ */
+if (
+  !isset($data['admin_secret']) ||
+  $data['admin_secret'] !== 'GG_ADMIN_9f3c8e2b'
+) {
+  http_response_code(401);
+  echo json_encode([
+    "success" => false,
+    "message" => "Unauthorized"
+  ]);
+  exit;
+}
+
+/**
+ * DB CONFIG
+ */
 $DB_HOST = 'localhost';
 $DB_NAME = 'a1761e23_appointments_db';
 $DB_USER = 'a1761e23_goldengemappoinment';
 $DB_PASS = 'goldengem@25';
-
-$data = json_decode(file_get_contents("php://input"), true);
 
 $pdo = new PDO(
   "mysql:host=$DB_HOST;dbname=$DB_NAME;charset=utf8mb4",
@@ -15,6 +33,9 @@ $pdo = new PDO(
   [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
 );
 
+/**
+ * INSERT BLOG
+ */
 $stmt = $pdo->prepare("
   INSERT INTO blogs
   (title, slug, excerpt, content, meta_title, meta_description, cover_image, status)

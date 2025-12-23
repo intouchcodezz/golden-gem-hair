@@ -15,11 +15,8 @@ export default function AddBlog() {
   const [slug, setSlug] = useState("");
   const [excerpt, setExcerpt] = useState("");
   const [content, setContent] = useState("");
-
   const [metaTitle, setMetaTitle] = useState("");
   const [metaDescription, setMetaDescription] = useState("");
-
-  const [status, setStatus] = useState<"published">("published");
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
 
@@ -34,6 +31,7 @@ export default function AddBlog() {
     setSaving(true);
 
     const payload = {
+      admin_secret: import.meta.env.VITE_ADMIN_SECRET,
       title,
       slug,
       excerpt,
@@ -41,8 +39,7 @@ export default function AddBlog() {
       meta_title: metaTitle || title,
       meta_description: metaDescription || excerpt,
       cover_image: "",
-      status,
-      admin_key: import.meta.env.VITE_ADMIN_KEY, // 🔑 IMPORTANT
+      status: "published",
     };
 
     try {
