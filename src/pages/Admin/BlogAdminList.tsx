@@ -109,12 +109,6 @@ export default function BlogAdminList() {
                     <td className="px-6 py-4 text-center">
                       <div className="flex justify-center gap-3">
                         <button
-                          onClick={() => navigate(`/admin/blogs/edit/${b.id}`)}
-                          className="text-blue-600 hover:text-blue-800 font-medium hover:underline"
-                        >
-                          Edit
-                        </button>
-                        <button
                           onClick={() => deleteBlog(b.id)}
                           className="text-red-600 hover:text-red-800 font-medium hover:underline"
                         >
