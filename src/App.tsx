@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  useLocation,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import { TooltipProvider } from "./components/ui/tooltip";
@@ -53,6 +48,7 @@ import MedicalDisclaimer from "./pages/MedicalDisclaimer";
 
 /* -------- Admin -------- */
 import AdminApp from "./components/AdminApp";
+import AdminDashboard from "./components/adminDashboard";
 import AdminLogin from "./components/adminLogin";
 import ProtectedRoute from "./components/ProtectedRoute";
 import BlogAdminList from "./pages/Admin/BlogAdminList";
@@ -125,7 +121,10 @@ const AppContent: React.FC = () => {
         <Route path="/medical-disclaimer" element={<MedicalDisclaimer />} />
 
         {/* -------- Treatments -------- */}
-        <Route path="/folitreat-treatment" element={<FolitreatHairTreatment />} />
+        <Route
+          path="/folitreat-treatment"
+          element={<FolitreatHairTreatment />}
+        />
         <Route path="/gfc-treatment" element={<GFC />} />
         <Route path="/mesotherapy" element={<Mesotherapy />} />
         <Route path="/iv-hair-therapy" element={<IVHairTherapy />} />
@@ -152,6 +151,10 @@ const AppContent: React.FC = () => {
             </ProtectedRoute>
           }
         >
+          {/* Dashboard as index route */}
+          <Route index element={<AdminDashboard />} />
+
+          {/* Blog management */}
           <Route path="blogs" element={<BlogAdminList />} />
           <Route path="blogs/add" element={<AddBlog />} />
           <Route path="blogs/edit/:id" element={<EditBlog />} />
