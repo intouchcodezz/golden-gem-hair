@@ -1,4 +1,3 @@
-import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useState } from "react";
 import EnquiryForm from "../components/EnquiryModal";
@@ -9,7 +8,6 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-[#fafafa] text-[#1a1a1a]">
-      <Header />
 
       {/* HERO */}
       <section className="w-full py-20 border-b border-gray-200 bg-white">
@@ -51,60 +49,60 @@ const Contact = () => {
               details: ["Mon–Sat: 9 AM – 7 PM", "Sun: 10 AM – 4 PM"],
             },
           ].map((item, i) => (
-          <div
-            key={i}
-            className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition"
-          >
-            {item.icon}
-            <h3 className="mt-4 font-semibold text-xl">{item.title}</h3>
+            <div
+              key={i}
+              className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition"
+            >
+              {item.icon}
+              <h3 className="mt-4 font-semibold text-xl">{item.title}</h3>
 
-            {/* FIX: Prevent long text from overflowing */}
-            <div className="mt-2 text-gray-600 text-sm space-y-1 break-words">
-              {item.details.map((d, idx) => (
-                <p key={idx}>{d}</p>
-              ))}
+              {/* FIX: Prevent long text from overflowing */}
+              <div className="mt-2 text-gray-600 text-sm space-y-1 break-words">
+                {item.details.map((d, idx) => (
+                  <p key={idx}>{d}</p>
+                ))}
+              </div>
             </div>
-          </div>
           ))}
         </section>
 
-{/* CTA + BRANCHES GRID */}
-<section className="grid md:grid-cols-2 gap-10">
-  
-  {/* LEFT — BOOK APPOINTMENT */}
-  <div className="bg-white border border-gray-200 rounded-3xl p-12 shadow-sm text-center">
-    <h2 className="text-3xl font-semibold">Book an Appointment</h2>
-    <p className="text-gray-600 mt-2 max-w-lg mx-auto">
-      Schedule your consultation with our specialists. We respond within 24 hours.
-    </p>
+        {/* CTA + BRANCHES GRID */}
+        <section className="grid md:grid-cols-2 gap-10">
 
-    <button
-      onClick={() => setFormOpen(true)}
-      className="mt-6 px-8 py-4 bg-black text-white rounded-xl text-lg font-medium 
+          {/* LEFT — BOOK APPOINTMENT */}
+          <div className="bg-white border border-gray-200 rounded-3xl p-12 shadow-sm text-center">
+            <h2 className="text-3xl font-semibold">Book an Appointment</h2>
+            <p className="text-gray-600 mt-2 max-w-lg mx-auto">
+              Schedule your consultation with our specialists. We respond within 24 hours.
+            </p>
+
+            <button
+              onClick={() => setFormOpen(true)}
+              className="mt-6 px-8 py-4 bg-black text-white rounded-xl text-lg font-medium 
                  hover:bg-gray-900 transition-all"
-    >
-      Open Booking Form
-    </button>
-  </div>
+            >
+              Open Booking Form
+            </button>
+          </div>
 
-  {/* RIGHT — ADDRESS / BRANCH */}
-  <div className="bg-white border border-gray-200 rounded-3xl p-10 shadow-sm">
-    <h2 className="text-2xl font-semibold mb-6">Our Branch</h2>
+          {/* RIGHT — ADDRESS / BRANCH */}
+          <div className="bg-white border border-gray-200 rounded-3xl p-10 shadow-sm">
+            <h2 className="text-2xl font-semibold mb-6">Our Branch</h2>
 
-    <div className="space-y-4 pl-4 border-l-2 border-black/20">
-      <div>
-        <h3 className="font-medium text-xl">Chennai</h3>
-        <p className="text-gray-600 text-sm leading-relaxed">
-          No: 325/255, MKN Rd, Near Old Sukkubhai Hotel,<br />
-          Ramapuram, Chennai - 600016
-        </p>
-        <p className="text-gray-800 font-medium mt-2">+91 8122229557</p>
-        <p className="text-xs text-gray-500">Manager: Dr. Priya Sharma</p>
-      </div>
-    </div>
-  </div>
+            <div className="space-y-4 pl-4 border-l-2 border-black/20">
+              <div>
+                <h3 className="font-medium text-xl">Chennai</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  No: 325/255, MKN Rd, Near Old Sukkubhai Hotel,<br />
+                  Ramapuram, Chennai - 600016
+                </p>
+                <p className="text-gray-800 font-medium mt-2">+91 8122229557</p>
+                <p className="text-xs text-gray-500">Manager: Dr. Priya Sharma</p>
+              </div>
+            </div>
+          </div>
 
-</section>
+        </section>
 
 
         {/* MAP */}

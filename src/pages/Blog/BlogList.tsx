@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 type Blog = {
@@ -30,7 +29,6 @@ export default function BlogList() {
 
   return (
     <>
-      <Header />
 
       <main className="min-h-screen bg-gradient-to-b from-[#F9F3E6] to-white">
         <div className="max-w-7xl mx-auto px-6 py-14">

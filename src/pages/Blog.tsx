@@ -1632,109 +1632,108 @@ export default function Blog() {
   };
 
   return (
-      <>
+    <>
       <SEO
         title="The Golden Gem Clinic Chennai | Expert Blog Updates"
         description="Read the latest on hair transplants, aftercare tips, and cosmetic clinic insights from The Golden Gem — your trusted source for hair restoration knowledge."
         canonical="https://thegoldengemhairclinic.com/blog"
       />
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-amber-50">
-      <Header />
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-amber-50">
 
-      <main className="max-w-5xl mx-auto px-6 py-12">
-        <div className="space-y-8">
-          {blogs.slice(0, visiblePosts).map((blog, index) => (
-            <article
-              key={blog.id}
-              className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100"
-            >
-              <div className="md:flex">
-                <div className="md:w-2/5 h-64 md:h-auto overflow-hidden">
-                  <img
-                    src={blog.image}
-                    alt={blog.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
+        <main className="max-w-5xl mx-auto px-6 py-12">
+          <div className="space-y-8">
+            {blogs.slice(0, visiblePosts).map((blog, index) => (
+              <article
+                key={blog.id}
+                className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100"
+              >
+                <div className="md:flex">
+                  <div className="md:w-2/5 h-64 md:h-auto overflow-hidden">
+                    <img
+                      src={blog.image}
+                      alt={blog.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
 
-                <div className="md:w-3/5 p-8">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="px-3 py-1 bg-amber-100 text-amber-800 text-xs font-semibold rounded-full">
-                      {blog.category}
-                    </span>
-                    <div className="flex items-center text-sm text-gray-500 gap-4">
-                      <span className="flex items-center gap-1">
-                        <Calendar className="w-4 h-4" />
-                        {blog.date}
+                  <div className="md:w-3/5 p-8">
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="px-3 py-1 bg-amber-100 text-amber-800 text-xs font-semibold rounded-full">
+                        {blog.category}
                       </span>
-                      <span className="flex items-center gap-1">
-                        <Clock className="w-4 h-4" />
-                        {blog.readTime}
-                      </span>
+                      <div className="flex items-center text-sm text-gray-500 gap-4">
+                        <span className="flex items-center gap-1">
+                          <Calendar className="w-4 h-4" />
+                          {blog.date}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <Clock className="w-4 h-4" />
+                          {blog.readTime}
+                        </span>
+                      </div>
                     </div>
+
+                    <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3 leading-tight hover:text-amber-700 transition-colors">
+                      {blog.title}
+                    </h2>
+
+                    <div className="flex items-center gap-2 text-sm text-gray-600 mb-4">
+                      <User className="w-4 h-4" />
+                      <span>By {blog.author}</span>
+                    </div>
+
+                    <p className="text-gray-600 leading-relaxed mb-6">{blog.summary}</p>
+
+                    <button
+                      onClick={() => toggleExpanded(blog.id)}
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-600 to-amber-700 text-white font-semibold rounded-lg hover:from-amber-700 hover:to-amber-800 transition-all duration-300 shadow-md hover:shadow-lg"
+                    >
+                      {expandedId === blog.id ? (
+                        <>
+                          <ChevronUp className="w-5 h-5" />
+                          Show Less
+                        </>
+                      ) : (
+                        <>
+                          Read Full Article
+                          <ChevronDown className="w-5 h-5" />
+                        </>
+                      )}
+                    </button>
                   </div>
-
-                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3 leading-tight hover:text-amber-700 transition-colors">
-                    {blog.title}
-                  </h2>
-
-                  <div className="flex items-center gap-2 text-sm text-gray-600 mb-4">
-                    <User className="w-4 h-4" />
-                    <span>By {blog.author}</span>
-                  </div>
-
-                  <p className="text-gray-600 leading-relaxed mb-6">{blog.summary}</p>
-
-                  <button
-                    onClick={() => toggleExpanded(blog.id)}
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-600 to-amber-700 text-white font-semibold rounded-lg hover:from-amber-700 hover:to-amber-800 transition-all duration-300 shadow-md hover:shadow-lg"
-                  >
-                    {expandedId === blog.id ? (
-                      <>
-                        <ChevronUp className="w-5 h-5" />
-                        Show Less
-                      </>
-                    ) : (
-                      <>
-                        Read Full Article
-                        <ChevronDown className="w-5 h-5" />
-                      </>
-                    )}
-                  </button>
                 </div>
+
+                {expandedId === blog.id && (
+                  <div className="border-t border-gray-200 bg-gray-50 p-8 md:p-12 animate-fadeIn">
+                    <div
+                      className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-headings:font-bold prose-p:text-gray-700 prose-p:leading-relaxed prose-li:text-gray-700 prose-strong:text-gray-900 prose-a:text-amber-600 hover:prose-a:text-amber-700"
+                      dangerouslySetInnerHTML={{ __html: blog.content }}
+                    />
+                  </div>
+                )}
+              </article>
+            ))}
+          </div>
+
+          {visiblePosts < blogs.length && (
+            <div ref={observerTarget} className="py-12 text-center">
+              <div className="inline-flex items-center gap-2 text-amber-700">
+                <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-amber-700"></div>
+                <span className="font-medium">Loading more articles...</span>
               </div>
-
-              {expandedId === blog.id && (
-                <div className="border-t border-gray-200 bg-gray-50 p-8 md:p-12 animate-fadeIn">
-                  <div
-                    className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-headings:font-bold prose-p:text-gray-700 prose-p:leading-relaxed prose-li:text-gray-700 prose-strong:text-gray-900 prose-a:text-amber-600 hover:prose-a:text-amber-700"
-                    dangerouslySetInnerHTML={{ __html: blog.content }}
-                  />
-                </div>
-              )}
-            </article>
-          ))}
-        </div>
-
-        {visiblePosts < blogs.length && (
-          <div ref={observerTarget} className="py-12 text-center">
-            <div className="inline-flex items-center gap-2 text-amber-700">
-              <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-amber-700"></div>
-              <span className="font-medium">Loading more articles...</span>
             </div>
-          </div>
-        )}
+          )}
 
-        {visiblePosts >= blogs.length && (
-          <div className="py-12 text-center">
-            <p className="text-gray-500 text-lg">You've reached the end of our blog posts</p>
-          </div>
-        )}
-      </main>
-              <Footer />
+          {visiblePosts >= blogs.length && (
+            <div className="py-12 text-center">
+              <p className="text-gray-500 text-lg">You've reached the end of our blog posts</p>
+            </div>
+          )}
+        </main>
+        <Footer />
 
-      <style>{`
+        <style>{`
         @keyframes fadeIn {
           from {
             opacity: 0;
@@ -1750,7 +1749,7 @@ export default function Blog() {
           animation: fadeIn 0.4s ease-out;
         }
       `}</style>
-    </div>
+      </div>
     </>
   );
 }

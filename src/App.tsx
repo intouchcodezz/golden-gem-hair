@@ -12,6 +12,9 @@ import ScrollToHash from "./components/ScrollToHash";
 import ChatWidget from "./components/ChatWidget";
 import EnquiryModal from "./components/EnquiryModal";
 
+/* SHARED HEADER + TOGGLE */
+import Header from "./components/Header";
+
 /* -------- Pages -------- */
 import Index from "./pages/Index";
 import About from "./pages/About";
@@ -46,6 +49,10 @@ import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import MedicalDisclaimer from "./pages/MedicalDisclaimer";
 
+/* -------- Skin Clinic -------- */
+import SkinClinicStandalone from "./pages/SkinClinic";
+import SkinTreatmentPage from "./pages/SkinTreatmentPage";
+
 /* -------- Admin -------- */
 import AdminApp from "./components/AdminApp";
 import AdminDashboard from "./components/adminDashboard";
@@ -54,8 +61,6 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import BlogAdminList from "./pages/Admin/BlogAdminList";
 import AddBlog from "./pages/Admin/AddBlog";
 import EditBlog from "./pages/Admin/EditBlog";
-
-/* ----------------------------- */
 
 const queryClient = new QueryClient();
 
@@ -67,29 +72,29 @@ const AppContent: React.FC = () => {
 
   const isAdminPage = location.pathname.startsWith("/admin");
 
-  const hideChatOn = [
-    "/admin",
-    "/terms",
-    "/privacy-policy",
-    "/medical-disclaimer",
-  ];
-
-  const shouldHideChat = hideChatOn.some((p) =>
-    location.pathname.startsWith(p)
-  );
+  const shouldHideChat =
+    location.pathname.startsWith("/admin") ||
+    location.pathname.startsWith("/terms") ||
+    location.pathname.startsWith("/privacy-policy") ||
+    location.pathname.startsWith("/medical-disclaimer");
 
   useEffect(() => {
     if (!isAdminPage) {
       const seen = sessionStorage.getItem("hasSeenModal");
+
       if (!seen) {
         const timer = setTimeout(() => {
           setShowModal(true);
           sessionStorage.setItem("hasSeenModal", "true");
         }, 5000);
+
         return () => clearTimeout(timer);
       }
     }
   }, [isAdminPage]);
+
+  /* Detect which clinic page */
+  const isSkinPage = location.pathname.startsWith("/skin");
 
   return (
     <>
@@ -100,6 +105,14 @@ const AppContent: React.FC = () => {
           onSubmit={() => setShowModal(false)}
           treatment="Consultation"
         />
+      )}
+
+      {/* SHARED HEADER */}
+      {!isAdminPage && (
+        <>
+          {/* Same header for both clinics */}
+          <Header clinic={isSkinPage ? "skin" : "hair"} />
+        </>
       )}
 
       <Routes>
@@ -120,11 +133,8 @@ const AppContent: React.FC = () => {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/medical-disclaimer" element={<MedicalDisclaimer />} />
 
-        {/* -------- Treatments -------- */}
-        <Route
-          path="/folitreat-treatment"
-          element={<FolitreatHairTreatment />}
-        />
+        {/* -------- Hair Treatments -------- */}
+        <Route path="/folitreat-treatment" element={<FolitreatHairTreatment />} />
         <Route path="/gfc-treatment" element={<GFC />} />
         <Route path="/mesotherapy" element={<Mesotherapy />} />
         <Route path="/iv-hair-therapy" element={<IVHairTherapy />} />
@@ -139,10 +149,13 @@ const AppContent: React.FC = () => {
         <Route path="/hair-rejuvenation" element={<HairRejuvenation />} />
         <Route path="/fue-transplant" element={<HairTransplantFUE />} />
 
-        {/* -------- Admin Login -------- */}
+        {/* -------- Skin Clinic -------- */}
+        <Route path="/skin-clinic" element={<SkinClinicStandalone />} />
+        <Route path="/skin/:slug" element={<SkinTreatmentPage />} />
+
+        {/* -------- Admin -------- */}
         <Route path="/admin/login" element={<AdminLogin />} />
 
-        {/* -------- Admin Protected -------- */}
         <Route
           path="/admin"
           element={
@@ -151,10 +164,7 @@ const AppContent: React.FC = () => {
             </ProtectedRoute>
           }
         >
-          {/* Dashboard as index route */}
           <Route index element={<AdminDashboard />} />
-
-          {/* Blog management */}
           <Route path="blogs" element={<BlogAdminList />} />
           <Route path="blogs/add" element={<AddBlog />} />
           <Route path="blogs/edit/:id" element={<EditBlog />} />

@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useState } from "react";
 import EnquiryForm from "@/components/EnquiryModal";
@@ -65,132 +64,131 @@ const Results = () => {
         description="See real results of hair treatments and transplants. Explore before and after photos of satisfied patients in Chennai."
         canonical="https://thegoldengemhairclinic.com/results/before-after"
       />
-    <div className="min-h-screen bg-gray-100">
-      {/* Enquiry Modal */}
-      <EnquiryForm
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        onSubmit={(data) => {
-          console.log("Form submitted:", data);
-          setIsModalOpen(false);
-        }}
-        treatment="General Consultation"
-      />
+      <div className="min-h-screen bg-gray-100">
+        {/* Enquiry Modal */}
+        <EnquiryForm
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          onSubmit={(data) => {
+            console.log("Form submitted:", data);
+            setIsModalOpen(false);
+          }}
+          treatment="General Consultation"
+        />
 
-      <Header />
 
-      <main className="container mx-auto px-4 py-8">
-        <div className="max-w-6xl mx-auto">
-          {/* Heading */}
-          <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-primary mb-4 font-heading">
-              Before & After Results
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              Discover the transformative power of our hair rejuvenation therapies through real patient results.
-            </p>
-          </div>
-
-          {/* Desktop Grid */}
-          <section className="mb-12 hidden md:block">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {beforeAfterImages.map((image, index) => (
-                <Card
-                  key={index}
-                  className="border-none shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden"
-                >
-                  <CardContent className="p-0">
-                    <div className="p-2">
-                      <button
-                        onClick={() =>
-                          (window as any).__openImageLightbox?.(image.image, image.alt)
-                        }
-                        className="block w-full"
-                      >
-                        <img
-                          src={image.image}
-                          alt={image.alt}
-                          className="w-full h-full object-cover rounded-lg"
-                          style={{ aspectRatio: "1/1" }}
-                          loading="lazy"
-                        />
-                      </button>
-
-                      {/* NAME / TITLE */}
-                      <p className="text-center text-sm text-gray-700 mt-2 font-medium">
-                        {image.title}
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+        <main className="container mx-auto px-4 py-8">
+          <div className="max-w-6xl mx-auto">
+            {/* Heading */}
+            <div className="text-center mb-12">
+              <h1 className="text-4xl font-bold text-primary mb-4 font-heading">
+                Before & After Results
+              </h1>
+              <p className="text-lg text-muted-foreground">
+                Discover the transformative power of our hair rejuvenation therapies through real patient results.
+              </p>
             </div>
-          </section>
 
-          {/* Mobile Carousel */}
-          <section className="mb-12 md:hidden relative">
-            <Carousel className="w-full relative">
-              <CarouselContent>
+            {/* Desktop Grid */}
+            <section className="mb-12 hidden md:block">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {beforeAfterImages.map((image, index) => (
-                  <CarouselItem key={index}>
-                    <Card className="border-none shadow-md overflow-hidden">
-                      <CardContent className="p-0">
-                        <div className="p-2">
-                          <button
-                            onClick={() =>
-                              (window as any).__openImageLightbox?.(image.image, image.alt)
-                            }
-                            className="block w-full"
-                          >
-                            <img
-                              src={image.image}
-                              alt={image.alt}
-                              className="w-full h-full object-cover rounded-lg"
-                              style={{ aspectRatio: "1/1" }}
-                              loading="lazy"
-                            />
-                          </button>
+                  <Card
+                    key={index}
+                    className="border-none shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden"
+                  >
+                    <CardContent className="p-0">
+                      <div className="p-2">
+                        <button
+                          onClick={() =>
+                            (window as any).__openImageLightbox?.(image.image, image.alt)
+                          }
+                          className="block w-full"
+                        >
+                          <img
+                            src={image.image}
+                            alt={image.alt}
+                            className="w-full h-full object-cover rounded-lg"
+                            style={{ aspectRatio: "1/1" }}
+                            loading="lazy"
+                          />
+                        </button>
 
-                          {/* NAME / TITLE */}
-                          <p className="text-center text-sm text-gray-700 mt-2 font-medium">
-                            {image.title}
-                          </p>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </CarouselItem>
+                        {/* NAME / TITLE */}
+                        <p className="text-center text-sm text-gray-700 mt-2 font-medium">
+                          {image.title}
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
                 ))}
-              </CarouselContent>
+              </div>
+            </section>
 
-              {/* Navigation */}
-              <CarouselPrevious
-                className="absolute left-2 top-1/2 transform -translate-y-1/2 z-20 bg-white/80 text-gray-700 shadow-md hover:bg-white hover:scale-105 transition-all duration-300"
-              />
-              <CarouselNext
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 z-20 bg-white/80 text-gray-700 shadow-md hover:bg-white hover:scale-105 transition-all duration-300"
-              />
-            </Carousel>
-          </section>
+            {/* Mobile Carousel */}
+            <section className="mb-12 md:hidden relative">
+              <Carousel className="w-full relative">
+                <CarouselContent>
+                  {beforeAfterImages.map((image, index) => (
+                    <CarouselItem key={index}>
+                      <Card className="border-none shadow-md overflow-hidden">
+                        <CardContent className="p-0">
+                          <div className="p-2">
+                            <button
+                              onClick={() =>
+                                (window as any).__openImageLightbox?.(image.image, image.alt)
+                              }
+                              className="block w-full"
+                            >
+                              <img
+                                src={image.image}
+                                alt={image.alt}
+                                className="w-full h-full object-cover rounded-lg"
+                                style={{ aspectRatio: "1/1" }}
+                                loading="lazy"
+                              />
+                            </button>
 
-          {/* Contact Section */}
-          <section className="bg-gradient-to-r from-primary/10 to-primary/5 p-8 rounded-lg text-center">
-            <h3 className="text-2xl font-semibold mb-4 font-heading">Get In Touch With Us</h3>
-            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              One-Click Away For A Personalized Consultation With Our Team Of Highly Qualified Trichologist, Cosmetologists & Surgeons.
-            </p>
-            <Button
-              onClick={() => setIsModalOpen(true)}
-              size="lg"
-              className="bg-primary hover:bg-primary/90"
-            >
-              Book an Appointment
-            </Button>
-          </section>
-        </div>
-      </main>
+                            {/* NAME / TITLE */}
+                            <p className="text-center text-sm text-gray-700 mt-2 font-medium">
+                              {image.title}
+                            </p>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
 
-      <Footer />
-    </div>
+                {/* Navigation */}
+                <CarouselPrevious
+                  className="absolute left-2 top-1/2 transform -translate-y-1/2 z-20 bg-white/80 text-gray-700 shadow-md hover:bg-white hover:scale-105 transition-all duration-300"
+                />
+                <CarouselNext
+                  className="absolute right-2 top-1/2 transform -translate-y-1/2 z-20 bg-white/80 text-gray-700 shadow-md hover:bg-white hover:scale-105 transition-all duration-300"
+                />
+              </Carousel>
+            </section>
+
+            {/* Contact Section */}
+            <section className="bg-gradient-to-r from-primary/10 to-primary/5 p-8 rounded-lg text-center">
+              <h3 className="text-2xl font-semibold mb-4 font-heading">Get In Touch With Us</h3>
+              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+                One-Click Away For A Personalized Consultation With Our Team Of Highly Qualified Trichologist, Cosmetologists & Surgeons.
+              </p>
+              <Button
+                onClick={() => setIsModalOpen(true)}
+                size="lg"
+                className="bg-primary hover:bg-primary/90"
+              >
+                Book an Appointment
+              </Button>
+            </section>
+          </div>
+        </main>
+
+        <Footer />
+      </div>
     </>
   );
 };

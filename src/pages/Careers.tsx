@@ -172,161 +172,160 @@ const Careers = () => {
         description="Explore career opportunities at our hair clinic. Join expert teams in hair restoration, patient care, and cosmetic services in Chennai."
         canonical="https://thegoldengemhairclinic.com/careers"
       />
-    <div className="min-h-screen bg-background">
-      <Header />
+      <div className="min-h-screen bg-background">
 
-      <main className="flex flex-col">
-        {/* Hero */}
-        <section className="relative h-[300px] md:h-[400px] w-full">
-          <img
-            src={hiring}
-            alt="We Are Hiring"
-            className="absolute top-0 left-0 w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center text-white">
-            <h1 className="text-4xl md:text-5xl font-bold">We’re Hiring!</h1>
-            <p className="mt-2 text-lg max-w-2xl">
-              Join India’s Leading Experts in Trichology & Hair Restoration.
-            </p>
-          </div>
-        </section>
-
-        {/* Current Openings */}
-        <section className="container mx-auto px-4 py-12 max-w-4xl">
-          <h2 className="text-2xl font-semibold mb-6 text-center">
-            Current Openings
-          </h2>
-          <Accordion type="single" collapsible>
-            {openPositions.map((position, index) => (
-              <AccordionItem key={index} value={`item-${index}`}>
-                <AccordionTrigger className="text-lg font-medium">
-                  {position.title}
-                </AccordionTrigger>
-                <AccordionContent>
-                  <p className="mb-2">{position.description}</p>
-                  <div className="grid md:grid-cols-3 gap-4 text-sm mb-4">
-                    <div>
-                      <span className="font-semibold">Department:</span>
-                      <div className="text-muted-foreground">
-                        {position.department}
-                      </div>
-                    </div>
-                    <div>
-                      <span className="font-semibold">Type:</span>
-                      <div className="text-muted-foreground">
-                        {position.type}
-                      </div>
-                    </div>
-                    <div>
-                      <span className="font-semibold">Experience:</span>
-                      <div className="text-muted-foreground">
-                        {position.experience}
-                      </div>
-                    </div>
-                  </div>
-                  <Button
-                    onClick={() => handleApply(position.title)}
-                    className="bg-amber-500 hover:bg-amber-600 text-white font-semibold"
-                  >
-                    Apply Now
-                  </Button>
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </section>
-      </main>
-
-      {/* Application Dialog */}
-      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="max-w-lg">
-          <DialogHeader>
-            <DialogTitle className="text-xl font-semibold text-amber-700">
-              Apply for {selectedJob}
-            </DialogTitle>
-            <DialogDescription>
-              Please fill out all required fields accurately.
-            </DialogDescription>
-          </DialogHeader>
-
-          <form onSubmit={handleSubmit} className="space-y-4 mt-4">
-            {/* Name */}
-            <div>
-              <Input
-                name="name"
-                placeholder="Full Name"
-                value={formData.name}
-                onChange={handleInputChange}
-              />
-              {errors.name && (
-                <p className="text-red-500 text-sm mt-1">{errors.name}</p>
-              )}
-            </div>
-
-            {/* Email */}
-            <div>
-              <Input
-                name="email"
-                type="email"
-                placeholder="Email"
-                value={formData.email}
-                onChange={handleInputChange}
-              />
-              {errors.email && (
-                <p className="text-red-500 text-sm mt-1">{errors.email}</p>
-              )}
-            </div>
-
-            {/* Phone */}
-            <div>
-              <Input
-                name="phone"
-                type="tel"
-                placeholder="Phone Number (10 digits)"
-                maxLength={10} // fixed TypeScript error (must be number)
-                value={formData.phone}
-                onChange={handleInputChange}
-              />
-              {errors.phone && (
-                <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
-              )}
-            </div>
-
-            {/* Experience */}
-            <Input
-              name="experience"
-              placeholder="Years of Experience"
-              value={formData.experience}
-              onChange={handleInputChange}
+        <main className="flex flex-col">
+          {/* Hero */}
+          <section className="relative h-[300px] md:h-[400px] w-full">
+            <img
+              src={hiring}
+              alt="We Are Hiring"
+              className="absolute top-0 left-0 w-full h-full object-cover"
             />
+            <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center text-white">
+              <h1 className="text-4xl md:text-5xl font-bold">We’re Hiring!</h1>
+              <p className="mt-2 text-lg max-w-2xl">
+                Join India’s Leading Experts in Trichology & Hair Restoration.
+              </p>
+            </div>
+          </section>
 
-            {/* Message */}
-            <div>
-              <Textarea
-                name="message"
-                placeholder="Tell us about yourself (min 10 chars)"
-                value={formData.message}
+          {/* Current Openings */}
+          <section className="container mx-auto px-4 py-12 max-w-4xl">
+            <h2 className="text-2xl font-semibold mb-6 text-center">
+              Current Openings
+            </h2>
+            <Accordion type="single" collapsible>
+              {openPositions.map((position, index) => (
+                <AccordionItem key={index} value={`item-${index}`}>
+                  <AccordionTrigger className="text-lg font-medium">
+                    {position.title}
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <p className="mb-2">{position.description}</p>
+                    <div className="grid md:grid-cols-3 gap-4 text-sm mb-4">
+                      <div>
+                        <span className="font-semibold">Department:</span>
+                        <div className="text-muted-foreground">
+                          {position.department}
+                        </div>
+                      </div>
+                      <div>
+                        <span className="font-semibold">Type:</span>
+                        <div className="text-muted-foreground">
+                          {position.type}
+                        </div>
+                      </div>
+                      <div>
+                        <span className="font-semibold">Experience:</span>
+                        <div className="text-muted-foreground">
+                          {position.experience}
+                        </div>
+                      </div>
+                    </div>
+                    <Button
+                      onClick={() => handleApply(position.title)}
+                      className="bg-amber-500 hover:bg-amber-600 text-white font-semibold"
+                    >
+                      Apply Now
+                    </Button>
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </section>
+        </main>
+
+        {/* Application Dialog */}
+        <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+          <DialogContent className="max-w-lg">
+            <DialogHeader>
+              <DialogTitle className="text-xl font-semibold text-amber-700">
+                Apply for {selectedJob}
+              </DialogTitle>
+              <DialogDescription>
+                Please fill out all required fields accurately.
+              </DialogDescription>
+            </DialogHeader>
+
+            <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+              {/* Name */}
+              <div>
+                <Input
+                  name="name"
+                  placeholder="Full Name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                />
+                {errors.name && (
+                  <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                )}
+              </div>
+
+              {/* Email */}
+              <div>
+                <Input
+                  name="email"
+                  type="email"
+                  placeholder="Email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                />
+                {errors.email && (
+                  <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                )}
+              </div>
+
+              {/* Phone */}
+              <div>
+                <Input
+                  name="phone"
+                  type="tel"
+                  placeholder="Phone Number (10 digits)"
+                  maxLength={10} // fixed TypeScript error (must be number)
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                />
+                {errors.phone && (
+                  <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+                )}
+              </div>
+
+              {/* Experience */}
+              <Input
+                name="experience"
+                placeholder="Years of Experience"
+                value={formData.experience}
                 onChange={handleInputChange}
               />
-              {errors.message && (
-                <p className="text-red-500 text-sm mt-1">{errors.message}</p>
-              )}
-            </div>
 
-            <DialogFooter>
-              <Button
-                type="submit"
-                className="bg-amber-500 hover:bg-amber-600 text-white font-semibold"
-              >
-                Submit Application
-              </Button>
-            </DialogFooter>
-          </form>
-        </DialogContent>
-      </Dialog>
+              {/* Message */}
+              <div>
+                <Textarea
+                  name="message"
+                  placeholder="Tell us about yourself (min 10 chars)"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                />
+                {errors.message && (
+                  <p className="text-red-500 text-sm mt-1">{errors.message}</p>
+                )}
+              </div>
 
-      <Footer />
-    </div>
+              <DialogFooter>
+                <Button
+                  type="submit"
+                  className="bg-amber-500 hover:bg-amber-600 text-white font-semibold"
+                >
+                  Submit Application
+                </Button>
+              </DialogFooter>
+            </form>
+          </DialogContent>
+        </Dialog>
+
+        <Footer />
+      </div>
     </>
   );
 };

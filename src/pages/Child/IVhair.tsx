@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Link } from 'react-router-dom';
 import EnquiryForm from '@/components/EnquiryModal';
@@ -11,12 +10,12 @@ import beforeafter18 from '@/assets/beforeafter18.webp';
 import beforeafter19 from '@/assets/beforeafter19.webp';
 import beforeafter20 from '@/assets/beforeafter20.jpg';
 import beforeafter21 from '@/assets/beforeafter21.webp';
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Clock, 
-  CheckCircle, 
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  CheckCircle,
   Star,
   Shield,
   Users,
@@ -84,527 +83,526 @@ const beforeAfterResults = [
 const IVHairTherapy = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
-     <>
+    <>
       <SEO
         title="IV Hair Therapy in Chennai | Hair Strength & Growth"
         description="Revitalize hair from within with IV hair therapy. Nutrient-rich infusion reduces hair fall and promotes stronger, denser hair naturally."
         canonical="https://thegoldengemhairclinic.com/iv-hair-therapy"
       />
-    <div className="min-h-screen bg-white">
-           <EnquiryForm
-              isOpen={isModalOpen}
-              onClose={() => setIsModalOpen(false)}
-              onSubmit={(data) => {
-                console.log("Form submitted:", data);
-                setIsModalOpen(false);
-              }}
-              treatment="General Consultation"
-            />
-      <Header />
+      <div className="min-h-screen bg-white">
+        <EnquiryForm
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          onSubmit={(data) => {
+            console.log("Form submitted:", data);
+            setIsModalOpen(false);
+          }}
+          treatment="General Consultation"
+        />
 
-      {/* HERO SECTION - Modern Golden-Glass Design */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-yellow-50 via-amber-50 to-white">
-        {/* Ambient Light Blobs */}
-        <div className="absolute top-0 left-0 w-[30rem] h-[30rem] bg-amber-300/40 rounded-full blur-[120px] -translate-x-1/3 -translate-y-1/3"></div>
-        <div className="absolute bottom-0 right-0 w-[35rem] h-[35rem] bg-yellow-200/40 rounded-full blur-[120px] translate-x-1/3 translate-y-1/3"></div>
+        {/* HERO SECTION - Modern Golden-Glass Design */}
+        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-yellow-50 via-amber-50 to-white">
+          {/* Ambient Light Blobs */}
+          <div className="absolute top-0 left-0 w-[30rem] h-[30rem] bg-amber-300/40 rounded-full blur-[120px] -translate-x-1/3 -translate-y-1/3"></div>
+          <div className="absolute bottom-0 right-0 w-[35rem] h-[35rem] bg-yellow-200/40 rounded-full blur-[120px] translate-x-1/3 translate-y-1/3"></div>
 
-        {/* Subtle Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-yellow-100/40 via-transparent to-white/20 backdrop-blur-sm"></div>
+          {/* Subtle Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-yellow-100/40 via-transparent to-white/20 backdrop-blur-sm"></div>
 
-        {/* Content Container */}
-        <div className="relative z-10 container mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            
-            {/* LEFT SIDE - TEXT */}
-            <div className="space-y-8 text-center md:text-left">
-              <div className="space-y-2">
-                <p className="text-amber-600 font-semibold tracking-wide uppercase text-sm">
-                  Nutrient-Powered Hair Restoration
+          {/* Content Container */}
+          <div className="relative z-10 container mx-auto px-6 lg:px-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+              {/* LEFT SIDE - TEXT */}
+              <div className="space-y-8 text-center md:text-left">
+                <div className="space-y-2">
+                  <p className="text-amber-600 font-semibold tracking-wide uppercase text-sm">
+                    Nutrient-Powered Hair Restoration
+                  </p>
+                  <h1 className="text-3xl sm:text-3xl md:text-5xl font-bold text-slate-800 leading-tight">
+                    IV Hair <br />
+                    <span className="text-amber-500">Therapy</span>
+                  </h1>
+                </div>
+
+                <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
+                  Replenish your body and scalp with essential nutrients delivered intravenously.
+                  Boost hair growth, strengthen follicles, and restore scalp vitality naturally — without surgery.
                 </p>
-                <h1 className="text-3xl sm:text-3xl md:text-5xl font-bold text-slate-800 leading-tight">
-                  IV Hair <br />
-                  <span className="text-amber-500">Therapy</span>
-                </h1>
-              </div>
 
-              <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
-                Replenish your body and scalp with essential nutrients delivered intravenously. 
-                Boost hair growth, strengthen follicles, and restore scalp vitality naturally — without surgery.
-              </p>
-
-              {/* Stats Grid */}
-              <div className="grid grid-cols-3 gap-6 py-6">
-                <div className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-amber-600">90%+</div>
-                  <div className="text-xs sm:text-xs md:text-base text-[#1A1A1A]">Patient Satisfaction</div>
+                {/* Stats Grid */}
+                <div className="grid grid-cols-3 gap-6 py-6">
+                  <div className="text-center">
+                    <div className="text-2xl md:text-3xl font-bold text-amber-600">90%+</div>
+                    <div className="text-xs sm:text-xs md:text-base text-[#1A1A1A]">Patient Satisfaction</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl md:text-3xl font-bold text-amber-600">30–60 Min</div>
+                    <div className="text-xs sm:text-xs md:text-base text-[#1A1A1A]">Session Time</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl md:text-3xl font-bold text-amber-600">3200+</div>
+                    <div className="text-xs sm:text-xs md:text-base text-[#1A1A1A]">Happy Patients</div>
+                  </div>
                 </div>
-                <div className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-amber-600">30–60 Min</div>
-                  <div className="text-xs sm:text-xs md:text-base text-[#1A1A1A]">Session Time</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-amber-600">3200+</div>
-                  <div className="text-xs sm:text-xs md:text-base text-[#1A1A1A]">Happy Patients</div>
-                </div>
-              </div>
 
-              {/* Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                <Button
-                  onClick={() => setIsModalOpen(true)}
-                  size="lg"
-                  className="bg-amber-500 hover:bg-amber-600 text-white font-semibold px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
-                >
-                  <Phone className="mr-2 h-5 w-5" />
-                  Free Consultation
-                </Button>
-
-                <Link to="/iv-hair-therapy/#ivhairview" className="w-full sm:w-auto">
+                {/* Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                   <Button
+                    onClick={() => setIsModalOpen(true)}
                     size="lg"
-                    variant="outline"
-                    className="border border-amber-300 text-amber-700 bg-white/70 backdrop-blur-md hover:bg-white hover:text-amber-600 font-semibold px-8 py-4 rounded-xl transition-all duration-300"
+                    className="bg-amber-500 hover:bg-amber-600 text-white font-semibold px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
                   >
-                    <Microscope className="mr-2 h-5 w-5" />
-                    View Results
+                    <Phone className="mr-2 h-5 w-5" />
+                    Free Consultation
                   </Button>
-                </Link>
+
+                  <Link to="/iv-hair-therapy/#ivhairview" className="w-full sm:w-auto">
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="border border-amber-300 text-amber-700 bg-white/70 backdrop-blur-md hover:bg-white hover:text-amber-600 font-semibold px-8 py-4 rounded-xl transition-all duration-300"
+                    >
+                      <Microscope className="mr-2 h-5 w-5" />
+                      View Results
+                    </Button>
+                  </Link>
+                </div>
               </div>
-            </div>
 
-            {/* RIGHT SIDE - IMAGE */}
-            <div className="relative flex justify-center mt-10 md:mt-0">
-              {/* Ambient Glow Behind Image */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-amber-300/30 via-white/10 to-transparent rounded-3xl blur-2xl"></div>
+              {/* RIGHT SIDE - IMAGE */}
+              <div className="relative flex justify-center mt-10 md:mt-0">
+                {/* Ambient Glow Behind Image */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-amber-300/30 via-white/10 to-transparent rounded-3xl blur-2xl"></div>
 
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl w-3/4 sm:w-2/3 md:w-full max-w-md lg:max-w-lg">
-                <img
-                  src={HT}
-                  alt="IV Hair Therapy Treatment"
-                  className="object-cover w-full h-[480px]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl w-3/4 sm:w-2/3 md:w-full max-w-md lg:max-w-lg">
+                  <img
+                    src={HT}
+                    alt="IV Hair Therapy Treatment"
+                    className="object-cover w-full h-[480px]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
 
-                {/* Rating Badge */}
-                <div className="absolute bottom-4 left-4 bg-white/80 backdrop-blur-md px-4 py-2 rounded-xl flex items-center gap-2 shadow-md">
-                  <div className="flex -space-x-1">
-                    {[1, 2, 3, 4, 5].map((i) => (
-                      <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
-                    ))}
+                  {/* Rating Badge */}
+                  <div className="absolute bottom-4 left-4 bg-white/80 backdrop-blur-md px-4 py-2 rounded-xl flex items-center gap-2 shadow-md">
+                    <div className="flex -space-x-1">
+                      {[1, 2, 3, 4, 5].map((i) => (
+                        <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
+                      ))}
+                    </div>
+                    <span className="font-medium text-slate-800 text-sm">
+                      4.7/5 from 950+ clients
+                    </span>
                   </div>
-                  <span className="font-medium text-slate-800 text-sm">
-                    4.7/5 from 950+ clients
-                  </span>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
 
-      {/* WHY CHOOSE IV HAIR THERAPY SECTION */}
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
-              Why Choose IV Hair Therapy?
-            </h2>
-            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
-              IV Hair Therapy delivers targeted nutrition directly to your bloodstream, 
-              boosting hair follicle health and promoting vibrant, lasting hair growth.
-            </p>
+        {/* WHY CHOOSE IV HAIR THERAPY SECTION */}
+        <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
+                Why Choose IV Hair Therapy?
+              </h2>
+              <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
+                IV Hair Therapy delivers targeted nutrition directly to your bloodstream,
+                boosting hair follicle health and promoting vibrant, lasting hair growth.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+              {[
+                {
+                  icon: <Users className="h-12 w-12 text-yellow-600" />,
+                  title: "Non-Surgical",
+                  description: "No incisions or recovery, ideal for non-invasive preferences"
+                },
+                {
+                  icon: <Shield className="h-12 w-12 text-yellow-500" />,
+                  title: "Zero Downtime",
+                  description: "Resume daily activities immediately after infusion"
+                },
+                {
+                  icon: <Award className="h-12 w-12 text-yellow-400" />,
+                  title: "Nutrient-Rich",
+                  description: "Delivers vitamins and minerals for optimal hair health"
+                },
+                {
+                  icon: <Microscope className="h-12 w-12 text-yellow-300" />,
+                  title: "Complementary",
+                  description: "Enhances results when paired with other hair treatments"
+                }
+              ].map((feature, idx) => (
+                <div key={idx} className="bg-white p-8 rounded-md shadow-md hover:shadow-lg transition-shadow duration-300">
+                  <div className="mb-4">{feature.icon}</div>
+                  <h3 className="text-md font-semibold text-gray-800 mb-3">{feature.title}</h3>
+                  <p className="text-xs text-gray-600">{feature.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
+        </section>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            {[
-              {
-                icon: <Users className="h-12 w-12 text-yellow-600" />,
-                title: "Non-Surgical",
-                description: "No incisions or recovery, ideal for non-invasive preferences"
-              },
-              {
-                icon: <Shield className="h-12 w-12 text-yellow-500" />,
-                title: "Zero Downtime",
-                description: "Resume daily activities immediately after infusion"
-              },
-              {
-                icon: <Award className="h-12 w-12 text-yellow-400" />,
-                title: "Nutrient-Rich",
-                description: "Delivers vitamins and minerals for optimal hair health"
-              },
-              {
-                icon: <Microscope className="h-12 w-12 text-yellow-300" />,
-                title: "Complementary",
-                description: "Enhances results when paired with other hair treatments"
-              }
-            ].map((feature, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-md shadow-md hover:shadow-lg transition-shadow duration-300">
-                <div className="mb-4">{feature.icon}</div>
-                <h3 className="text-md font-semibold text-gray-800 mb-3">{feature.title}</h3>
-                <p className="text-xs text-gray-600">{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+        {/* DETAILED COMPARISON TABLE */}
+        <section className="py-0 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
+                IV Hair Therapy vs Other Hair Restoration Methods
+              </h2>
+              <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
+                Compare IV Hair Therapy with other techniques to find the best solution for your hair restoration needs.
+              </p>
+            </div>
 
-      {/* DETAILED COMPARISON TABLE */}
-      <section className="py-0 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
-              IV Hair Therapy vs Other Hair Restoration Methods
-            </h2>
-            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
-              Compare IV Hair Therapy with other techniques to find the best solution for your hair restoration needs.
-            </p>
-          </div>
-
-          <div className="overflow-x-auto rounded-md shadow-md">
-            <table className="min-w-full bg-white">
-              <thead>
-                <tr className="bg-gradient-to-r from-yellow-600 to-yellow-400 text-white">
-                  <th className="px-6 py-4 text-left font-semibold text-xs sm:text-xs md:text-base">Comparison Factors</th>
-                  <th className="px-6 py-4 text-center font-semibold text-xs sm:text-xs md:text-base">FUT (Strip)</th>
-                  <th className="px-6 py-4 text-center font-semibold text-xs sm:text-xs md:text-base">FUE</th>
-                  <th className="px-6 py-4 text-center font-semibold text-xs sm:text-xs md:text-base">GFC</th>
-                  <th className="px-6 py-4 text-center font-semibold text-xs sm:text-xs md:text-base bg-yellow-500">IV Hair Therapy</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-200">
-                {[
-                  {
-                    factor: "Treatment Type",
-                    fut: "Surgical (strip extraction)",
-                    fue: "Surgical (individual follicle extraction)",
-                    gfc: "Non-surgical (growth factor injections)",
-                    iv: "Non-surgical (intravenous nutrient infusion)"
-                  },
-                  {
-                    factor: "Procedure Duration",
-                    fut: "4-6 hours",
-                    fue: "6-8 hours",
-                    gfc: "30-60 minutes",
-                    iv: "30-60 minutes"
-                  },
-                  {
-                    factor: "Scarring",
-                    fut: "Linear scar",
-                    fue: "Tiny dot scars",
-                    gfc: "No scarring",
-                    iv: "No scarring"
-                  },
-                  {
-                    factor: "Recovery Time",
-                    fut: "10-14 days",
-                    fue: "7-10 days",
-                    gfc: "None",
-                    iv: "None"
-                  },
-                  {
-                    factor: "Sessions Needed",
-                    fut: "1-2 sessions",
-                    fue: "1-3 sessions",
-                    gfc: "4-6 sessions",
-                    iv: "6-8 sessions"
-                  },
-                  {
-                    factor: "Results Timeline",
-                    fut: "12-18 months",
-                    fue: "12-18 months",
-                    gfc: "6-9 months",
-                    iv: "4-6 months"
-                  },
-                  {
-                    factor: "Invasiveness",
-                    fut: "Highly invasive",
-                    fue: "Moderately invasive",
-                    gfc: "Minimally invasive",
-                    iv: "Minimally invasive"
-                  },
-                  {
-                    factor: "Cost",
-                    fut: "Most economical for large sessions",
-                    fue: "Moderate to high",
-                    gfc: "Moderate",
-                    iv: "Low to moderate"
-                  },
-                  {
-                    factor: "Ideal Candidate",
-                    fut: "Extensive hair loss",
-                    fue: "Mild to moderate hair loss",
-                    gfc: "Early to moderate thinning",
-                    iv: "Nutrient-deficient or thinning hair"
-                  },
-                  {
-                    factor: "Maintenance",
-                    fut: "None (permanent results)",
-                    fue: "None (permanent results)",
-                    gfc: "Every 6-12 months",
-                    iv: "Every 3-6 months"
-                  }
-                ].map((row, idx) => (
-                  <tr key={idx} className={idx % 2 === 0 ? "bg-gray-50" : "bg-white"}>
-                    <td className="px-6 py-4 font-semibold text-gray-800">{row.factor}</td>
-                    <td className="px-6 py-4 text-center text-orange-600">{row.fut}</td>
-                    <td className="px-6 py-4 text-center text-amber-600">{row.fue}</td>
-                    <td className="px-6 py-4 text-center text-yellow-600">{row.gfc}</td>
-                    <td className="px-6 py-4 text-center text-yellow-700 font-semibold bg-yellow-50">{row.iv}</td>
+            <div className="overflow-x-auto rounded-md shadow-md">
+              <table className="min-w-full bg-white">
+                <thead>
+                  <tr className="bg-gradient-to-r from-yellow-600 to-yellow-400 text-white">
+                    <th className="px-6 py-4 text-left font-semibold text-xs sm:text-xs md:text-base">Comparison Factors</th>
+                    <th className="px-6 py-4 text-center font-semibold text-xs sm:text-xs md:text-base">FUT (Strip)</th>
+                    <th className="px-6 py-4 text-center font-semibold text-xs sm:text-xs md:text-base">FUE</th>
+                    <th className="px-6 py-4 text-center font-semibold text-xs sm:text-xs md:text-base">GFC</th>
+                    <th className="px-6 py-4 text-center font-semibold text-xs sm:text-xs md:text-base bg-yellow-500">IV Hair Therapy</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody className="divide-y divide-gray-200">
+                  {[
+                    {
+                      factor: "Treatment Type",
+                      fut: "Surgical (strip extraction)",
+                      fue: "Surgical (individual follicle extraction)",
+                      gfc: "Non-surgical (growth factor injections)",
+                      iv: "Non-surgical (intravenous nutrient infusion)"
+                    },
+                    {
+                      factor: "Procedure Duration",
+                      fut: "4-6 hours",
+                      fue: "6-8 hours",
+                      gfc: "30-60 minutes",
+                      iv: "30-60 minutes"
+                    },
+                    {
+                      factor: "Scarring",
+                      fut: "Linear scar",
+                      fue: "Tiny dot scars",
+                      gfc: "No scarring",
+                      iv: "No scarring"
+                    },
+                    {
+                      factor: "Recovery Time",
+                      fut: "10-14 days",
+                      fue: "7-10 days",
+                      gfc: "None",
+                      iv: "None"
+                    },
+                    {
+                      factor: "Sessions Needed",
+                      fut: "1-2 sessions",
+                      fue: "1-3 sessions",
+                      gfc: "4-6 sessions",
+                      iv: "6-8 sessions"
+                    },
+                    {
+                      factor: "Results Timeline",
+                      fut: "12-18 months",
+                      fue: "12-18 months",
+                      gfc: "6-9 months",
+                      iv: "4-6 months"
+                    },
+                    {
+                      factor: "Invasiveness",
+                      fut: "Highly invasive",
+                      fue: "Moderately invasive",
+                      gfc: "Minimally invasive",
+                      iv: "Minimally invasive"
+                    },
+                    {
+                      factor: "Cost",
+                      fut: "Most economical for large sessions",
+                      fue: "Moderate to high",
+                      gfc: "Moderate",
+                      iv: "Low to moderate"
+                    },
+                    {
+                      factor: "Ideal Candidate",
+                      fut: "Extensive hair loss",
+                      fue: "Mild to moderate hair loss",
+                      gfc: "Early to moderate thinning",
+                      iv: "Nutrient-deficient or thinning hair"
+                    },
+                    {
+                      factor: "Maintenance",
+                      fut: "None (permanent results)",
+                      fue: "None (permanent results)",
+                      gfc: "Every 6-12 months",
+                      iv: "Every 3-6 months"
+                    }
+                  ].map((row, idx) => (
+                    <tr key={idx} className={idx % 2 === 0 ? "bg-gray-50" : "bg-white"}>
+                      <td className="px-6 py-4 font-semibold text-gray-800">{row.factor}</td>
+                      <td className="px-6 py-4 text-center text-orange-600">{row.fut}</td>
+                      <td className="px-6 py-4 text-center text-amber-600">{row.fue}</td>
+                      <td className="px-6 py-4 text-center text-yellow-600">{row.gfc}</td>
+                      <td className="px-6 py-4 text-center text-yellow-700 font-semibold bg-yellow-50">{row.iv}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* BEFORE & AFTER RESULTS */}
-      <section id='ivhairview' className="py-20 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
-              Real Patient Results
-            </h2>
-            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
-              See the transformative impact of IV Hair Therapy on hair density and vitality.
-            </p>
-          </div>
+        {/* BEFORE & AFTER RESULTS */}
+        <section id='ivhairview' className="py-20 bg-gradient-to-b from-gray-50 to-white">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
+                Real Patient Results
+              </h2>
+              <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
+                See the transformative impact of IV Hair Therapy on hair density and vitality.
+              </p>
+            </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {beforeAfterResults.map((result, idx) => (
-              <div key={idx} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                <div className="relative">
-                  <button onClick={() => (window as any).__openImageLightbox?.(result.before, result.age)} className="block w-full">
-                    <img 
-                      src={result.before} 
-                      alt="Before Treatment"
-                      className="w-full h-48 object-cover"
-                    />
-                  </button>
-                </div>
-                <div className="p-6">
-                  <div className="space-y-2 text-sm text-gray-600">
-                    <div className="flex justify-between">
-                      <span>Age:</span>
-                      <span className="font-semibold">{result.age}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Sessions:</span>
-                      <span className="font-semibold text-yellow-600">{result.sessions}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Timeline:</span>
-                      <span className="font-semibold text-green-600">{result.timeline}</span>
-                    </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {beforeAfterResults.map((result, idx) => (
+                <div key={idx} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                  <div className="relative">
+                    <button onClick={() => (window as any).__openImageLightbox?.(result.before, result.age)} className="block w-full">
+                      <img
+                        src={result.before}
+                        alt="Before Treatment"
+                        className="w-full h-48 object-cover"
+                      />
+                    </button>
                   </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* COMPREHENSIVE PRE & POST-TREATMENT INSTRUCTIONS */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
-              Complete Care Instructions
-            </h2>
-            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
-              Follow these guidelines to ensure the best results from your IV Hair Therapy sessions.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Pre-Treatment Instructions */}
-            <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-md p-8">
-              <div className="flex items-center mb-6">
-                <div className="bg-yellow-600 p-3 rounded-xl mr-4">
-                  <CheckCircle className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-yellow-800">Pre-Treatment Preparation</h3>
-              </div>
-              
-              <div className="space-y-4">
-                <h4 className="font-medium text-yellow-700 mb-3">1 Week Before Treatment:</h4>
-                <ul className="space-y-3 text-gray-700">
-                  <li className="flex items-start">
-                    <ChevronRight className="h-4 w-4 text-yellow-600 mt-1 mr-2 flex-shrink-0" />
-                    Avoid blood-thinning medications (e.g., Aspirin, Ibuprofen) after consulting your doctor
-                  </li>
-                  <li className="flex items-start">
-                    <ChevronRight className="h-4 w-4 text-yellow-600 mt-1 mr-2 flex-shrink-0" />
-                    Stop herbal supplements that may affect clotting (e.g., Fish Oil, Ginkgo)
-                  </li>
-                  <li className="flex items-start">
-                    <ChevronRight className="h-4 w-4 text-yellow-600 mt-1 mr-2 flex-shrink-0" />
-                    Stay well-hydrated to support IV infusion
-                  </li>
-                </ul>
-
-                <h4 className="font-medium text-yellow-700 mb-3 mt-6">Day of Treatment:</h4>
-                <ul className="space-y-3 text-gray-700">
-                  <li className="flex items-start">
-                    <ChevronRight className="h-4 w-4 text-yellow-600 mt-1 mr-2 flex-shrink-0" />
-                    Eat a light meal before the session
-                  </li>
-                  <li className="flex items-start">
-                    <ChevronRight className="h-4 w-4 text-yellow-600 mt-1 mr-2 flex-shrink-0" />
-                    Wear loose clothing for IV access
-                  </li>
-                  <li className="flex items-start">
-                    <ChevronRight className="h-4 w-4 text-yellow-600 mt-1 mr-2 flex-shrink-0" />
-                    Avoid caffeine and alcohol 24 hours prior
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Post-Treatment Instructions */}
-            <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-md p-8">
-              <div className="flex items-center mb-6">
-                <div className="bg-green-600 p-3 rounded-xl mr-4">
-                  <Heart className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-green-800">Post-Treatment Care</h3>
-              </div>
-              
-              <div className="space-y-4">
-                <h4 className="font-medium text-green-700 mb-3">First 24 Hours:</h4>
-                <ul className="space-y-3 text-gray-700">
-                  <li className="flex items-start">
-                    <ChevronRight className="h-4 w-4 text-green-600 mt-1 mr-2 flex-shrink-0" />
-                    Stay hydrated by drinking plenty of water
-                  </li>
-                  <li className="flex items-start">
-                    <ChevronRight className="h-4 w-4 text-green-600 mt-1 mr-2 flex-shrink-0" />
-                    Avoid heavy exercise or sweating
-                  </li>
-                  <li className="flex items-start">
-                    <ChevronRight className="h-4 w-4 text-green-600 mt-1 mr-2 flex-shrink-0" />
-                    Monitor IV insertion site for minor redness
-                  </li>
-                </ul>
-
-                <h4 className="font-medium text-green-700 mb-3 mt-6">First Week:</h4>
-                <ul className="space-y-3 text-gray-700">
-                  <li className="flex items-start">
-                    <ChevronRight className="h-4 w-4 text-green-600 mt-1 mr-2 flex-shrink-0" />
-                    Wash hair gently with mild shampoo
-                  </li>
-                  <li className="flex items-start">
-                    <ChevronRight className="h-4 w-4 text-green-600 mt-1 mr-2 flex-shrink-0" />
-                    Avoid direct sunlight or tight hats
-                  </li>
-                  <li className="flex items-start">
-                    <ChevronRight className="h-4 w-4 text-green-600 mt-1 mr-2 flex-shrink-0" />
-                    Refrain from swimming or saunas
-                  </li>
-                </ul>
-
-                <h4 className="font-medium text-green-700 mb-3 mt-6">Long-term Care:</h4>
-                <ul className="space-y-3 text-gray-700">
-                  <li className="flex items-start">
-                    <ChevronRight className="h-4 w-4 text-green-600 mt-1 mr-2 flex-shrink-0" />
-                    Follow the recommended session schedule (1-2 weeks apart)
-                  </li>
-                  <li className="flex items-start">
-                    <ChevronRight className="h-4 w-4 text-green-600 mt-1 mr-2 flex-shrink-0" />
-                    Attend follow-up appointments to monitor progress
-                  </li>
-                  <li className="flex items-start">
-                    <ChevronRight className="h-4 w-4 text-green-600 mt-1 mr-2 flex-shrink-0" />
-                    Maintain a balanced diet rich in vitamins
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ SECTION */}
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
-              Answers to common questions about IV Hair Therapy for hair restoration.
-            </p>
-          </div>
-
-          <div className="max-w-4xl mx-auto">
-            <div className="space-y-6">
-              {faqs.map((faq, idx) => (
-                <div key={idx} className="bg-white rounded-md shadow-md border border-gray-100 hover:shadow-lg transition-shadow duration-300">
                   <div className="p-6">
-                    <h3 className="text-md font-semibold text-gray-800 mb-4 flex items-start">
-                      <div className="bg-yellow-100 text-yellow-600 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 mt-1 flex-shrink-0">
-                        Q
+                    <div className="space-y-2 text-sm text-gray-600">
+                      <div className="flex justify-between">
+                        <span>Age:</span>
+                        <span className="font-semibold">{result.age}</span>
                       </div>
-                      {faq.q}
-                    </h3>
-                    <div className="ml-12">
-                      <p className="text-xs text-gray-700 leading-relaxed">{faq.a}</p>
+                      <div className="flex justify-between">
+                        <span>Sessions:</span>
+                        <span className="font-semibold text-yellow-600">{result.sessions}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Timeline:</span>
+                        <span className="font-semibold text-green-600">{result.timeline}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* TRUST INDICATORS */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
-              Why trust The Golden Gem Clinic for Your IV Hair Therapy
-            </h2>
-            <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
-              Our clinic combines medical expertise with advanced IV therapy protocols to deliver exceptional hair restoration results.
-            </p>
-          </div>
+        {/* COMPREHENSIVE PRE & POST-TREATMENT INSTRUCTIONS */}
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
+                Complete Care Instructions
+              </h2>
+              <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
+                Follow these guidelines to ensure the best results from your IV Hair Therapy sessions.
+              </p>
+            </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                icon: <Award className="h-12 w-12 text-yellow-600" />,
-                title: "Medical Expertise",
-                description: "Certified medical professionals trained in IV therapy administration."
-              },
-              {
-                icon: <Heart className="h-12 w-12 text-yellow-500" />,
-                title: "High Satisfaction",
-                description: "Over 3,200 successful treatments with 90% satisfaction."
-              },
-              {
-                icon: <Zap className="h-12 w-12 text-yellow-400" />,
-                title: "Custom Formulations",
-                description: "Tailored nutrient blends to address specific hair needs."
-              },
-              {
-                icon: <Shield className="h-12 w-12 text-yellow-300" />,
-                title: "Safe Environment",
-                description: "Accredited facilities with stringent hygiene standards."
-              }
-            ].map((indicator, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-md shadow-md hover:shadow-lg transition-shadow duration-300">
-                <div className="mb-4">{indicator.icon}</div>
-                <h3 className="text-md font-semibold text-gray-800 mb-3">{indicator.title}</h3>
-                <p className="text-xs text-gray-600">{indicator.description}</p>
+            <div className="grid lg:grid-cols-2 gap-12">
+              {/* Pre-Treatment Instructions */}
+              <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-md p-8">
+                <div className="flex items-center mb-6">
+                  <div className="bg-yellow-600 p-3 rounded-xl mr-4">
+                    <CheckCircle className="h-6 w-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-yellow-800">Pre-Treatment Preparation</h3>
+                </div>
+
+                <div className="space-y-4">
+                  <h4 className="font-medium text-yellow-700 mb-3">1 Week Before Treatment:</h4>
+                  <ul className="space-y-3 text-gray-700">
+                    <li className="flex items-start">
+                      <ChevronRight className="h-4 w-4 text-yellow-600 mt-1 mr-2 flex-shrink-0" />
+                      Avoid blood-thinning medications (e.g., Aspirin, Ibuprofen) after consulting your doctor
+                    </li>
+                    <li className="flex items-start">
+                      <ChevronRight className="h-4 w-4 text-yellow-600 mt-1 mr-2 flex-shrink-0" />
+                      Stop herbal supplements that may affect clotting (e.g., Fish Oil, Ginkgo)
+                    </li>
+                    <li className="flex items-start">
+                      <ChevronRight className="h-4 w-4 text-yellow-600 mt-1 mr-2 flex-shrink-0" />
+                      Stay well-hydrated to support IV infusion
+                    </li>
+                  </ul>
+
+                  <h4 className="font-medium text-yellow-700 mb-3 mt-6">Day of Treatment:</h4>
+                  <ul className="space-y-3 text-gray-700">
+                    <li className="flex items-start">
+                      <ChevronRight className="h-4 w-4 text-yellow-600 mt-1 mr-2 flex-shrink-0" />
+                      Eat a light meal before the session
+                    </li>
+                    <li className="flex items-start">
+                      <ChevronRight className="h-4 w-4 text-yellow-600 mt-1 mr-2 flex-shrink-0" />
+                      Wear loose clothing for IV access
+                    </li>
+                    <li className="flex items-start">
+                      <ChevronRight className="h-4 w-4 text-yellow-600 mt-1 mr-2 flex-shrink-0" />
+                      Avoid caffeine and alcohol 24 hours prior
+                    </li>
+                  </ul>
+                </div>
               </div>
-            ))}
+
+              {/* Post-Treatment Instructions */}
+              <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-md p-8">
+                <div className="flex items-center mb-6">
+                  <div className="bg-green-600 p-3 rounded-xl mr-4">
+                    <Heart className="h-6 w-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-green-800">Post-Treatment Care</h3>
+                </div>
+
+                <div className="space-y-4">
+                  <h4 className="font-medium text-green-700 mb-3">First 24 Hours:</h4>
+                  <ul className="space-y-3 text-gray-700">
+                    <li className="flex items-start">
+                      <ChevronRight className="h-4 w-4 text-green-600 mt-1 mr-2 flex-shrink-0" />
+                      Stay hydrated by drinking plenty of water
+                    </li>
+                    <li className="flex items-start">
+                      <ChevronRight className="h-4 w-4 text-green-600 mt-1 mr-2 flex-shrink-0" />
+                      Avoid heavy exercise or sweating
+                    </li>
+                    <li className="flex items-start">
+                      <ChevronRight className="h-4 w-4 text-green-600 mt-1 mr-2 flex-shrink-0" />
+                      Monitor IV insertion site for minor redness
+                    </li>
+                  </ul>
+
+                  <h4 className="font-medium text-green-700 mb-3 mt-6">First Week:</h4>
+                  <ul className="space-y-3 text-gray-700">
+                    <li className="flex items-start">
+                      <ChevronRight className="h-4 w-4 text-green-600 mt-1 mr-2 flex-shrink-0" />
+                      Wash hair gently with mild shampoo
+                    </li>
+                    <li className="flex items-start">
+                      <ChevronRight className="h-4 w-4 text-green-600 mt-1 mr-2 flex-shrink-0" />
+                      Avoid direct sunlight or tight hats
+                    </li>
+                    <li className="flex items-start">
+                      <ChevronRight className="h-4 w-4 text-green-600 mt-1 mr-2 flex-shrink-0" />
+                      Refrain from swimming or saunas
+                    </li>
+                  </ul>
+
+                  <h4 className="font-medium text-green-700 mb-3 mt-6">Long-term Care:</h4>
+                  <ul className="space-y-3 text-gray-700">
+                    <li className="flex items-start">
+                      <ChevronRight className="h-4 w-4 text-green-600 mt-1 mr-2 flex-shrink-0" />
+                      Follow the recommended session schedule (1-2 weeks apart)
+                    </li>
+                    <li className="flex items-start">
+                      <ChevronRight className="h-4 w-4 text-green-600 mt-1 mr-2 flex-shrink-0" />
+                      Attend follow-up appointments to monitor progress
+                    </li>
+                    <li className="flex items-start">
+                      <ChevronRight className="h-4 w-4 text-green-600 mt-1 mr-2 flex-shrink-0" />
+                      Maintain a balanced diet rich in vitamins
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
-      <Footer />
-    </div>
+        </section>
+
+        {/* FAQ SECTION */}
+        <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
+                Frequently Asked Questions
+              </h2>
+              <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
+                Answers to common questions about IV Hair Therapy for hair restoration.
+              </p>
+            </div>
+
+            <div className="max-w-4xl mx-auto">
+              <div className="space-y-6">
+                {faqs.map((faq, idx) => (
+                  <div key={idx} className="bg-white rounded-md shadow-md border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+                    <div className="p-6">
+                      <h3 className="text-md font-semibold text-gray-800 mb-4 flex items-start">
+                        <div className="bg-yellow-100 text-yellow-600 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 mt-1 flex-shrink-0">
+                          Q
+                        </div>
+                        {faq.q}
+                      </h3>
+                      <div className="ml-12">
+                        <p className="text-xs text-gray-700 leading-relaxed">{faq.a}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* TRUST INDICATORS */}
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-2xl md:text-3xl font-bold leading-[3.2rem] md:leading-[3.4rem]">
+                Why trust The Golden Gem Clinic for Your IV Hair Therapy
+              </h2>
+              <p className="text-xs sm:text-xs md:text-base text-[#1A1A1A] max-w-2xl mx-auto leading-normal">
+                Our clinic combines medical expertise with advanced IV therapy protocols to deliver exceptional hair restoration results.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[
+                {
+                  icon: <Award className="h-12 w-12 text-yellow-600" />,
+                  title: "Medical Expertise",
+                  description: "Certified medical professionals trained in IV therapy administration."
+                },
+                {
+                  icon: <Heart className="h-12 w-12 text-yellow-500" />,
+                  title: "High Satisfaction",
+                  description: "Over 3,200 successful treatments with 90% satisfaction."
+                },
+                {
+                  icon: <Zap className="h-12 w-12 text-yellow-400" />,
+                  title: "Custom Formulations",
+                  description: "Tailored nutrient blends to address specific hair needs."
+                },
+                {
+                  icon: <Shield className="h-12 w-12 text-yellow-300" />,
+                  title: "Safe Environment",
+                  description: "Accredited facilities with stringent hygiene standards."
+                }
+              ].map((indicator, idx) => (
+                <div key={idx} className="bg-white p-8 rounded-md shadow-md hover:shadow-lg transition-shadow duration-300">
+                  <div className="mb-4">{indicator.icon}</div>
+                  <h3 className="text-md font-semibold text-gray-800 mb-3">{indicator.title}</h3>
+                  <p className="text-xs text-gray-600">{indicator.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+        <Footer />
+      </div>
     </>
   );
 };
