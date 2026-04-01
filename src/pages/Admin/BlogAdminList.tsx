@@ -97,17 +97,23 @@ export default function BlogAdminList() {
                     </td>
                     <td className="px-6 py-4 text-center">
                       <span
-                        className={`inline-flex px-3 py-1 rounded-full text-xs font-semibold ${
-                          b.status === "published"
+                        className={`inline-flex px-3 py-1 rounded-full text-xs font-semibold ${b.status === "published"
                             ? "bg-green-100 text-green-700"
                             : "bg-yellow-100 text-yellow-700"
-                        }`}
+                          }`}
                       >
                         {b.status}
                       </span>
                     </td>
                     <td className="px-6 py-4 text-center">
-                      <div className="flex justify-center gap-3">
+                      <div className="flex justify-center gap-4">
+                        <button
+                          onClick={() => navigate(`/admin/blogs/edit/${b.id}`)}
+                          className="text-blue-600 hover:text-blue-800 font-medium hover:underline"
+                        >
+                          Edit
+                        </button>
+
                         <button
                           onClick={() => deleteBlog(b.id)}
                           className="text-red-600 hover:text-red-800 font-medium hover:underline"

@@ -42,7 +42,7 @@ export default function BlogDetail() {
           title: blog?.title,
           url: window.location.href,
         });
-      } catch {}
+      } catch { }
     } else {
       navigator.clipboard.writeText(window.location.href);
       alert("Link copied to clipboard!");
@@ -52,7 +52,6 @@ export default function BlogDetail() {
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-[#F9F3E6] to-white">
-        <Header />
         <div className="flex items-center justify-center py-24">
           <div className="w-14 h-14 border-4 border-[#C9A24D] border-t-transparent rounded-full animate-spin" />
         </div>
@@ -64,7 +63,6 @@ export default function BlogDetail() {
   if (!blog) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-[#F9F3E6] to-white">
-        <Header />
         <div className="max-w-4xl mx-auto px-6 py-24 text-center">
           <div className="bg-white rounded-2xl shadow-xl p-12">
             <h1 className="text-3xl font-bold text-gray-900 mb-4">
@@ -97,8 +95,6 @@ export default function BlogDetail() {
       />
 
       <div className="min-h-screen bg-gradient-to-b from-[#F9F3E6] to-white">
-        <Header />
-
         <article className="max-w-5xl mx-auto px-6 py-10">
           {/* Back */}
           <a
@@ -110,54 +106,58 @@ export default function BlogDetail() {
           </a>
 
           <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
+            {/* IMAGE ONLY */}
             {blog.cover_image && (
-              <div className="relative h-[480px]">
+              <div className="h-[480px]">
                 <img
                   src={`${import.meta.env.VITE_API_BASE}${blog.cover_image}`}
                   alt={blog.title}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-
-                <div className="absolute bottom-0 p-8 md:p-12 text-white">
-                  <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                    {blog.title}
-                  </h1>
-
-                  <div className="flex flex-wrap items-center gap-5 text-sm text-white/90">
-                    {blog.author && (
-                      <div className="flex items-center gap-2">
-                        <div className="w-9 h-9 bg-[#C9A24D]/80 rounded-full flex items-center justify-center font-semibold text-black">
-                          {blog.author.charAt(0)}
-                        </div>
-                        <span>{blog.author}</span>
-                      </div>
-                    )}
-
-                    {blog.created_at && (
-                      <div className="flex items-center gap-2">
-                        <Calendar className="w-4 h-4 text-[#F5D98B]" />
-                        <span>
-                          {new Date(blog.created_at).toLocaleDateString(
-                            "en-US",
-                            { year: "numeric", month: "long", day: "numeric" }
-                          )}
-                        </span>
-                      </div>
-                    )}
-
-                    {blog.read_time && (
-                      <div className="flex items-center gap-2">
-                        <Clock className="w-4 h-4 text-[#F5D98B]" />
-                        <span>{blog.read_time} min read</span>
-                      </div>
-                    )}
-                  </div>
-                </div>
               </div>
             )}
 
+            {/* HEADER BELOW IMAGE */}
             <div className="p-8 md:p-12">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+                {blog.title}
+              </h1>
+
+              <div className="flex flex-wrap items-center gap-5 text-sm text-gray-600 mb-8">
+                {blog.author && (
+                  <div className="flex items-center gap-2">
+                    <div className="w-9 h-9 bg-[#C9A24D] rounded-full flex items-center justify-center font-semibold text-white">
+                      {blog.author.charAt(0)}
+                    </div>
+                    <span>{blog.author}</span>
+                  </div>
+                )}
+
+                {blog.created_at && (
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-4 h-4 text-[#C9A24D]" />
+                    <span>
+                      {new Date(blog.created_at).toLocaleDateString(
+                        "en-US",
+                        {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        }
+                      )}
+                    </span>
+                  </div>
+                )}
+
+                {blog.read_time && (
+                  <div className="flex items-center gap-2">
+                    <Clock className="w-4 h-4 text-[#C9A24D]" />
+                    <span>{blog.read_time} min read</span>
+                  </div>
+                )}
+              </div>
+
+              {/* SHARE BUTTON */}
               <div className="flex justify-end mb-8">
                 <button
                   onClick={handleShare}
@@ -168,6 +168,7 @@ export default function BlogDetail() {
                 </button>
               </div>
 
+              {/* CONTENT */}
               <div
                 className="prose prose-lg max-w-none
                   prose-headings:text-[#8A6A2F]

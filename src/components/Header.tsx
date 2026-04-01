@@ -44,6 +44,19 @@ import microblading from '../assets/microbalding.jpg';
 import antiacne from '../assets/anti-acne.jpg';
 import hydra from '../assets/hydrafacial.webp';
 
+// ── Skin concern images (use placeholders matching your asset names) ────────
+import acneScarImg from '../assets/acne_scar.png';
+import ageingImg from '../assets/aging.webp';
+import darkCirclesImg from '../assets/dark_circles.webp';
+import openPoresImg from '../assets/open_pores.webp';
+import tannedSkinImg from '../assets/tanned.webp';
+
+// Skin Diagnosis
+
+import skinanalysis from '../assets/skin_analysis.jpg';
+import dermoscopySkin from '../assets/dermoscopy_skin.jpg';
+import PatchTest from '../assets/patch_test.webp';
+
 /* ═══════════════════════════════════════════════════════════
    TYPES
 ═══════════════════════════════════════════════════════════ */
@@ -177,6 +190,34 @@ const hairNavigationItems: Record<string, NavigationItem> = {
 ═══════════════════════════════════════════════════════════ */
 const skinNavigationItems: Record<string, NavigationItem> = {
   home: { title: 'Home', hasDropdown: false, href: '/skin-clinic' },
+  about: { title: 'About', hasDropdown: false, href: '/skin/about-skin' },
+
+  solutions: {
+    title: 'Solutions',
+    hasDropdown: true,
+    subMenus: {
+      concerns: {
+        name: 'Skin Concerns',
+        items: [
+          { title: 'Acne Scar', href: '/skin/acne-scar', image: acneScarImg, desc: 'Targeted scar reduction' },
+          { title: 'Pigmentation', href: '/skin/pigmentation', image: vampire, desc: 'Even skin tone correction' },
+          { title: 'Dark Circles', href: '/skin/dark-circles', image: darkCirclesImg, desc: 'Under-eye brightening' },
+          { title: 'Open Pores', href: '/skin/open-pores', image: openPoresImg, desc: 'Pore refinement therapy' },
+          { title: 'Ageing Issues', href: '/skin/ageing-issues', image: ageingImg, desc: 'Anti-ageing solutions' },
+          { title: 'Tanned Skin', href: '/skin/tanned-skin', image: tannedSkinImg, desc: 'De-tan & brightening' },
+        ],
+      },
+      diagnosis: {
+        name: 'Skin Diagnosis',
+        items: [
+          { title: 'Skin Analysis', href: '/skin/skin-analysis', image: skinanalysis, desc: 'Comprehensive skin profile' },
+          { title: 'Dermoscopy', href: '/skin/dermoscopy', image: dermoscopySkin, desc: 'Advanced skin imaging' },
+          { title: 'Patch Test', href: '/skin/patch-test', image: PatchTest, desc: 'Allergy & sensitivity testing' },
+        ],
+      },
+    },
+  },
+
 
   treatments: {
     title: 'Treatments',

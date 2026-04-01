@@ -27,6 +27,8 @@ export interface SkinTreatment {
   description: string;
   benefits: string[];
   icon: string;
+  steps?: { title: string; desc: string }[];
+  aftercare?: string[];
 }
 
 // ✅ IMAGE MAP (THIS IS IMPORTANT)
@@ -52,6 +54,228 @@ export const treatmentImages: Record<string, string> = {
   "anti-acne-therapy": antiacne,
   "hydrafacial": hydra,
 };
+
+export interface SkinSolution {
+  slug: string;
+  name: string;
+  description: string;
+  causes: string[];
+  treatments: string[];
+  icon: string;
+}
+
+export const skinSolutions: SkinSolution[] = [
+  {
+    slug: "acne-scar",
+    name: "Acne Scars",
+    description:
+      "Acne scars are permanent marks left after severe acne. They can appear as pits, dark spots, or uneven skin texture.",
+    causes: [
+      "Severe acne inflammation",
+      "Delayed treatment of acne",
+      "Picking or squeezing pimples",
+      "Excess oil production"
+    ],
+    treatments: [
+      "FCO2 Laser",
+      "Microneedling (MDA)",
+      "PRP (Vampire Facial)",
+      "Chemical Peels"
+    ],
+    icon: "Zap"
+  },
+
+  {
+    slug: "pigmentation",
+    name: "Pigmentation",
+    description:
+      "Uneven skin tone or dark patches caused by excess melanin production.",
+    causes: [
+      "Sun exposure",
+      "Hormonal imbalance",
+      "Melasma",
+      "Post-acne marks"
+    ],
+    treatments: [
+      "Q Switch Laser",
+      "Melanobreak Therapy",
+      "Chemical Peels",
+      "Photofacial"
+    ],
+    icon: "Sun"
+  },
+
+  {
+    slug: "dark-circles",
+    name: "Dark Circles",
+    description:
+      "Darkening under the eyes caused by lifestyle, genetics, or aging.",
+    causes: [
+      "Lack of sleep",
+      "Genetics",
+      "Screen exposure",
+      "Thin under-eye skin"
+    ],
+    treatments: [
+      "Under-eye fillers",
+      "PRP therapy",
+      "Chemical Peels",
+      "Hydrafacial"
+    ],
+    icon: "Eye"
+  },
+
+  {
+    slug: "open-pores",
+    name: "Open Pores",
+    description:
+      "Visible enlarged pores that make skin look uneven and rough.",
+    causes: [
+      "Excess oil production",
+      "Aging skin",
+      "Sun damage",
+      "Genetics"
+    ],
+    treatments: [
+      "Laser treatments",
+      "Chemical Peels",
+      "Hydrafacial",
+      "Microneedling"
+    ],
+    icon: "Circle"
+  },
+
+  {
+    slug: "ageing-issues",
+    name: "Ageing Issues",
+    description:
+      "Wrinkles, sagging, and fine lines due to collagen loss over time.",
+    causes: [
+      "Natural aging",
+      "Sun exposure",
+      "Lifestyle factors",
+      "Loss of collagen"
+    ],
+    treatments: [
+      "Botox",
+      "Dermal Fillers",
+      "HIFU",
+      "Thread Lift"
+    ],
+    icon: "Clock"
+  },
+
+  {
+    slug: "tanned-skin",
+    name: "Tanned Skin",
+    description:
+      "Skin darkening caused by prolonged sun exposure.",
+    causes: [
+      "UV exposure",
+      "Lack of sunscreen",
+      "Outdoor lifestyle",
+      "Heat damage"
+    ],
+    treatments: [
+      "De-tan facials",
+      "Chemical Peels",
+      "Photofacial",
+      "Hydrafacial"
+    ],
+    icon: "SunDim"
+  }
+];
+
+export interface SkinDiagnosis {
+  slug: string;
+  name: string;
+  description: string;
+  purpose: string[];
+  process: string[];
+  idealFor: string[];
+  icon: string;
+}
+
+export const skinDiagnosis: SkinDiagnosis[] = [
+  {
+    slug: "skin-analysis",
+    name: "Skin Analysis",
+    description:
+      "A comprehensive evaluation of your skin condition using advanced tools to understand your skin type, concerns, and underlying issues.",
+    purpose: [
+      "Identify skin type (oily, dry, combination)",
+      "Detect hidden skin damage",
+      "Analyse pores, hydration & pigmentation",
+      "Recommend personalized treatments"
+    ],
+    process: [
+      "Initial consultation with dermatologist",
+      "Digital skin scanning",
+      "Assessment of skin layers",
+      "Customized treatment plan creation"
+    ],
+    idealFor: [
+      "First-time clients",
+      "People unsure about their skin type",
+      "Chronic skin issues",
+      "Before starting any treatment"
+    ],
+    icon: "Scan"
+  },
+
+  {
+    slug: "dermoscopy",
+    name: "Dermoscopy",
+    description:
+      "A non-invasive diagnostic technique using a dermatoscope to examine skin lesions, pigmentation, and hair conditions in detail.",
+    purpose: [
+      "Examine skin lesions",
+      "Diagnose pigmentation issues",
+      "Hair & scalp analysis",
+      "Detect early skin conditions"
+    ],
+    process: [
+      "Magnified skin examination",
+      "High-resolution imaging",
+      "Dermatologist evaluation",
+      "Detailed diagnosis report"
+    ],
+    idealFor: [
+      "Pigmentation problems",
+      "Hair fall issues",
+      "Suspicious skin spots",
+      "Detailed skin examination"
+    ],
+    icon: "Search"
+  },
+
+  {
+    slug: "patch-test",
+    name: "Patch Test",
+    description:
+      "A test performed to identify allergic reactions or sensitivities to skincare products or treatments.",
+    purpose: [
+      "Detect allergic reactions",
+      "Ensure treatment safety",
+      "Identify skin sensitivities",
+      "Prevent adverse reactions"
+    ],
+    process: [
+      "Application of small product sample",
+      "Observation period (24–48 hrs)",
+      "Monitoring for irritation",
+      "Final evaluation by dermatologist"
+    ],
+    idealFor: [
+      "Sensitive skin",
+      "Before chemical peels",
+      "Before laser treatments",
+      "New skincare routines"
+    ],
+    icon: "Shield"
+  }
+];
+
 
 // ✅ TREATMENTS DATA
 export const skinTreatments: SkinTreatment[] = [

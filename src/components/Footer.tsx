@@ -5,20 +5,41 @@ import logo from '../assets/newlogo.jpg';
 const Footer = () => {
   const quickLinks = [
     { label: "Home", href: "/" },
+    { label: "Skin Clinic", href: "/skin-clinic" },
+    { label: "Hair Clinic", href: "/" },
+
     { label: "About Us", href: "/about" },
+    { label: "Skin About", href: "/skin/about-skin" },
+
     { label: "Contact", href: "/contact" },
-    { label: "Blogs", href: "/blog" },
+    { label: "Book Consultation", href: "/contact" },
+
+    { label: "Offers", href: "/offers" },
+    { label: "Blog", href: "/blog" },
     { label: "Careers", href: "/careers" },
   ];
 
   const treatments = [
+    // HAIR
     { label: "PRP Treatment", href: "/prp-treatment" },
-    { label: "Hair Transplantation", href: "/fue-transplant" },
-    { label: "Scalp Micro Pigmentation", href: "/scalp-pigmentation" },
+    { label: "Hair Transplant (FUE)", href: "/fue-transplant" },
     { label: "Hair Rejuvenation", href: "/hair-rejuvenation" },
-    { label: "Follitreat Therapy", href: "/folitreat-treatment" },
-  ];
+    { label: "Scalp Micro Pigmentation", href: "/scalp-pigmentation" },
 
+    // SKIN FACIALS
+    { label: "Hydrafacial", href: "/skin/hydrafacial" },
+    { label: "Vampire Facial", href: "/skin/vampire-facial" },
+    { label: "Chemical Peel", href: "/skin/chemical-peel" },
+
+    // LASERS
+    { label: "Laser Hair Reduction", href: "/skin/laser-hair-reduction" },
+    { label: "Q Switch Laser", href: "/skin/q-switch-laser" },
+
+    // ADVANCED
+    { label: "Botox", href: "/skin/botox" },
+    { label: "Dermal Fillers", href: "/skin/dermal-fillers" },
+    { label: "HIFU Treatment", href: "/skin/hifu" },
+  ];
   return (
     <footer id="site-footer" className="relative overflow-hidden bg-gradient-to-br from-foreground via-foreground to-card-foreground">
       {/* Animated Background Elements */}
@@ -45,9 +66,9 @@ const Footer = () => {
                   <p className="text-xs text-background/60 font-medium tracking-wide">Hair & Trichology Clinic</p>
                 </div>
               </div>
-              
+
               <p className="text-background/70 leading-relaxed mb-8 text-sm">
-                Leading hair and trichology clinic with 8+ years of excellence in providing 
+                Leading hair and trichology clinic with 8+ years of excellence in providing
                 cutting-edge treatments with FDA-certified equipment and guaranteed results.
               </p>
 
@@ -61,7 +82,7 @@ const Footer = () => {
                     <span className="text-background/90 font-medium">+91 8122229557</span>
                   </div>
                 </a>
-                
+
                 <a href="mailto:thegoldengemskinhairlaserclini@gmail.com" className="flex items-start gap-3 group hover:translate-x-1 transition-transform duration-300">
                   <div className="w-10 h-10 rounded-lg bg-secondary/20 flex items-center justify-center flex-shrink-0 group-hover:bg-secondary/30 transition-colors">
                     <Mail className="w-4 h-4 text-secondary" />
@@ -71,7 +92,7 @@ const Footer = () => {
                     <span className="text-background/90 font-medium">thegoldengemskinhairlaserclini@gmail.com</span>
                   </div>
                 </a>
-                
+
                 <div className="flex items-start gap-3">
                   <div className="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-4 h-4 text-accent" />
@@ -95,8 +116,8 @@ const Footer = () => {
               <ul className="space-y-3">
                 {quickLinks.map((link, index) => (
                   <li key={index}>
-                    <Link 
-                      to={link.href} 
+                    <Link
+                      to={link.href}
                       className="text-background/70 hover:text-primary transition-all duration-300 flex items-center gap-2 group text-sm"
                     >
                       <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -ml-5 group-hover:ml-0 transition-all duration-300" />
@@ -116,8 +137,8 @@ const Footer = () => {
               <ul className="space-y-3">
                 {treatments.map((treatment, index) => (
                   <li key={index}>
-                    <Link 
-                      to={treatment.href} 
+                    <Link
+                      to={treatment.href}
                       className="text-background/70 hover:text-secondary transition-all duration-300 flex items-center gap-2 group text-sm"
                     >
                       <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -ml-5 group-hover:ml-0 transition-all duration-300" />
@@ -134,24 +155,24 @@ const Footer = () => {
                 <span className="w-1 h-6 bg-gradient-to-b from-accent to-primary rounded-full" />
                 Connect
               </h4>
-              
+
               <p className="text-background/70 text-sm mb-6">Follow us on social media for updates and tips</p>
-              
+
               <div className="grid grid-cols-4 gap-3 mb-8">
-                <a 
-                  href="https://www.instagram.com/thegoldengemcosmetic/?hl=en" 
+                <a
+                  href="https://www.instagram.com/thegoldengemcosmetic/?hl=en"
                   className="aspect-square bg-gradient-to-br from-primary/20 to-primary/10 hover:from-primary hover:to-primary/80 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/50 group"
                 >
                   <Instagram className="w-5 h-5 text-primary group-hover:text-background transition-colors" />
                 </a>
-                <a 
-                  href="https://www.facebook.com/TheGoldenGemCosmeticclinic/" 
+                <a
+                  href="https://www.facebook.com/TheGoldenGemCosmeticclinic/"
                   className="aspect-square bg-gradient-to-br from-accent/20 to-accent/10 hover:from-accent hover:to-accent/80 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-accent/50 group"
                 >
                   <Facebook className="w-5 h-5 text-accent group-hover:text-background transition-colors" />
                 </a>
-                <a 
-                  href="https://www.youtube.com/@TheGoldenGemCosmeticClinic/featured" 
+                <a
+                  href="https://www.youtube.com/@TheGoldenGemCosmeticClinic/featured"
                   className="aspect-square bg-gradient-to-br from-secondary/20 to-secondary/10 hover:from-secondary hover:to-secondary/80 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-secondary/50 group"
                 >
                   <Youtube className="w-5 h-5 text-secondary group-hover:text-background transition-colors" />
@@ -181,7 +202,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="py-8 pb-24 md:pb-16 border-t border-background/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left px-4 sm:px-6 lg:px-12">
-            
+
             {/* 🧡 Left Side - Copyright */}
             <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-2 sm:gap-3 text-background/60 text-xs sm:text-sm leading-relaxed">
               <div className="flex items-center flex-wrap justify-center gap-1">
@@ -192,14 +213,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center flex-wrap justify-center gap-1">
                 <span>Designed & Maintained by</span>
-                <a
-                  href="https://intouchsolutions.in"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary hover:underline"
-                >
-                  Intouch Solutions
-                </a>
+                Intouch Solutions
               </div>
             </div>
 

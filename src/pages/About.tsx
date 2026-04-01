@@ -206,7 +206,7 @@ const About = () => {
                     "Fellowship in Aesthetic Medicine",
                     "8+ Years Clinical Experience",
                     "International Training in Advanced Procedures",
-                    "Team of Certified Dermatologists and Cosmetology's",
+                    "Team of Certified Dermatologists and Cosmetologists.",
                   ].map((q, i) => (
                     <div key={i} className="flex items-start mb-2">
                       <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-1 flex-shrink-0" />

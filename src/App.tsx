@@ -18,6 +18,7 @@ import Header from "./components/Header";
 /* -------- Pages -------- */
 import Index from "./pages/Index";
 import About from "./pages/About";
+import AboutPage from "./components/Aboutpage";
 import Hair from "./pages/hair";
 import Diagnostic from "./pages/Diagnostic";
 import BlogList from "./pages/Blog/BlogList";
@@ -119,6 +120,7 @@ const AppContent: React.FC = () => {
         {/* -------- Public -------- */}
         <Route path="/" element={<Index />} />
         <Route path="/about/*" element={<About />} />
+        <Route path="/skin/about-skin/*" element={<AboutPage />} />
         <Route path="/hair-treatments/*" element={<Hair />} />
         <Route path="/diagnostic/*" element={<Diagnostic />} />
         <Route path="/blog" element={<BlogList />} />

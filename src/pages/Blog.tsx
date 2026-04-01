@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Calendar, User, Clock, ChevronDown, ChevronUp } from 'lucide-react';
-import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
 

@@ -23,11 +23,24 @@ import scalp from '../assets/scalp.jpg';
 import smp1 from '../assets/smp1.jpg';
 
 // ── Skin treatment images ──────────────────────────────────────────────────
-import vampire from '../assets/newlogo.jpg';
-import botox from '../assets/newlogo.jpg';
-import hydra from '../assets/newlogo.jpg';
-import peel from '../assets/newlogo.jpg';
-import laserImg from '../assets/newlogo.jpg';
+import vampire from '../assets/VampireFacial.jpg';
+import botox from '../assets/Botox.jpg';
+import hydra from '../assets/hydrafacial.webp';
+import peel from '../assets/chemicalpeel.jpg';
+import laserImg from '../assets/FCO2.jpg';
+import hifu from '../assets/HIFU.jpg';
+import threadlift from '../assets/Thread Lift.webp';
+import qswitch from '../assets/q-switch.webp';
+
+// ── Skin concern images (use placeholders matching your asset names) ────────
+import acneScarImg from '../assets/acne_scar.jpg';
+import ageingImg from '../assets/ageing.jpg';
+import darkCirclesImg from '../assets/dark-circles.jpg';
+import openPoresImg from '../assets/open-pores.jpg';
+import pigmentationImg from '../assets/pigmentation.jpg';
+import skinTagsImg from '../assets/skin-tags.jpg';
+import stretchMarksImg from '../assets/stretch-marks.jpg';
+import tannedSkinImg from '../assets/tanned-skin.jpg';
 
 /* ═══════════════════════════════════════════════════════════
    CLINIC TOGGLE
@@ -43,7 +56,6 @@ function ClinicToggle({ mobile = false }: { mobile?: boolean }) {
                 position: 'relative',
                 display: 'inline-flex',
                 alignItems: 'center',
-                /* ── Mobile: white bg so it's visible on any dark surface ── */
                 background: mobile ? 'rgba(255,255,255,0.92)' : 'rgba(0,0,0,0.07)',
                 border: mobile
                     ? '1px solid rgba(244,160,12,0.35)'
@@ -51,7 +63,6 @@ function ClinicToggle({ mobile = false }: { mobile?: boolean }) {
                 borderRadius: '999px',
                 padding: '3px',
                 flexShrink: 0,
-                /* subtle shadow on mobile so it stands out from header */
                 boxShadow: mobile ? '0 1px 6px rgba(0,0,0,0.14)' : 'none',
             }}
         >
@@ -69,8 +80,6 @@ function ClinicToggle({ mobile = false }: { mobile?: boolean }) {
                     pointerEvents: 'none',
                 }}
             />
-
-            {/* Hair Clinic */}
             <button
                 onClick={() => navigate('/')}
                 style={{
@@ -82,7 +91,6 @@ function ClinicToggle({ mobile = false }: { mobile?: boolean }) {
                     borderRadius: '999px',
                     border: 'none',
                     background: 'transparent',
-                    /* Active = dark brown (readable on amber), inactive = mid-grey readable on white/light bg */
                     color: !isSkin ? '#3b1f02' : '#555',
                     cursor: 'pointer',
                     transition: 'color 0.2s',
@@ -92,8 +100,6 @@ function ClinicToggle({ mobile = false }: { mobile?: boolean }) {
             >
                 Hair Clinic
             </button>
-
-            {/* Skin Clinic */}
             <button
                 onClick={() => navigate('/skin-clinic')}
                 style={{
@@ -148,7 +154,7 @@ interface NavigationItem {
    HAIR NAVIGATION
 ═══════════════════════════════════════════════════════════ */
 const hairNavigationItems: Record<string, NavigationItem> = {
-    home: { title: 'Home', hasDropdown: false, href: '/' },
+    home: { title: 'Home', hasDropdown: false, href: '/skin-clinic' },
     about: { title: 'About', hasDropdown: false, href: '/about' },
     treatments: {
         title: 'Treatments',
@@ -221,11 +227,37 @@ const hairNavigationItems: Record<string, NavigationItem> = {
 };
 
 /* ═══════════════════════════════════════════════════════════
-   SKIN NAVIGATION
+   SKIN NAVIGATION  (updated with Skin Concerns + Diagnostics)
 ═══════════════════════════════════════════════════════════ */
 const skinNavigationItems: Record<string, NavigationItem> = {
     home: { title: 'Home', hasDropdown: false, href: '/skin-clinic' },
-    about: { title: 'About', hasDropdown: false, href: '/about' },
+    about: { title: 'About', hasDropdown: false, href: '/skin/about-skin' },
+
+    solutions: {
+        title: 'Solutions',
+        hasDropdown: true,
+        subMenus: {
+            concerns: {
+                name: 'Skin Concerns',
+                items: [
+                    { title: 'Acne Scar', href: '/skin/acne-scar', image: acneScarImg, desc: 'Targeted scar reduction' },
+                    { title: 'Pigmentation', href: '/skin/pigmentation', image: pigmentationImg, desc: 'Even skin tone correction' },
+                    { title: 'Dark Circles', href: '/skin/dark-circles', image: darkCirclesImg, desc: 'Under-eye brightening' },
+                    { title: 'Open Pores', href: '/skin/open-pores', image: openPoresImg, desc: 'Pore refinement therapy' },
+                    { title: 'Ageing Issues', href: '/skin/ageing-issues', image: ageingImg, desc: 'Anti-ageing solutions' },
+                    { title: 'Tanned Skin', href: '/skin/tanned-skin', image: tannedSkinImg, desc: 'De-tan & brightening' },
+                ],
+            },
+            diagnosis: {
+                name: 'Skin Diagnosis',
+                items: [
+                    { title: 'Skin Analysis', href: '/skin/skin-analysis', image: hydra, desc: 'Comprehensive skin profile' },
+                    { title: 'Dermoscopy', href: '/skin/dermoscopy', image: laserImg, desc: 'Advanced skin imaging' },
+                    { title: 'Patch Test', href: '/skin/patch-test', image: peel, desc: 'Allergy & sensitivity testing' },
+                ],
+            },
+        },
+    },
     treatments: {
         title: 'Treatments',
         hasDropdown: true,
@@ -247,8 +279,8 @@ const skinNavigationItems: Record<string, NavigationItem> = {
                 items: [
                     { title: 'Botox', href: '/skin/botox', image: botox, desc: 'Smooth dynamic wrinkles fast' },
                     { title: 'Dermal Fillers', href: '/skin/dermal-fillers', image: botox, desc: 'Restore lost facial volume' },
-                    { title: 'Thread Lift', href: '/skin/thread-lift', image: botox, desc: 'Non-surgical instant lift' },
-                    { title: 'HIFU', href: '/skin/hifu', image: botox, desc: 'Ultrasound skin tightening' },
+                    { title: 'Thread Lift', href: '/skin/thread-lift', image: threadlift, desc: 'Non-surgical instant lift' },
+                    { title: 'HIFU', href: '/skin/hifu', image: hifu, desc: 'Ultrasound skin tightening' },
                     { title: 'EXO Glo Therapy', href: '/skin/exo-glo-therapy', image: hydra, desc: 'Exosome cellular regeneration' },
                 ],
             },
@@ -256,7 +288,7 @@ const skinNavigationItems: Record<string, NavigationItem> = {
                 name: 'Laser Treatments',
                 items: [
                     { title: 'FCO2 Laser', href: '/skin/fco2-laser', image: laserImg, desc: 'Fractional CO2 scar resurfacing' },
-                    { title: 'Q Switch Laser', href: '/skin/q-switch-laser', image: laserImg, desc: 'Pigmentation & tattoo removal' },
+                    { title: 'Q Switch Laser', href: '/skin/q-switch-laser', image: qswitch, desc: 'Pigmentation & tattoo removal' },
                     { title: 'Photofacial', href: '/skin/photofacial', image: laserImg, desc: 'IPL sun-damage & redness therapy' },
                     { title: 'Laser Hair Reduction', href: '/skin/laser-hair-reduction', image: laserImg, desc: 'Permanent smooth hair-free skin' },
                 ],
@@ -268,6 +300,33 @@ const skinNavigationItems: Record<string, NavigationItem> = {
                     { title: 'Melanobreak Therapy', href: '/skin/melanobreak-therapy', image: peel, desc: 'Stubborn melasma correction' },
                     { title: 'Anti Acne Therapy', href: '/skin/anti-acne-therapy', image: peel, desc: 'Clear acne & fade scars' },
                     { title: 'Microblading', href: '/skin/microblading', image: peel, desc: 'Semi-permanent brow definition' },
+                ],
+            },
+        },
+    },
+    concerns: {
+        title: 'Skin Concerns',
+        hasDropdown: true,
+        subMenus: {
+            concerns: {
+                name: 'Skin Concerns',
+                items: [
+                    { title: 'Acne Scar', href: '/skin/acne-scar', image: acneScarImg, desc: 'Targeted scar reduction' },
+                    { title: 'Ageing Issues', href: '/skin/ageing-issues', image: ageingImg, desc: 'Anti-ageing solutions' },
+                    { title: 'Dark Circles', href: '/skin/dark-circles', image: darkCirclesImg, desc: 'Under-eye brightening' },
+                    { title: 'Open Pores', href: '/skin/open-pores', image: openPoresImg, desc: 'Pore refinement therapy' },
+                    { title: 'Pigmentation', href: '/skin/pigmentation', image: pigmentationImg, desc: 'Even skin tone correction' },
+                    { title: 'Skin Tags', href: '/skin/skin-tags', image: skinTagsImg, desc: 'Safe removal procedure' },
+                    { title: 'Stretch Marks', href: '/skin/stretch-marks', image: stretchMarksImg, desc: 'Skin resurfacing treatment' },
+                    { title: 'Tanned Skin', href: '/skin/tanned-skin', image: tannedSkinImg, desc: 'De-tan & brightening' },
+                ],
+            },
+            diagnostics: {
+                name: 'Skin Diagnosis',
+                items: [
+                    { title: 'Skin Analysis', href: '/skin/skin-analysis', image: hydra, desc: 'Comprehensive skin profile' },
+                    { title: 'Dermoscopy', href: '/skin/dermoscopy', image: laserImg, desc: 'Advanced skin imaging' },
+                    { title: 'Patch Test', href: '/skin/patch-test', image: peel, desc: 'Allergy & sensitivity testing' },
                 ],
             },
         },
@@ -294,7 +353,7 @@ export default function Navbar({ clinic }: NavbarProps) {
 
     const dropdownRef = useRef<HTMLDivElement>(null);
     const mobileMenuRef = useRef<HTMLDivElement>(null);
-    const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     useEffect(() => {
         const handler = () => setIsScrolled(window.scrollY > 20);
@@ -313,10 +372,10 @@ export default function Navbar({ clinic }: NavbarProps) {
 
     useEffect(() => {
         const lock = isMobileOpen || activeMenu !== null;
-        document.body.style.overflow = lock ? 'hidden' : 'unset';
+        document.body.style.overflow = lock ? 'hidden' : '';
         document.body.style.touchAction = lock ? 'none' : '';
         return () => {
-            document.body.style.overflow = 'unset';
+            document.body.style.overflow = '';
             document.body.style.touchAction = '';
         };
     }, [isMobileOpen, activeMenu]);
@@ -324,7 +383,7 @@ export default function Navbar({ clinic }: NavbarProps) {
     const handleMouseEnter = (menu: string) => {
         if (timeoutRef.current) clearTimeout(timeoutRef.current);
         setActiveMenu(menu);
-        setActiveSubMenu(Object.keys(navigationItems[menu]?.subMenus || {})[0] || null);
+        setActiveSubMenu(Object.keys(navigationItems[menu]?.subMenus ?? {})[0] ?? null);
         if (dropdownRef.current) {
             gsap.fromTo(
                 dropdownRef.current,
@@ -345,8 +404,14 @@ export default function Navbar({ clinic }: NavbarProps) {
         setActiveMobileMenu(activeMobileMenu === key ? null : key);
         setActiveMobileSubMenu(null);
     };
+
     const toggleMobileSubMenu = (subKey: string) =>
         setActiveMobileSubMenu(activeMobileSubMenu === subKey ? null : subKey);
+
+    // Determine dropdown panel height based on content
+    const activeSubMenuItems =
+        activeMenu && activeSubMenu && navigationItems[activeMenu]?.subMenus?.[activeSubMenu]?.items;
+    const dropdownHeight = activeSubMenuItems && activeSubMenuItems.length > 6 ? 520 : 440;
 
     return (
         <>
@@ -402,17 +467,13 @@ export default function Navbar({ clinic }: NavbarProps) {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6">
                     <div className="flex justify-between items-center h-20 lg:h-24">
 
-                        {/* ── Logo ─────────────────────────────────────────
-                            Constrained height so it never overflows the bar.
-                            object-contain keeps the full logo visible.
-                        ── */}
+                        {/* ── Logo ── */}
                         <a href="/" className="flex items-center flex-shrink-0 group">
                             <img
                                 src={logo}
                                 alt="Golden Gem Cosmetic Clinic"
                                 className="group-hover:scale-[1.02] transition-transform duration-300"
                                 style={{
-                                    /* 80px on mobile, 88px on desktop — fits neatly inside the bar */
                                     height: 'clamp(72px, 10vw, 88px)',
                                     width: 'auto',
                                     objectFit: 'contain',
@@ -421,17 +482,20 @@ export default function Navbar({ clinic }: NavbarProps) {
                             />
                         </a>
 
-                        {/* ── Desktop nav ─────────────────────────────────── */}
+                        {/* ── Desktop nav ── */}
                         <nav className="hidden lg:flex items-center gap-1 xl:gap-2 text-sm">
-                            <a
-                                href={clinic === 'skin' ? '/skin-clinic' : '/'}
-                                className="px-4 py-2.5 text-sm font-semibold text-foreground rounded-lg hover:text-primary hover:bg-muted/50 transition-all"
-                            >
-                                Home
-                            </a>
-
                             {Object.entries(navigationItems).map(([key, menu]) => {
-                                if (key === 'home') return null;
+                                if (key === 'home') {
+                                    return (
+                                        <a
+                                            key={key}
+                                            href={clinic === 'skin' ? '/skin-clinic' : '/'}
+                                            className="px-4 py-2.5 text-sm font-semibold text-foreground rounded-lg hover:text-primary hover:bg-muted/50 transition-all"
+                                        >
+                                            Home
+                                        </a>
+                                    );
+                                }
 
                                 if (!menu.hasDropdown) {
                                     return (
@@ -447,7 +511,7 @@ export default function Navbar({ clinic }: NavbarProps) {
                                         onMouseEnter={() => handleMouseEnter(key)}
                                         onMouseLeave={handleMouseLeave}
                                         className="relative">
-                                        <button className="flex items-center gap-1.5 px-4 py-2.5 text-sm font-semibold text-foreground rounded-lg hover:text-primary hover:bg-muted/50 transition-all group">
+                                        <button className={`flex items-center gap-1.5 px-4 py-2.5 text-sm font-semibold rounded-lg hover:text-primary hover:bg-muted/50 transition-all group ${activeMenu === key ? 'text-primary bg-muted/50' : 'text-foreground'}`}>
                                             {menu.title}
                                             <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${activeMenu === key ? 'rotate-180' : ''}`} />
                                         </button>
@@ -456,68 +520,12 @@ export default function Navbar({ clinic }: NavbarProps) {
                             })}
                         </nav>
 
-                        {/* ── Mega dropdown panel ─────────────────────────── */}
-                        {activeMenu && navigationItems[activeMenu]?.subMenus && (
-                            <div
-                                onMouseEnter={() => { if (timeoutRef.current) clearTimeout(timeoutRef.current); }}
-                                onMouseLeave={handleMouseLeave}
-                                className="fixed left-0 right-0 bg-card shadow-2xl border-t border-b border-border z-40"
-                                style={{ top: '96px' }}
-                            >
-                                <div ref={dropdownRef} className="max-w-7xl mx-auto">
-                                    <div className="flex" style={{ height: 480 }}>
-                                        <div className="w-1/5 bg-muted/30 border-r border-border overflow-y-auto flex-shrink-0">
-                                            {Object.entries(navigationItems[activeMenu].subMenus!).map(([subKey, subMenu]) => (
-                                                <button key={subKey}
-                                                    onMouseEnter={() => setActiveSubMenu(subKey)}
-                                                    className={`w-full text-left px-6 py-5 text-sm font-semibold transition-all border-l-4 ${activeSubMenu === subKey
-                                                        ? 'bg-primary/10 border-primary text-primary'
-                                                        : 'border-transparent text-foreground hover:bg-muted/50 hover:text-primary'}`}>
-                                                    {subMenu.name}
-                                                </button>
-                                            ))}
-                                        </div>
-                                        <div className="w-4/5 bg-card p-8 overflow-y-auto">
-                                            {activeSubMenu && navigationItems[activeMenu].subMenus![activeSubMenu] && (
-                                                <>
-                                                    <h3 className="font-bold text-foreground mb-6 text-lg border-b-2 border-primary/20 pb-4">
-                                                        {navigationItems[activeMenu].subMenus![activeSubMenu].name}
-                                                    </h3>
-                                                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                                                        {navigationItems[activeMenu].subMenus![activeSubMenu].items.map((item, idx) => (
-                                                            <a key={idx} href={item.href}
-                                                                className="group block transition-all duration-300 hover:scale-[1.03]">
-                                                                <div className="overflow-hidden rounded-xl mb-3 bg-muted/30 h-40 shadow-md group-hover:shadow-xl transition-all">
-                                                                    <img src={item.image} alt={item.title}
-                                                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                                                                </div>
-                                                                <div className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors leading-tight">
-                                                                    {item.title}
-                                                                </div>
-                                                                <div className="text-xs text-muted-foreground mt-1 leading-snug">{item.desc}</div>
-                                                            </a>
-                                                        ))}
-                                                    </div>
-                                                </>
-                                            )}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-
-                        {/* ── Right side: Toggle + CTA + Hamburger ──────── */}
+                        {/* ── Right side: Toggle + CTA + Hamburger ── */}
                         <div className="flex items-center gap-3">
-
-                            {/* Desktop toggle */}
                             <div className="hidden lg:flex items-center">
                                 <ClinicToggle mobile={false} />
                             </div>
-
-                            {/* Divider — desktop only */}
                             <div className="hidden lg:block w-px h-5 bg-border/40" />
-
-                            {/* Book CTA — desktop only */}
                             <button
                                 onClick={() => setIsModalOpen(true)}
                                 className="hidden lg:flex items-center gap-2 px-6 py-3 font-semibold text-sm text-white bg-[#f4a00c] hover:shadow-lg hover:scale-105 rounded-xl transition-all"
@@ -525,10 +533,7 @@ export default function Navbar({ clinic }: NavbarProps) {
                                 <Calendar className="w-4 h-4" />
                                 Get Free Consultation
                             </button>
-
-                            {/* Mobile: toggle + hamburger side by side */}
                             <div className="lg:hidden flex items-center gap-2">
-                                {/* Pass mobile=true so the toggle has a white background */}
                                 <ClinicToggle mobile={true} />
                                 <button
                                     onClick={() => setIsMobileOpen(!isMobileOpen)}
@@ -538,36 +543,81 @@ export default function Navbar({ clinic }: NavbarProps) {
                                     {isMobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                                 </button>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </header>
 
-            {/* ── Mobile overlay ────────────────────────────────────── */}
+            {/* ── Mega dropdown panel ── */}
+            {activeMenu && navigationItems[activeMenu]?.subMenus && (
+                <div
+                    onMouseEnter={() => { if (timeoutRef.current) clearTimeout(timeoutRef.current); }}
+                    onMouseLeave={handleMouseLeave}
+                    className="fixed left-0 right-0 bg-card shadow-2xl border-t border-b border-border z-40"
+                    style={{ top: isScrolled ? '80px' : '96px' }}
+                >
+                    <div ref={dropdownRef} className="max-w-7xl mx-auto">
+                        <div className="flex" style={{ height: dropdownHeight }}>
+                            {/* Sub-menu category sidebar */}
+                            <div className="w-1/5 bg-muted/30 border-r border-border overflow-y-auto flex-shrink-0">
+                                {Object.entries(navigationItems[activeMenu].subMenus!).map(([subKey, subMenu]) => (
+                                    <button key={subKey}
+                                        onMouseEnter={() => setActiveSubMenu(subKey)}
+                                        className={`w-full text-left px-6 py-5 text-sm font-semibold transition-all border-l-4 ${activeSubMenu === subKey
+                                            ? 'bg-primary/10 border-primary text-primary'
+                                            : 'border-transparent text-foreground hover:bg-muted/50 hover:text-primary'}`}>
+                                        {subMenu.name}
+                                    </button>
+                                ))}
+                            </div>
+
+                            {/* Items grid */}
+                            <div className="w-4/5 bg-card p-8 overflow-y-auto">
+                                {activeSubMenu && navigationItems[activeMenu].subMenus![activeSubMenu] && (
+                                    <>
+                                        <h3 className="font-bold text-foreground mb-6 text-lg border-b-2 border-primary/20 pb-4">
+                                            {navigationItems[activeMenu].subMenus![activeSubMenu].name}
+                                        </h3>
+                                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                                            {navigationItems[activeMenu].subMenus![activeSubMenu].items.map((item, idx) => (
+                                                <a key={idx} href={item.href}
+                                                    className="group block transition-all duration-300 hover:scale-[1.03]">
+                                                    <div className="overflow-hidden rounded-xl mb-3 bg-muted/30 h-36 shadow-md group-hover:shadow-xl transition-all">
+                                                        <img src={item.image} alt={item.title}
+                                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                                                    </div>
+                                                    <div className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors leading-tight">
+                                                        {item.title}
+                                                    </div>
+                                                    <div className="text-xs text-muted-foreground mt-1 leading-snug">{item.desc}</div>
+                                                </a>
+                                            ))}
+                                        </div>
+                                    </>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* ── Mobile overlay ── */}
             {isMobileOpen && (
                 <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
                     onClick={() => setIsMobileOpen(false)} />
             )}
 
-            {/* ── Mobile slide-in menu ──────────────────────────────── */}
+            {/* ── Mobile slide-in menu ── */}
             <div
                 ref={mobileMenuRef}
-                className={`fixed top-0 right-0 bottom-0 w-full sm:w-96 bg-background z-50 overflow-y-auto lg:hidden transform ${isMobileOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 shadow-2xl`}
+                className="fixed top-0 right-0 bottom-0 w-full sm:w-96 bg-background z-50 overflow-y-auto lg:hidden shadow-2xl"
+                style={{ transform: 'translateX(100%)' }}
             >
-                {/* Mobile menu header */}
+                {/* Mobile header */}
                 <div className="sticky top-0 bg-background border-b border-border px-4 sm:px-6 py-4 flex items-center justify-between z-10">
                     <a href="/" className="flex items-center flex-shrink-0">
-                        <img
-                            src={logo}
-                            alt="Golden Gem Clinic"
-                            style={{
-                                height: '64px',
-                                width: 'auto',
-                                objectFit: 'contain',
-                                display: 'block',
-                            }}
-                        />
+                        <img src={logo} alt="Golden Gem Clinic"
+                            style={{ height: '64px', width: 'auto', objectFit: 'contain', display: 'block' }} />
                     </a>
                     <button onClick={() => setIsMobileOpen(false)}
                         className="p-2 rounded-lg bg-muted/50 hover:bg-muted text-foreground"
@@ -577,16 +627,19 @@ export default function Navbar({ clinic }: NavbarProps) {
                 </div>
 
                 <nav className="py-2">
-                    <a
-                        href={clinic === 'skin' ? '/skin-clinic' : '/'}
-                        className="block px-4 sm:px-6 py-4 text-foreground font-semibold hover:bg-muted/50 border-b border-border/50"
-                        onClick={() => setIsMobileOpen(false)}
-                    >
-                        Home
-                    </a>
-
                     {Object.entries(navigationItems).map(([key, menu]) => {
-                        if (key === 'home') return null;
+                        if (key === 'home') {
+                            return (
+                                <a
+                                    key={key}
+                                    href={clinic === 'skin' ? '/skin-clinic' : '/'}
+                                    className="block px-4 sm:px-6 py-4 text-foreground font-semibold hover:bg-muted/50 border-b border-border/50"
+                                    onClick={() => setIsMobileOpen(false)}
+                                >
+                                    Home
+                                </a>
+                            );
+                        }
 
                         if (!menu.hasDropdown) {
                             return (
@@ -627,7 +680,7 @@ export default function Navbar({ clinic }: NavbarProps) {
                                                                 className="block p-3 rounded-lg hover:bg-muted/50 border border-border"
                                                                 onClick={() => setIsMobileOpen(false)}>
                                                                 <img src={item.image} alt={item.title}
-                                                                    className="w-full h-32 rounded-lg object-cover mb-2" />
+                                                                    className="w-full h-28 rounded-lg object-cover mb-2" />
                                                                 <div className="font-semibold text-sm text-foreground">{item.title}</div>
                                                                 <div className="text-xs text-muted-foreground mt-1">{item.desc}</div>
                                                             </a>
@@ -645,7 +698,7 @@ export default function Navbar({ clinic }: NavbarProps) {
                     {/* Mobile CTA */}
                     <div className="px-6 py-6">
                         <button
-                            onClick={() => setIsModalOpen(true)}
+                            onClick={() => { setIsModalOpen(true); setIsMobileOpen(false); }}
                             className="flex items-center justify-center w-full gap-2 px-6 py-4 font-semibold text-primary-foreground bg-[#f4a00c] hover:shadow-lg rounded-xl transition-all"
                         >
                             <Calendar className="w-4 h-4" />

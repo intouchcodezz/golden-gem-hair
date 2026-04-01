@@ -6,7 +6,7 @@ import EnquiryForm from '@/components/EnquiryModal';
 import SEO from '@/components/SEO';
 import { useState } from 'react';
 import HT from '@/assets/ivhair.png';
-import beforeafter18 from '@/assets/beforeafter18.webp';
+import beforeafter18 from '@/assets/beforeafter18.jpg';
 import beforeafter19 from '@/assets/beforeafter19.webp';
 import beforeafter20 from '@/assets/beforeafter20.jpg';
 import beforeafter21 from '@/assets/beforeafter21.webp';
