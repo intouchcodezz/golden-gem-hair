@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 type Blog = {
   id: number;
@@ -29,6 +30,11 @@ export default function BlogList() {
 
   return (
     <>
+      <SEO
+        title="The Golden Gem Clinic Chennai | Expert Blog Updates"
+        description="Read the latest on hair transplants, aftercare tips, and cosmetic clinic insights from The Golden Gem — your trusted source for hair restoration knowledge."
+        canonical="https://thegoldengemhairclinic.com/blog"
+      />
 
       <main className="min-h-screen bg-gradient-to-b from-[#F9F3E6] to-white">
         <div className="max-w-7xl mx-auto px-6 py-14">

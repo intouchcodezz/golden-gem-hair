@@ -11,7 +11,7 @@ const Index = () => {
     <>
       <SEO
         title="Hair & Trichology Clinic Chennai | The Golden Gem Cosmetic Clinic"
-        description="Top hair & trichology clinic in Chennai offering expert hair loss solutions, transplants and scalp care at The Golden Gem Cosmetic Clinic."
+        description="Top hair & trichology clinic in Chennai offering expert hair-loss solutions, transplants and scalp care at The Golden Gem Cosmetic Clinic."
         canonical="https://thegoldengemhairclinic.com/"
       />
 

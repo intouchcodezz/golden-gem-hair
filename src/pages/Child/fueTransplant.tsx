@@ -364,7 +364,7 @@ const HairTransplantFUE = () => {
                     {
                       factor: "Hair Length Requirement",
                       fut: "Can keep hair longer during procedure",
-                      fie: "Must shave donor area",
+                      fue: "Must shave donor area",
                       dhi: "Partial shaving possible",
                     },
                     {

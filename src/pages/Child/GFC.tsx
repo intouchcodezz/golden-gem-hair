@@ -121,6 +121,11 @@ const HairTransplantGFC = () => {
           {/* 🧱 HERO CONTENT */}
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center py-10 md:py-16">
+              <div className="md:col-span-2 text-center">
+                <h1 className="sr-only">
+                  Advanced GFC Treatment for Hair Regrowth
+                </h1>
+              </div>
             </div>
           </div>
         </section>
